@@ -1,0 +1,91 @@
+.Dep h1{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  height: 90px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-style: double;
+  border-color: rgb(255, 255, 255);
+  margin-left: 0px;
+  
+}
+
+.Dep p{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 18px;
+  width: 98%;
+  height: 90px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  border-style: double;
+  border-color: rgb(255, 255, 255);
+  margin-left: 10px;
+  box-shadow: 5px 9px 8px #07177a;
+
+
+
+}
+
+.Dep column{
+  background-image: url('images/smsbg2.jpg'); 
+  background-size: 100%; 
+  background-repeat: no-repeat; 
+  height: 215px; width: 250px; 
+  margin-left: 50px; margin-bottom: 
+  50px; border-style: solid; 
+  border-color: #07177a;
+
+}
+
+.columnpp{
+  background-image: url("images/smsbg2.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat; 
+  height: 215px; 
+  width: 250px; 
+  border-style: solid; 
+  border-color: #07177a;
+  text-align:center;
+  margin-top: 10px;
+  text-decoration:none;
+  color: black;
+ 
+
+}
+
+.columnpp h5{
+
+
+margin-top: 165px;
+text-decoration:none;
+
+color: black;
+
+}
+
+.col a{
+  text-decoration:none;
+  color: black;
+  
+}
+
+.index p{ 
+color: rgb(0, 0, 0);
+border: none;
+
+font-size: 15px;
+font-family: "Lucida Console", "Courier New", monospace;
+
+}
+.verticalLine {
+  border-left: thick solid #ff0000;
+}

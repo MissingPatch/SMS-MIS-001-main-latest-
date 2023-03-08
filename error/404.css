@@ -1,0 +1,32 @@
+.errorContainer {
+  width: 100%;
+  max-width: 600px !important;
+  background-color: var(--white);
+}
+
+.errorSubTitle {
+  color: var(--gray) !important;
+  font-size: 160px;
+  font-weight: 700;
+}
+
+.errorTitle {
+  color: var(--shady-white) !important;
+  font-size: 160px;
+  font-weight: 700;
+}
+.errorParagraph {
+  color: var(--gray) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .errorContainer {
+    max-width: 500px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .errorTitle {
+    font-size: 112px !important;
+  }
+}

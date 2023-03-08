@@ -1,0 +1,38 @@
+.tableRowHeader {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+table thead tr th {
+  padding: 15px 20px !important;
+}
+
+table tbody tr td,
+table tbody tr th {
+  padding: 15px 20px !important;
+}
+
+.tableBodyColor tr:nth-child(odd) {
+  color: black !important;
+  font-weight: 450;
+  background-color: var(--white);
+}
+
+.tableBodyColor tr td span {
+  color: var(--black) !important;
+}
+
+.tableBodyColor tr:nth-child(even) {
+  font-weight: 450;
+  background-color: #e6e6e6;
+}
+
+table tbody tr:hover th,
+table tbody tr:hover td {
+  color: var(--white);
+  background-color: var(--gray);
+}
+
+table tbody tr:hover td span {
+  color: var(--white) !important;
+}
