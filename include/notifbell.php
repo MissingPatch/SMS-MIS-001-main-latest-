@@ -3,7 +3,7 @@
 <?php
 $con = connection();
 
-    $sql = "SELECT * FROM mis_categorize_inq WHERE status = 'pending' ORDER BY inq_num DESC LIMIT 5";
+    $sql = "SELECT * FROM mis_categorize_inq WHERE status = 'pending' ORDER BY inq_num DESC LIMIT 3";
     $inq = $con->query($sql) or die($con->error);
     $row = $inq->fetch_assoc();
 
@@ -18,14 +18,14 @@ $con = connection();
         <?php printf( $rowcount);?></span></i>
     </a>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <h6 class="dropdown-header">New Requests <a href="dep_inquiries.php" style="float:right;"> View all</a></h6>
+    <h6 class="dropdown-header">New Requests <a href="dep_inquiries.php" style="float:right; text-decoration: none;"> View all</a></h6>
     <?php  do { ?>
       <a class="dropdown-item" href="#">
         <div class="d-flex align-items-start">
           <div class="icon me-3"><i class="bx bx-message-square-check"></i></div>
           <div class="flex-grow-1">
-            <div class="mb-2"><strong><?php echo $row['inq_num']; ?></strong> - <?php echo $row['department']; ?></div>
-            <div class="text-muted"><?php echo $row['inq_type']; ?> <br><span style="float:right;"><?php echo $row['status']; ?></span></div>
+            <div class="mb-2" style="font-size: 12px"><?php echo $row['department']; ?></div>
+            <div class="text-muted"><?php echo $row['inq_type']; ?> <br><span style="float:right;background: yellow; color: grey; border-radius: 20px; font-size: 13px;">&nbsp;&nbsp;<b><?php echo $row['status']; ?></b>&nbsp;&nbsp;</span></div>
           </div>
         </div>
       </a>
@@ -37,7 +37,7 @@ $con = connection();
 
 <?php 
 
-$sql = "SELECT * FROM mis_man_inc_rep ORDER BY rep_id DESC LIMIT 5 ";
+$sql = "SELECT * FROM mis_man_inc_rep ORDER BY rep_id DESC LIMIT 3 ";
 $rep = $con->query($sql) or die($con->error);
 $row = $rep->fetch_assoc();
 
@@ -53,14 +53,14 @@ $rowcount = mysqli_num_rows( $result);
     </a>
 
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <h6 class="dropdown-header">New Reports <a href="dep_view_reports.php" style="float:right;"> View all</a></h6>
+    <h6 class="dropdown-header">New Reports <a href="dep_view_reports.php" style="float:right; text-decoration: none;"> View all</a></h6>
     <?php  do { ?>
       <a class="dropdown-item" href="#">
         <div class="d-flex align-items-start">
           <div class="icon me-3"><i class="bx bx-message-square-check"></i></div>
           <div class="flex-grow-1">
-            <div class="mb-2"><strong><?php echo $row['rep_id']; ?></strong> - <?php echo $row['department']; ?></div>
-            <div class="text-muted"><?php echo $row['description']; ?> <br><span style="float:right;"><?php echo $row['status']; ?></span></div>
+            <div class="mb-2"  style="font-size: 12px"><?php echo $row['department']; ?></div>
+            <div class="text-muted"><?php echo $row['description']; ?> <br><span style="float:right;background: darkgrey; color: white; border-radius: 20px; font-size: 13px;">&nbsp;&nbsp;<?php echo $row['status']; ?>&nbsp;&nbsp;</span></div>
           </div>
         </div>
       </a>
