@@ -13,6 +13,7 @@ include ("accesslevelsuperadmin.php");
 include ("include/header.php");
 include ("include/sidebar.php");
 include ("add_event_modal.php");
+include ("delete_event.php");
 
              
 $sql = "SELECT * FROM mis_payment_method";
@@ -449,8 +450,14 @@ if ($result1 = mysqli_query($con, $sql1)) {
                 <td><strong><span style="background-color: #e6e6e6; font-size: 13px;"><i class="fa-solid fa-clock"></i>&nbsp;<?php echo $row['end_datetime'];?></span></strong></td>
                 <td>
                 
+                <form action="delete_event.php"  method="POST">
+
                 <a href="#" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row['id']; ?>" style="text-decoration: none; font-size: 20px;">
                 <i class="bx bx-edit"></i>&nbsp;</a>
+
+                <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
+                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                </form>
 
 
                 <!-- Modal For Announcement -->
@@ -502,7 +509,6 @@ if ($result1 = mysqli_query($con, $sql1)) {
                 </div>
                 <!--end of modal -->
    
-                <a href="#" type="button" style="text-decoration: none; font-size: 20px; color: red"><i class="bx bx-trash"></i>&nbsp;</a>
                 </td>
 				</tr>
                 

@@ -16,11 +16,11 @@
                                 <input type="hidden" name="id" value="">
                                 <div class="form-group mb-2">
                                     <label for="title" class="control-label">Subject</label>
-                                    <input type="text" class="form-control form-control-sm rounded-0" name="title" id="title" required>
+                                    <input type="text" class="form-control" name="title" id="title" required>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="description" class="control-label">Announcement</label>
-                                    <textarea rows="3" class="form-control form-control-sm rounded-0" name="descript" id="descript" required></textarea>
+                                    <textarea rows="5" class="form-control form-control-sm rounded-0" name="descript" id="descript" required></textarea>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="start_datetime" class="control-label">Start</label>
