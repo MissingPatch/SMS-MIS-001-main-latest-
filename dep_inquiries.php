@@ -248,9 +248,6 @@ $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
 
 ?>
-
-
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3"> All Inquiries
@@ -265,6 +262,7 @@ $row = $res->fetch_assoc();
                                                 <th>Inquries ID</th>
                                                 <th>Inquiries Type</th>
                                                 <th>Department</th>           
+                                                <th>Status</th>
                                                 <th>Date Requested</th>
                                                 <th>Action</th>
                                             </tr>
@@ -275,7 +273,8 @@ $row = $res->fetch_assoc();
                                             <tr>
                                                 <td><?php echo $row['inq_num']; ?></td>
                                                 <td><?php echo $row['inq_type']; ?></td>
-                                                <td><?php echo $row['department']; ?></td>                        
+                                                <td><?php echo $row['department']; ?></td>
+                                                <td><?php echo $row['status']; ?></td>                        
                                                 <td><?php echo $row['date_req']; ?></td>
                                                 <td>
                                                     <form action="" method="POST">
@@ -290,7 +289,7 @@ $row = $res->fetch_assoc();
                                             </tr>
                                             <?php }while($row = $res->fetch_assoc())  ?>
                                         </tbody>
-                                    </table>
+                                        </table>
                                         </div>
                                         </div>
  

@@ -71,13 +71,10 @@ $con = connection();
                                         <th>Activity Type</th> 
                                         <th>IP Address</th>             
                                         <th>Activity Time</th>
-                                        <th>Action</th>
                                         </tr>
                                     </thead>
-                                    
                                     <tbody>
                                        
-                                    
                                     <?php while ($row = $emp->fetch_assoc()) { ?>
                                         <tr>
                                         <td><?php echo @$row['act_id'];?> </td>
@@ -86,15 +83,9 @@ $con = connection();
                                         <td> <?php echo @$row['activity_type'];?></td>    
                                         <td> <?php echo @$row['ip_address'];?></td>                      
                                         <td><?php echo @$row['activity_time'];?> </td>
-                                        <td>
-                                        <form action=" "  method="POST" >
-                                        <a href="#" 
-                                        class="btn btn-success" style="background-color:#07177a;">
-                                        View
-                                        </form>
-                                    </td>
-                                    </tr>
+                                        </tr>
                                     <?php } ?>
+
                                     </tbody>
                                     </table>
                                     </div>

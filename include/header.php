@@ -45,10 +45,6 @@
      <!-- PASSWORD EYE-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     
-   
-  
-
-      
     <main class="container-fluid">
       <ul class="topbar m-0 list-unstyled">
         <div
@@ -82,11 +78,13 @@
               </div>
             </div>
           </li>
+
           <div class="d-flex align-items-center justify-content-end">
-            <li>
-              <i class="bx bxs-message-dots fs-4 me-3 mt-1 m-0"></i>
-              <i class="bx bxs-bell fs-4 mt-1 m-0"></i>
-            </li>
+            
+          <?php
+          include("include/notifbell.php");
+         
+          ?>
             <li>
               <div class="nav-item dropdown my-auto ms-4">
                 <a

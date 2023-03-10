@@ -160,7 +160,7 @@ if(isset($_GET['ID'])) {
                             if(isset($_GET['ID'])) {
                               $id = $_GET['ID'];
                         
-                              $sql = "SELECT `activity_type`, `activity_time` FROM `mis_activity_logs` WHERE ID='$id' AND DATE(`activity_time`) = CURDATE() ORDER BY `activity_time` DESC LIMIT 4";
+                              $sql = "SELECT `activity_type`, `activity_time` FROM `mis_activity_logs` WHERE ID='$id' AND DATE(`activity_time`) = CURDATE() ORDER BY `activity_time` DESC LIMIT 5";
                               $res = mysqli_query($con, $sql);
                           
                           }

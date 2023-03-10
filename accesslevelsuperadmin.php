@@ -106,6 +106,7 @@ if(isset($_POST['LOGIN']))  {
       // Set is_logged_in flag to true
       $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
       $con->query($update_query);
+      
       log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
       header("Location: staffstudinfo.php");
 

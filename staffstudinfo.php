@@ -8,7 +8,7 @@ if(isset($_SESSION['role'])){
 else{
  echo header("location:login.php");
 }
-
+include ("accesslevelsuperadmin.php");
 include_once("connection/connection.php");
 include ("include/staffheader.php");
 include ("include/staffsidebar.php");
@@ -41,8 +41,6 @@ $row = $stud->fetch_assoc();
                     </svg>
                     Student Masterlist </p>
 
-                
-
                     <?php
                     date_default_timezone_set('Asia/Manila');
                     echo "". date('F j, Y g:i:a  ');
@@ -55,10 +53,6 @@ $row = $stud->fetch_assoc();
                     </div>
 
                     <!-- Begin Page Content -->
-                   
-    
-                    
-                    
                     <script  src="https://code.jquery.com/jquery-3.5.1.js"></script>
                     <script  src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
                     <script  src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
@@ -144,12 +138,6 @@ $row = $stud->fetch_assoc();
                                     </div>
                                     </div>
                                     
-                    
-                                    
-                             <!-- /.container-fluid -->
-
-</body>
-</html>
 <?php
 include ("script/script.php");
 include ("footer.php");

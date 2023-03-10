@@ -1,5 +1,6 @@
 <?php
-$con = connection();      
+$con = connection();   
+include ("alarm_modal.php");   
 ?>
 
 <div class="px-0 d-xl-flex position-relative d-flex">
@@ -99,6 +100,14 @@ $con = connection();
                 <li><a href="audit_trail.php"> Logs (Audit Trail) </a></li>
               </ul>
               </li> <hr class="barside">
+              
+              <li>
+              <a href="#" data-toggle="modal" data-target="#exampleModalCenter2">
+                <i class="bx bx-alarm"></i>
+                <span class="links_name">Add Alarm</span>
+              </a>
+              <span class="tooltip">Alarm</span>
+            </li>
 
             <li>
               <a href="#">

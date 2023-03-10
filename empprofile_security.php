@@ -91,7 +91,7 @@ input[type="checkbox"]:checked + .slider:before {
         <div class="main-body">
 
                 <div class="col-xl-12 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card border-left-primary shadow h-100 py-2" >
                 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="margin-left:10px;"></a>
@@ -120,8 +120,7 @@ input[type="checkbox"]:checked + .slider:before {
                 </div>
                 </nav>
 
-
-                <div class="card-body"> 
+                <div class="card-body" style="height:100vh;"> 
                 <div class="row no-gutters align-items-center">
                 <div class="row gutters-sm">
 
@@ -182,6 +181,7 @@ input[type="checkbox"]:checked + .slider:before {
                       }
                           
                       </script>
+                      
                       </div>
                      <button type="submit" name="update" class="btn btn-success" style="background-color:#07177a; float:center; width:100px;">Change</button>
                      </form>
@@ -301,14 +301,14 @@ input[type="checkbox"]:checked + .slider:before {
                      </div>
 					           </div>
                      </div>
-
+                    
                      </div>
                      </div> 
-                    
-                    </div>
-                    <?php 
+                     <?php 
                     include ("footer.php");
                     ?>
+                    </div>
+                  
                     </div> <!-- Row END -->
                     
                                       
