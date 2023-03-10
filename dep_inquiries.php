@@ -279,10 +279,10 @@ $row = $res->fetch_assoc();
                                                 <td>
                                                     <form action="" method="POST">
                                                     <a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;" data-toggle="modal" 
-                                                    data-target="#inq" data-inqnum="<?php echo $row['inq_num']; ?>">View Details</a>
+                                                    data-target="#inq" data-inqnum="<?php echo $row['inq_num']; ?>">Process</a>
                                                        
                                                     <input type="hidden" name="inq_num" value="<?php echo $row['inq_num']; ?>"> 
-                                                        <button class="btn btn-danger btn-sm" type="button">Remove</button>
+                                                        <button class="btn btn-danger btn-sm" type="button">Archive</button>
                                                     </form>
                                                    
                                                 </td>

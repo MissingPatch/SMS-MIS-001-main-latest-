@@ -111,9 +111,7 @@ $row = $result->fetch_assoc();
                                         <div class="modal-content">
                                         <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
+     
                                             </div>
                                         
                                             <form action="stud_pms_update.php" method="POST">
