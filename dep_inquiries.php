@@ -243,16 +243,15 @@ include_once("connection/connection.php");
 
 $con = connection();
 @$id = $_GET['inq_num'];
-$sql = "SELECT * FROM mis_categorize_inq  ORDER BY inq_num";
+$sql = "SELECT * FROM mis_categorize_inq WHERE status='2' ORDER BY inq_num";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
 
 ?>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                            <div class="card-header py-3"> All Inquiries
-                                <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts -->          
-                            </h6>
+                            <div class="card-header py-3"> Accepted Inquiries
+                            <a href="dep_request.php" class="btn btn-sm"  class="btn btn-sm" style="background:grey; float: right; color: white;"> Pending Inquiries </a>
                             </div>
                             <div class="card-body">
                         <div class="table-responsive">
@@ -274,7 +273,8 @@ $row = $res->fetch_assoc();
                                                 <td><?php echo $row['inq_num']; ?></td>
                                                 <td><?php echo $row['inq_type']; ?></td>
                                                 <td><?php echo $row['department']; ?></td>
-                                                <td><?php echo $row['status']; ?></td>                        
+                                                <td><?php if ($row['status']==2) { 
+                                                    echo "Accept"; } ?></td>                     
                                                 <td><?php echo $row['date_req']; ?></td>
                                                 <td>
                                                     <form action="" method="POST">
