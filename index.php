@@ -369,7 +369,8 @@ if ($result1 = mysqli_query($con, $sql1)) {
 				          <span class="year" id="label"></span> 
 				          <span class="right-button fa fa-chevron-right" id="next"> </span>
 				        </div> 
-				        <table class="months-table w-100"> 
+                        <div class="table-responsive">
+				        <table class="table table-hover" style="width:100%"> 
 				          <tbody>
 				            <tr class="months-row">
 				              <td class="month">Jan</td> 
@@ -385,10 +386,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
 				              <td class="month">Nov</td>
 				              <td class="month">Dec</td>
 				            </tr>
-				          </tbody>
-				        </table> 
-				        
-				        <table class="days-table w-100"> 
+				       
 				          <td class="day">Sun</td> 
 				          <td class="day">Mon</td> 
 				          <td class="day">Tue</td> 
@@ -396,6 +394,8 @@ if ($result1 = mysqli_query($con, $sql1)) {
 				          <td class="day">Thu</td> 
 				          <td class="day">Fri</td> 
 				          <td class="day">Sat</td>
+                          </tbody>
+				        </table> 
 				        </table> 
 				        <div class="frame"> 
 				          <table class="dates-table w-100"> 
@@ -403,6 +403,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
 			              </tbody> 
 				          </table>
 				        </div> 
+                        </div> 
 
             <button type="button" class="btn btn-success btn-sm" style="float: right; background-color:#07179a;" 
             data-toggle="modal" data-target="#addannounce">Add Event</button>

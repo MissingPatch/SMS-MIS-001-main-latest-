@@ -1,5 +1,5 @@
 <?php
-include ("connection/connection.php");
+require_once ("connection/connection.php");
 include ("activity_log_backend.php"); // Include the file that contains the log_activity function
 $con = connection();
 
