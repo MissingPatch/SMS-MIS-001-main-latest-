@@ -243,7 +243,7 @@ include_once("connection/connection.php");
 
 $con = connection();
 @$id = $_GET['inq_num'];
-$sql = "SELECT * FROM mis_categorize_inq WHERE status='2' ORDER BY inq_num";
+$sql = "SELECT * FROM mis_categorize_inq WHERE status='2' ORDER BY inq_num DESC";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
 
