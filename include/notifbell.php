@@ -11,6 +11,7 @@ $con = connection();
         $rowcount = mysqli_num_rows($result);
     }
 ?>
+
 <!-- INQUIRIES-->
 <div class="dropdown" style="float: right;">
     <a href="#" onclick="return false;" role="button" data-toggle="dropdown" id="dropdownMenu1" data-target="#" style="float: left" aria-expanded="true">

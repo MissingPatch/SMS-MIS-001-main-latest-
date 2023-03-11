@@ -6,7 +6,7 @@ if(isset($_POST['email'])){
   $_SESSION['email'] = $_POST['email'];
 }
 
-include ("connection/connection.php");
+include_once ("connection/connection.php");
 include ("activity_log_backend.php"); // Include the file that contains the log_activity function
 require("PHPMailer/src/Exception.php");
 require("PHPMailer/src/PHPMailer.php");

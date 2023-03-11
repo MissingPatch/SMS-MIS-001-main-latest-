@@ -1,8 +1,7 @@
 <?php 
 session_start();
 include ("accesslevelsuperadmin.php");
-include_once("connection/connection.php");
-$con = connection();
+
  ?>
  
 <!DOCTYPE html>

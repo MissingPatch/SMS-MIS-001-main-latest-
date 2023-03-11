@@ -9,11 +9,11 @@ else{
  echo header("location:login.php");
 }
 include ("accesslevelsuperadmin.php");
-include_once("connection/connection.php");
+
 include ("include/staffheader.php");
 include ("include/staffsidebar.php");
 include("deleteaccdep.php");
-$con = connection();
+
 @$id = $_GET['stud_num'];
 $sql = "SELECT * FROM mis_stud_info ORDER BY stud_num ASC";
 $stud = $con->query($sql) or die($con->error);
