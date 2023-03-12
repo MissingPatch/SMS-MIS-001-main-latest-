@@ -277,13 +277,14 @@ $row = $res->fetch_assoc();
                                                     echo "<p style='font-size: 14px; color: white; background: lightgreen; border-radius: 12px;'>&nbsp;&nbsp; Accept</p>"; } ?></td>                     
                                                 <td><?php echo $row['date_req']; ?></td>
                                                 <td>
-                                                    <form action="" method="POST">
-                                                    <a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;" data-toggle="modal" 
-                                                    data-target="#inq" data-inqnum="<?php echo $row['inq_num']; ?>">Process</a>
-                                                       
-                                                    <input type="hidden" name="inq_num" value="<?php echo $row['inq_num']; ?>"> 
-                                                        <button class="btn btn-danger btn-sm" type="button">Archive</button>
-                                                    </form>
+                <form action="delete_event.php"  method="POST">
+
+                <a href="#" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row['inq_num']; ?>" style="text-decoration: none; font-size: 20px;">
+                <i class="bx bx-edit"></i>&nbsp;</a>
+
+                <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
+                <input type="hidden" name="inq_num" value="<?php echo $row["inq_num"];?>">
+                </form>
                                                    
                                                 </td>
                                             </tr>
