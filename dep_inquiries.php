@@ -274,7 +274,7 @@ $row = $res->fetch_assoc();
                                                 <td><?php echo $row['inq_type']; ?></td>
                                                 <td><?php echo $row['department']; ?></td>
                                                 <td><?php if ($row['status']==2) { 
-                                                    echo "Accept"; } ?></td>                     
+                                                    echo "<p style='font-size: 14px; color: white; background: lightgreen; border-radius: 12px;'>&nbsp;&nbsp; Accept</p>"; } ?></td>                     
                                                 <td><?php echo $row['date_req']; ?></td>
                                                 <td>
                                                     <form action="" method="POST">
