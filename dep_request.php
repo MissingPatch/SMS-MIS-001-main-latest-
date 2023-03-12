@@ -62,7 +62,7 @@ include ("datetime.php");
                             <div class="card-header py-3"> 
                             <a href="dep_inquiries.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
                            <i class="fa fa-arrow-left">
-                            </a></i><b>&nbsp;&nbsp; Pending Inqueries
+                            </a></i><b>&nbsp;&nbsp; Pending Inqueries</b>
                             </div>
 
 <?php  
@@ -101,7 +101,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                       <td>  
                            <?php  
                            if ($row['status']==1) {  
-                                echo "Pending";  
+                                echo "<p style='font-size: 14px; color: white; background: grey; border-radius: 12px;'>&nbsp;&nbsp; Pending</p>";  
                            }if ($row['status']==2) {  
                                 echo "Accept";  
                            }if ($row['status']==3) {  
