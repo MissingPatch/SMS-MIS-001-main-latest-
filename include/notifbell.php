@@ -3,7 +3,7 @@
 <?php
 $con = connection();
 
-    $sql = "SELECT * FROM mis_categorize_inq WHERE status = 'pending' ORDER BY inq_num DESC LIMIT 3";
+    $sql = "SELECT * FROM mis_categorize_inq WHERE status = '1' ORDER BY inq_num DESC LIMIT 3";
     $inq = $con->query($sql) or die($con->error);
     $row = $inq->fetch_assoc();
 
@@ -19,14 +19,16 @@ $con = connection();
         <?php printf( $rowcount);?></span></i>
     </a>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <h6 class="dropdown-header">New Requests <a href="dep_inquiries.php" style="float:right; text-decoration: none;"> View all</a></h6>
+    <h6 class="dropdown-header">New Requests <a href="dep_request.php" style="float:right; text-decoration: none;">View all</a></h6>
     <?php  do { ?>
       <a class="dropdown-item" href="#">
         <div class="d-flex align-items-start">
           <div class="icon me-3"><i class="bx bx-message-square-check"></i></div>
           <div class="flex-grow-1">
             <div class="mb-2" style="font-size: 12px"><?php echo $row['department']; ?></div>
-            <div class="text-muted"><?php echo $row['inq_type']; ?> <br><span style="float:right;background: yellow; color: grey; border-radius: 20px; font-size: 13px;">&nbsp;&nbsp;<b><?php echo $row['status']; ?></b>&nbsp;&nbsp;</span></div>
+            <div class="text-muted"><?php echo $row['inq_type']; ?> <br>
+              
+            <?php echo  "<p style='float: right; font-size: 10px; color: white; background: grey; border-radius: 12px;'>&nbsp;&nbsp; Pending &nbsp;</p>"; ?></b>&nbsp;&nbsp;</span></div>
           </div>
         </div>
       </a>

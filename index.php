@@ -100,7 +100,6 @@ if ($result1 = mysqli_query($con, $sql1)) {
 
                     if ($result2 = mysqli_query($con, $sql1)) {
 
-                    // number of students
                     $rowcount = mysqli_num_rows( $result2);
 
                     }
