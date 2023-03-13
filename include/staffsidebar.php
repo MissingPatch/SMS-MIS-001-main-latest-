@@ -1,7 +1,17 @@
+
 <?php
-$con = connection();        
+$con = connection();   
+include ("alarm_modal.php");   
 ?>
 <li>
+  
+            <a href="staff_index.php">
+                <i class="bx bx-grid-alt"></i>
+                <span class="links_name">Dashboard</span>
+              </a>
+              <span class="tooltip">Dashboard</span>
+            </li>
+
             <li>
             <form action=" "  method="POST" >
               <a href="staffprofile.php?ID=<?php echo @$_SESSION['ID'];?>">
@@ -45,6 +55,14 @@ $con = connection();
               </li>
 
               <hr class="barside">
+     
+              <li>
+              <a href="#" data-toggle="modal" data-target="#exampleModalCenter2">
+                <i class="bx bx-alarm"></i>
+                <span class="links_name">Add Alarm</span>
+              </a>
+              <span class="tooltip">Alarm</span>
+            </li>
 
             <li>
               <a href="#">

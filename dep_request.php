@@ -41,8 +41,8 @@ include ("include/sidebar.php");
                     </svg>
                     Department Inquiries </p>
                     <?php
-include ("datetime.php");
-?>
+                    include ("datetime.php");
+                    ?>
                     </div>
 
                     </div>
@@ -140,14 +140,10 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
 
                     
                     <script type="text/javascript">  
-      function status_update(value,inq_num){  
-           //alert(id);  
-           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
-           window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
-      }  
- </script>  
+                    function status_update(value,inq_num){  
+                         //alert(id);  
+                         let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
+                         window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
+                    }  
+                    </script>  
  
-<?php
-include ("script/script.php");
-include ("footer.php");
-?>

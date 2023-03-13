@@ -10,8 +10,8 @@ else{
 }
 
 include ("accesslevelsuperadmin.php");
-include ("include/header.php");
-include ("include/sidebar.php");
+include ("include/staffheader.php");
+include ("include/staffsidebar.php");
 include ("add_event_modal.php");
 include ("delete_event.php");
 
@@ -73,7 +73,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                     <!-- Enrolled Student -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
-                        <a href="index_enrolled_student.php" style="text-decoration:none; color:black;">
+                        <a href="staffstudinfo.php" style="text-decoration:none; color:black;">
                             <div class="card-body" >
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -91,110 +91,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                         </div>
                     </div>
 
-                    <?php 
-
-                    @$id = $_GET['ID'];
-                    $sql1 = "SELECT * FROM mis_teacher_information";
-                    $tea = $con->query($sql1) or die($con->error);
-                    $row = $tea->fetch_assoc();
-
-                    if ($result2 = mysqli_query($con, $sql1)) {
-
-                    $rowcount = mysqli_num_rows( $result2);
-
-                    }
-
-                    ?>
-
-                    <!-- Teachers -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                        <a href="teacher_information.php" style="text-decoration:none; color:black;">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" >
-                                            Teachers</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php // Display result
-                                            printf( $rowcount);?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                    <i class="fas fa-user fa-2x text-gray-300" href="teacher_information.php"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-
-                    <?php 
-
-                    @$id = $_GET['OR_number'];
-                    $sql1 = "SELECT * FROM mis_payment_method";
-                    $tea = $con->query($sql1) or die($con->error);
-                    $row = $tea->fetch_assoc();
-
-                    if ($result2 = mysqli_query($con, $sql1)) {
-
-                    // number of students
-                    $rowcount = mysqli_num_rows( $result2);
-
-                    }
-
-                    ?>
-
-                    <!-- Teachers -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                        <a href="stud_all_paid_anal.php" style="text-decoration:none; color:black;">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" >
-                                            Paid Student</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php // Display result
-                                            printf( $rowcount);?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                    <i class="fas fa-user fa-2x text-gray-300" href="teacher_information.php"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                        <a href="index_payment_method.php" style="text-decoration:none; color:black;">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Payment
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="progress progress-sm mr-2">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-user fa-2x text-gray-300 text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
+                  
 
 
                         <?php 
@@ -217,7 +114,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
-                            <a href="dep_inquiries.php" style="text-decoration:none; color:black;">
+                            <a href="staff_categorize_inq.php" style="text-decoration:none; color:black;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -256,7 +153,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
-                            <a href="dep_reports.php" style="text-decoration:none; color:black;">
+                            <a href="#" style="text-decoration:none; color:black;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -294,7 +191,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
-                            <a href="concernfetch.php" style="text-decoration:none; color:black;">
+                            <a href="staffconcern.php" style="text-decoration:none; color:black;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -311,45 +208,6 @@ if ($result1 = mysqli_query($con, $sql1)) {
                             </a>
                             </div>
                         </div>
-
-                        <?php 
-
-                        @$id = $_GET['user_id'];
-                        $sql2 = "SELECT * FROM mis_student_users";
-                        $pms = $con->query($sql2) or die($con->error);
-                        $row = $pms->fetch_assoc();
-
-                        if ($result3 = mysqli_query($con, $sql2)) {
-
-                        // number of students
-                        $rowcount = mysqli_num_rows( $result3);
-
-                        }
-
-                        ?>
-
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                            <a href="student_account.php" style="text-decoration:none; color:black;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Student Account </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php // Display result
-                                            printf( $rowcount);?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-
 
   <!-- Calendar-->
  
@@ -404,9 +262,6 @@ if ($result1 = mysqli_query($con, $sql1)) {
 				        </div> 
                         </div> 
 
-            <button type="button" class="btn btn-success btn-sm" style="float: right; background-color:#07179a;" 
-            data-toggle="modal" data-target="#addannounce">Add Event</button>
-
 			</div>
 			</div>
 			</div>
@@ -429,7 +284,6 @@ if ($result1 = mysqli_query($con, $sql1)) {
               <th>Announcement</th>
               <th>Date Start</th>
               <th>Date End</th>
-              <th>Action</th>
               </tr>
 
               </thead>    
@@ -448,68 +302,6 @@ if ($result1 = mysqli_query($con, $sql1)) {
 				<td style="font-size: 12px; word-wrap: break-word; max-width: 300px; "><strong><b><marquee><?php echo $row['title'];?></marquee></b><br><?php echo $row['descript'];?></strong></td>
 				<td><strong><span style="background-color: #e6e6e6; font-size: 13px;"><i class="fa-solid fa-clock"></i>&nbsp;<?php echo $row['start_datetime'];?></span></strong></td>
                 <td><strong><span style="background-color: #e6e6e6; font-size: 13px;"><i class="fa-solid fa-clock"></i>&nbsp;<?php echo $row['end_datetime'];?></span></strong></td>
-                <td>
-                
-                <form action="delete_event.php"  method="POST">
-
-                <a href="#" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row['id']; ?>" style="text-decoration: none; font-size: 20px;">
-                <i class="bx bx-edit"></i>&nbsp;</a>
-
-                <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
-                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
-                </form>
-
-
-                <!-- Modal For Announcement -->
-                <div class="modal fade" id="exampleModalCenter5<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Update Announcement</h5>
-                    </div>
-                    <div class="modal-body">
-                                    <div class="card-body">
-                                        <div class="container-fluid">
-                                       
-                                            <form action="edit_event.php" method="post">
-                                                <div class="form-group mb-2">
-                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                                    <label for="title" class="control-label">Subject</label>
-                                                    <input type="text" class="form-control form-control-sm rounded-0" name="title" id="title"
-                                                    value="<?php echo $row['title'];?>" >
-                                                </div>
-                                                <div class="form-group mb-2">
-                                                    <label for="descript" class="control-label">Announcement</label>
-                                                    <textarea rows="3" class="form-control form-control-sm rounded-0" name="descript" id="descript" 
-                                                    value=""><?php echo $row['descript'];?></textarea>
-                                                </div>
-                                                <div class="form-group mb-2">
-                                                    <label for="start_datetime" class="control-label">Start</label>
-                                                    <input type="datetime-local" class="form-control form-control-sm rounded-0" name="start_datetime" id="start_datetime"
-                                                    value="<?php echo $row['start_datetime'];?>">
-                                                    
-                                                </div>
-                                                <div class="form-group mb-2">
-                                                    <label for="end_datetime" class="control-label">End</label>
-                                                    <input type="datetime-local" class="form-control form-control-sm rounded-0" name="end_datetime" id="end_datetime" 
-                                                    value="<?php echo $row['end_datetime'];?>">
-                                                </div>
-                                        
-                                        </div>
-                                    </div>
-                                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-                        <button type="submit" name="update" style="background-color:#07179a;" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Update</button>
-                        </form>
-                    </div>
-                    
-                    </div>
-                </div>
-                </div>
-                <!--end of modal -->
-   
-                </td>
 				</tr>
                 
 

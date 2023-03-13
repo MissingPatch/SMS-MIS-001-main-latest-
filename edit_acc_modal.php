@@ -1,6 +1,6 @@
                      
                         <!-- Modal edit -->
-                        <div class="modal fade" id="editaccdep" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="edituserdep" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
@@ -8,31 +8,28 @@
                                 <button type="button"  class="btn-close"  data-dismiss="modal" aria-label="Close">
                                 </button>
                             </div>
-                           
-
                             <!-- update emp profile */-->
-                           
-                            
                             <?php
-                                include ("editaccdep.php");
+                                include ("edit_acc_user.php");
                             ?> 
 
-                            <form action="editaccdep.php" method="POST">
+                            <form action="edit_acc_user.php" method="POST">
                             <div class="modal-body">
                             <div class="row g-3">
                                 <?php
-                                $fields = array("First Name" => "fname", "Last Name" => "lname", "Suffix" => "suffix", "Employee ID" => "ID", "Email" => "email", "Mobile number" => "mobilenum", "Sex" => "sex", "Company" => "company");
-                                foreach ($fields as $label => $field) {
-                                    echo '<div class="col-md-6">
-                                            <label class="form-label">' . $label . ':</label>
-                                            <input type="text" id="' . $field . '" name="' . $field . '" class="form-control" placeholder="" value="' . $row[$field] . '">
-                                        </div>';
-                                }
+                               $fields = array("First Name" => "fname", "Last Name" => "lname", "Suffix" => "suffix", "Mobile number" => "mobilenum", "Sex" => "sex", "Employee ID" => "ID", "Email" => "email", "Company" => "company");
+                               foreach ($fields as $label => $field) {
+                                   $disabled = ($field == "ID" || $field == "email" || $field == "company") ? "disabled" : "";
+                                   echo '<div class="col-md-6">
+                                           <label class="form-label">' . $label . ':</label>
+                                           <input type="text" id="' . $field . '" name="' . $field . '" class="form-control" placeholder="" value="' . $row[$field] . '" ' . $disabled . '>
+                                       </div>';
+                               }
                                 ?>
                                
                                 <div class="col-md-12">
                                     <label class="form-label">Address:</label>
-                                    <textarea id="home_address" name="home_address" rows="5" class="form-control" style="float:right;"><?php echo $row["home_address"];?></textarea>
+                                    <textarea id="home_address" name="home_address" rows="5" class="form-control" style="float:right;" ><?php echo $row["home_address"];?></textarea>
                                 </div>
                                 </div>
                                 
@@ -53,22 +50,20 @@
                                 ?>
 
                                 <label>Department:</label>
-                                <select name="department" class="form-control" id="department">
+                                <select name="department" class="form-control" id="department" disabled>
                                 <?php createOptions($departments, $row['department']); ?>
                                 </select>
                                 <br>
 
                                 <label>Role:</label>
-                                <select name="role" class="form-control" id="role">
+                                <select name="role" class="form-control" id="role" disabled>
                                 <?php createOptions($roles, $row['role']); ?>
                                 </select>
                             <br>
                                                
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
-                            <button type="submit" name="update"  class="btn btn-primary">Save</button>
-                             
-                            
+                            <button type="submit" name="update"  class="btn btn-primary">Save</button> 
                             </div>
                             </div>
                             </div>
