@@ -102,7 +102,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                       <td>  
                            <?php  
                            if ($row['status']==1) {  
-                                echo "<p style='font-size: 12px; margin-left: 5%; color: white; background: grey; border-radius: 12px;'>&nbsp;&nbsp; Pending &nbsp;&nbsp;</p>";  
+                                echo "<p style='font-size: 12px; color: white; background: grey; border-radius: 12px; text-align: center; margin-right: 20%; margin-left: 20%;'> Pending</p>";
                            }if ($row['status']==2) {  
                                 echo "Accept";  
                            }if ($row['status']==3) {  

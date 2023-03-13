@@ -105,7 +105,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                            }if ($row['status']==2) {  
                                 echo "Accept";  
                            }if ($row['status']==3) {  
-                                echo "<p style='font-size: 12px; margin-left: 15%; color: white; background: red; border-radius: 12px;'>&nbsp;&nbsp; Rejected</p>";  
+                                echo "<p style='font-size: 12px; margin-right: 15%; margin-left: 15%; color: white; background: red; text-align: center; border-radius: 12px;'> Rejected </p>";  
                            }  
                            ?>  
                       </td>  
