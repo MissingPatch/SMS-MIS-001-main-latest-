@@ -19,7 +19,6 @@ $con = connection();
 $sql = "SELECT * FROM mis_man_inc_rep WHERE department='Enrollment' ORDER BY rep_id ASC";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
-
 ?>
                 <div class="container-fluid">
 

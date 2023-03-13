@@ -15,8 +15,14 @@ $con = connection();
 <!-- INQUIRIES-->
 <div class="dropdown" style="float: right;">
     <a href="#" onclick="return false;" role="button" data-toggle="dropdown" id="dropdownMenu1" data-target="#" style="float: left" aria-expanded="true">
-    <i class="bx bxs-message-dots fs-4 me-3 mt-1 m-0"><span style="color: white; font-size: 10px; background-color: red; border-radius: 30%; border: 1px solid white; padding: 1px 3px; z-index: -1;margin-left: -0.9px;">
-        <?php printf( $rowcount);?></span></i>
+    <i class="bx bxs-message-dots fs-4 me-3 mt-1 m-0"><span style="color: white; font-size: 10px; background-color: red; border-radius: 30%; border: 1px solid white; padding: 1px 3px; z-index: -1;margin-left: -0.9px;"><?php 
+        $sql = "SELECT * FROM mis_categorize_inq WHERE status = '1' ORDER BY inq_num";
+        if ($result = mysqli_query($con, $sql)) {
+            $rowcount = mysqli_num_rows($result);
+        }
+        printf( $rowcount);?>
+        </span></i>
+
     </a>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
     <h6 class="dropdown-header">New Requests <a href="staff_dep_request.php" style="float:right; text-decoration: none;">View all</a></h6>

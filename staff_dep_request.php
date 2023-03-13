@@ -63,7 +63,6 @@ include ("include/staffsidebar.php");
                             <a href="staff_categorize_inq.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
                            <i class="fa fa-arrow-left">
                             </a></i><b>&nbsp;&nbsp; Pending Inqueries</b>&nbsp;&nbsp;
-                            <a href="staff_dep_req_archive.php" class="btn btn-sm"  class="btn btn-sm" style="background: red; float: right; color: white;"> Archive Inquiries </a>
                             </div>
 
 <?php  
@@ -102,20 +101,14 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                       <td>  
                            <?php  
                            if ($row['status']==1) {  
-                                echo "<p style='font-size: 14px; color: white; background: grey; border-radius: 12px;'>&nbsp;&nbsp; Pending</p>";  
-                           }if ($row['status']==2) {  
-                                echo "Accept";  
-                           }if ($row['status']==3) {  
-                                echo "Reject";  
+                              echo "<p style='font-size: 12px; color: white; background: grey; border-radius: 12px; text-align: center; margin-right: 10%; margin-left: 10%;'> Pending </p>";  
                            }  
                            ?>  
                       </td>  
                       <td>  
                            <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
-                                <option value="">Update Status</option>  
-                                <option value="1">Pending</option>  
-                                <option value="2">Accept</option>  
-                                <option value="3">Reject</option>  
+                                <option value="">Change Status</option>  
+                                <option value="2">Accept Request</option>   
                            </select>  
                       </td>  
                  </tr>       
@@ -140,10 +133,15 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
 
                     
                     <script type="text/javascript">  
-                    function status_update(value,inq_num){  
-                         //alert(id);  
-                         let url = "http://localhost/SMS-MIS-001-main-latest-/staff_dep_request.php";  
-                         window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
-                    }  
-                    </script>  
+      function status_update(value,inq_num){  
+           //alert(id);  
+           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
+           window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
+      }  
+ </script>  
+ 
+<?php
+include ("script/script.php");
+include ("footer.php");
+?>
  
