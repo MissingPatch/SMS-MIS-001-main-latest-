@@ -200,7 +200,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                         <?php 
 
                         @$id = $_GET['ID'];
-                        $sql2 = "SELECT * FROM mis_categorize_inq";
+                        $sql2 = "SELECT * FROM mis_categorize_inq WHERE status='1' ORDER BY inq_num DESC";
                         $cat = $con->query($sql2) or die($con->error);
                         $row = $cat->fetch_assoc();
 
