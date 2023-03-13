@@ -24,7 +24,7 @@ $row = $res->fetch_assoc();
                 <div class="container-fluid">
                     <div class="col-xl-12 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
+                    <div class="card-body" style="height: 100vh;" >
                     <div class="row no-gutters align-items-center">
 
                     <div class="col-xl-12 col-md-6 mb-4">
@@ -41,24 +41,26 @@ $row = $res->fetch_assoc();
                     </svg>
                     Department Inquiries</p>
 
-                    <?php
-                    date_default_timezone_set('Asia/Manila');
-                    echo "". date('F j, Y g:i:a  ');
+                    <p class="p mb-0 ">
+                        <?php
+                        date_default_timezone_set('Asia/Manila');
+                        echo "". date('F j, Y ');
                     ?>
+                    <span id="dateTime">
+                    </p>
                     </div>
                     </div>
                     </div>
                     </div>
                     </div>
-                
-                    
                     
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                            <div class="card-header py-3"> 
-                                <a href="staff_categorize_inq.php" class="btn btn-success btn-sm" style="background-color:#07179a;"><i class="fa fa-arrow-left">
+                            <div class="card-header py-3">
+                            &nbsp;<a href="staff_categorize_inq.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
+                            <i class="fa fa-arrow-left">
                             </a></i><b>&nbsp;&nbsp;Enrollment Inquiries</b>
                                 <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts -->          
                             </h6>
@@ -67,7 +69,7 @@ $row = $res->fetch_assoc();
                                 <div class="card-body">
                             
                                 <div class="table-responsive">
-                                    <table id="example" class="table" style="width:100%">
+                                    <table id="example" class="table table-hover" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>Inquries ID</th>
@@ -113,11 +115,15 @@ $row = $res->fetch_assoc();
                                     </div>
                                     </div>
                                     </div>
-                                    </div>
-                                    </div>    
-                                    </div>
-                                    </div>
                                    
+                                    </div>
+                                    <?php
+                                    include ("footer.php");
+                                    ?> 
+                                    </div>  
+                                   
+                                    </div>
+                                 
                         
                     
                              <!-- /.container-fluid -->
@@ -126,5 +132,5 @@ $row = $res->fetch_assoc();
 </html>
 <?php
 include ("script/script.php");
-include ("footer.php");
+
 ?>
