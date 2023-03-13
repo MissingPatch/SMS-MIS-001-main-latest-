@@ -101,17 +101,17 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                       <td>  
                            <?php  
                            if ($row['status']==1) {  
-                                echo "<p style='font-size: 14px; color: white; background: grey; border-radius: 12px;'>&nbsp;&nbsp; Pending</p>";  
+                                echo "Pending";  
                            }if ($row['status']==2) {  
                                 echo "Accept";  
                            }if ($row['status']==3) {  
-                                echo "<p style='font-size: 14px; color: white; background: red; border-radius: 12px;'>&nbsp;&nbsp; Rejected</p>";  
+                                echo "<p style='font-size: 12px; margin-left: 15%; color: white; background: red; border-radius: 12px;'>&nbsp;&nbsp; Rejected</p>";  
                            }  
                            ?>  
                       </td>  
                       <td>  
                            <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
-                                <option value="">Update Status</option>  
+                                <option value="">Change Status</option>  
                                 <option value="1">Mark as Pending</option>  
                                 <option value="2">Accept Request</option>   
                            </select>  

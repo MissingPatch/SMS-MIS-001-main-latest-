@@ -102,20 +102,20 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                       <td>  
                            <?php  
                            if ($row['status']==1) {  
-                                echo "<p style='font-size: 14px; color: white; background: grey; border-radius: 12px;'>&nbsp;&nbsp; Pending</p>";  
+                                echo "<p style='font-size: 12px; margin-left: 5%; color: white; background: grey; border-radius: 12px;'>&nbsp;&nbsp; Pending &nbsp;&nbsp;</p>";  
                            }if ($row['status']==2) {  
                                 echo "Accept";  
                            }if ($row['status']==3) {  
-                                echo "Reject";  
+                                echo "Rejected";  
                            }  
                            ?>  
                       </td>  
                       <td>  
                            <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
-                                <option value="">Update Status</option>  
-                                <option value="1">Pending</option>  
-                                <option value="2">Accept</option>  
-                                <option value="3">Reject</option>  
+                                <option value="">Change Status</option>  
+                                <option value="1">Pending Status</option>  
+                                <option value="2">Accept Request</option> 
+                                <option value="3">Reject</option>    
                            </select>  
                       </td>  
                  </tr>       
@@ -140,10 +140,14 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
 
                     
                     <script type="text/javascript">  
-                    function status_update(value,inq_num){  
-                         //alert(id);  
-                         let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
-                         window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
-                    }  
-                    </script>  
+      function status_update(value,inq_num){  
+           //alert(id);  
+           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
+           window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
+      }  
+ </script>  
  
+<?php
+include ("script/script.php");
+include ("footer.php");
+?>

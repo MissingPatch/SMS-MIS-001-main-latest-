@@ -241,13 +241,13 @@ $con = connection();
                     </thead>
                     <tbody>
                     <?php do{ ?>
-                                                        
+                         
                         <tr>
                         <td><?php echo $row['inq_num']; ?></td>
                         <td><?php echo $row['inq_type']; ?></td>
                         <td><?php echo $row['department']; ?></td>
-                        <td><?php if ($row['status']==2) { 
-                            echo "<p style='font-size: 14px; color: white; background: lightgreen; border-radius: 12px;'>&nbsp;&nbsp; Accept</p>"; } ?></td>                     
+                        <td><?php 
+                            echo "<p style='font-size: 14px; color: white; background: lightgreen; border-radius: 12px;'>&nbsp;&nbsp; Accept</p>"; ?></td>                     
                         <td><?php echo $row['date_req']; ?></td>
                         <td>
                         <form action="delete_event.php"  method="POST">
@@ -262,7 +262,7 @@ $con = connection();
                         </td>
                         </tr>
                         <?php }while($row = $res->fetch_assoc()); ?>
-
+                        
                     </tbody>
                     </table>
                     </div>
