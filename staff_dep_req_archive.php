@@ -11,8 +11,8 @@ else{
 
 include ("accesslevelsuperadmin.php");
 
-include ("include/header.php");
-include ("include/sidebar.php");
+include ("include/staffheader.php");
+include ("include/staffsidebar.php");
 
 ?>
 
@@ -60,7 +60,7 @@ include ("include/sidebar.php");
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3"> 
-                            <a href="dep_request.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
+                            <a href="staff_dep_request.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
                            <i class="fa fa-arrow-left">
                             </a></i><b>&nbsp;&nbsp; Reject Inqueries</b>
                             </div>
@@ -140,7 +140,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                     <script type="text/javascript">  
       function status_update(value,inq_num){  
            //alert(id);  
-           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_req_archive.php";  
+           let url = "http://localhost/SMS-MIS-001-main-latest-/staff_dep_req_archive.php";  
            window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
       }  
  </script>  

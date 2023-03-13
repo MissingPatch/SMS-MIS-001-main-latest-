@@ -48,7 +48,7 @@
             <div class="logo-details d-flex align-items-center" >
               <i class="bx bx-menu rounded-circle" id="btn"></i>
               
-              <a class="sidebar-brand d-flex align-items-center justify-content-center" href="staffstudinfo.php">
+              <a class="sidebar-brand d-flex align-items-center justify-content-center" href="staff_index.php">
               <img
                 class="ms-2 ms-sm-3 my-auto"
                 src="./images/logo.png"
@@ -72,10 +72,10 @@
             </div>
           </li>
           <div class="d-flex align-items-center justify-content-end">
-            <li>
-              <i class="bx bxs-message-dots fs-4 me-3 mt-1 m-0"></i>
-              <i class="bx bxs-bell fs-4 mt-1 m-0"></i>
-            </li>
+          <?php
+          include("include/staff_notifbell.php");
+         
+          ?>
             <li>
               <div class="nav-item dropdown my-auto ms-4">
                 <a
@@ -125,8 +125,9 @@
                   alt='profile-picture' >";		
                   ?>
 
-                  <?php  echo $_SESSION['fname'];?></a></li>
-                   &#160;
+                  <?php  echo $_SESSION['fname'];?> <?php  echo $_SESSION['lname'];?></a></li>
+              
+                  <hr>
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>

@@ -24,6 +24,7 @@ if(isset($_POST['update'])){
         $sql = "UPDATE mis_usermanagement SET pass = '$pass' WHERE ID='$id' ";
         if ($con->query($sql) === TRUE) {
             echo "<script>alert('Password updated successfully.');</script>";
+            exit();
         } else {
             echo "Error updating password: " . $con->error;
         }

@@ -61,10 +61,6 @@ include "concern_update_modal.php";
                             <div class="card-header py-3"><b>List of Concern</b>
                                 <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts --> 
 
-                                								
-<!-- Button trigger modal -->
-<a href="#" class="btn btn-success btn-sm" style="background-color:#07177a; float:right;" 
-data-toggle="modal" data-target="#inq" data-inqnum="<?php echo $row['inq_num']; ?>">Add</a>
     </div>
 
                               
