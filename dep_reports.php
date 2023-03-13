@@ -487,8 +487,6 @@ $sql = "SELECT * FROM mis_man_inc_rep WHERE department ='CRAD' ORDER BY rep_id";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
-
-
 if ($result = mysqli_query($con, $sql)) {
   
 // number of students

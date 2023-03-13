@@ -36,7 +36,7 @@ $row = $res->fetch_assoc();
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <p class="p mb-0 text-primary" style="color:#07177a;">Management Inquries
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black" fit="" height="4%" width="4%" preserveAspectRatio="xMidYMid meet" focusable="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black" fit="" height="5%" width="3%" preserveAspectRatio="xMidYMid meet" focusable="false">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                     </svg>
                     Department Inquiries</p>
@@ -60,7 +60,7 @@ $row = $res->fetch_assoc();
                     <div class="row no-gutters align-items-center">
                     <h5 _ngcontent-gwg-c228="" 
                     class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate"> 
-                    <b> Department Inquiries </h5></b>
+                    <b> Department Inquiries </b></h5>
                     <p> </p>
                     
                     
@@ -69,9 +69,9 @@ $row = $res->fetch_assoc();
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                            <a href="staff_categorize_inq.php" class="btn btn-success btn-sm" style="background-color:#07179a;">
+                            &nbsp;<a href="staff_categorize_inq.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
                             <i class="fa fa-arrow-left">
-                            </a></i><b>&nbsp;&nbsp;CRAD Inquiries </b>
+                            </a></i><b>&nbsp;&nbsp;CRAD Inquiries</b>
                                 <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts -->          
                             </h6>
                             </div>
@@ -79,7 +79,7 @@ $row = $res->fetch_assoc();
                                 <div class="card-body">
                             
                                 <div class="table-responsive">
-                                    <table id="example" class="table" style="width:100%">
+                                    <table id="example" class="table table-hover" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>Inquries ID</th>

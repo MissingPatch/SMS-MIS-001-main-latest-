@@ -11,8 +11,8 @@ else{
 
 include ("accesslevelsuperadmin.php");
 
-include ("include/header.php");
-include ("include/sidebar.php");
+include ("include/staffheader.php");
+include ("include/staffsidebar.php");
 
 ?>
 
@@ -60,14 +60,15 @@ include ("include/sidebar.php");
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3"> 
-                            <a href="dep_request.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
+                            <a href="staff_categorize_inq.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
                            <i class="fa fa-arrow-left">
-                            </a></i><b>&nbsp;&nbsp; Reject Inqueries</b>
+                            </a></i><b>&nbsp;&nbsp; Pending Inqueries</b>&nbsp;&nbsp;
+                            <a href="staff_dep_req_archive.php" class="btn btn-sm"  class="btn btn-sm" style="background: red; float: right; color: white;"> Archive Inquiries </a>
                             </div>
 
 <?php  
 
-$sql=mysqli_query($con,"SELECT * FROM mis_categorize_inq WHERE status='3' ORDER BY inq_num DESC");  
+$sql=mysqli_query($con,"SELECT * FROM mis_categorize_inq WHERE status='1' ORDER BY inq_num DESC");  
 
 if (isset($_GET['inq_num']) && isset($_GET['status'])) {  
      $inq_num=$_GET['inq_num'];  
@@ -105,15 +106,16 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                            }if ($row['status']==2) {  
                                 echo "Accept";  
                            }if ($row['status']==3) {  
-                                echo "<p style='font-size: 14px; color: white; background: red; border-radius: 12px;'>&nbsp;&nbsp; Rejected</p>";  
+                                echo "Reject";  
                            }  
                            ?>  
                       </td>  
                       <td>  
                            <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
                                 <option value="">Update Status</option>  
-                                <option value="1">Mark as Pending</option>  
-                                <option value="2">Accept Request</option>   
+                                <option value="1">Pending</option>  
+                                <option value="2">Accept</option>  
+                                <option value="3">Reject</option>  
                            </select>  
                       </td>  
                  </tr>       
@@ -138,14 +140,10 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
 
                     
                     <script type="text/javascript">  
-      function status_update(value,inq_num){  
-           //alert(id);  
-           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_req_archive.php";  
-           window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
-      }  
- </script>  
+                    function status_update(value,inq_num){  
+                         //alert(id);  
+                         let url = "http://localhost/SMS-MIS-001-main-latest-/staff_dep_request.php";  
+                         window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
+                    }  
+                    </script>  
  
-<?php
-include ("script/script.php");
-include ("footer.php");
-?>

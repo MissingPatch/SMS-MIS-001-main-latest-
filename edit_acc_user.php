@@ -22,7 +22,7 @@ if(isset($_POST['update'])){
     $role = $_POST['role'];
     $company = $_POST['company'];
  
-    $sql = "UPDATE mis_usermanagement set  lname = '$lname', email = '$email', 
+    $sql = "UPDATE mis_usermanagement set lname = '$lname', email = '$email', 
     mobilenum = '$mobile', home_address= '$address', fname = '$fname' , company = '$company' , sex = '$sex' , 
     suffix = '$suffix' , department = '$dep' , role = '$role' WHERE ID='$id' ";
     $con->query($sql) or die($con->error);
