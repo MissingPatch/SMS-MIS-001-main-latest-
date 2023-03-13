@@ -60,37 +60,41 @@ include "mobileadmin/update.php";
                                 <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts -->          
                             </h6>
                             </div>
- 
+
+                            <?php
+
+include_once("connection/connection.php");
+
+$con = connection();
+@$id = $_GET['id'];
+$sql = "SELECT * FROM mis_concern WHERE qA='1' ORDER BY fetch_concern DESC";
+$res = $con->query($sql) or die($con->error);
+$row = $res->fetch_assoc();
+
+?>
 
         <div class="card-body">
         <div class="table-responsive">
-
-			<?php if (mysqli_num_rows($result)) { ?>
-			<table id="example" class="table table-striped" style="width:100%">
-			  <thead>
-			    <tr>
-			      <th scope="col">No.</th>
-			      <th scope="col">Fetch ID</th>
-			      <th scope="col">Response</th>
-			      <th scope="col">Fetch Data</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			  	<?php 
-			  	   $i = 0;
-			  	   while($rows = mysqli_fetch_assoc($result)){
-			  	   $i++;
-			  	 ?>
-			    <tr>
-			      <th scope="row"><?=$i?></th>
-				  <td><?php echo $rows['id']; ?></td>
-				  <td><?php echo $rows['replies']; ?></td>
-			      <td> 0 </td>
-			    </tr>
-			    <?php } ?>
-			  </tbody>
-			</table>
-			<?php } ?>
+        <table id="example" class="table table-hover" style="width:100%">
+                    <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Command</th>
+                                                <th>Questions</th> 
+                                                <th>Fetch Count</th>          
+                                            </tr>
+                                            </thead>
+                                        <tbody>
+                                        <?php $i=1; do{ ?>
+                                            <tr>
+                                                <td><?php echo $i++ ?></td>  
+                                                <td><?php echo $row['queries']; ?></td>
+                                                <td><?php echo $row['replies']; ?></td>
+                                                <td><?php echo $row['fetch_concern']; ?></td>
+                                            </tr>
+                                            <?php }while($row = $res->fetch_assoc())  ?>
+                    </tbody>
+                    </table>                                 
                                                
                                   
                                     </div>

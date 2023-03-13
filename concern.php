@@ -64,55 +64,53 @@ include "concern_update_modal.php";
                               <b>List of Concerns</b>
                                 <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts --> 
 
-                                								
-<!-- Button trigger modal -->
-<a href="#" class="btn btn-success btn-sm" style="background-color:#07177a; float:right;" 
-data-toggle="modal" data-target="#inq" data-inqnum="<?php echo $row['inq_num']; ?>">Add Concerns</a>
-
     </div>
+
+
+<?php
+
+include_once("connection/connection.php");
+
+$con = connection();
+@$id = $_GET['id'];
+$sql = "SELECT * FROM mis_concern WHERE qA='1' ORDER BY id ASC";
+$res = $con->query($sql) or die($con->error);
+$row = $res->fetch_assoc();
+
+?>
 
         <div class="card-body">
         <div class="table-responsive">
+        <table id="example" class="table table-hover" style="width:100%">
+                    <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Command</th>
+                                                <th>Questions</th>           
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                        <tbody>
+                                        <?php $i=1; do{ ?>
+                                            <tr>
+                                                <td><?php echo $i++ ?></td>  
+                                                <td><?php echo $row['queries']; ?></td>
+                                                <td><?php echo $row['replies']; ?></td>
+                                                <td>
+                                                <form action="delete_event.php"  method="POST">
 
-			<?php if (mysqli_num_rows($result)) { ?>
-			<table id="example" class="table table-hover" style="width:100%">
-			  <thead>
-			    <tr>
-			      <th scope="col">No.</th>
-			      <th scope="col">Fetch ID</th>
-				  <th scope="col">Command</th>
-			      <th scope="col">Response</th>
-			      <th scope="col">Action</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			  	<?php 
-			  	   $i = 0;
-			  	   while($rows = mysqli_fetch_assoc($result)){
-			  	   $i++;
-			  	 ?>
-			    <tr>
-			      <th scope="row"><?=$i?></th>
-				  <td><?php echo $rows['id']; ?></td>
-			      <td><?=$rows['queries']?></td>
-				  <td><?php echo $rows['replies']; ?></td>
-			      <td>	
+                <a href="#" <?php echo $row['id']; ?>" style="text-decoration: none; font-size: 20px;">
+                <i class="bx bx-edit"></i>&nbsp;</a>
 
-
-				  <a href="#" data-toggle="modal" data-target="#inq1" data-inqnum="<?php echo $row['inq_num']; ?>" aria-labelledby="exampleModalLabel"
-			      class="btn btn-success btn-sm" style="background-color:#07177a;" > Edit </a>
-				  
-				  <a href="mobileadmin/delete.php?id=<?=$rows['id']?>" 
-			      class="btn btn-danger btn-sm"> Delete </a>
-			      
-				  
-				</td>
-			    </tr>
-			    <?php } ?>
-			  </tbody>
-			</table>
-			<?php } ?>
-                                               
+                <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
+                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                </form>
+                                                   
+                                                </td>
+                                            </tr>
+                                            <?php }while($row = $res->fetch_assoc())  ?>
+                    </tbody>
+                    </table>                                 
                                     </div>
                                     </div>
                                     </div>
