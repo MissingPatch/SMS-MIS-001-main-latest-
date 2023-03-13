@@ -211,58 +211,60 @@ $con = connection();
                     class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate"> 
                     <b>  </h5>
 
-                    <?php
-                   
-                    if(isset($_GET['inq_num'])){
-                    $id = $_GET['inq_num'];
-                    $sql = "SELECT * FROM mis_categorize_inq WHERE status='2' ORDER BY inq_num DESC";
-                    $res = $con->query($sql) or die($con->error);
-                    $row = $res->fetch_assoc();
-                    }
+<?php
 
-                    ?>
+include_once("connection/connection.php");
+
+$con = connection();
+@$id = $_GET['inq_num'];
+$sql = "SELECT * FROM mis_categorize_inq WHERE status='2' ORDER BY inq_num";
+$res = $con->query($sql) or die($con->error);
+$row = $res->fetch_assoc();
+
+?>
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3"> Accepted Inquiries
-                            <a href="dep_request.php" class="btn btn-sm"  class="btn btn-sm" style="background:grey; float: right; color: white;"> Pending Inquiries </a>
+                            <a href="dep_request.php" class="btn btn-sm" style="background:grey; float: right; color: white;"> Pending Inquiries </a>
                             </div>
                             <div class="card-body">
                     <div class="table-responsive">
                     <table id="example" class="table table-hover" style="width:100%">
                     <thead>
-                        <tr>
-                            <th>Inquries ID</th>
-                            <th>Inquiries Type</th>
-                            <th>Department</th>           
-                            <th>Status</th>
-                            <th>Date Requested</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php do{ ?>
-                         
-                        <tr>
-                        <td><?php echo $row['inq_num']; ?></td>
-                        <td><?php echo $row['inq_type']; ?></td>
-                        <td><?php echo $row['department']; ?></td>
-                        <td><?php 
-                            echo "<p style='font-size: 14px; color: white; background: lightgreen; border-radius: 12px;'>&nbsp;&nbsp; Accept</p>"; ?></td>                     
-                        <td><?php echo $row['date_req']; ?></td>
-                        <td>
-                        <form action="delete_event.php"  method="POST">
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Inquries ID</th>
+                                                <th>Inquiries Type</th>
+                                                <th>Department</th>           
+                                                <th>Date Requested</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                        <tbody>
+                                        <?php $i=1; do{ ?>
+                                            <tr>
+                                                <td><?php echo $i++ ?></td>  
+                                                <td><?php echo $row['inq_num']; ?></td>
+                                                <td><?php echo $row['inq_type']; ?></td>
+                                                <td><?php echo $row['department']; ?></td>                        
+                                                <td><?php echo $row['date_req']; ?></td>
+                                                <td><?php echo "<p style='font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Accept </p>"; ?></td>
+                                                <td>
+                
+                                                <form action="delete_event.php"  method="POST">
 
-                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row['inq_num']; ?>" style="text-decoration: none; font-size: 20px;">
-                        <i class="bx bx-edit"></i>&nbsp;</a>
+                <a href="#" <?php echo $row['inq_num']; ?>" style="text-decoration: none; font-size: 20px;">
+                <i class="bx bx-edit"></i>&nbsp;</a>
 
-                        <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
-                        <input type="hidden" name="inq_num" value="<?php echo $row["inq_num"];?>">
-                        </form>
-                        
-                        </td>
-                        </tr>
-                        <?php }while($row = $res->fetch_assoc()); ?>
-                        
+                <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
+                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                </form>
+                                                   
+                                                </td>
+                                            </tr>
+                                            <?php }while($row = $res->fetch_assoc())  ?>
                     </tbody>
                     </table>
                     </div>
@@ -283,3 +285,4 @@ $con = connection();
 <?php
 include ("script/script.php");
 ?>
+
