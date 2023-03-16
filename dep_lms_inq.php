@@ -59,11 +59,15 @@ $row = $res->fetch_assoc();
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                            <a href="dep_inquiries.php" class="btn btn-success btn-sm" style="background-color:#07179a;">
-                            <i class="fa fa-arrow-left">
-                            </a></i><b>&nbsp;&nbsp;Learning Management System </b>  <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts -->          
-                            </h6>
-                            </div>
+                        
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <a href="dep_inquiries.php" class="btn btn-success btn-sm" style="background-color:#07179a;">
+                        <i class="fa fa-arrow-left">
+                        </a></i><b>&nbsp;&nbsp;Learning Management System </b>
+                        <input type="file" name="file" />
+                        <i class="bx bx-import"></i>
+                        <input style="border: 1px solid green;" type="submit" class="btn" name="importSubmit" value="Submit">
+                        </form>
                             
                                 <div class="card-body">
                             
