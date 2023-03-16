@@ -259,7 +259,7 @@ $row = $res->fetch_assoc();
                 <i class="bx bx-edit"></i>&nbsp;</a>
 
                 <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
-                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                <input type="hidden" name="id" value="<?php echo $row["inq_num"];?>">
                 </form>
                                                    
                                                 </td>

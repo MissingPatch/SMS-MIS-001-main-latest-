@@ -1,7 +1,5 @@
 <?php 
 session_start();
-include ("accesslevelsuperadmin.php");
-
  ?>
  
 <!DOCTYPE html>
@@ -12,6 +10,7 @@ include ("accesslevelsuperadmin.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/main.css" />
+ 
 
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
@@ -27,43 +26,95 @@ include ("accesslevelsuperadmin.php");
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-    <title>Management Information System</title>
+    <title>Bestlink College of the Philippines</title>
     <link rel="icon" href="images/logo.png" type="image/png">
   </head>
   <body>
-    <div class="loginContainer">
+    <div class="loginContainer" >
       <div class="d-lg-flex position-relative">
-        <div class="d-flex logoContainer">
+      <div class="d-flex logoContainer">
           <div class="polygon1 position-relative">
             <img class="logo" src="images/newLogin/logo.png" alt="bcp-logo" />
           </div>
           <div class="polygon2"></div>
         </div>
         <div
-          class="form-container d-flex justify-content-center w-100 p-3 p-lg-5"
+          class="form-container d-flex justify-content-center w-100 p-3 p-lg-5" style="height:100vh;"
         >
           <div class="m-auto">
             <div class="form-header1 ps-2 mb-5">
               <h1 class="header1 fw-bold fs-1 m-0">BCP</h1>
               <h1 class="header2 fw-bold fs-1 m-0"> MANAGEMENT INFORMATION SYSTEM </h1>
             </div>
-        
-              
+
+           <?php 
+              if(isset($_POST['selectedValue']))  {
+                $selectedValue = isset($_POST['selectedValue']) ? $_POST['selectedValue'] : '';
+                switch($selectedValue) {
+                  case 'Student':
+                    include('student/student_login.php');
+                    break;
+                  case 'Teacher':
+                    include('teacher_login.php');
+                    break;
+                  case 'Employee':
+                    include ("accesslevelsuperadmin.php");
+                    break;
+                  default:
+                  echo "<script>alert('Please select a valid option.');</script>";
+                }
+              }    
+           ?>
+            
+
+            <form method="POST" action="login.php">
+            <!-- Add a hidden input field to store the selected value -->
+            <input type="hidden" id="selectedValue" name="selectedValue">
+              <label htmlFor="dropdown" class="fw-semibold fs-6 mb-2">
+                Select Role:
+              </label>
+              <div id="dropdown" name="dropdown" class="dropdown">
+                <button
+                  class="dropdownMenu px-3 fw-normal btn dropdown-toggle w-100 d-flex justify-content-between align-items-center dropDownBorder"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  ...
+                </button>
+                <ul class="dropdown-menu w-100">
+                  <li>
+                    <button value="Employee" name="Employee" type="button" class="dropdown-item" onClick="handleDropdownClick('Employee')">
+                      Employee
+                    </button>
+                  </li>
+                  <li>
+                    <button value="Teacher" name="Teacher" type="button" class="dropdown-item" onClick="handleDropdownClick('Teacher')">
+                      Teacher
+                    </button>
+                  </li>
+                  <li>
+                    <button value="Student" name="Student" type="button" class="dropdown-item" onClick="handleDropdownClick('Student')">
+                      Student
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
               <span class="loginLineBreak my-4"></span>
-              <form class="user" action="accesslevelsuperadmin.php" method="POST">
               <div class="mb-3">
                 <label
                   htmlFor="exampleInputEmail1"
                   class="form-label fw-semibold fs-6"
                 >
-                  Email:
+                  Email
                 </label>
                 <input
-                  type="email" name="email" id="email" 
+                  type="email"
+                  name="email"
                   class="inputField input-form form-control px-3 fs-6 fw-normal"
-                  placeholder="Email"                
+                  id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  required
                 />
               </div>
               <div class="mb-3">
@@ -71,48 +122,56 @@ include ("accesslevelsuperadmin.php");
                   htmlFor="inputPassword"
                   class="form-label fw-semibold fs-6"
                 >
-                  Password:
+                  Password
                 </label>
                 <div id="login">
                   <div class="passwordContainer">
                     <input
-                      type="password" name="password" id="password1" 
+                      type="password"
                       class="inputField input-form form-control px-3 fs-6 fw-normal"
-                      placeholder="Password"
-                      
-                                                 required
+                      id="inputPassword"
+                      name="password"
                     />
-                    <i class="fa-solid fa-eye-slash" id="passwordIconId" hidden=""></i>
+                    <i class="fa-solid fa-eye-slash" id="passwordIconId"></i>
                   </div>
                 </div>
               </div>
 
-              <div class="mb-3">
-              <?php 
-                                        // Display the alert box
-                                        if (isset($_GET['error'])) {
-                                          echo "<p style='color:red;'>" . ("Invalid login, please try again")  . "</p>";
-                                        
-                                        } ?>   
-              
-              </div>
-              
               <button
-                type="submit"
-                name="LOGIN" id="LOGIN" class="buttonTemplate sumbit-button btn rounded-2 w-100 mt-3"
+                type="submit" name="LOGIN" id="LOGIN"
+                class="buttonTemplate sumbit-button btn rounded-2 w-100 mt-3"
               >
                 Log in
                 <!-- <i class="bx bx-log-in"></i> -->
               </button>
             </form>
-          
           </div>
         </div>
       </div>
     </div>
 
-  </body>
-</html>
+             <script>
+             function handleDropdownClick(value) {
+              // Update the text of the main button with the selected value
+              document.querySelector('.dropdownMenu').textContent = value;
+              
+              // Store the selected value in a hidden input field
+              document.querySelector('#selectedValue').value = value;
+              
+              // Perform other actions based on the selected value
+              if (value === 'Student') {
+
+              } else if (value === 'Teacher') {
+
+              } else if (value === 'Employee') {
+                
+              }
+            }
+            </script>
+
+        
+    
+
 <?php
 include ("script/script.php");
 ?>

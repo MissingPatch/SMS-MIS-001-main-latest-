@@ -53,17 +53,25 @@ if(isset($_POST['LOGIN']))  {
 
       // Check if user has reached the maximum number of logins
       if ($row['is_logged_in'] >= 3) {
-        header("Location: login.php?error=max_login_reached");
+        echo "<script>alert('max_login_reached');</script>";
+        echo "<script>window.location = 'login.php?error=max_login_reached';</script>";
         exit();
       }
 
         // Check if user is already logged in
         if ($row['is_logged_in']) {
-          header("Location: login.php?error=user_already_logged_in");
+          echo "<script>alert('User already logged in');</script>";
+          echo "<script>window.location = 'login.php?error=user_already_logged_in';</script>";
           exit();
       }
       
       if($row['access_level'] == 1){
+         // send OTP verification email
+         $mail->Subject = "OTP Verification";
+         $mail->Body = "Your OTP for verification is: $otp";
+         $mail->send();
+         $_SESSION['otp'] = $otp;
+         
         $_SESSION['ID'] = $row['ID'];
         $_SESSION['fname'] = $row['fname'];
         $_SESSION['lname'] = $row['lname'];
@@ -72,11 +80,7 @@ if(isset($_POST['LOGIN']))  {
         // Set is_logged_in flag to true
         $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
         $con->query($update_query);
-        // send OTP verification email
-        $mail->Subject = "OTP Verification";
-        $mail->Body = "Your OTP for verification is: $otp";
-        $mail->send();
-        $_SESSION['otp'] = $otp;
+       
 
         $update_query = "UPDATE mis_usermanagement SET otp = '$otp' WHERE ID = {$row['ID']}";
         $con->query($update_query);
@@ -122,8 +126,11 @@ if(isset($_POST['LOGIN']))  {
       log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
       header("Location: https://oes.bcpsms.com/");
     }
-  } else {
-    header("Location: login.php? error= ");
+  }
+
+  else {
+    echo "<script>alert('Invalid login, please try again');</script>";
+    echo "<script>window.location = 'login.php?error=Invalid login, please try again';</script>";
     exit();
   }
 }
