@@ -16,7 +16,7 @@ include("categorize_inq_email.php");
 
 $con = connection();
 @$id = $_GET['inq_num'];
-$sql = "SELECT * FROM mis_payment_method WHERE payment_desc IN ('Miscellaneous Fee') AND status ='Paid' ORDER BY OR_number";
+$sql = "SELECT * FROM mis_payment_method WHERE payment_desc IN ('Miscellaneous Fee') AND prelim ='Paid' ORDER BY OR_number";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
 
@@ -92,7 +92,7 @@ $row = $res->fetch_assoc();
                 <th>Semester</th>
                 <th>Mode of Payment</th>
                 <th>Payment Type</th>
-                <th>Status</th>
+                <th>Prelim</th>
                 <th>Date of Payment</th>
             </tr>
                                         </thead>
@@ -108,7 +108,7 @@ $row = $res->fetch_assoc();
                 <td><?php echo $row['semester']; ?></td>
                 <td><?php echo $row['payment_type']; ?></td>
                 <td><?php echo $row['payment_desc']; ?></td>
-                <td><?php echo $row['status']; ?></td>
+                <td><?php echo $row['prelim']; ?></td>
                 <td><?php echo $row['date']; ?></td>
             </tr>
                                             <?php }while($row = $res->fetch_assoc())  ?>

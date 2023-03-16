@@ -31,7 +31,7 @@ if(isset($_POST['importSubmit'])){
                 $semester = $line[5];
                 $payment_type = $line[6];
                 $payment_desc = $line[7];
-                $status = $line[8];
+                $prelim = $line[8];
                 $date = $line[9];
                 
                
@@ -40,10 +40,10 @@ if(isset($_POST['importSubmit'])){
                 
                 if($prevResult->num_rows > 0){
              
-                    $db->query("UPDATE mis_payment_method SET student_num = '".$student_num."', OR_number = '".$OR_number."', name = '".$name."', course = '".$course."', yearlevel = '".$yearlevel."', semester = '".$semester."', payment_type = '".$payment_type."', payment_desc = '".$payment_desc."', status = '".$status."', date = '".$date."','".$OR_number."'");
+                    $db->query("UPDATE mis_payment_method SET student_num = '".$student_num."', OR_number = '".$OR_number."', name = '".$name."', course = '".$course."', yearlevel = '".$yearlevel."', semester = '".$semester."', payment_type = '".$payment_type."', payment_desc = '".$payment_desc."', prelim = '".$prelim."', date = '".$date."','".$OR_number."'");
                 }else{
                    
-                    $db->query("INSERT INTO mis_payment_method (student_num, OR_number, name, course, yearlevel, semester, payment_type, payment_desc, status, date) VALUES ('".$student_num."', '".$OR_number."', '".$name."', '".$course."', '".$yearlevel."', '".$semester."', '".$payment_type."', '".$payment_desc."', '".$status."','".$date."')");
+                    $db->query("INSERT INTO mis_payment_method (student_num, OR_number, name, course, yearlevel, semester, payment_type, payment_desc, prelim, date) VALUES ('".$student_num."', '".$OR_number."', '".$name."', '".$course."', '".$yearlevel."', '".$semester."', '".$payment_type."', '".$payment_desc."', '".$prelim."','".$date."')");
                 }
             }
             
@@ -60,4 +60,4 @@ if(isset($_POST['importSubmit'])){
 }
 
 // Redirect to the listing page
-header("Location: ../dep_cra_inq.php".$qstring);
+header("Location: ../dep_lms_inq.php".$qstring);
