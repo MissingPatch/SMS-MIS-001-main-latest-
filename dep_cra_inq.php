@@ -16,7 +16,7 @@ include("categorize_inq_email.php");
 
 $con = connection();
 @$id = $_GET['inq_num'];
-$sql = "SELECT * FROM mis_categorize_inq WHERE department='CRAD' ORDER BY inq_num='$id'";
+$sql = "SELECT * FROM mis_payment_method WHERE payment_desc IN ('Research') AND status ='Paid' ORDER BY OR_number";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
 
@@ -69,11 +69,14 @@ $row = $res->fetch_assoc();
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
+                        <form action="MY-CSV/dep_research_importData.php" method="post" enctype="multipart/form-data">
                             &nbsp;<a href="dep_inquiries.php" class="btn btn-success btn-sm" style="background-color:#07177a;">
                             <i class="fa fa-arrow-left">
                             </a></i><b>&nbsp;&nbsp;CRAD Inquiries</b>
-                                <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts -->          
-                            </h6>
+                            <input type="file" name="file" />
+                        <i class="bx bx-import"></i>
+                        <input style="border: 1px solid green;" type="submit" class="btn" name="importSubmit" value="Submit">
+                        </form>
                             </div>
                             
                                 <div class="card-body">
@@ -81,33 +84,33 @@ $row = $res->fetch_assoc();
                                 <div class="table-responsive">
                                     <table id="example" class="table table-hover" style="width:100%">
                                         <thead>
-                                            <tr>
-                                                <th>Inquries ID</th>
-                                                <th>Inquiries Type</th>
-                                                <th>Department</th>           
-                                                <th>Date Requested</th>
-                                                <th>Action</th>
-                                            </tr>
+            <tr>
+                <th>Student ID</th>
+                <th>OR_number</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Year</th>
+                <th>Semester</th>
+                <th>Mode of Payment</th>
+                <th>Payment Type</th>
+                <th>Status</th>
+                <th>Date of Payment</th>
+            </tr>
                                         </thead>
                                         <tbody>
                                         <?php do{ ?>
-                                       
-                                            <tr>
-                                                <td><?php echo $row['inq_num']; ?></td>
-                                                <td><?php echo $row['inq_type']; ?></td>
-                                                <td><?php echo $row['department']; ?></td>                        
-                                                <td><?php echo $row['date_req']; ?></td>
-                                                <td>
-                                                    <form action="" method="POST">
-                                                    <a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;" data-toggle="modal" 
-                                                    data-target="#inq" data-inqnum="<?php echo $row['inq_num']; ?>">View Details</a>
-                                                       
-                                                    <input type="hidden" name="inq_num" value="<?php echo $row['inq_num']; ?>"> 
-                                                        <button class="btn btn-danger btn-sm" type="button">Remove</button>
-                                                    </form>
-                                                   
-                                                </td>
-                                            </tr>
+             <tr>
+                <td><?php echo $row['student_num']; ?></td>
+                <td><?php echo $row['OR_number']; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['course']; ?></td>
+                <td><?php echo $row['yearlevel']; ?></td>
+                <td><?php echo $row['semester']; ?></td>
+                <td><?php echo $row['payment_type']; ?></td>
+                <td><?php echo $row['payment_desc']; ?></td>
+                <td><?php echo $row['status']; ?></td>
+                <td><?php echo $row['date']; ?></td>
+            </tr>
                                             <?php }while($row = $res->fetch_assoc())  ?>
                                         </tbody>
                                     </table>
