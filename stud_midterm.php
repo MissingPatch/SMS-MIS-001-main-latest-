@@ -71,6 +71,7 @@ $row = $result->fetch_assoc();
                             <a href="stud_misc.php" class="btn btn-success btn-sm"  style="background-color:#07179a;">
                             <i class="fa fa-home"></i>
                             </a></i><b>&nbsp; Miscellaneous Midterm</b> 
+                            <a href="stud_midterm_exportData.php" class="btn" style="border: 1px solid red;"><i class="bx bx-export"></i> Export Midterm Paid Status </a> 
                             <a href="stud_finals.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right;margin-left:5px;"> Finals </a>   
                             <a href="stud_midterm.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right; margin-left:5px;";> Midterm </a>&nbsp;&nbsp;&nbsp;
                             <a href="stud_prelim.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right;"> Prelim </a>&nbsp;&nbsp;&nbsp;  
