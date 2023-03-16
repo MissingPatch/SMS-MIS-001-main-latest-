@@ -60,4 +60,4 @@ if(isset($_POST['importSubmit'])){
 }
 
 // Redirect to the listing page
-header("Location: ../dep_cra_inq.php".$qstring);
+header("Location: ../dep_enr_inq.php".$qstring);
