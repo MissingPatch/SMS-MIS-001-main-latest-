@@ -66,7 +66,7 @@ $row = $result->fetch_assoc();
                             <a href="listofbalance.php" class="btn btn-success btn-sm" style="background-color:#07179a;">
                             <i class="fa fa-arrow-left">
                             </a></i><b>&nbsp;Paid for Enrollment Fee </b>    
-                            </h6>
+                            <a href="stud_enrollment_exportData.php" class="btn" style="float: right; border: 1px solid red;"><i class="bx bx-export"></i> Export Paid Status </a> 
                             </div>
                                 
                                 <div class="card-body">
