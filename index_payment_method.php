@@ -179,90 +179,52 @@ include ("voiding_modal2.php");
 </div>
 </div>
 
-
-
-
-<!-- PIE CHART -->
-<?php
-// Query the database to retrieve payment method data
-$sql = "SELECT payment_type, count(*) as count FROM mis_payment_method GROUP BY payment_type";
-$result = $con->query($sql);
-
-$series = array();
-$labels = array();
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        array_push($series, $row["count"]);
-        array_push($labels, $row["payment_type"]);
-    }
-}
-
-// Close the database connection
-
-?>
-
 <!-- PIE CHART -->
 <div class="col-xl-5 col-md-4 mb-2 h-25">
     
-        <div class="card-body">
+        <div class="card-body" style="border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
             <div class="row no-gutters align-items-center">
                 <div class="index">
-                    <p style="text-align:center;"><b> Payment Method</b></p>
+                    <p style="text-align:center;"><b><i class="bx bxs-bank"></i> Payment Method </b></p>
                 </div>
-                <div id="pie"></div>
-                <script type="text/babel">
-                    class ApexChart extends React.Component {
-                        constructor(props) {
-                            super(props);
-                            this.state = {
-                                series: <?php echo json_encode($series); ?>,
-                                options: {
-                                    chart: {
-                                        width: 380,
-                                        type: 'pie',
-                                    },
-                                    labels: <?php echo json_encode($labels); ?>,
-                                    responsive: [{
-                                        breakpoint: 480,
+                <div id="pie" style="border: 1px solid grey;"></div>
+              
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-                                        options: {
-                                            chart: {
-                                                width: 200
-                                            },
-                                            title: {
-                                                float: true,
-                                                text: 'My Pie Chart Title',
-                                                fontSize: 18,
-                                                fontColor: 'black'
-                                            },
-                                            legend: {
-                                                position: 'bottom'
-                                            }
+      function drawChart() {
 
-                                        }
-                                    }]
-                                },
-                            };
-                        }
+        var data = google.visualization.arrayToDataTable([
+          ['students', 'contribution'],
+         <?php
+         $sql = "SELECT payment_type, count(*) as count FROM mis_payment_method GROUP BY payment_type";
+         $fire = mysqli_query($con,$sql);
+          while ($result = mysqli_fetch_assoc($fire)) {
+            echo"['".$result['payment_type']."',".$result['count']."],";
+          }
 
-                        render() {
-                            return (
-                                <div>
-                                    <div id="chartp">
-                                        <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
-                                    </div>
-                                    <div id="htmlp-dist"></div>
-                                </div>
-                            );
-                        }
-                    }
+         ?>
+        ]);
 
-                    const pie = document.querySelector('#pie');
-                    ReactDOM.render(React.createElement(ApexChart), pie);
-                </script>
+        var options = {
+          title: ''
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="piechart" style="width: 900px; height: 300px;"></div>
+
+
+
+                </div>
             </div>
         </div>
-    </div>
+
 
                 <hr>
                     <!-- Begin Page Content -->
