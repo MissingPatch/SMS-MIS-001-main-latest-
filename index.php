@@ -385,7 +385,8 @@ if ($result1 = mysqli_query($con, $sql1)) {
 				              <td class="month">Nov</td>
 				              <td class="month">Dec</td>
 				            </tr>
-				       
+                         
+                        <table class="dates-table w-100"> 
 				          <td class="day">Sun</td> 
 				          <td class="day">Mon</td> 
 				          <td class="day">Tue</td> 
