@@ -1,7 +1,7 @@
 student_num,OR_number,name,course,yearlevel,semester,payment_type,payment_desc,prelim,date
-2023001,1700001,"Daryl Estolonio",BSIT,"4th Year","1st Semester","BCP Cashier","Miscellaneous Fee",Paid,"2023-03-10 03:15:17"
-2023002,1700002,"Gemerken Zapanta",BSIT,"4th Year","1st Semester","Hello Money","Miscellaneous Fee",Paid,"2023-03-10 06:39:59"
-2023003,1700003,"Victor Higoy",BSIT,"4th Year","1st Semester","Hello Money","Miscellaneous Fee",Paid,"2023-03-10 06:41:36"
-2023004,1700004,"Christian Capitle",BSIT,"4th Year","1st Semester","Hello Money","Miscellaneous Fee",Paid,"2023-03-10 06:50:47"
-2023000,1700015,jose,BSIT,"4th Year","1st Semester",AUB,"Miscellaneous Fee",Paid,"2023-02-26 17:28:34"
-2023789,17000020,Ann,BSIT,"1st Year","1st Semester",AUB,"Miscellaneous Fee",Paid,"2023-02-26 17:43:47"
+2023001,1700001,Daryl Estolonio,BSIT,4th Year,1st Semester,BCP Cashier,Miscellaneous Fee,Paid,3/10/2023 3:15
+2023002,1700002,Gemerken Zapanta,BSIT,4th Year,1st Semester,Hello Money,Miscellaneous Fee,Paid,3/10/2023 6:39
+2023003,1700003,Victor Higoy,BSIT,4th Year,1st Semester,Hello Money,Miscellaneous Fee,Paid,3/10/2023 6:41
+2023004,1701104,Christian Capitle,BSIT,4th Year,1st Semester,Hello Money,Miscellaneous Fee,Paid,3/10/2023 6:50
+2023000,1705515,jose,BSIT,4th Year,1st Semester,AUB,Miscellaneous Fee,Paid,2/26/2023 17:28
+2023789,17000020,Ann,BSIT,1st Year,1st Semester,AUB,Miscellaneous Fee,Paid,2/26/2023 17:43

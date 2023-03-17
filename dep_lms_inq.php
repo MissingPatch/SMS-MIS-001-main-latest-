@@ -16,7 +16,7 @@ include("categorize_inq_email.php");
 
 $con = connection();
 @$id = $_GET['inq_num'];
-$sql = "SELECT * FROM mis_payment_method WHERE payment_desc IN ('Miscellaneous Fee') AND prelim ='Paid' ORDER BY OR_number";
+$sql = "SELECT * FROM mis_payment_method WHERE payment_desc='Miscellaneous Fee' ORDER BY OR_number";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
 
@@ -63,20 +63,33 @@ $row = $res->fetch_assoc();
                     <b> Department Inquiries </b></h5>
                     <p> </p>
 
+
+<?php
+include ("import_modal.php");
+?>
+
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         
-                    <form action="MY-CSV/dep_lms_importData.php" method="post" enctype="multipart/form-data">
+
                         <a href="dep_inquiries.php" class="btn btn-success btn-sm" style="background-color:#07179a;">
                         <i class="fa fa-arrow-left">
                         </a></i><b>&nbsp;&nbsp;Learning Management System </b>
-                        <input type="file" name="file" />
-                        <i class="bx bx-import"></i>
-                        <input style="border: 1px solid green;" type="submit" class="btn" name="importSubmit" value="Submit">
-                        </form>
+
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter6"  class="btn btn-success btn-sm" style="color: black; margin-left: 10px; background: none; float: right;"><i class="bx bx-import"></i>&nbsp; Upload Finals
+                        </a>
+
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter5"  class="btn btn-success btn-sm" style="color: black; margin-left: 10px; background: none; float: right;"><i class="bx bx-import"></i>&nbsp; Upload Midterm
+                        </a>
+
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter3"  class="btn btn-success btn-sm" style="color: black; background: none; float: right;"><i class="bx bx-import"></i>&nbsp; Upload Prelim
+                        </a>
+                        
+                        
+                        </div>
                             
                                 <div class="card-body">
                             
@@ -92,7 +105,6 @@ $row = $res->fetch_assoc();
                 <th>Semester</th>
                 <th>Mode of Payment</th>
                 <th>Payment Type</th>
-                <th>Prelim</th>
                 <th>Date of Payment</th>
             </tr>
                                         </thead>
@@ -108,7 +120,6 @@ $row = $res->fetch_assoc();
                 <td><?php echo $row['semester']; ?></td>
                 <td><?php echo $row['payment_type']; ?></td>
                 <td><?php echo $row['payment_desc']; ?></td>
-                <td><?php echo $row['prelim']; ?></td>
                 <td><?php echo $row['date']; ?></td>
             </tr>
                                             <?php }while($row = $res->fetch_assoc())  ?>
