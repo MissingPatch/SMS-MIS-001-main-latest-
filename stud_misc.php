@@ -69,9 +69,16 @@ $row = $result->fetch_assoc();
                             <div class="card-header py-3">
                             <a href="listofbalance.php" class="btn btn-success btn-sm"  style="background-color:#07179a;"><i class="fa fa-arrow-left">
                             </a></i><b>&nbsp; Miscellaneous Fee</b> 
-                            <a href="stud_prelim.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right; margin-left:5px;";> Prelim </a>&nbsp;&nbsp;&nbsp;  
-                            <a href="stud_midterm.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right; margin-left:5px;";> Midterm </a>&nbsp;&nbsp;&nbsp;
-                            <a href="stud_finals.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right;";> Finals </a>   
+                            
+                            <a href="stud_finals.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right; margin-left:5px;";> Finals 
+                            </a>&nbsp;&nbsp;&nbsp;
+
+                            <a href="stud_midterm.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right; margin-left:5px;";> Midterm 
+                            </a>&nbsp;&nbsp;&nbsp;  
+
+                            <a href="stud_prelim.php" class="btn btn-success btn-sm"  style="background-color:#07179a; float:right;";> Prelim </a>
+
+                            
                             </h6>
                             </div>
                                 
