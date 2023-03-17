@@ -1,6 +1,6 @@
 <?php
 // connecting to database
-$conn = mysqli_connect("localhost", "u476821515_mis_database", "L6_mis@!", "u476821515_mis_database") or die("Database Error");
+$conn = mysqli_connect("localhost", "root", "", "mis_database_003") or die("Database Error");
 
 // getting user message through ajax
 $getMesg = mysqli_real_escape_string($conn, $_POST['text']); 

@@ -1,8 +1,8 @@
 <?php
 $host="localhost";
-$user="u476821515_mis_database";
-$password="L6_mis@!";
-$db="u476821515_mis_database";  
+$user="root";
+$password="";
+$db="mis_database_003";  
 
  $conn  = mysqli_connect($host, $user, $password, $db);
   if(!$conn){
