@@ -83,7 +83,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                             printf( $rowcount);?></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                                        <i class="fa fa-users fa-2x text-gray-300" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                             printf( $rowcount);?></div>
                                     </div>
                                     <div class="col-auto">
-                                    <i class="fas fa-user fa-2x text-gray-300" href="teacher_information.php"></i>
+                                    <i class="fa fa-credit-card-alt fa-2x text-gray-300" href="teacher_information.php"></i>
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-user fa-2x text-gray-300 text-gray-300"></i>
+                                        <i class="fa fa-credit-card-alt fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                             printf( $rowcount);?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fa fa-commenting fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                             printf( $rowcount);?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fa fa-flag fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +304,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                             printf( $rowcount);?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fa fa-comments fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -342,7 +342,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                             printf( $rowcount);?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fa fa-user fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

@@ -15,6 +15,5 @@ if(isset($_POST['submit'])){
 
     // Redirect the user to a different page
     header('Location: ' . $_SERVER['REQUEST_URI']);
-    exit();
 } 
 ?>

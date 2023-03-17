@@ -31,6 +31,8 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+
+    
     <title>Management Information System</title>
     <link rel="icon" href="images/logo.png" type="image/png">
 
@@ -123,10 +125,8 @@
                 <ul class="dropdown-menu border shadow dropdownContainer">
                 <form action=" "  method="POST" >
                   <li><a class="dropdown-item" href="empprofile.php?ID=<?php echo$_SESSION['ID'];?>">
-                  <span> Signed in as </span> 
+                  <span style="color: #007bff; font-size: 13px;"> Signed in as </span> 
                   <br>
-
-                  
                   <?php
                 
                   echo "<img src='uploads/". $image. "' class='rounded-circle'
