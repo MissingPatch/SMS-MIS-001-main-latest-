@@ -101,7 +101,7 @@ $rowcount = mysqli_num_rows( $result);
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <center>
-                        <div class="" style="font-size: 18px; font-family: Monospace; color: white; width: 100%; height: 95px; font-size: 18px;">
+                        <div class="" style="font-size: 18px; font-family: Monospace; color: white; width: 100%; height: 95px; font-size: 15px;">
                         <b style="background-color: hsla(120, 100%, 25%, 0.3); border: 1px solid white; border-radius: 20px;">&nbsp; BCP Cashier &nbsp; </b> </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800" style="color: white; font-size: 30px;"><b><?php printf( $rowcount);?></b></div>
                         </center>
@@ -141,7 +141,7 @@ $rowcount = mysqli_num_rows( $result);
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <center>
-                        <div class="" style="font-size: 18px; font-family: Monospace; color: white; width: 100%; height: 95px; font-size: 20px;">
+                        <div class="" style="font-size: 18px; font-family: Monospace; color: white; width: 100%; height: 95px; font-size: 15px;">
                         <b style="background-color: hsla(120, 100%, 25%, 0.3); border: 1px solid white; border-radius: 20px;">&nbsp; Asia United Bank</b> </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800" style="color: white; font-size: 30px;"><b><?php printf( $rowcount);?></b></div>
                         </center>
@@ -180,7 +180,7 @@ $rowcount = mysqli_num_rows( $result);
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <center>
-                        <div class="" style="font-size: 18px; font-family: Monospace; color: white; width: 100%; height: 95px; font-size: 20px;">
+                        <div class="" style="font-size: 18px; font-family: Monospace; color: white; width: 100%; height: 95px; font-size: 15px;">
                         <b style="background-color: hsla(120, 100%, 25%, 0.3); border: 1px solid white; border-radius: 20px;">&nbsp; Hello Money App</b> </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800" style="color: white; font-size: 30px;"><b><?php printf( $rowcount);?></b></div>
                         </center>
@@ -212,18 +212,15 @@ $rowcount = mysqli_num_rows( $result);
 ?>
     <!-- analytics -->
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-        <a href="" style="text-decoration:none; color:black;">
-            <div class="card-body" >
+        <div class="card border-left-primary shadow h-100 py-2" style="background-image: url('image/others.png'); background-repeat: no-repeat; background-size: cover; opacity: 0.8;">
+
+            <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <center>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="80px" fill="currentColor" class="bi bi-bank2" viewBox="0 0 16 16">
-                        <path d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z"/>
-                        </svg>
-                        <div style="font-size: 18px; font-family: Monospace; color: white">
-                        <b style="background-color: hsla(120, 100%, 25%, 0.3); border: 1px solid white; border-radius: 20px;">&nbsp; Other Mode of Payment &nbsp;</b></div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php printf( $rowcount);?></div>
+                        <div class="" style="font-size: 18px; font-family: Monospace; color: white; width: 100%; height: 95px; font-size: 15px;">
+                        <b style="background-color: hsla(120, 100%, 25%, 0.3); border: 1px solid white; border-radius: 20px;">&nbsp; Other Payment Method</b> </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" style="color: white; font-size: 30px;"><b><?php printf( $rowcount);?></b></div>
                         </center>
                     </div>
                     <div class="col-auto">
