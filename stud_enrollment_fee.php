@@ -66,7 +66,7 @@ $row = $result->fetch_assoc();
                             <a href="listofbalance.php" class="btn btn-success btn-sm" style="background-color:#07179a;">
                             <i class="fa fa-arrow-left">
                             </a></i><b>&nbsp;Paid for Enrollment Fee </b>    
-                            <a href="stud_enrollment_exportData.php" class="btn" style="float: right; border: 1px solid red;"><i class="bx bx-export"></i> Export Paid Status </a> 
+                            <a href="stud_enrollment_exportData.php" class="btn" style="float: right; border: 1px solid red;"><i class="bx bx-export"></i> Download Paid Status </a> 
                             </div>
                                 
                                 <div class="card-body">
@@ -82,7 +82,6 @@ $row = $result->fetch_assoc();
                                         <th>Mode of Payment</th>
                                         <th>Date</th>
                                         <th>Payment Type</th>
-                                        <th>Amount</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                         </tr>
@@ -99,7 +98,6 @@ $row = $result->fetch_assoc();
                                         <td><?php echo $row['payment_type'];?></td>
                                          <td><?php echo $row['date'];?></td>
                                         <td><?php echo $row['payment_desc'];?></td>
-                                        <td><?php echo $row['amount'];?></td>
                                         <td><?php echo $row['status'];?></td> 
                                         
                                        
