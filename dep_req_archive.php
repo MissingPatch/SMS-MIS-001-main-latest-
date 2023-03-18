@@ -16,7 +16,6 @@ include ("include/sidebar.php");
 
 ?>
 
-
         <div class="container-fluid">
         <div class="main-body">
         <!-- Content Row -->
@@ -76,54 +75,53 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
 }  
 ?>  
 
-        <div class="card-body">
-           <div class="table-responsive">
-              <table id="example" class="table" style="width:100%">
-              <thead>
-                <tr>  
-                <th>No.</th> 
-                <th>Inquiries Type</th>   
-                <th>Department</th>  
-                <th>Date Requsted</th>  
-                <th>Status</th> 
-                <th>Action</th>  
-           </tr>  
-</thead>
-           <?php  
-           $i=1;  
-           if (mysqli_num_rows($sql)>0) {  
-                 while ($row=mysqli_fetch_assoc($sql)) { ?>  
-                 <tr>  
-                      <td><?php echo $i++ ?></td>  
-                      <td><?php echo $row['inq_type'] ?></td>  
-                      <td><?php echo $row['department'] ?></td>  
-                      <td><?php echo $row['date_req'] ?></td> 
-                      <td>  
-                           <?php  
-                           if ($row['status']==1) {  
-                                echo "Pending";  
-                           }if ($row['status']==2) {  
-                                echo "Accept";  
-                           }if ($row['status']==3) {  
-                                echo "<p style='font-size: 12px; margin-right: 15%; margin-left: 15%; color: white; background: red; text-align: center; border-radius: 12px;'> Rejected </p>";  
-                           }  
-                           ?>  
-                      </td>  
-                      <td>  
-                           <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
-                                <option value="">Change Status</option>  
-                                <option value="1">Mark as Pending</option>  
-                                <option value="2">Accept Request</option>   
-                           </select>  
-                      </td>  
-                 </tr>       
-           <?php      }  
-            } ?>  
-                                    </table>
-                                        </div>
-                                        </div>
- 
-</div>
+               <div class="card-body">
+                    <div class="table-responsive">
+                    <table id="example" class="table" style="width:100%">
+                    <thead>
+                         <tr>  
+                         <th>No.</th> 
+                         <th>Inquiries Type</th>   
+                         <th>Department</th>  
+                         <th>Date Requsted</th>  
+                         <th>Status</th> 
+                         <th>Action</th>  
+                    </tr>  
+                    </thead>
+                    <?php  
+                    $i=1;  
+                    if (mysqli_num_rows($sql)>0) {  
+                         while ($row=mysqli_fetch_assoc($sql)) { ?>  
+                         <tr>  
+                              <td><?php echo $i++ ?></td>  
+                              <td><?php echo $row['inq_type'] ?></td>  
+                              <td><?php echo $row['department'] ?></td>  
+                              <td><?php echo $row['date_req'] ?></td> 
+                              <td>  
+                                   <?php  
+                                   if ($row['status']==1) {  
+                                        echo "Pending";  
+                                   }if ($row['status']==2) {  
+                                        echo "Accept";  
+                                   }if ($row['status']==3) {  
+                                        echo "<p style='font-size: 12px; margin-right: 15%; margin-left: 15%; color: white; background: red; text-align: center; border-radius: 12px;'> Rejected </p>";  
+                                   }  
+                                   ?>  
+                              </td>  
+                              <td>  
+                                   <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
+                                        <option value="">Change Status</option>  
+                                        <option value="1">Mark as Pending</option>  
+                                        <option value="2">Accept Request</option>   
+                                   </select>  
+                              </td>  
+                         </tr>       
+                    <?php      }  
+                    } ?>  
+                    </table>
+                    </div>
+                    </div>
+                    </div>
 
 
     
@@ -138,7 +136,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
 
                     
                     <script type="text/javascript">  
-      function status_update(value,inq_num){  
+           function status_update(value,inq_num){  
            //alert(id);  
            let url = "http://localhost/SMS-MIS-001-main-latest-/dep_req_archive.php";  
            window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
