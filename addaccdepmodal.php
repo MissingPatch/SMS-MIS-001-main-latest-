@@ -23,10 +23,6 @@
                             <input type="email" class="form-control" placeholder="Email" name="email"> 
                             <br>
 
-                            <label>Password:</label>
-                            <input type="password" class="form-control" placeholder="Password" name="pass">
-                            <br>
-
                             <label>Firstname:</label>
                             <input type="text" class="form-control" placeholder="Firstname" name="fname"> 
                             <br>

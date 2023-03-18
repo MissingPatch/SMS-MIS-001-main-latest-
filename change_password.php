@@ -15,7 +15,7 @@ if(isset($_POST['update'])){
 
     // Check if old password is equal to current password and new password and confirm password are equal
     if ($_POST['pass'] == $row['pass'] && $_POST['newpass'] == $_POST['confirmpass']) {
-        $pass = $_POST['newpass'];
+        $pass = password_hash($_POST['newpass'], PASSWORD_DEFAULT);
     }
     if($_POST['newpass'] != $_POST['confirmpass']){
         echo "<script>alert('Update Failed .');</script>";
