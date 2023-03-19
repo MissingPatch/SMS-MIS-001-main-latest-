@@ -88,7 +88,8 @@ $row = $result->fetch_assoc();
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{
+                                        if (!empty($row)){ ?>
                                         <tr>
                                         <td><?php echo $row['OR_number'];?></td>                       
                                         <td><?php echo $row['student_num'];?></td>
@@ -119,7 +120,8 @@ $row = $result->fetch_assoc();
                                     
 
                                     </tr>
-                                    <?php }while($row = $result->fetch_assoc()); ?>
+                                    <?php } 
+                                     }while($row = $result->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>

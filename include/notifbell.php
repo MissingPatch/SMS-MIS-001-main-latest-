@@ -26,7 +26,8 @@ $con = connection();
     </a>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
     <h6 class="dropdown-header">New Requests <a href="dep_request.php" style="float:right; text-decoration: none;">View all</a></h6>
-    <?php  do { ?>
+    <?php  do 
+    if (!empty($row)){ { ?>
       <a class="dropdown-item" href="#">
         <div class="d-flex align-items-start">
           <div class="icon me-3"><i class="bx bx-message-square-check"></i></div>
@@ -39,7 +40,7 @@ $con = connection();
         </div>
       </a>
       <div class="dropdown-divider"></div>
-    <?php }while ($row = $inq->fetch_assoc()) ?>
+    <?php }}while ($row = $inq->fetch_assoc()) ?>
   </div>
 </div>
 
