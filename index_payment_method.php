@@ -103,7 +103,7 @@ include ("voiding_modal2.php");
              data: {
                  labels: <?php echo json_encode($month_names); ?>,
                  datasets: [{
-                     label: 'Payment Statistics Every Month',
+                     label: 'Payment Statistics Monitoring',
                      data: <?php echo json_encode($data_array); ?>,
                      backgroundColor: 'rgb(51, 102, 255)',
                      borderColor: 'rgba(54, 162, 235, 1)',
