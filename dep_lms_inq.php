@@ -109,7 +109,8 @@ include ("import_modal.php");
             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php do{ ?>
+                                        <?php do{ 
+                                            if (!empty($row)){ ?>
                                        
                                             <tr>
                 <td><?php echo $row['student_num']; ?></td>
@@ -122,7 +123,7 @@ include ("import_modal.php");
                 <td><?php echo $row['payment_desc']; ?></td>
                 <td><?php echo $row['date']; ?></td>
             </tr>
-                                            <?php }while($row = $res->fetch_assoc())  ?>
+                                            <?php }}while($row = $res->fetch_assoc())  ?>
                                         </tbody>
                                     </table>
                                     <script>

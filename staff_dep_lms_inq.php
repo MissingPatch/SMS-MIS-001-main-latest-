@@ -79,7 +79,8 @@ $row = $res->fetch_assoc();
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php do{ ?>
+                                        <?php do{ 
+                                            if (!empty($row)){ ?>
                                        
                                             <tr>
                                                 <td><?php echo $row['inq_num']; ?></td>
@@ -97,7 +98,7 @@ $row = $res->fetch_assoc();
                                                    
                                                 </td>
                                             </tr>
-                                            <?php }while($row = $res->fetch_assoc())  ?>
+                                            <?php }}while($row = $res->fetch_assoc())  ?>
                                         </tbody>
                                     </table>
                                     <script>
