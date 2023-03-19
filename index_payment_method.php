@@ -65,7 +65,6 @@ include ("voiding_modal2.php");
 &lt;ReactApexChart options={this.state.options} series={this.state.series} type=&quot;bar&quot; height={350} /&gt;
 &lt;/div&gt;
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <div class="card-body">   
@@ -73,23 +72,23 @@ include ("voiding_modal2.php");
      <canvas id="myChart"></canvas>
  </div>
  <?php
-     $sql = "SELECT DATE_FORMAT(added_at, '%b') AS month_name, YEAR(added_at) AS year, id, COUNT(*) AS number FROM mis_payment_method WHERE MONTH(added_at) GROUP BY year, id ORDER BY year, month_name ASC";
+     $sql = "SELECT DATE_FORMAT(date, '%b') AS month_name, YEAR(date) AS year, OR_number, COUNT(*) AS number FROM mis_payment_method WHERE MONTH(date) GROUP BY year, OR_number ORDER BY year, month_name ASC";
      $result = mysqli_query($con, $sql);
      $data = [];
      $month_names = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
      $data_array = array_fill(0, 12, 0); // Initialize the data array with zeros
 
-     $total_enrollees = [];
+     $total_paid = [];
 
      while ($row = mysqli_fetch_assoc($result)) {
          $month_index = array_search($row['month_name'], $month_names); // Get the index of the month
          $data_array[$month_index] += $row['number']; // Add the data for the corresponding month
 
-         if (!isset($total_enrollees[$row['id']])) {
-             $total_enrollees[$row['id']] = 0;
+         if (!isset($total_paid[$row['OR_number']])) {
+             $total_paid[$row['OR_number']] = 0;
          }
 
-         $total_enrollees[$row['id']] += $row['number']; // Add the number of enrollees for the corresponding ID
+         $total_paid[$row['OR_number']] += $row['number']; // Add the number of enrollees for the corresponding ID
      }
 
      // Get the total count of data in the table
@@ -104,9 +103,9 @@ include ("voiding_modal2.php");
              data: {
                  labels: <?php echo json_encode($month_names); ?>,
                  datasets: [{
-                     label: 'Enrollees This Semester',
+                     label: 'Payment Statistics Every Month',
                      data: <?php echo json_encode($data_array); ?>,
-                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                     backgroundColor: 'rgb(51, 102, 255)',
                      borderColor: 'rgba(54, 162, 235, 1)',
                      borderWidth: 1
                  }]
@@ -130,10 +129,10 @@ include ("voiding_modal2.php");
          var myChart2 = new Chart(ctx2, {
              type: 'bar',
              data: {
-                 labels: <?php echo json_encode(array_keys($total_enrollees)); ?>,
+                 labels: <?php echo json_encode(array_keys($total_paid)); ?>,
                  datasets: [{
                      label: 'Total Enrollees by ID',
-                     data: <?php echo json_encode(array_values($total_enrollees)); ?>,
+                     data: <?php echo json_encode(array_values($total_paid)); ?>,
                      backgroundColor: 'rgba(54, 162, 235, 0.2)',
                      borderColor: 'rgba(54, 162, 235, 1)',
                      borderWidth: 1
@@ -152,6 +151,7 @@ include ("voiding_modal2.php");
                                                     </script>
                                             </div>  
                                         </div>
+
 </div>
 </div>
 

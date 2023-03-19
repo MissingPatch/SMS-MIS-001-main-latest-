@@ -68,6 +68,7 @@ if ($result = mysqli_query($con, $sql)) {
         <?php  
         $count = 0; // initialize a counter variable
         do { 
+            if (!empty($row)){
             $count++; // increment the counter on each iteration
             if ($count <= 3) { // display only the first three items
         ?>
@@ -81,7 +82,7 @@ if ($result = mysqli_query($con, $sql)) {
                 </div>
             </a>
             <div class="dropdown-divider"></div>
-        <?php } } while ($row = $rep->fetch_assoc()) ?>
+        <?php } }} while ($row = $rep->fetch_assoc()) ?>
    
     </div>
 </div>
