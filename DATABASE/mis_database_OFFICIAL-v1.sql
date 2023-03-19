@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2023 at 08:02 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 19, 2023 at 09:06 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,78 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ams_login`
---
-
-CREATE TABLE `ams_login` (
-  `ID` int(11) NOT NULL,
-  `user_id` varchar(6) NOT NULL,
-  `password` varchar(25) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `user_middle` varchar(200) NOT NULL,
-  `user_last` varchar(50) NOT NULL,
-  `user_position` varchar(50) NOT NULL,
-  `department` varchar(100) NOT NULL,
-  `contact` bigint(20) NOT NULL,
-  `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ams_login`
---
-
-INSERT INTO `ams_login` (`ID`, `user_id`, `password`, `user_name`, `user_middle`, `user_last`, `user_position`, `department`, `contact`, `email`) VALUES
-(1, 'adm001', 'admin123', 'Ramel', 'Oliva', 'Millanes', 'Admin', 'Admin', 965847548, 'emailtesting@gmail.com'),
-(2, 'sct001', 'mariaella', 'Ella', '', 'Pusay', 'Secretary', 'CCS', 0, ''),
-(4, 'ph001', 'triciamae', 'Tricia', '', 'Robica', 'Program Head', 'CCS', 0, '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ems_event`
---
-
-CREATE TABLE `ems_event` (
-  `id` varchar(20) NOT NULL DEFAULT '0',
-  `title` varchar(100) NOT NULL,
-  `description` varchar(2000) NOT NULL,
-  `participants` varchar(50) NOT NULL,
-  `modality` varchar(50) NOT NULL,
-  `start_datetime` datetime NOT NULL,
-  `end_datetime` datetime NOT NULL,
-  `venue` varchar(100) NOT NULL,
-  `incharge` varchar(100) NOT NULL,
-  `rqt_id` int(11) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status` varchar(20) NOT NULL DEFAULT 'Pending',
-  `approval` varchar(50) NOT NULL,
-  `reason` varchar(10000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ems_event`
---
-
-INSERT INTO `ems_event` (`id`, `title`, `description`, `participants`, `modality`, `start_datetime`, `end_datetime`, `venue`, `incharge`, `rqt_id`, `time`, `status`, `approval`, `reason`) VALUES
-('Event_20213', 'test', 'test', 'test', 'face to face', '2023-02-01 23:41:00', '2023-02-02 23:41:00', 'BCP Main Campus', 'test', 1, '2023-02-12 15:42:08', 'Pending', '', ''),
-('Event_20236', 'Foundation Day', 'BCP 15th Anniversary ', 'All Students', 'face to face', '2023-02-01 06:30:00', '2023-02-03 20:00:00', 'BCP MV Campus', 'Mr. Ian', 2, '2023-02-12 05:16:19', 'Approved', 'admin', ''),
-('Event_20237', 'Research Festival', 'Competing of everyones research', 'All Students', 'face to face', '2023-02-13 06:00:00', '2023-02-14 06:00:00', 'BCP MV Campus', 'Mr. Bean', 2, '2023-02-11 08:41:38', 'Pending', '', ''),
-('Event_20238', 'SSG Meeting', 'New Agenda', 'SSG', 'face to face', '2023-02-12 13:13:00', '2023-02-13 13:13:00', 'BCP MV Campus Gym', 'Mr. Popo', 1, '2023-02-12 05:14:50', 'Pending', '', '');
-
---
--- Triggers `ems_event`
---
-DELIMITER $$
-CREATE TRIGGER `tg_event_insert` BEFORE INSERT ON `ems_event` FOR EACH ROW BEGIN
-  INSERT INTO ems_event_seq VALUES (NULL);
-  SET NEW.id = CONCAT('Event_', LPAD(LAST_INSERT_ID(), 8, '2023'));
-END
-$$
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `mis_activity_logs`
 --
 
@@ -106,7 +34,7 @@ CREATE TABLE `mis_activity_logs` (
   `activity_type` varchar(225) NOT NULL,
   `ip_address` varchar(15) NOT NULL,
   `activity_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_activity_logs`
@@ -2392,7 +2320,7 @@ CREATE TABLE `mis_announcement` (
   `descript` text NOT NULL,
   `start_datetime` datetime NOT NULL,
   `end_datetime` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_announcement`
@@ -2411,11 +2339,11 @@ INSERT INTO `mis_announcement` (`id`, `title`, `descript`, `start_datetime`, `en
 
 CREATE TABLE `mis_categorize_inq` (
   `inq_num` int(100) NOT NULL,
-  `inq_type` varchar(100) NOT NULL,
-  `department` varchar(100) NOT NULL,
-  `file_name` varchar(250) NOT NULL,
+  `inq_type` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `department` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `file_name` varchar(250) COLLATE latin1_general_ci NOT NULL,
   `date_req` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status` enum('1','2','3') NOT NULL DEFAULT '1'
+  `status` enum('1','2','3') COLLATE latin1_general_ci NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
@@ -2437,7 +2365,7 @@ CREATE TABLE `mis_chatbot` (
   `id` int(11) NOT NULL,
   `queries` varchar(300) NOT NULL,
   `replies` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_chatbot`
@@ -2462,7 +2390,7 @@ CREATE TABLE `mis_concern` (
   `replies` varchar(1000) NOT NULL,
   `qA` int(1) NOT NULL,
   `fetch_concern` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_concern`
@@ -2519,7 +2447,7 @@ CREATE TABLE `mis_grades` (
   `sub_title3` varchar(255) NOT NULL,
   `sub_title4` varchar(255) NOT NULL,
   `sub_title5` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_grades`
@@ -2541,11 +2469,11 @@ INSERT INTO `mis_grades` (`stud_id`, `fname`, `mname`, `lname`, `section`, `year
 CREATE TABLE `mis_man_inc_rep` (
   `rep_id` int(11) NOT NULL,
   `ID` int(11) NOT NULL,
-  `type` varchar(100) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `department` varchar(100) NOT NULL,
+  `type` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `description` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `department` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status` enum('Read','Unread') NOT NULL DEFAULT 'Unread'
+  `status` enum('Read','Unread') COLLATE latin1_general_ci NOT NULL DEFAULT 'Unread'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
@@ -2566,16 +2494,16 @@ INSERT INTO `mis_man_inc_rep` (`rep_id`, `ID`, `type`, `description`, `departmen
 
 CREATE TABLE `mis_paidbooks` (
   `stud_num` int(11) NOT NULL,
-  `fname` varchar(100) NOT NULL,
-  `lname` varchar(100) NOT NULL,
+  `fname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_amount` int(100) NOT NULL,
   `balance` int(100) NOT NULL,
-  `payment_type` varchar(100) NOT NULL,
-  `payment_method` varchar(100) NOT NULL,
+  `payment_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `invoice_num` int(100) NOT NULL,
-  `status` varchar(100) NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp(),
-  `books` varchar(300) NOT NULL
+  `books` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2593,14 +2521,14 @@ INSERT INTO `mis_paidbooks` (`stud_num`, `fname`, `lname`, `payment_amount`, `ba
 
 CREATE TABLE `mis_paiduniform` (
   `stud_num` int(11) NOT NULL,
-  `fname` varchar(100) NOT NULL,
-  `lname` varchar(100) NOT NULL,
+  `fname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_amount` int(100) NOT NULL,
-  `payment_type` varchar(100) NOT NULL,
-  `payment_method` varchar(100) NOT NULL,
+  `payment_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `invoice_num` int(100) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp(),
-  `uniform` varchar(300) NOT NULL
+  `uniform` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2636,7 +2564,7 @@ CREATE TABLE `mis_payment_method` (
   `semester` varchar(255) NOT NULL,
   `course` varchar(255) NOT NULL,
   `yearlevel` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_payment_method`
@@ -2689,14 +2617,14 @@ INSERT INTO `mis_payment_method` (`OR_number`, `student_num`, `name`, `payment_t
 
 CREATE TABLE `mis_pms` (
   `stud_num` int(11) NOT NULL,
-  `fname` varchar(100) NOT NULL,
-  `lname` varchar(100) NOT NULL,
+  `fname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_amount` int(100) NOT NULL,
   `balance` int(100) NOT NULL,
-  `payment_type` varchar(100) NOT NULL,
-  `payment_method` varchar(100) NOT NULL,
+  `payment_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `invoice_num` int(100) NOT NULL,
-  `status` varchar(100) NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -2729,7 +2657,7 @@ CREATE TABLE `mis_student_users` (
   `is_logged_in` tinyint(1) NOT NULL,
   `auth` tinyint(1) DEFAULT NULL,
   `otp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_student_users`
@@ -2755,22 +2683,22 @@ INSERT INTO `mis_student_users` (`user_id`, `unique_id`, `fname`, `lname`, `role
 
 CREATE TABLE `mis_stud_info` (
   `stud_num` int(11) NOT NULL,
-  `program_code` varchar(250) NOT NULL,
-  `course` varchar(255) NOT NULL,
-  `fname` varchar(100) NOT NULL,
-  `lname` varchar(100) NOT NULL,
-  `sex` varchar(100) NOT NULL,
-  `suffix` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `mobilenum` varchar(100) NOT NULL,
-  `ylvl` varchar(100) NOT NULL,
+  `program_code` varchar(250) COLLATE latin1_general_ci NOT NULL,
+  `course` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `fname` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `lname` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `sex` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `suffix` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `email` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `mobilenum` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `ylvl` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `bal` int(100) NOT NULL,
-  `role` varchar(100) NOT NULL,
-  `student_status` varchar(100) NOT NULL,
+  `role` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `student_status` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `img_name` blob NOT NULL,
-  `company` varchar(100) NOT NULL,
-  `major` varchar(255) NOT NULL,
-  `section` varchar(255) NOT NULL,
+  `company` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `major` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `section` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `year` year(4) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -2804,7 +2732,7 @@ CREATE TABLE `mis_table_course` (
   `program_code` varchar(250) NOT NULL,
   `course` varchar(255) NOT NULL,
   `year` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_table_course`
@@ -2837,7 +2765,7 @@ CREATE TABLE `mis_teacher_information` (
   `certification` varchar(250) NOT NULL,
   `company` varchar(255) NOT NULL,
   `sex` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mis_teacher_information`
@@ -2858,10 +2786,10 @@ INSERT INTO `mis_teacher_information` (`ID`, `name`, `email`, `password`, `phone
 
 CREATE TABLE `mis_type_req` (
   `req_id` int(11) NOT NULL,
-  `req_type` varchar(100) NOT NULL,
-  `Description` varchar(100) NOT NULL,
-  `response_format` varchar(100) NOT NULL,
-  `department` varchar(100) NOT NULL,
+  `req_type` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `Description` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `response_format` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `department` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -2881,22 +2809,22 @@ INSERT INTO `mis_type_req` (`req_id`, `req_type`, `Description`, `response_forma
 
 CREATE TABLE `mis_usermanagement` (
   `ID` int(11) NOT NULL,
-  `pass` varchar(50) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(100) NOT NULL,
-  `suffix` varchar(100) NOT NULL,
-  `sex` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `mobilenum` varchar(100) NOT NULL,
-  `home_address` varchar(500) NOT NULL,
-  `department` varchar(255) NOT NULL,
-  `dep_code` varchar(250) NOT NULL,
-  `role` varchar(255) NOT NULL,
-  `company` varchar(100) NOT NULL,
+  `pass` varchar(50) COLLATE latin1_general_ci NOT NULL,
+  `fname` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `lname` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `suffix` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `sex` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `email` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `mobilenum` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `home_address` varchar(500) COLLATE latin1_general_ci NOT NULL,
+  `department` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `dep_code` varchar(250) COLLATE latin1_general_ci NOT NULL,
+  `role` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `company` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `img_name` blob NOT NULL,
   `otp` int(11) NOT NULL,
   `date_added` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `access_level` varchar(100) NOT NULL,
+  `access_level` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `is_logged_in` tinyint(1) DEFAULT 0,
   `auth` tinyint(1) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
@@ -2950,63 +2878,9 @@ INSERT INTO `mis_usermanagement` (`ID`, `pass`, `fname`, `lname`, `suffix`, `sex
 (123456937, '#MIS2023s', 'Harold', 'Niegos', '', 'Male', 'harold.niegos@gmail.com', '09504506241', 'BATASAN HILLS', 'Management Information System', 'MIS', 'Admin', 'BCP', '', 0, '2023-03-18 18:59:04', '2', 0, 0),
 (123456952, '#AMS2023s', 'Ramel', 'Millanes', '', 'Male ', 'adm001@bcp.com\r\n', '094587451254', 'Quezon City', 'Academic Management System', 'AMS', 'Admin', 'Bestlink College of the Philippines', '', 0, '2023-03-18 18:59:04', '', 0, NULL);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `registrar_studentlist`
---
-
-CREATE TABLE `registrar_studentlist` (
-  `Student_ID` int(8) NOT NULL,
-  `Lastname` varchar(15) NOT NULL,
-  `Firstname` varchar(25) NOT NULL,
-  `Middlename` varchar(25) NOT NULL,
-  `Suffix` varchar(8) DEFAULT NULL,
-  `Email` varchar(75) DEFAULT NULL,
-  `Gender` text NOT NULL,
-  `Age` int(3) NOT NULL,
-  `Birthday` date NOT NULL,
-  `Course` varchar(25) NOT NULL,
-  `Major` varchar(30) DEFAULT NULL,
-  `Civil Status` text NOT NULL,
-  `Citizenship` text NOT NULL,
-  `Address_No` varchar(120) NOT NULL,
-  `Barangay` varchar(12) NOT NULL,
-  `Municipality` varchar(30) NOT NULL,
-  `Contact_No` bigint(11) DEFAULT NULL,
-  `Guardian` varchar(50) NOT NULL,
-  `Guardian_Contact` bigint(11) NOT NULL,
-  `Guardian_Occu` varchar(25) NOT NULL,
-  `Last_School` varchar(65) NOT NULL,
-  `Year_Start` int(5) NOT NULL,
-  `Year_End` int(5) NOT NULL,
-  `School_Type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `registrar_studentlist`
---
-
-INSERT INTO `registrar_studentlist` (`Student_ID`, `Lastname`, `Firstname`, `Middlename`, `Suffix`, `Email`, `Gender`, `Age`, `Birthday`, `Course`, `Major`, `Civil Status`, `Citizenship`, `Address_No`, `Barangay`, `Municipality`, `Contact_No`, `Guardian`, `Guardian_Contact`, `Guardian_Occu`, `Last_School`, `Year_Start`, `Year_End`, `School_Type`) VALUES
-(19018110, 'Dela Cruz', 'Kenneth', 'Gracia', NULL, 'KennethDelaCruz01@gmail.com', 'Male', 22, '2001-02-06', 'BSIT', 'IM', 'Single', 'Filipino', 'Blk 15, Lot2 Santol St. ', '12', 'Quezon City', 9635478951, 'Arnel Dela Cruz', 9873215478, 'Construction Worker', 'Our Lady of Fatima University', 2018, 2019, 'Private'),
-(19018111, 'Villario', 'John Harold', 'Montalban', NULL, 'JohnHarold@gmail.com', 'Male', 20, '2003-02-01', 'BSIT', 'IM', 'Single', 'Filipino', 'Blk 12, Lot 3 Yellow Bell', '172', 'Caloocan City', 9265478412, 'Jim Villario', 9235147285, 'Mechanic', 'Bagong Silang High School', 2018, 2019, 'Public'),
-(19018112, 'Nattan', 'Rhea', 'Aquino', NULL, 'RheaNattan@gmail.com', 'Female', 20, '2003-01-16', 'BSIT', 'IM', 'Single', 'Filipino', 'Blk 8, Lot 2 Santa Maria St.', '4', 'Valenzuela City', 9213682547, 'Maria Nattan', 9356228751, 'House Wife', 'Bestlink College of the Philippines', 2018, 2019, 'Private');
-
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `ams_login`
---
-ALTER TABLE `ams_login`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `ems_event`
---
-ALTER TABLE `ems_event`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `mis_activity_logs`
@@ -3111,20 +2985,8 @@ ALTER TABLE `mis_usermanagement`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `registrar_studentlist`
---
-ALTER TABLE `registrar_studentlist`
-  ADD PRIMARY KEY (`Student_ID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `ams_login`
---
-ALTER TABLE `ams_login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mis_activity_logs`

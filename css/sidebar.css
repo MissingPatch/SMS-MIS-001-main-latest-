@@ -16,7 +16,6 @@
   display: none;
 }
 
-
 .sidebar.open {
   width: 280px;
   overflow-y: scroll;
@@ -33,17 +32,12 @@
 .sidebar .nav-list {
   margin-top: 20px;
   height: 100%;
-  
-
 }
-
-
 
 .sidebar li {
   position: relative;
   margin: 8px 0;
   list-style: none;
-
 }
 .sidebar li .tooltip {
   position: absolute;
@@ -87,7 +81,6 @@
 .sidebar.open input {
   padding: 0 20px 0 50px;
   width: 100%;
-   
 }
 
 .sidebar .bx-search {
@@ -149,7 +142,6 @@
 .sidebar.open li a .links_name {
   opacity: 1;
   pointer-events: auto;
-  
 }
 
 /* dropdown links */
@@ -157,14 +149,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 }
 .sidebar.open .nav-list li .sub-menu {
   padding: 6px 6px 14px 50px;
   margin-top: -10px;
   background-color: #07177a;
   display: none;
-  
 }
 
 .sidebar.open .nav-list li.showMenu .sub-menu {
@@ -172,13 +162,11 @@
   margin-top: -10px;
   background-color: #07177a;
   display: block;
-  
 }
 
 /* newly change */
 .sidebar.close .nav-list li .sub-menu {
   display: block !important;
-  
 }
 /* chevron icon */
 
@@ -228,7 +216,6 @@
   opacity: 0;
   white-space: nowrap;
   pointer-events: none;
-
 }
 
 .sidebar.close .nav-list li:hover .sub-menu {
@@ -295,15 +282,11 @@
     width: 0;
     opacity: 0;
     visibility: visible;
-    
-    
   }
   .sidebar.open {
     opacity: 1;
     width: 50%;
     visibility: visible;
-    
-    
   }
 }
 
