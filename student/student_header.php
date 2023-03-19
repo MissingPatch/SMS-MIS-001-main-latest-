@@ -116,7 +116,7 @@
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a class="dropdown-item" href="logout.php">Logout</a>
+                    <a class="dropdown-item" href="../student/student_logout.php">Logout</a>
                   </li>
                  </ul>
                   </div>

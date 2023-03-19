@@ -4,10 +4,11 @@ include_once("connection/connection.php");
 include ("activity_log_backend.php"); // Include the file that contains the log_activity function
 $con = connection();
 
+
 if(isset($_POST['add'])){
     $id = $_POST['ID'];
     $email = $_POST['email'];
-    $pass = $_POST['pass'];
+    $pass = '#'.$row['dep_code'].'s';
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $sex =  $_POST['sex'];
@@ -15,13 +16,25 @@ if(isset($_POST['add'])){
     $address = $_POST['home_address'];
     $dep = $_POST['department'];
     $role = $_POST['role'];
+    $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO `mis_usermanagement` (`email`, `pass` , `fname`, `lname`, `sex`,  `mobilenum`, `home_address`, `department`, `role`) 
-    VALUES ('$email' , '$pass' , '$fname', '$lname', '$sex', '$mobilenum' , '$address' ,'$dep','$role')";
-    $con->query($sql) or die ($con->error);
-    log_activity($_SESSION['ID'],$_SESSION['email'], "Add employees account with ID $id");
-    header ('location: depacc.php');
+    
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $query = "SELECT COUNT(*) AS count FROM mis_usermanagement WHERE email='$email'";
+    $result = $con->query($query);
+    $row = $result->fetch_assoc();
+    if ($row['count'] > 0) {
+       echo "<script>alert('Email already exists.')</script>";
+    } else {
+       
+        $sql = "INSERT INTO `mis_usermanagement` (`email`, `pass` , `fname`, `lname`, `sex`,  `mobilenum`, `home_address`, `department`, `role`) 
+        VALUES ('$email' , '$pass' , '$fname', '$lname', '$sex', '$mobilenum' , '$address' ,'$dep','$role')";
+        $con->query($sql) or die ($con->error);
+        log_activity($_SESSION['ID'],$_SESSION['email'], "Add employees account with ID $id");
+        header('Location: depacc.php');
+    }
 }
+
 
 
 if(isset($_POST['clear'])){
@@ -39,7 +52,6 @@ if(isset($_POST['clear'])){
    unset($_POST['role']);
 
 }
-
-
 ?>
+
 
