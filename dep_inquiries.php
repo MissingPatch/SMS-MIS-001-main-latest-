@@ -253,7 +253,7 @@ $row = $res->fetch_assoc();
                                                 <td><?php echo $row['date_req']; ?></td>
                                                 <td><?php echo "<p style='font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Accept </p>"; ?></td>
                                                 <td>
-                
+                                                                                                                                                                                                                                                                                                        
                                                 <form action="delete_event.php"  method="POST">
 
                 <a href="#" <?php echo $row['inq_num']; ?>" style="text-decoration: none; font-size: 20px;">
