@@ -66,116 +66,92 @@ include ("voiding_modal2.php");
 &lt;/div&gt;
 </div>
 
-<script type="text/babel">
-  class ApexChart extends React.Component {
-    constructor(props) {
-      super(props);
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-      this.state = {
-      
-        series: [{
-          name: 'Inflation',
-          data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
-        }],
-        options: {
-          chart: {
-            height: 350,
-            type: 'bar',
-          },
-          plotOptions: {
-            bar: {
-              borderRadius: 10,
-              dataLabels: {
-                position: 'top', // top, center, bottom
-              },
-            }
-          },
-          dataLabels: {
-            enabled: true,
-            formatter: function (val) {
-              return val + "%";
-            },
-            offsetY: -20,
-            style: {
-              fontSize: '12px',
-              colors: ["#304758"]
-            }
-          },
-          
-          xaxis: {
-            categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            position: 'top',
-            axisBorder: {
-              show: false
-            },
-            axisTicks: {
-              show: false
-            },
-            crosshairs: {
-              fill: {
-                type: 'gradient',
-                gradient: {
-                  colorFrom: '#D8E3F0',
-                  colorTo: '#BED1E6',
-                  stops: [0, 100],
-                  opacityFrom: 0.4,
-                  opacityTo: 0.5,
-                }
-              }
-            },
-            tooltip: {
-              enabled: true,
-            }
-          },
-          yaxis: {
-            axisBorder: {
-              show: false
-            },
-            axisTicks: {
-              show: false,
-            },
-            labels: {
-              show: false,
-              formatter: function (val) {
-                return val + "%";
-              }
-            }
-          
-          },
-          title: {
-            text: 'Monthly Payment Statistics, 2023',
-            floating: true,
-            offsetY: 330,
-            align: 'center',
-            style: {
-              color: '#444'
-            }
-          }
-        },
-      
-      
-      };
-    }
+  <div class="card-body">   
+ <div>
+     <canvas id="myChart"></canvas>
+ </div>
+ <?php
+     $sql = "SELECT DATE_FORMAT(added_at, '%b') AS month_name, YEAR(added_at) AS year, id, COUNT(*) AS number FROM mis_payment_method WHERE MONTH(added_at) GROUP BY year, id ORDER BY year, month_name ASC";
+     $result = mysqli_query($con, $sql);
+     $data = [];
+     $month_names = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+     $data_array = array_fill(0, 12, 0); // Initialize the data array with zeros
 
-  
+     $total_enrollees = [];
 
-    render() {
-      return (
-        <div>
-          <div id="chart">
-            <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
-          </div>
-          <div id="html-dist"></div>
-        </div>
-      );
-    }
-  }
+     while ($row = mysqli_fetch_assoc($result)) {
+         $month_index = array_search($row['month_name'], $month_names); // Get the index of the month
+         $data_array[$month_index] += $row['number']; // Add the data for the corresponding month
 
-  const domContainer = document.querySelector('#forecast');
-  ReactDOM.render(React.createElement(ApexChart), domContainer);
-</script>
+         if (!isset($total_enrollees[$row['id']])) {
+             $total_enrollees[$row['id']] = 0;
+         }
 
-</div>
+         $total_enrollees[$row['id']] += $row['number']; // Add the number of enrollees for the corresponding ID
+     }
+
+     // Get the total count of data in the table
+     $total_result = mysqli_query($con, "SELECT COUNT(*) AS total FROM mis_payment_method");
+     $total_count = mysqli_fetch_assoc($total_result)['total'];
+ ?>
+
+     <script>
+         var ctx = document.getElementById('myChart').getContext('2d');
+         var myChart = new Chart(ctx, {
+             type: 'line',
+             data: {
+                 labels: <?php echo json_encode($month_names); ?>,
+                 datasets: [{
+                     label: 'Enrollees This Semester',
+                     data: <?php echo json_encode($data_array); ?>,
+                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                     borderColor: 'rgba(54, 162, 235, 1)',
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     yAxes: [{
+                         ticks: {
+                             beginAtZero: true
+                         }
+                     }]
+                 },
+                 title: {
+                     display: true,
+                     text: 'Total Enrollees: <?php echo $total_count; ?>'
+                 }
+             }
+         });
+
+         var ctx2 = document.getElementById('myChart2').getContext('2d');
+         var myChart2 = new Chart(ctx2, {
+             type: 'bar',
+             data: {
+                 labels: <?php echo json_encode(array_keys($total_enrollees)); ?>,
+                 datasets: [{
+                     label: 'Total Enrollees by ID',
+                     data: <?php echo json_encode(array_values($total_enrollees)); ?>,
+                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                     borderColor: 'rgba(54, 162, 235, 1)',
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     yAxes: [{
+                         ticks: {
+                             beginAtZero: true
+                         }
+                     }]
+                 }
+             }
+         });
+                                                    </script>
+                                            </div>  
+                                        </div>
 </div>
 </div>
 
