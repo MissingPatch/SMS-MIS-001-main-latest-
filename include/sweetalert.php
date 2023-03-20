@@ -13,8 +13,11 @@
             <script>
         swal({
             title: "<?php echo $_SESSION['status']; ?>",
-            //text: "You clicked the button!",
             icon: "success",
+            button:"ok",
+            timer:1500
+            });then(function(){
+            window.location.href="empprofile.php";
             });
             
         </script>

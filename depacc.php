@@ -70,14 +70,14 @@ $row = $emp->fetch_assoc();
                             <div class="card-header py-3">
                     <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts -->
                        
-                 
-
-                   
                            <b>Department Account </b>
+                           <style>
+                            .fa-user-plus {
+                                color: blue;
+                            }
+                            </style>
                             <span style="float:right;">
-                            <button type="button" class="fa-solid fa-file-excel icon" style="height:20px; width:40px;" onclick="exportTableToExcel('example', 'employees')"
-                            style="background-color:#07177a; color:white; "></button>
-                             <button type="button" class="fa-solid fa-user icon" style="height:20px; width:40px;" data-toggle="modal" data-target="#addaccount" 
+                            <button type="button" class="fa-solid fa-user-plus" aria-placeholder="add" style="height:30px; width:40px; margin-right:10px;" data-toggle="modal" data-target="#addaccount" 
                             style="background-color:#07177a; color:white; ">
                             </button>          
                                                 
@@ -131,14 +131,8 @@ $row = $emp->fetch_assoc();
 
                     </div>
                     </div>
-                    </div>
-                  
-                    
-                    
-                   
-                   
-                    
-                   
+                    </div>          
 <?php
 include ("script/script.php");
+include ("include/sweetalert.php");
 ?>

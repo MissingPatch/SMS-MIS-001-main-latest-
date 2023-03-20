@@ -36,7 +36,25 @@
     </head>
 
 
-    
+    <style>
+  .status-circle {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   display: inline-block;
+   margin-right: 5px;
+   margin-bottom: 5px;
+    }
+
+    .online {
+      background-color: green;
+    }
+
+    .offline {
+      background-color: red;
+    }
+    </style>
+
     <body>
     <main class="container-fluid">
       <ul class="topbar m-0 list-unstyled">
@@ -80,7 +98,7 @@
               <div class="nav-item dropdown my-auto ms-4">
                 <a
                   id="dropdownmenu"
-                  class="nav-link dropdown-toggle d-flex align-items-center"
+                  class="nav-link d-flex align-items-center"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -93,11 +111,22 @@
                   <?php echo $_SESSION['role'];?> 
                   &#160;
                   </h5>
+
+                  <?php
+                    $sql="SELECT is_logged_in FROM mis_usermanagement";
+                    $result= $con-> query($sql);
+                    $row= $result->fetch_assoc();
+                    if ($row['is_logged_in']) {
+                      $status_class = 'online'; // Set class to 'online' if user is logged in
+                    } else {
+                    $status_class = 'offline'; // Set class to 'offline' if user is not logged in
+                    }
+                  ?>
                   
                   <?php
                   $con = connection();
-                  @$query = "SELECT img_name FROM mis_usermanagement WHERE ID = '". $_SESSION['ID']. " ' ";
-                  @$result = $con->query($query);
+                  $query = "SELECT img_name FROM mis_usermanagement WHERE ID = '". $_SESSION['ID']. " ' ";
+                  $result = $con->query($query);
                   $rowimg = mysqli_fetch_assoc($result);
                   $image = $rowimg['img_name'] ;
                   echo "<img src='uploads/". $image. "' class='rounded-circle'
@@ -125,7 +154,9 @@
                   alt='profile-picture' >";		
                   ?>
 
-                  <?php  echo $_SESSION['fname'];?> <?php  echo $_SESSION['lname'];?></a></li>
+                  <?php  echo $_SESSION['fname'];?> <?php  echo $_SESSION['lname'];?>
+                  <span class="<?php echo 'status-circle ' . $status_class; ?>"></span>
+                  </a></li>
               
                   <hr>
                   <li><a class="dropdown-item" href="#">Settings</a></li>

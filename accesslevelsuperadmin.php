@@ -11,7 +11,7 @@ include("activity_log_backend.php"); // Include the file that contains the log_a
 require("PHPMailer/src/Exception.php");
 require("PHPMailer/src/PHPMailer.php");
 require("PHPMailer/src/SMTP.php");
-
+ 
 $con = connection();
 
 

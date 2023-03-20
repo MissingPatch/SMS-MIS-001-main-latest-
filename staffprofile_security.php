@@ -264,6 +264,11 @@ input[type="checkbox"]:checked + .slider:before {
                             $("#toggle-status").text(newAuth == 1 ? "Enabled" : "Disabled");
                             // Update the auth value in session storage
                             sessionStorage.setItem('auth', newAuth);
+                            if (newAuth == 1) {
+                              alert("Authentication has been enabled!");
+                            } else{
+                              alert("Authentication has been disabled!");
+                            }
                           },
                           error: function(xhr, status, error) {
                             // Handle the error here

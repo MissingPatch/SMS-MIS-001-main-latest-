@@ -23,7 +23,8 @@ if(isset($_POST['update'])){
     else {
         $sql = "UPDATE mis_usermanagement SET pass = '$pass' WHERE ID='$id' ";
         if ($con->query($sql) === TRUE) {
-            echo "<script>alert('Password updated successfully.');</script>";
+            $_SESSION['status'] = "Password Changed!";
+            log_activity($_SESSION['ID'],$_SESSION['email'], "Change Password ID $id");
             exit();
         } else {
             echo "Error updating password: " . $con->error;
@@ -31,4 +32,5 @@ if(isset($_POST['update'])){
     }
 }
 }
+
 ?>
