@@ -2,14 +2,18 @@
 
 include_once("connection/connection.php");
 
-$con = connection();   
+$con = connection();
 $id = $_GET['ID'];
-$sql = "SELECT * FROM mis_usermanagement WHERE ID ='$id'";
-$emp = $con->query($sql) or die($con->error);
-$row = $emp->fetch_assoc();
+
+$sql = "SELECT * FROM mis_usermanagement WHERE ID = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
 
 if(isset($_POST['update'])){
-    
     $id = $_POST['ID'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -21,14 +25,15 @@ if(isset($_POST['update'])){
     $dep = $_POST['department'];
     $role = $_POST['role'];
     $company = $_POST['company'];
- 
-    $sql = "UPDATE mis_usermanagement set  lname = '$lname', email = '$email', 
-    mobilenum = '$mobile', home_address= '$address', fname = '$fname' , company = '$company' , sex = '$sex' , 
-    suffix = '$suffix' , department = '$dep' , role = '$role' WHERE ID='$id' ";
-    $con->query($sql) or die($con->error);
-    
+
+    $sql = "UPDATE mis_usermanagement SET lname = ?, email = ?, mobilenum = ?, home_address = ?, fname = ?, company = ?, sex = ?, suffix = ?, department = ?, role = ? WHERE ID = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param('ssssssssssi', $lname, $email, $mobile, $address, $fname, $company, $sex, $suffix, $dep, $role, $id);
+    $stmt->execute();
+
+    if ($stmt->execute() === TRUE) {
+       
+        $_SESSION['status'] = "Update Successfully";
+        }
 }
-
-
-
 ?>

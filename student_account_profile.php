@@ -18,9 +18,9 @@ include ("student_users_update.php");
 
 
 $con = connection();
-$unique_id = $_GET['unique_id'];
+$student_id = $_GET['student_id'];
 @$fname = $_POST['fname'];
-$sql = "SELECT * FROM mis_student_users WHERE unique_id ='$unique_id'";
+$sql = "SELECT * FROM mis_student_users WHERE student_id ='$student_id'";
 $emp = $con->query($sql) or die($con->error);
 $row = $emp->fetch_assoc();
           
@@ -41,7 +41,7 @@ $row = $emp->fetch_assoc();
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link"  href="studprofile.php?unique_id=<?php echo $row["unique_id"];?>" >Account <span class="sr-only">(current)</span></a>
+                    <a class="nav-link"  href="studprofile.php?student_id=<?php echo $row["student_id"];?>" >Account <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="student_profile_additional_information.php">Additional Information</a>
@@ -78,7 +78,7 @@ $row = $emp->fetch_assoc();
                 
                   <!-- Button Profile 
                   <?php
-                  $query = "SELECT img_name FROM mis_student_users WHERE unique_id ='$unique_id' ";
+                  $query = "SELECT img_name FROM mis_student_users WHERE student_id ='$student_id' ";
                   $result = $con->query($query);
                   $rowimg = mysqli_fetch_assoc($result);
                   $image = $rowimg['img'] ;
@@ -152,7 +152,7 @@ $row = $emp->fetch_assoc();
                   <div class="row g-3">
                   <div class="col-md-6">
 									<label class="form-label">Student ID:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["unique_id"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["student_id"];?>" disabled>
 								</div>
 								<!-- Last name -->
 								<div class="col-md-6">

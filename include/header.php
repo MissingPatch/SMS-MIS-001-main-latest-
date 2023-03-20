@@ -46,7 +46,25 @@
 
      <!-- PASSWORD EYE-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    
+
+    <style>
+      .status-circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+
+      margin-bottom:5px;
+      }
+
+      .online {
+      background-color: green;
+      }
+
+      .offline {
+      background-color: red;
+      }
+    </style>
     <main class="container-fluid">
       <ul class="topbar m-0 list-unstyled">
         <div
@@ -91,7 +109,8 @@
               <div class="nav-item dropdown my-auto ms-4">
                 <a
                   id="dropdownmenu"
-                  class="nav-link dropdown-toggle d-flex align-items-center"
+                  class="nav-link d-flex align-items-center"
+                  style="margin-right: 15px;"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -102,12 +121,21 @@
                   <h5 class="m-0 d-none d-sm-block">
                   
                   <?php echo $_SESSION['role'];?> 
-                  
-                 
                   &#160;
                   </h5>
                   
                   <?php
+                    $sql="SELECT is_logged_in FROM mis_usermanagement";
+                    $result= $con-> query($sql);
+                    $row= $result->fetch_assoc();
+                    if ($row['is_logged_in']) {
+                      $status_class = 'online'; // Set class to 'online' if user is logged in
+                    } else {
+                    $status_class = 'offline'; // Set class to 'offline' if user is not logged in
+                    }
+                  ?>
+                   
+                 <?php
                  $con = connection();
                  $query = "SELECT img_name FROM mis_usermanagement WHERE ID = '". $_SESSION['ID']. " ' ";
                  $result = $con->query($query);
@@ -118,7 +146,7 @@
                   height='32'
                   alt='profile-picture' >";		
                   ?>
-                </a>
+                 </a>
 
                
 
@@ -127,16 +155,18 @@
                   <li><a class="dropdown-item" href="empprofile.php?ID=<?php echo$_SESSION['ID'];?>">
                   <span style="color: #007bff; font-size: 13px;"> Signed in as </span> 
                   <br>
+
                   <?php
-                
                   echo "<img src='uploads/". $image. "' class='rounded-circle'
                   width='20'
                   height='20'
                   margin-top='-10'
                   alt='profile-picture'>";		
                   ?>
-                  <?php echo @$_SESSION['fname'];?> <?php echo @$_SESSION['lname'];?></a></li>
-               
+                  <?php echo @$_SESSION['fname'];?> <?php echo @$_SESSION['lname'];?>
+                  <span class="<?php echo 'status-circle ' . $status_class; ?>"></span>
+                  </a></li>
+                
                   <hr>
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                   <li><hr class="dropdown-divider" /></li>

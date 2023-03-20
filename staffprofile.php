@@ -30,7 +30,24 @@ if(isset($_GET['ID'])) {
 }      
 
 ?>
+<style>
+  .status-circle {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   display: inline-block;
+   margin-right: 5px;
+   margin-bottom: 5px;
+}
 
+.online {
+   background-color: green;
+}
+
+.offline {
+   background-color: red;
+}
+</style>
   <!-- Main Content -->
 
         <div class="container-fluid">
@@ -104,8 +121,18 @@ if(isset($_GET['ID'])) {
                   </form>
                   </div>
 
+                  <?php
+                    if ($row['is_logged_in']) {
+                      $status_class = 'online'; 
+                    } else {
+                    $status_class = 'offline'; 
+                    }
+                  ?>
+
                   <div class="mt-3">
-                      <h4> <?php echo $row['fname'];?> <?php echo $row['lname'];?></h4>
+                      <h4> <?php echo $row['fname'];?> <?php echo $row['lname'];?>
+                      <span class="<?php echo 'status-circle ' . $status_class; ?>"></span>
+                      </h4>
                       <p class="text-secondary mb-1"> <?php echo $row['role'];?></p>
                       <p class="text-muted font-size-sm"> <?php echo $row['department'];?></p>
                   </div>

@@ -139,7 +139,7 @@ input[type="checkbox"]:checked + .slider:before {
                 <div class="d-flex flex-column align-items-center text-center">
 
                 <form action="change_password.php" method="post">
-						    <div class=" px-4 py-5 rounded">
+						    <div class=" px-4 py-5 rounded">                      
 						  	<div class="row g-3">
                             
 							
@@ -246,56 +246,38 @@ input[type="checkbox"]:checked + .slider:before {
 
                     <script>
                     $(document).ready(function() {
-                      // Get the initial auth value from session storage
                       var auth = sessionStorage.getItem('auth');
-                      // Set the initial checkbox state based on the auth value
                       $("#toggle-switch").prop("checked", auth == 1);
-                      // Add an event listener to the checkbox
                       $("#toggle-switch").on("change", function() {
-                        // Get the new auth value based on the checkbox state
                         var newAuth = $(this).prop("checked") ? 1 : 0;
-                        // Send the new auth value to the server using AJAX
                         $.ajax({
                           url: "update_auth.php",
                           type: "POST",
                           data: { auth: newAuth },
                           success: function(response) {
-                            // Update the toggle status text
                             $("#toggle-status").text(newAuth == 1 ? "Enabled" : "Disabled");
-                            // Update the auth value in session storage
                             sessionStorage.setItem('auth', newAuth);
+                            
+                            if (newAuth == 1) {
+                            <?php
+                                $_SESSION['status'] = "Authentication Enabled";
+                            ?>
+                            location.reload();
+                             } else {
+                            <?php
+                                $_SESSION['status'] = "Authentication Disabled";
+                            ?>
+                            location.reload();
+                              }
                           },
                           error: function(xhr, status, error) {
-                            // Handle the error here
+                 
                             console.error(error);
                           }
                         });
                       });
                     });
                     </script>
-
-               <!-- <script>
-              const toggleSwitch = document.getElementById("toggle-switch");
-              const slider = document.querySelector(".slider");
-              const toggleStatus = document.getElementById("toggle-status");
-              const hiddenField = document.getElementById("enabled");
-
-              toggleSwitch.addEventListener("change", function() {
-                if (this.checked) {
-                  slider.style.backgroundColor = "#2196F3";
-                  slider.style.boxShadow = "0 0 0.5rem #2196F3";
-                  toggleStatus.textContent = "Enabled";
-                  hiddenField.value = "0";
-                } else {
-                  slider.style.backgroundColor = "#ccc";
-                  slider.style.boxShadow = "none";
-                  toggleStatus.textContent = "Disabled";
-                  hiddenField.value = "1";
-                }
-              });
-
-                </script> -->
-
 				          	 </div>
                      </div>
                      </div>
@@ -308,12 +290,8 @@ input[type="checkbox"]:checked + .slider:before {
                     include ("footer.php");
                     ?>
                     </div>
-                  
-                    </div> <!-- Row END -->
-                    
-                                      
-                    
-                    
+                    </div> <!-- Row END -->                  
 <?php
 include ("script/script.php");
+include ("include/sweetalert.php");
 ?>

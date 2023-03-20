@@ -29,7 +29,24 @@ if(isset($_GET['ID'])) {
 }      
 
 ?>
+<style>
+  .status-circle {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   display: inline-block;
+   margin-right: 5px;
+   margin-bottom: 5px;
+}
 
+.online {
+   background-color: green;
+}
+
+.offline {
+   background-color: red;
+}
+</style>
   <!-- Main Content -->
 
         <div class="container-fluid">
@@ -89,7 +106,6 @@ if(isset($_GET['ID'])) {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg></mat-icon>-->
                   
-                  
                   <?php
                   $query = "SELECT img_name FROM mis_usermanagement WHERE ID ='$id' ";
                   $result = $con->query($query);
@@ -102,9 +118,18 @@ if(isset($_GET['ID'])) {
                   </label>
                   </form>
                   </div>
-
+                  <?php
+                    if ($row['is_logged_in']) {
+                      $status_class = 'online'; // Set class to 'online' if user is logged in
+                    } else {
+                    $status_class = 'offline'; // Set class to 'offline' if user is not logged in
+                    }
+                  ?>
+                 
                   <div class="mt-3">
-                      <h4> <?php echo $row['fname'];?> <?php echo $row['lname'];?></h4>
+                      <h4> <?php echo $row['fname'];?> <?php echo $row['lname'];?>  
+                      <span class="<?php echo 'status-circle ' . $status_class; ?>"></span>
+                      </h4>
                       <p class="text-secondary mb-1"> <?php echo $row['role'];?></p>
                       <p class="text-muted font-size-sm"> <?php echo $row['department'];?></p>
                   </div>
@@ -329,4 +354,5 @@ if(isset($_GET['ID'])) {
                           </div>
 <?php
 include ("script/script.php");
+include ("include/sweetalert.php");
 ?>

@@ -17,12 +17,14 @@ include("student_update.php");
 
 
 $con = connection();
-$id = $_GET['stud_num'];
-@$fname = $_POST['fname'];
-$sql = "SELECT * FROM mis_stud_info WHERE stud_num ='$id'";
-$emp = $con->query($sql) or die($con->error);
-$row = $emp->fetch_assoc();
-          
+if (isset($_GET['student_id'])){
+
+  $id= $_GET['student_id'];
+  $sql = "SELECT * FROM mis_student_users ORDER BY student_id";
+  $stud = $con->query($sql) or die($con->error);
+  $row = $stud->fetch_assoc();
+}
+   
 ?>
 
   <!-- Main Content -->
@@ -40,7 +42,7 @@ $row = $emp->fetch_assoc();
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link"  href="studprofile.php?stud_num=<?php echo $row["stud_num"];?>" >Account <span class="sr-only">(current)</span></a>
+                    <a class="nav-link"  href="studprofile.php?student_id=<?php echo $row["student_id"];?>" >Account </a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Additional Information</a>
@@ -75,7 +77,7 @@ $row = $emp->fetch_assoc();
 									<div class="square position-relative display-2 mb-3">
                   <!-- Button Profile -->
                   <?php
-                  $query = "SELECT img_name FROM mis_stud_info WHERE stud_num ='$id' ";
+                  $query = "SELECT img FROM mis_student_users WHERE student_id ='$id' ";
                   $result = $con->query($query);
                   $rowimg = mysqli_fetch_assoc($result);
                   $image = $rowimg['img_name'] ;
@@ -88,7 +90,7 @@ $row = $emp->fetch_assoc();
                       <p class="text-secondary mb-1"> <?php echo $row['ylvl'];?></p>
                       <p class="text-muted font-size-sm"> <?php echo $row['course'];?></p>
                   </div>
-                  <hr>
+                  <hr> 
                    <!-- Backend for Profile -->
                   <form id="profileImageForm" enctype="multipart/form-data">
                   <label class="btn btn-success-soft btn-block" for="profileImageInput" style="background-color:#07177a; color:white;" >Upload</label>
