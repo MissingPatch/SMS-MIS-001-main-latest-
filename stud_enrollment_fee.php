@@ -15,13 +15,9 @@ include ("include/sidebar.php");
 include("concern_modal.php");
 include("deleteaccdep.php");
 $con = connection();
-@$id = $_POST['OR_number'];
 $sql = "SELECT * FROM mis_payment_method WHERE status IN ('Paid') AND payment_desc ='Enrollment Fee' ORDER BY OR_number";
 $result = $con->query($sql) or die($con->error);
 $row = $result->fetch_assoc();
-
-
-
 ?>
                 <div class="container-fluid">
 
@@ -86,7 +82,7 @@ $row = $result->fetch_assoc();
                                         <th>Action</th>
                                         </tr>
                                     </thead>
-                                    
+                                   
                                     <tbody>
                                     <?php do{
                                         if (!empty($row)){ ?>
@@ -97,32 +93,30 @@ $row = $result->fetch_assoc();
                                         <td><?php echo $row['course'];?></td>
                                         <td><?php echo $row['yearlevel'];?></td>
                                         <td><?php echo $row['payment_type'];?></td>
-                                         <td><?php echo $row['date'];?></td>
+                                        <td><?php echo $row['date'];?></td>
                                         <td><?php echo $row['payment_desc'];?></td>
                                         <td><?php echo $row['status'];?></td> 
-                                        
-                                       
-                                        <div class="col-sm-12" >
-                    
-
-                                        <input type="hidden" name="" > 
                                         </div>
                                         <td>
-                                           
-                                        <form action=" "  method="POST" >
-                                        <a href="stud_pms_profile.php?OR_number=<?php echo $row["OR_number"];?>" 
-                                        class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                        View
-                                        </form>
                                             
-                                           
-                                         </td>
-                                    
+                                         <?php
+                                         include("stud_pms_modal.php");
+                                         ?>
+                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
+                                        class="btn btn-primary" style="background-color: #07177a;">View</a>
+                                        </tr>
+                                        
+                                    <?php 
 
-                                    </tr>
-                                    <?php } 
-                                     }while($row = $result->fetch_assoc()); ?>
+                                       } }while($row = $result->fetch_assoc()); 
+                                    
+                                       ?>
                                     </tbody>
+                                    <script>
+                                    $(document).ready(function(){
+                                    $("#studedit<?php echo $row['OR_number']; ?>").modal('show');
+                                    });
+                                    </script>
                                     </table>
                                     </div>
                                     </div>

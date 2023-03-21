@@ -96,12 +96,6 @@ $row = $result->fetch_assoc();
                                         <td><?php echo $row['payment_desc'];?></td>
                                         <td><?php echo $row['amount'];?></td>
                                         <td><?php echo $row['status'];?></td> 
-                                        
-                                       
-                                        <div class="col-sm-12" >
-                    
-
-                                        <input type="hidden" name="" > 
                                         </div>
                                         <td>
                                            <!-- receipt modal-->

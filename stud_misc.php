@@ -101,7 +101,8 @@ $row = $result->fetch_assoc();
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                        if (!empty($row)){?>
                                         <tr>
                                         <td><?php echo $row['OR_number'];?></td>                       
                                         <td><?php echo $row['student_num'];?></td>
@@ -120,20 +121,20 @@ $row = $result->fetch_assoc();
                                         <input type="hidden" name="" > 
                                         </div>
                                         <td>
-                                           
-                                            
-                                        <form action=" "  method="POST" >
-                                        <a href="stud_pms_profile.php?OR_number=<?php echo $row["OR_number"];?>" 
-                                        class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                        View
-                                        </form>
+                                        <?php
+                                         include("stud_pms_modal.php");
+                                         ?>
+                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>
+                                        </tr>
+                                        
 
                                            
                                          </td>
                                     
 
                                     </tr>
-                                    <?php }while($row = $result->fetch_assoc()); ?>
+                                    <?php }}while($row = $result->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>
