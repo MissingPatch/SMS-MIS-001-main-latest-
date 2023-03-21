@@ -13,7 +13,7 @@ $con = connection();
 ?>
 
 <!-- INQUIRIES-->
-<div class="dropdown" style="float: right;">
+<div class="dropdown" style="float: right; padding: 5px">
     <a href="#" onclick="return false;" role="button" data-toggle="dropdown" id="dropdownMenu1" data-target="#" style="float: left" aria-expanded="true">
     <i class="bx bxs-message-dots fs-4 me-3 mt-1 m-0"><span style="color: white; font-size: 10px; background-color: red; border-radius: 30%; border: 1px solid white; padding: 1px 3px; z-index: -1;margin-left: -0.9px;"><?php 
         $sql = "SELECT * FROM mis_categorize_inq WHERE status = '1' ORDER BY inq_num";
@@ -46,8 +46,7 @@ $con = connection();
 
 
 <?php 
-
-$sql = "SELECT * FROM mis_man_inc_rep ORDER BY rep_id DESC";
+$sql = "SELECT * FROM mis_man_inc_rep WHERE status='Unread' ORDER BY rep_id DESC";
 $rep = $con->query($sql) or die($con->error);
 $row = $rep->fetch_assoc();
 
