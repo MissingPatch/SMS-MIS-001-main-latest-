@@ -6,10 +6,10 @@ if(isset($_POST['email'])){
   $_SESSION['email'] = $_POST['email'];
 }
 
-include_once("../connection/connection.php");
-require("../PHPMailer/src/Exception.php");
-require("../PHPMailer/src/PHPMailer.php");
-require("../PHPMailer/src/SMTP.php");
+include_once("connection/connection.php");
+require("PHPMailer/src/Exception.php");
+require("PHPMailer/src/PHPMailer.php");
+require("PHPMailer/src/SMTP.php");
 
 $con = connection();
 
@@ -54,12 +54,13 @@ if(isset($_POST['LOGIN']))  {
           echo "<script>window.location = 'login.php?error=user_already_logged_in';</script>";
           exit();
       }
-      
+      if(isset($row['unique_id'])){ 
         $_SESSION['unique_id'] = $row['unique_id'];
         $_SESSION['fname'] = $row['fname'];
         $_SESSION['lname'] = $row['lname'];
         $_SESSION['role'] = $row['role'];
         $_SESSION['email'] = $row['email'];
+       
         // Set is_logged_in flag to true
         $update_query = "UPDATE mis_student_users SET is_logged_in = 1 WHERE unique_id = {$row['unique_id']}";
         $con->query($update_query);
@@ -72,7 +73,7 @@ if(isset($_POST['LOGIN']))  {
         $update_query = "UPDATE mis_student_users SET otp = '$otp' WHERE unique_id = {$row['unique_id']}";
         $con->query($update_query);
     
-        header("Location: ../student/student_auth.php");
+        header("Location: student/student_auth.php");
       
     } 
     
@@ -82,5 +83,6 @@ if(isset($_POST['LOGIN']))  {
     echo "<script>window.location = 'login.php?error=Invalid login, please try again';</script>";
     exit();
   }
+}
 }
 ?>
