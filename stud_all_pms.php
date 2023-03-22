@@ -12,7 +12,8 @@ else{
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-include ("stud_add_pms_modal.php");
+include("stud_pms_modal.php");
+include("voiding_modal2.php");
 
 
 $con = connection();
@@ -112,13 +113,13 @@ $row = $result->fetch_assoc();
                                         <input type="hidden" name="" > 
                                         </div>
                                         <td>
-                                           
-                                        <form action=" "  method="POST" >
-                                        <a href="stud_pms_profile.php?OR_number=<?php echo $row["OR_number"];?>" 
-                                        class="btn btn-success" style="background-color:#07177a;">
-                                        View
-                                        </form>
-                                         </td>
+                                        <div class="btn-group" role="group">
+                                        <a href="#" data-toggle="modal" data-target="#void<?php echo $row['OR_number']; ?>"
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>&nbsp;
+                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">Edit</a>
+                                        </div>
+                                    </td>
                                     </tr>
                                     <?php }while($row = $result->fetch_assoc()); ?>
                                     </tbody>
@@ -136,13 +137,6 @@ $row = $result->fetch_assoc();
                                     </div>
                                     </div>
                                                
-                                 
-                                  
-                                    
-                             <!-- /.container-fluid -->
-
-</body>
-</html>
 <?php
 include ("script/script.php");
 ?>

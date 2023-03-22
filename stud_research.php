@@ -12,10 +12,10 @@ else{
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-include("concern_modal.php");
-include("deleteaccdep.php");
+include("stud_pms_modal.php");
+include("voiding_modal2.php");
 $con = connection();
-@$id = $_POST['OR_number'];
+
 $sql = "SELECT * FROM mis_payment_method WHERE payment_desc='Research' ORDER BY OR_number ASC";
 $result = $con->query($sql) or die($con->error);
 $row = $result->fetch_assoc();
@@ -111,17 +111,13 @@ $row = $result->fetch_assoc();
                                         <input type="hidden" name="" > 
                                         </div>
                                         <td>
-                                           
-                                        <form action=" "  method="POST" >
-                                        <a href="stud_pms_profile.php?OR_number=<?php echo $row["OR_number"];?>" 
-                                        class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                        View
-                                        </form>
-                                            
-                                           
-                                         </td>
-                                    
-
+                                        <div class="btn-group" role="group">
+                                         <a href="#" data-toggle="modal" data-target="#void<?php echo $row['OR_number']; ?>"
+                                         class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>&nbsp;
+                                         <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
+                                         class="btn btn-primary btn-sm" style="background-color: #07177a;">Edit</a>
+                                         </div>
+                                        </td>
                                     </tr>
                                     <?php }while($row = $result->fetch_assoc()); ?>
                                     </tbody>

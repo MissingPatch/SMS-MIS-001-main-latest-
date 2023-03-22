@@ -105,15 +105,13 @@ $row = $result->fetch_assoc();
                                         <input type="hidden" name="" > 
                                         </div>
                                         <td>
-                                           
-                                        <form action=" "  method="POST" >
-                                        <a href="stud_pms_profile.php?OR_number=<?php echo $row["OR_number"];?>" 
-                                        class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                        View
-                                        </form>
-                                            
-                                           
-                                         </td>
+                                        <?php
+                                         include("stud_pms_modal.php");
+                                         ?>
+                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>
+                                        </tr>
+                                        </td>
                                     
 
                                     </tr>

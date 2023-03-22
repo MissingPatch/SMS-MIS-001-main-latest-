@@ -82,36 +82,35 @@ include ("import_modal.php");
                             </div>
                             
                                 <div class="card-body">
-                            
                                 <div class="table-responsive">
                                     <table id="example" class="table table-hover" style="width:100%">
                                         <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>OR_number</th>
-                <th>Name</th>
-                <th>Course</th>
-                <th>Year</th>
-                <th>Semester</th>
-                <th>Mode of Payment</th>
-                <th>Payment Type</th>
-                <th>Date of Payment</th>
-            </tr>
+                                        <tr>
+                                            <th>Student ID</th>
+                                            <th>OR_number</th>
+                                            <th>Name</th>
+                                            <th>Course</th>
+                                            <th>Year</th>
+                                            <th>Semester</th>
+                                            <th>Mode of Payment</th>
+                                            <th>Payment Type</th>
+                                            <th>Date of Payment</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
                                         <?php do{ 
                                             if (!empty($row)){ ?>
-             <tr>
-                <td><?php echo $row['student_num']; ?></td>
-                <td><?php echo $row['OR_number']; ?></td>
-                <td><?php echo $row['name']; ?></td>
-                <td><?php echo $row['course']; ?></td>
-                <td><?php echo $row['yearlevel']; ?></td>
-                <td><?php echo $row['semester']; ?></td>
-                <td><?php echo $row['payment_type']; ?></td>
-                <td><?php echo $row['payment_desc']; ?></td>
-                <td><?php echo $row['date']; ?></td>
-            </tr>
+                                        <tr>
+                                            <td><?php echo $row['student_num']; ?></td>
+                                            <td><?php echo $row['OR_number']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['course']; ?></td>
+                                            <td><?php echo $row['yearlevel']; ?></td>
+                                            <td><?php echo $row['semester']; ?></td>
+                                            <td><?php echo $row['payment_type']; ?></td>
+                                            <td><?php echo $row['payment_desc']; ?></td>
+                                            <td><?php echo $row['date']; ?></td>
+                                        </tr>
                                             <?php }}while($row = $res->fetch_assoc())  ?>
                                         </tbody>
                                     </table>
@@ -134,16 +133,10 @@ include ("import_modal.php");
                                     </div>
                                     </div>
                                     </div>
+                                    <?php include ("footer.php"); ?>
                                     </div>
                                     </div>
                                     </div>
-                        
-                    
-                             <!-- /.container-fluid -->
-
-</body>
-</html>
 <?php
 include ("script/script.php");
-include ("footer.php");
 ?>

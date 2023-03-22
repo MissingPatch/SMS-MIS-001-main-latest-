@@ -15,12 +15,11 @@ include ("include/sidebar.php");
 include("categorize_inq_email.php");
 
 $con = connection();
-@$id = $_GET['inq_num'];
 $sql = "SELECT * FROM mis_payment_method WHERE payment_desc IN ('Enrollment Fee') AND status ='Paid' ORDER BY OR_number";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
-
 ?>
+
                 <div class="container-fluid">
                     <div class="col-xl-12 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
@@ -85,32 +84,32 @@ include ("import_modal.php");
                                 <div class="table-responsive">
                                     <table id="example" class="table table-hover" style="width:100%">
                                         <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>OR_number</th>
-                <th>Name</th>
-                <th>Course</th>
-                <th>Year</th>
-                <th>Semester</th>
-                <th>Mode of Payment</th>
-                <th>Payment Type</th>
-                <th>Date of Payment</th>
-            </tr>
+                                        <tr>
+                                            <th>Student ID</th>
+                                            <th>OR_number</th>
+                                            <th>Name</th>
+                                            <th>Course</th>
+                                            <th>Year</th>
+                                            <th>Semester</th>
+                                            <th>Mode of Payment</th>
+                                            <th>Payment Type</th>
+                                            <th>Date of Payment</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
                                         <?php do{ 
                                             if (!empty($row)){ ?>
-            <tr>
-                <td><?php echo $row['student_num']; ?></td>
-                <td><?php echo $row['OR_number']; ?></td>
-                <td><?php echo $row['name']; ?></td>
-                <td><?php echo $row['course']; ?></td>
-                <td><?php echo $row['yearlevel']; ?></td>
-                <td><?php echo $row['semester']; ?></td>
-                <td><?php echo $row['payment_type']; ?></td>
-                <td><?php echo $row['payment_desc']; ?></td>
-                <td><?php echo $row['date']; ?></td>
-            </tr>
+                                        <tr>
+                                            <td><?php echo $row['student_num']; ?></td>
+                                            <td><?php echo $row['OR_number']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['course']; ?></td>
+                                            <td><?php echo $row['yearlevel']; ?></td>
+                                            <td><?php echo $row['semester']; ?></td>
+                                            <td><?php echo $row['payment_type']; ?></td>
+                                            <td><?php echo $row['payment_desc']; ?></td>
+                                            <td><?php echo $row['date']; ?></td>
+                                        </tr>
                                             <?php }}while($row = $res->fetch_assoc())  ?>
                                         </tbody>
                                     </table>
@@ -121,7 +120,6 @@ include ("import_modal.php");
                                             $(this).find('#inq-num').val(inqNum);
                                         });
                                         });
-
                                     </script>
                                     </div>
                                     </div>
@@ -133,16 +131,10 @@ include ("import_modal.php");
                                     </div>
                                     </div>
                                     </div>
+                                    <?php include ("footer.php"); ?>
                                     </div>
                                     </div>
                                     </div>
-                        
-                    
-                             <!-- /.container-fluid -->
-
-</body>
-</html>
 <?php
 include ("script/script.php");
-include ("footer.php");
 ?>
