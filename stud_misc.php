@@ -13,7 +13,8 @@ header('Location: ' . $_SERVER['HTTP_REFERER']);
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-include("concern_modal.php");
+include("stud_pms_modal.php");
+include ("voiding_modal2.php");
 include("deleteaccdep.php");
 $con = connection();
 @$id = $_POST['OR_number'];
@@ -113,26 +114,18 @@ $row = $result->fetch_assoc();
                                         <td><?php echo $row['payment_desc'];?></td>
                                         <td><?php echo $row['amount'];?></td>
                                         <td><?php echo $row['status'];?></td> 
-                                        
-                                       
+                                                                          
                                         <div class="col-sm-12" >
-                    
-
                                         <input type="hidden" name="" > 
                                         </div>
                                         <td>
-                                        <?php
-                                         include("stud_pms_modal.php");
-                                         ?>
-                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>
-                                        </tr>
-                                        
-
-                                           
+                                         <div class="btn-group" role="group">
+                                         <a href="#" data-toggle="modal" data-target="#void<?php echo $row['OR_number']; ?>"
+                                         class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>&nbsp;
+                                         <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
+                                         class="btn btn-primary btn-sm" style="background-color: #07177a;">Edit</a>
+                                         </div>
                                          </td>
-                                    
-
                                     </tr>
                                     <?php }}while($row = $result->fetch_assoc()); ?>
                                     </tbody>

@@ -13,13 +13,10 @@ include ("connection/connection.php");
 $con = connection();
 include ("include/header.php");
 include ("include/sidebar.php");
+include("stud_pms_modal.php");
 include ("voiding_modal2.php");
-
-
 ?>
 
-
-    
         <div class="container-fluid">
         <div class="main-body">
         <!-- Content Row -->
@@ -263,14 +260,13 @@ include ("voiding_modal2.php");
                                                 <td><?php echo $row['void_reason']; ?></td>
                                                 <td>
 
-                                                <form method="POST">
-                                                  <input type="hidden" name="OR_number" value="<?php echo $row['OR_number'];?>"> 
-                                                  <button type="button" class="btn btn-success" style="background-color:#07177a;" data-toggle="modal" 
-                                                      data-target="#void<?php echo $row['OR_number']; ?>">
-                                                      View
-                                                  </button>
-                                               </form>
-                                                  <!--<a href="pms_view_receipt.php?OR_number=<//?php echo $row["OR_number"];?>" class="btn btn-success" style="background-color:#07177a;">View</a>
+                                               <div class="btn-group" role="group">
+                                                <a href="#" data-toggle="modal" data-target="#void<?php echo $row['OR_number']; ?>"
+                                                class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>&nbsp;
+                                                <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
+                                                class="btn btn-primary btn-sm" style="background-color: #07177a;">Edit</a>
+                                               </div>
+                                                <!--<a href="pms_view_receipt.php?OR_number=<//?php echo $row["OR_number"];?>" class="btn btn-success" style="background-color:#07177a;">View</a>
                                                     -->
                                                
                                                 </td>
@@ -278,13 +274,6 @@ include ("voiding_modal2.php");
                                             <?php } while ($row = $pay->fetch_assoc()); ?>
                                         </tbody>
                                     </table>
-
-                                    <script>
-                                        $(document).on('click', '.btn-success', function() {
-                                            var target = $(this).data('target');
-                                            $(target).modal('show');
-                                        });
-                                    </script>
                                     </div>
                                     </div>
                                     </div>
@@ -299,141 +288,6 @@ include ("voiding_modal2.php");
                                     </div>
                                     </div>
                                     </div>
-                                    <?php
-                  
-                    $pay = $con->query($ql) or die($con->error);
-                    while ($row = $pay->fetch_assoc()) {
-                       
-                      ?>
-              <div class="modal fade" id="void<?php echo $row['OR_number']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title"><b>Payment Receipt</b></h5>
-                <hr>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-              
-      
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <address>
-                    <img
-                class="ms-5 ms-sm-3 my-auto"
-                src="./images/logo.png"
-                width="130"
-                height="100"
-                alt="bcp-logo"
-                />
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                
-                    <p>
-                        <b><em>Date:</b> <?php echo $row['date']; ?></em>
-                    </p>
-                    <p>
-                    <b><em>Receipt #:</b> <?php echo $row['OR_number']; ?></em>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="text-center">
-                    <h5>Official Receipt</h5>
-                </div>
-                </span>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-
-                            <th>Payment Description</th>
-                            <th>Stud #.</th>
-                            <th class="text-center">Amount</th>
-                            <th class="text-center">Balance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-md-9"><em><?php echo $row['payment_desc']; ?></em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> <em><?php echo $row['student_num']; ?> </td>
-                            <td class="col-md-1 text-center"><?php echo $row['amount']; ?></td>
-                            <td class="col-md-1 text-center"><?php echo $row['bal']; ?></td>
-                        </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-
-                            <th>Name</th>
-                            <th>Year</th>
-                            <th class="text-center">Program</th>
-                            <th class="text-center">Semester</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-md-9"><em><?php echo $row['name']; ?></em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> <em><?php echo $row['yearlevel']; ?> </td>
-                            <td class="col-md-1 text-center"><?php echo $row['course']; ?></td>
-                            <td class="col-md-1 text-center"><?php echo $row['semester']; ?></td>
-                        </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <label>Void Reason:</label>
-                  <select name="void_reason" class="form-control" id="void_reason">
-                    <?php
-                    $void_reasons = ["...","Duplicate payment", "Incorrect amount", "Wrong student","Cancelled transaction", "Other reasons:"];
-                    foreach ($void_reasons as $reason) {
-                      echo "<option value=\"$reason\">$reason</option>";
-                    }
-                    ?>
-                  </select>
-
-              
-            </div>
-
-                  <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#login-modal<?php echo $row['OR_number']; ?>" data-dismiss="modal">Void</button>
-                  <button type="button" class="btn btn-primary"  onclick="printModalContent('login-modal<?php echo $row['OR_number']; ?>')">Print</button> 
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    
-                                    <script>
-                                    function printModalContent(modalId) {
-                                    // Get the modal element
-                                    var modal = document.getElementById(modalId);
-
-                                    // Create a new element to hold the printable content
-                                    var printContent = document.createElement('div');
-
-                                    // Copy the modal content into the print element, omitting the button
-                                    var modalContent = modal.querySelector('.modal-body').cloneNode(true);
-                                    modalContent.removeChild(modalContent.lastElementChild); // Remove the "Print Receipt" button
-                                    printContent.appendChild(modalContent);
-
-                                    // Create a new window to print the content
-                                    var printWindow = window.open('', 'Print', 'height=1500,width=1600');
-
-                                    // Append the printable content to the print window document
-                                    printWindow.document.body.appendChild(printContent);
-
-                                    // Print the window
-                                    printWindow.print();
-
-                                    // Close the print window
-                                    printWindow.close();
-                                    }
-                                    </script>
-                           
-                <?php } ?>
 <?php
 include ("script/script.php");
 ?>

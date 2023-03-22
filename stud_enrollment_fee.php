@@ -98,13 +98,13 @@ $row = $result->fetch_assoc();
                                         <td><?php echo $row['status'];?></td> 
                                         </div>
                                         <td>
-                                            
-                                         <?php
+                                        <?php
                                          include("stud_pms_modal.php");
                                          ?>
                                         <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
-                                        class="btn btn-primary" style="background-color: #07177a;">View</a>
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>
                                         </tr>
+                                        </td>
                                         
                                     <?php 
 

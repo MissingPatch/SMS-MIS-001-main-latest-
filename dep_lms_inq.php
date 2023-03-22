@@ -24,7 +24,7 @@ $row = $res->fetch_assoc();
                 <div class="container-fluid">
                     <div class="col-xl-12 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body" style="height:100vh;">
+                    <div class="card-body">
                     <div class="row no-gutters align-items-center">
 
                     <div class="col-xl-12 col-md-6 mb-4">
@@ -87,45 +87,42 @@ include ("import_modal.php");
 
                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter3"  class="btn btn-success btn-sm" style="color: black; background: none; float: right;"><i class="bx bx-import"></i>&nbsp; Upload Prelim
                         </a>
-                        
-                        
                         </div>
-                            
                                 <div class="card-body">
-                            
                                 <div class="table-responsive">
                                     <table id="example" class="table table-hover" style="width:100%">
                                         <thead>
                                         <tr>
-                <th>Student ID</th>
-                <th>OR_number</th>
-                <th>Name</th>
-                <th>Course</th>
-                <th>Year</th>
-                <th>Semester</th>
-                <th>Mode of Payment</th>
-                <th>Payment Type</th>
-                <th>Date of Payment</th>
-            </tr>
+                                        <th>Student ID</th>
+                                        <th>OR_number</th>
+                                        <th>Name</th>
+                                        <th>Course</th>
+                                        <th>Year</th>
+                                        <th>Semester</th>
+                                        <th>Mode of Payment</th>
+                                        <th>Payment Type</th>
+                                        <th>Date of Payment</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
                                         <?php do{ 
                                             if (!empty($row)){ ?>
                                        
                                             <tr>
-                <td><?php echo $row['student_num']; ?></td>
-                <td><?php echo $row['OR_number']; ?></td>
-                <td><?php echo $row['name']; ?></td>
-                <td><?php echo $row['course']; ?></td>
-                <td><?php echo $row['yearlevel']; ?></td>
-                <td><?php echo $row['semester']; ?></td>
-                <td><?php echo $row['payment_type']; ?></td>
-                <td><?php echo $row['payment_desc']; ?></td>
-                <td><?php echo $row['date']; ?></td>
-            </tr>
+                                            <td><?php echo $row['student_num']; ?></td>
+                                            <td><?php echo $row['OR_number']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['course']; ?></td>
+                                            <td><?php echo $row['yearlevel']; ?></td>
+                                            <td><?php echo $row['semester']; ?></td>
+                                            <td><?php echo $row['payment_type']; ?></td>
+                                            <td><?php echo $row['payment_desc']; ?></td>
+                                            <td><?php echo $row['date']; ?></td>
+                                            </tr>
+
                                             <?php }}while($row = $res->fetch_assoc())  ?>
                                         </tbody>
-                                    </table>
+                                        </table>
                                     <script>
                                         $(document).ready(function() {
                                         $('#inq').on('show.bs.modal', function(e) {
@@ -133,7 +130,6 @@ include ("import_modal.php");
                                             $(this).find('#inq-num').val(inqNum);
                                         });
                                         });
-
                                     </script>
                                     </div>
                                     </div>
@@ -145,6 +141,9 @@ include ("import_modal.php");
                                     </div>
                                     </div>
                                     </div>
+                                    <?php
+                                    include ("footer.php");
+                                    ?>
                                     </div>
                                     </div>
                                     </div>
@@ -156,5 +155,4 @@ include ("import_modal.php");
 </html>
 <?php
 include ("script/script.php");
-include ("footer.php");
 ?>

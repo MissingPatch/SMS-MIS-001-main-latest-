@@ -1,76 +1,122 @@
- <?php
- include ("void_login_access.php");
 
+<?php
 $ql = "SELECT * FROM mis_payment_method ORDER BY OR_number DESC";
 $pay = $con->query($ql) or die($con->error);
-
- while ($row = $pay->fetch_assoc()) {
+while ($row = $pay->fetch_assoc()) {
 ?>
-   
-
-<!--login Modal -->
-<div class="modal fade" id="login-modal<?php echo $row['OR_number']; ?>" tabindex="-1" role="dialog" aria-labelledby="nested-modal-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title" id="nested-modal-label">Enter Account</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+             <div class="modal fade" id="void<?php echo $row['OR_number']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title"><b>Payment Receipt</b></h5>
+                <hr>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+              
+      
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address>
+                    <img
+                class="ms-5 ms-sm-3 my-auto"
+                src="./images/logo.png"
+                width="130"
+                height="100"
+                alt="bcp-logo"
+                />
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                
+                    <p>
+                        <b><em>Date:</b> <?php echo $row['date']; ?></em>
+                    </p>
+                    <p>
+                    <b><em>Receipt #:</b> <?php echo $row['OR_number']; ?></em>
+                    </p>
+                </div>
             </div>
+            <div class="row">
+                <div class="text-center">
+                    <h5>Official Receipt</h5>
+                </div>
+                </span>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
 
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <form id="loginForm" method="POST" action="void_login_access.php?OR_number=<?php echo $row['OR_number']; ?>">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                            <th>Payment Description</th>
+                            <th>Stud #.</th>
+                            <th class="text-center">Amount</th>
+                            <th class="text-center">Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-9"><em><?php echo $row['payment_desc']; ?></em></h4></td>
+                            <td class="col-md-1" style="text-align: center"> <em><?php echo $row['student_num']; ?> </td>
+                            <td class="col-md-1 text-center"><?php echo $row['amount']; ?></td>
+                            <td class="col-md-1 text-center"><?php echo $row['bal']; ?></td>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th class="text-center">Program</th>
+                            <th class="text-center">Semester</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-9"><em><?php echo $row['name']; ?></em></h4></td>
+                            <td class="col-md-1" style="text-align: center"> <em><?php echo $row['yearlevel']; ?> </td>
+                            <td class="col-md-1 text-center"><?php echo $row['course']; ?></td>
+                            <td class="col-md-1 text-center"><?php echo $row['semester']; ?></td>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-primary"  onclick="printModalContent('void<?php echo $row['OR_number']; ?>')">Print</button> 
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                     </div>
-                    <input type="hidden" name="OR_number" value="<?php echo $row['OR_number']; ?>">
-            </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                                    <script>
+                                    function printModalContent(modalId) {
+                                    // Get the modal element
+                                    var modal = document.getElementById(modalId);
 
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="LOGIN" class="btn btn-primary">Login</button>
-            </div>
-        </form>
-        </div>
-    </div>
-</div>
-<?php } ?>
+                                    // Create a new element to hold the printable content
+                                    var printContent = document.createElement('div');
 
+                                    // Copy the modal content into the print element, omitting the button
+                                    var modalContent = modal.querySelector('.modal-body').cloneNode(true);
+                                    modalContent.removeChild(modalContent.lastElementChild); // Remove the "Print Receipt" button
+                                    printContent.appendChild(modalContent);
 
-<script>
-    $('#login-modal').on('shown.bs.modal', function () {
-        $('#loginForm').trigger('focus')
-    });
+                                    // Create a new window to print the content
+                                    var printWindow = window.open('', 'Print', 'height=1500,width=1600');
 
-    $('#loginForm').submit(function (event) {
-        event.preventDefault();
-        // perform form submission via AJAX or regular form submission
-        $.ajax({
-            url: 'void_login_access.php',
-            method: 'POST',
-            data: $('#loginForm').serialize(),
-            success: function (response) {
-                // handle success response
-                if (response === 'success') {
-                    // close the modal if login is successful
-                    $('#login-modal').modal('hide');
-                } else {
-                    // display error message if login is unsuccessful
-                    $('#error-message').text(response);
-                }
-            },
-            error: function () {
-                // handle error response
-                $('#error-message').text('An error occurred while processing your request. Please try again later.');
-            }
-        });
-    });
-</script>
-	
+                                    // Append the printable content to the print window document
+                                    printWindow.document.body.appendChild(printContent);
+
+                                    // Print the window
+                                    printWindow.print();
+
+                                    // Close the print window
+                                    printWindow.close();
+                                    }
+                                    </script>
+                           
+                           <?php } ?>
