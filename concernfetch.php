@@ -13,9 +13,6 @@ include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
 
-include("mobile_conn.php");
-include "mobileadmin/readfetch.php";
-include "mobileadmin/update.php";
 
 ?>
                 <div class="container-fluid">
@@ -63,7 +60,7 @@ include "mobileadmin/update.php";
 
                             <?php
 
-include_once("connection/connection.php");
+
 
 $con = connection();
 @$id = $_GET['id'];

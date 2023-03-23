@@ -9,16 +9,11 @@ else{
  echo header("location:login.php");
 }
 
-include_once("mobile_conn.php");
 include ("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
 
-
-include "mobileadmin/read.php";
-include "mobileadmin/update.php";
-include "concern_modal.php";
-include "concern_update_modal.php";
+include("concern_delete.php");
 
 
 
@@ -69,7 +64,7 @@ include "concern_update_modal.php";
 
 <?php
 
-include_once("connection/connection.php");
+
 
 $con = connection();
 @$id = $_GET['id'];
@@ -97,15 +92,63 @@ $row = $res->fetch_assoc();
                                                 <td><?php echo $row['queries']; ?></td>
                                                 <td><?php echo $row['replies']; ?></td>
                                                 <td>
-                                                <form action="delete_event.php"  method="POST">
 
-                <a href="#" <?php echo $row['id']; ?>" style="text-decoration: none; font-size: 20px;">
-                <i class="bx bx-edit"></i>&nbsp;</a>
+<form action="concern_delete.php"  method="POST">
 
-                <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
-                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
-                </form>
-                                                   
+<a href="#" data-toggle="modal" data-target="#exampleModalCenter0<?php echo $row['id']; ?>" style="text-decoration: none; font-size: 20px;">
+<i class="bx bx-edit"></i>&nbsp;</a>
+
+<button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
+<input type="hidden" name="id" value="<?php echo $row["id"];?>">
+</form>
+                                            
+<!-- Modal For Announcement -->
+<div class="modal fade" id="exampleModalCenter0<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><b> Edit Concerns Data </b></h5>
+                    </div>
+                    <div class="modal-body">
+                                    <div class="card-body">
+                                        <div class="container-fluid">
+                                       
+
+                                            <form action="concern_update.php" method="post">
+                                                <div class="form-group mb-2">
+                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                                    <label for="id" class="control-label">ID</label>
+                                                    <input type="text" class="form-control form-control" name="id" id="id"
+                                                    value="<?php echo $row['id'];?>" disabled>
+                                                </div>
+
+                                                <div class="form-group mb-2">
+                                                <input type="hidden" name="queries" value="<?php echo $row['queries']; ?>">
+                                                    <label for="id" class="control-label">Command</label>
+                                                    <input type="text" class="form-control form-control" name="queries" queries="queries"
+                                                    value="<?php echo $row['queries'];?>" >
+                                                </div>
+
+                                                <div class="form-group mb-2">
+                                                    <label for="replies" class="control-label">Response</label>
+                                                    <textarea rows="10" class="form-control form-control" name="replies" id="replies" 
+                                                    value=""><?php echo $row['replies'];?></textarea>
+                                                </div>
+                                        
+                                        </div>
+                                    </div>
+                                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                        <button type="submit" name="update" style="background-color:#07179a;" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Update</button>
+                        </form>
+                    </div>
+                    
+                    </div>
+                </div>
+                </div>
+                <!--end of modal -->
+
                                                 </td>
                                             </tr>
                                             <?php }while($row = $res->fetch_assoc())  ?>
@@ -116,7 +159,8 @@ $row = $res->fetch_assoc();
                                     </div>
                                     </div>
                                     </div>
-                                    </div>    
+                                    </div>  
+                                    
                                     <?php
                                     include ("footer.php");
                                     ?>
