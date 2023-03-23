@@ -60,8 +60,6 @@ include ("include/sidebar.php");
 
                             <?php
 
-
-
 $con = connection();
 @$id = $_GET['id'];
 $sql = "SELECT * FROM mis_concern WHERE qA='1' ORDER BY fetch_concern DESC";

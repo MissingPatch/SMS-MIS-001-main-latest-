@@ -12,7 +12,6 @@ else{
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-include("concern_modal.php");
 include("deleteaccdep.php");
 
 $con = connection();
