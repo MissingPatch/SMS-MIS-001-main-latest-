@@ -12,8 +12,8 @@ else{
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-include("concern_modal.php");
 include("deleteaccdep.php");
+
 $con = connection();
 $sql = "SELECT * FROM mis_payment_method WHERE status IN ('Paid') AND payment_desc ='Enrollment Fee' ORDER BY OR_number";
 $result = $con->query($sql) or die($con->error);

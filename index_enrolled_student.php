@@ -15,7 +15,6 @@ include ("include/sidebar.php");
 
                 @$id = $_GET['ID'];
                 $sql = "SELECT * FROM mis_usermanagement WHERE ID ='$id'";
-                $sql = "SELECT * FROM mis_stud_info";
                 $emp = $con->query($sql) or die($con->error);
                 $row = $emp->fetch_assoc();
                 
@@ -73,10 +72,18 @@ if ($result1 = mysqli_query($con, $sql1)) {
                     </div>
                     </div>
 
+<?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE sex='Male' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?>
+
+
     <!-- Enrolled Student -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
-        <a href="index_enrolled_student.php" style="text-decoration:none; color:black;">
+        <a href="" style="text-decoration:none; color:black;">
             <div class="card-body" >
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -94,10 +101,17 @@ if ($result1 = mysqli_query($con, $sql1)) {
         </div>
     </div>
 
-    <!-- Teachers -->
+
+  <?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE sex='Female' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?>
+
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
-        <a href="index_teacher.php" style="text-decoration:none; color:black;">
+        <a href="" style="text-decoration:none; color:black;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -115,10 +129,16 @@ if ($result1 = mysqli_query($con, $sql1)) {
         </div>
     </div>
 
-     <!-- Enrolled Student -->
+    <?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?>
+
      <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
-        <a href="index_enrolled_student.php" style="text-decoration:none; color:black;">
+        <a href="" style="text-decoration:none; color:black;">
             <div class="card-body" >
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -136,10 +156,16 @@ if ($result1 = mysqli_query($con, $sql1)) {
         </div>
     </div>
 
-    <!-- Teachers -->
+    <?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='In-Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?>
+
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
-        <a href="index_teacher.php" style="text-decoration:none; color:black;">
+        <a href="" style="text-decoration:none; color:black;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -158,7 +184,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
     </div>
 
 
-   
+
     
 <!-- Bar chart -->
 <div class="col-xl-7 col-md-6 mb-4">
@@ -177,27 +203,51 @@ if ($result1 = mysqli_query($con, $sql1)) {
       this.state = {
       
         series: [{
-          data: [<?php echo ($rowcount);?>
-                  , <?php echo ($rowcount);?>
-                  , <?php echo ($rowcount);?>
-                  , <?php echo ($rowcount);?>]
+          data: [    <?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Regular' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?> 
+  <?php echo ($rowcount);?>,     
+  <?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?> 
+  <?php echo ($rowcount);?>,
+  <?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Transferee' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?>  
+  <?php echo ($rowcount);?>, 
+  <?php 
+  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='In-Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  if ($result = mysqli_query($con, $sql)) {
+  $rowcount = mysqli_num_rows( $result);
+  }
+  ?>
+  <?php echo ($rowcount);?>]
                }],
         options: {
           chart: {
             type: 'bar',
-            height: 380
+            height: 200
           },
           plotOptions: {
             bar: {
               barHeight: '100%',
               distributed: true,
-              horizontal: true,
+              vertical: true,
               dataLabels: {
                 position: 'bottom'
               },
             }
           },
-          colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa'
+          colors: ['#cceeff', '#99ddff', '#1ab2ff', '#0099e6'
           ],
           dataLabels: {
             enabled: true,
@@ -212,10 +262,6 @@ if ($result1 = mysqli_query($con, $sql1)) {
             dropShadow: {
               enabled: true
             }
-          },
-          stroke: {
-            width: 1,
-            colors: ['#fff']
           },
           xaxis: {
             categories: ['Regular Student', 'Old Student', 'Tranferee', 'In-active'
@@ -262,8 +308,10 @@ if ($result1 = mysqli_query($con, $sql1)) {
           <div id="chart">
             <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={380} />
           </div>
+          
           <div id="html-dist"></div>
         </div>
+        
       );
     }
   }
@@ -297,65 +345,49 @@ if ($result->num_rows > 0) {
 
 ?>
 
-<!-- PIE CHART -->
+                <!-- PIE CHART -->
 <div class="col-xl-5 col-md-4 mb-2 h-25">
     
-        <div class="card-body">
+        <div class="card-body" style="border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
             <div class="row no-gutters align-items-center">
                 <div class="index">
-                    <p style="text-align:center;"><b> Program Statistics</b></p>
+                    <p style="text-align:center;"><b><i class="bx bxs-user"></i> Enrolled Student by Course </b></p>
                 </div>
-                <div id="pie"></div>
-                <script type="text/babel">
-                    class ApexChart extends React.Component {
-                        constructor(props) {
-                            super(props);
-                            this.state = {
-                                series: <?php echo json_encode($series); ?>,
-                                options: {
-                                    chart: {
-                                        width: 380,
-                                        type: 'pie',
-                                    },
-                                    labels: <?php echo json_encode($labels); ?>,
-                                    responsive: [{
-                                        breakpoint: 480,
+                <div id="pie" style="border: 1px solid grey;"></div>
+              
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-                                        options: {
-                                            chart: {
-                                                width: 200
-                                            },
-                                            title: {
-                                                float: true,
-                                                text: 'My Pie Chart Title',
-                                                fontSize: 18,
-                                                fontColor: 'black'
-                                            },
-                                            legend: {
-                                                position: 'bottom'
-                                            }
+      function drawChart() {
 
-                                        }
-                                    }]
-                                },
-                            };
-                        }
+        var data = google.visualization.arrayToDataTable([
+          ['students', 'contribution'],
+         <?php
+         $sql = "SELECT course, count(*) as count FROM mis_stud_info GROUP BY course";
+         $fire = mysqli_query($con,$sql);
+          while ($result = mysqli_fetch_assoc($fire)) {
+            echo"['".$result['course']."',".$result['count']."],";
+          }
 
-                        render() {
-                            return (
-                                <div>
-                                    <div id="chartp">
-                                        <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
-                                    </div>
-                                    <div id="htmlp-dist"></div>
-                                </div>
-                            );
-                        }
-                    }
+         ?>
+        ]);
 
-                    const pie = document.querySelector('#pie');
-                    ReactDOM.render(React.createElement(ApexChart), pie);
-                </script>
+        var options = {
+          title: ''
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="piechart" style="width: 900px; height: 300px;"></div>
+
+            </div>
+        </div>
+
             </div>
         </div>
     </div>
