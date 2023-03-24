@@ -14,6 +14,7 @@ include ("include/header.php");
 include ("include/sidebar.php");
 
 include("concern_delete.php");
+include ("concern_add_modal.php");
 
 
 
@@ -57,8 +58,8 @@ include("concern_delete.php");
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
                               <b>List of Concerns</b>
-                                <!--<h6 class="m-0 font-weight-bold text-primary">Student Accounts --> 
-
+            <button type="button" class="btn btn-success btn-sm" style="float: right; background-color:#07179a;" 
+            data-toggle="modal" data-target="#addconcern">Add Concern</button>
     </div>
 
 
