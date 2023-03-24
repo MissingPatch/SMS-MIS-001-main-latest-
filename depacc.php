@@ -18,7 +18,8 @@ include("addaccdepmodal.php");
 include("editaccdepmodal.php");
 include("deleteacc_stud.php");
 
-$con = connection();
+$id=$_SESSION['ID'];
+$email=$_SESSION['email'];
 $sql = "SELECT * FROM mis_usermanagement ORDER BY ID DESC";
 $emp = $con->query($sql) or die($con->error);
 $row = $emp->fetch_assoc();
@@ -75,7 +76,35 @@ $row = $emp->fetch_assoc();
                             .fa-user-plus {
                                 color: blue;
                             }
+
+                            .status-circle {
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 50%;
+                                display: inline-block;
+                                margin-right: 5px;
+                                margin-bottom: 5px;
+                            }
+
+                            .online {
+                                background-color: green;
+                            }
+
+                            .offline {
+                                background-color: red;
+                            }
                             </style>
+            
+                                    
+                            <?php
+
+                                if ($row['is_logged_in']) {
+                                $status_class = 'online'; // Set class to 'online' if user is logged in
+                                } else {
+                                $status_class = 'offline'; // Set class to 'offline' if user is not logged in
+                                }
+                            ?>
+
                             <span style="float:right;">
                             <button type="button" class="fa-solid fa-user-plus" aria-placeholder="add" style="height:30px; width:40px; margin-right:10px;" data-toggle="modal" data-target="#addaccount" 
                             style="background-color:#07177a; color:white; ">
@@ -93,21 +122,23 @@ $row = $emp->fetch_assoc();
                                     <th>Name</th>                                
                                     <th>Department</th>
                                     <th>Role</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                        
                             <?php do{ ?>
-                                
                                     <tr>
                                         <td><?php echo $row['ID']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
                                         <td><?php echo $row['fname']; ?></td>                
                                         <td><?php echo $row['department']; ?></td>
                                         <td><?php echo $row['role']; ?></td>
+                                        <td><?php echo $status_class; ?></td>
                                         <td>
                                         <form action="deleteaccdep.php" method="POST">
-                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success" style="background-color:#07177a;">View</a>
+                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="background-color:#07177a;">View</a>
                                         <button type="submit" class="btn btn-danger btn-sm" name="delete" >Remove</button>
                                         <input type="hidden" name="ID" value="<?php echo $row["ID"];?>">
                                         </form>
