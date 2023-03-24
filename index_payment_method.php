@@ -154,14 +154,14 @@ include ("voiding_modal2.php");
 
 <!-- PIE CHART -->
 <div class="col-xl-5 col-md-4 mb-2 h-25">
-    
-        <div class="card-body" style="border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+
+        <div class="card-body" style="border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;">
             <div class="row no-gutters align-items-center">
                 <div class="index">
                     <p style="text-align:center;"><b><i class="bx bxs-bank"></i> Payment Method </b></p>
                 </div>
                 <div id="pie" style="border: 1px solid grey;"></div>
-              
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -191,8 +191,6 @@ include ("voiding_modal2.php");
       }
     </script>
     <div id="piechart" style="width: 900px; height: 300px;"></div>
-
-
 
                 </div>
             </div>
@@ -238,7 +236,6 @@ include ("voiding_modal2.php");
                                                 <th>Amount</th>                              
                                                 <th>Payment Type</th>
                                                 <th>Date</th>
-                                                <th>Balance</th>
                                                 <th>Payment Description</th>
                                                 <th>Status</th>
                                                 <th>Void Reason</th>
@@ -254,7 +251,6 @@ include ("voiding_modal2.php");
                                                 <td><?php echo $row['amount']; ?></td>
                                                 <td><?php echo $row['payment_type']; ?></td>
                                                 <td><?php echo $row['date']; ?></td>
-                                                <td><?php echo $row['bal']; ?></td>
                                                 <td><?php echo $row['payment_desc']; ?></td>
                                                 <td><?php echo $row['status']; ?></td>
                                                 <td><?php echo $row['void_reason']; ?></td>
