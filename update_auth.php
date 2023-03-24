@@ -15,6 +15,7 @@ echo "<script>alert('Auth updated successfully!')</script>";
 
 if (!$result) {
     echo "Error updating auth: " . mysqli_error($con);
+    log_activity($_SESSION['ID'],$_SESSION['email'], "Disable Authentication ID $id");
 } else {
     log_activity($_SESSION['ID'],$_SESSION['email'], "Enable Authentication ID $id");
     echo "Auth updated successfully!";

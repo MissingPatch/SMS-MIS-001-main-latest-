@@ -10,7 +10,6 @@ else{
 }
 
 include ("accesslevelsuperadmin.php");
-
 include ("include/header.php");
 include ("include/sidebar.php");
 
@@ -124,28 +123,23 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                                     </table>
                                         </div>
                                         </div>
- 
-</div>
-
-
-    
-              
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
 
                     
                     <script type="text/javascript">  
-      function status_update(value,inq_num){  
-           //alert(id);  
-           let url = "http://localhost/SMS-MIS-001-main-latest-/SMS-MIS-001-main-latest-/dep_request.php";  
-           window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
-      }  
- </script>  
+                    function status_update(value,inq_num){  
+                    //alert(id);  
+                    let url = "http://localhost/SMS-MIS-001-main-latest-/SMS-MIS-001-main-latest-/dep_request.php";  
+                    window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
+                    }  
+                    </script>  
  
 <?php
 include ("script/script.php");

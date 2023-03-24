@@ -13,7 +13,6 @@ require("PHPMailer/src/SMTP.php");
 
 $con = connection();
 
-
 if(isset($_POST['LOGIN']))  {
 
   $email = $_POST['email'];
