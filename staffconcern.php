@@ -15,12 +15,6 @@ include ("include/staffheader.php");
 include ("include/staffsidebar.php");
 
 
-include "mobileadmin/read.php";
-include "mobileadmin/update.php";
-include "concern_modal.php";
-include "concern_update_modal.php";
-
-
 
 ?>
                 <div class="container-fluid">

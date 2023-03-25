@@ -89,7 +89,7 @@ $con = connection();
                     <!-- analytics -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
-                        <a href="staff_dep_lms_inq.php" style="text-decoration:none; color:black;">
+                        <a href="" style="text-decoration:none; color:black;">
                             <div class="card-body" >
                                 <div class="row no-utters align-items-center">
                                     <div class="col mr-2">
@@ -121,7 +121,7 @@ $con = connection();
                     <!-- analytics -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
-                        <a href="staff_dep_enr_inq.php" style="text-decoration:none; color:black;">
+                        <a href="" style="text-decoration:none; color:black;">
                             <div class="card-body" >
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -152,7 +152,7 @@ $con = connection();
                     <!-- analytics -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
-                        <a href="staff_dep_cra_inq.php" style="text-decoration:none; color:black;">
+                        <a href="" style="text-decoration:none; color:black;">
                             <div class="card-body" >
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -241,7 +241,8 @@ $row = $res->fetch_assoc();
                                             </tr>
                                             </thead>
                                         <tbody>
-                                        <?php $i=1; do{ ?>
+                                        <?php $i=1; do{ 
+                                            if (!empty($row)){ { ?>
                                             <tr>
                                                 <td><?php echo $i++ ?></td>  
                                                 <td><?php echo $row['inq_num']; ?></td>
@@ -250,7 +251,7 @@ $row = $res->fetch_assoc();
                                                 <td><?php echo $row['date_req']; ?></td>
                                                 <td><?php echo "<p style='font-size: 12px; text-align: center; color: white; margin-right: 10%; margin-left: 10%; background: lightgreen; border-radius: 12px;'> Accept </p>"; ?></td>
                                             </tr>
-                                            <?php }while($row = $res->fetch_assoc())  ?>
+                                            <?php }}}while($row = $res->fetch_assoc())  ?>
                     </tbody>
                     </table>
                     </div>
