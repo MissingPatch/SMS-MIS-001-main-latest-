@@ -264,11 +264,25 @@ input[type="checkbox"]:checked + .slider:before {
                             $("#toggle-status").text(newAuth == 1 ? "Enabled" : "Disabled");
                             // Update the auth value in session storage
                             sessionStorage.setItem('auth', newAuth);
+                            
                             if (newAuth == 1) {
-                              alert("Authentication has been enabled!");
+                              $.ajax({
+                                      url: "sweet_alert_session.php",
+                                      data: { status: "Authentication Enabled" }
+                                    }).done(function() {
+                                    <?php log_activity($_SESSION['ID'], $_SESSION['email'], "Authentication Set Enabled ID $id"); ?>
+                                      location.reload();
+                                    });
                             } else{
-                              alert("Authentication has been disabled!");
+                              $.ajax({
+                                      url: "sweet_alert_session.php",
+                                      data: { status: "Authentication Disabled" }
+                                    }).done(function() {
+                                      <?php log_activity($_SESSION['ID'], $_SESSION['email'], "Authentication Set Disabled ID $id"); ?>
+                                      location.reload();
+                                    });     
                             }
+
                           },
                           error: function(xhr, status, error) {
                             // Handle the error here
@@ -278,28 +292,6 @@ input[type="checkbox"]:checked + .slider:before {
                       });
                     });
                     </script>
-
-               <!-- <script>
-              const toggleSwitch = document.getElementById("toggle-switch");
-              const slider = document.querySelector(".slider");
-              const toggleStatus = document.getElementById("toggle-status");
-              const hiddenField = document.getElementById("enabled");
-
-              toggleSwitch.addEventListener("change", function() {
-                if (this.checked) {
-                  slider.style.backgroundColor = "#2196F3";
-                  slider.style.boxShadow = "0 0 0.5rem #2196F3";
-                  toggleStatus.textContent = "Enabled";
-                  hiddenField.value = "0";
-                } else {
-                  slider.style.backgroundColor = "#ccc";
-                  slider.style.boxShadow = "none";
-                  toggleStatus.textContent = "Disabled";
-                  hiddenField.value = "1";
-                }
-              });
-
-                </script> -->
 
 				          	 </div>
                      </div>
@@ -321,4 +313,5 @@ input[type="checkbox"]:checked + .slider:before {
                     
 <?php
 include ("script/script.php");
+include ("include/sweetalert.php");
 ?>

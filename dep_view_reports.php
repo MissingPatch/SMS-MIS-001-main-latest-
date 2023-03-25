@@ -120,23 +120,16 @@ $row = $stud->fetch_assoc();
                                     </div>
                                     </div>
                                     </div>
-
                                     </div>
-
                                     </div>
                                     <?php
                                     include ("footer.php");
                                     ?>
-
                                     </div>        
                                     </div>
                                     </div>
-                                                                  
-                                    
+                                                        
                              <!-- /.container-fluid -->
-
-</body>
-</html>
 <?php
 include ("script/script.php");
 ?>
