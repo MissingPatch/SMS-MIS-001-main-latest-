@@ -259,15 +259,21 @@ input[type="checkbox"]:checked + .slider:before {
                             sessionStorage.setItem('auth', newAuth);
                             
                             if (newAuth == 1) {
-                            <?php
-                                $_SESSION['status'] = "Authentication Enabled";
-                            ?>
-                            location.reload();
+                              $.ajax({
+                                      url: "sweet_alert_session.php",
+                                      data: { status: "Authentication Enabled" }
+                                    }).done(function() {
+                                    <?php log_activity($_SESSION['ID'], $_SESSION['email'], "Authentication Set Enabled ID $id"); ?>
+                                      location.reload();
+                                    });
                              } else {
-                            <?php
-                                $_SESSION['status'] = "Authentication Disabled";
-                            ?>
-                            location.reload();
+                              $.ajax({
+                                      url: "sweet_alert_session.php",
+                                      data: { status: "Authentication Disabled" }
+                                    }).done(function() {
+                                    <?php log_activity($_SESSION['ID'], $_SESSION['email'], "Authentication Set Disabled ID $id"); ?>
+                                      location.reload();
+                                    });
                               }
                           },
                           error: function(xhr, status, error) {

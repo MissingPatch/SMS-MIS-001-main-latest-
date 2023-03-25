@@ -151,7 +151,7 @@ $row = $emp->fetch_assoc();
                     </div>
                     </div>
                     </div>   
-                            </div>
+                    </div>
                             
                     </div>
                     </div>
@@ -159,7 +159,6 @@ $row = $emp->fetch_assoc();
                     <?php
                     include ("footer.php");
                     ?>
-
                     </div>
                     </div>
                     </div>          
