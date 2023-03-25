@@ -104,7 +104,8 @@ $row = $stud->fetch_assoc();
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                      if (!empty($row)){ { ?>
                                         <tr>
                                         <td><?php echo $row['stud_num'];?></td>
                                         <td><?php echo $row['ylvl'];?> </td>
@@ -116,7 +117,8 @@ $row = $stud->fetch_assoc();
                                         <td><?php echo $row['student_status'];?></td>                                              
 
                                     </tr>
-                                    <?php }while($row = $stud->fetch_assoc()); ?>
+                                    <?php }}
+                                  }while($row = $stud->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>
