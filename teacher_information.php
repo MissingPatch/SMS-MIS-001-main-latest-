@@ -22,7 +22,7 @@ include ("add_teacher.php");
 
 $con = connection();
 @$ID = $_GET['ID'];
-$sql = "SELECT * FROM mis_teacher_information ORDER BY ID";
+$sql = "SELECT * FROM hr_employee ORDER BY ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -105,39 +105,43 @@ $row = $stud->fetch_assoc();
                                 
                                         <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>           
-                                        <th>Phone No.</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>        
+                                        <th>Subject Code</th>
                                         <th>Department</th>
-                                        <th>Subject</th>
-                                        <th>Class Schedule</th>
+                                        <th>Sex</th>
+                                        <th>Contact</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                        if (!empty($row)){ ?>
                                         <tr>
-                                        <td><?php echo $row['ID'];?> </td>
-                                        <td><?php echo $row['name'];?> </td>
-                                        <td> <?php echo $row['email'];?></td>                        
-                                        <td><?php echo $row['phone_number'];?> </td>
+                                        <td><?php echo $row['id'];?> </td>
+                                        <td><?php echo $row['f_name'];?> </td>
+                                        <td><?php echo $row['l_name'];?> </td>                      
+                                        <td><?php echo $row['code'];?> </td>
                                         <td><?php echo $row['department'];?> </td>
-                                        <td> <?php echo $row['subject'];?></td>                        
-                                        <td><?php echo $row['class_schedule'];?> </td>
+                                        <td> <?php echo $row['gender'];?></td> 
+                                        <td> <?php echo $row['cp_number'];?></td>                        
+                                        <td><?php echo $row['status'];?> </td>
                                         <td>
                                             
                                         <form action="deleteacc_teacher.php"  method="POST" >
-                                        <a href="teacher_profile.php?ID=<?php echo $row["ID"];?>" 
+                                        <a href="teacher_profile.php?ID=<?php echo $row["id"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View</a>
                                         <button type="submit" class="btn btn-danger btn-sm" name="delete" >Remove</button>
-                                        <input type="hidden" name="ID" value="<?php echo $row["ID"];?>">
+                                        <input type="hidden" name="id" value="<?php echo $row["id"];?>">
                                         </form>
 
                                     </td>
                                     </tr>
-                                    <?php }while($row = $stud->fetch_assoc()); ?>
+                                    <?php }
+                                }while($row = $stud->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>

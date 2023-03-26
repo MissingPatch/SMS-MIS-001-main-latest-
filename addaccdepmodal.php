@@ -17,7 +17,7 @@
             include ("addaccdep.php");
         ?>
 
-        <form action="addaccdep.php" method="POST">
+        <form action="" method="POST">
         <div class="modal-body">
         <label>Email:</label>
         <input type="email" class="form-control" placeholder="Email" name="email"> 
@@ -72,7 +72,6 @@
         ?>
         </select>
         </div>
-    
 
         <script>
         function reloadPage() {
@@ -80,7 +79,6 @@
         }
         </script>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-secondary" name="clear" id="clear">clear</button>   
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
         <button type="submit" name="add"  onchange="reloadPage()" class="btn btn-primary" style="background-color:#07177a;">Save changes</button>
         </form>  
