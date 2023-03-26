@@ -1,9 +1,9 @@
 <?php  
 
 $host="localhost";
-$user="root";
-$password="";
-$db="mis_database_003";  
+$user="u476821515_SMS";
+$password="Bcpsms12@";
+$db="u476821515_SMS";  
 
 $conn  = mysqli_connect($host, $user, $password, $db);
 
