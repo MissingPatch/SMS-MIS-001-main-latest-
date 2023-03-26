@@ -4,10 +4,10 @@
 	}
 	function connection(){
 
-$host="localhost";
-$user="root";
-$password="";
-$db="mis_database_003";  
+$host="217.21.88.1";
+$user="u476821515_SMS";
+$password="Bcpsms12@";
+$db="u476821515_SMS";  
 
 
 $con = new mysqli($host, $user, $password, $db);
