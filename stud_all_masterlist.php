@@ -16,8 +16,8 @@ include("student_update_modal.php");
 include("student_update.php");
 include("deleteaccdep.php");
 $con = connection();
-@$id = $_GET['stud_num'];
-$sql = "SELECT * FROM mis_stud_info ORDER BY stud_num";
+@$id = $_GET['Student_ID'];
+$sql = "SELECT * FROM registrar_studentlist ORDER BY Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -103,29 +103,32 @@ $row = $stud->fetch_assoc();
                                     <thead>
                                 
                                         <tr>
-                                        <th>Course</th>
-                                        <th>Year Level</th>
-                                        <th>Student ID</th>  
-                                        <th>Last Name</th> 
-                                        <th>First Name</th>          
-                                        <th>Academic Year</th>
-                                        <th>Section</th>
-                                        <th>Student</th>
-                                        <th>Action</th>
+                      <th>Student ID</th>
+                      <th>Course</th>
+                      <th>Section</th>
+                      <th>Major</th>
+                      <th>Last Name</th>
+                      <th>First Name</th>
+                      <th>Middle Name</th>
+                      <th>Academic Year</th>
+                      <th>Student Type</th>
+                      <th>Actions</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                      if (!empty($row)){ ?>
                                         <tr>
-                                        <td><?php echo $row['program_code'];?> </td>
-                                        <td><?php echo $row['ylvl'];?> </td>
-                                        <td><?php echo $row['stud_num'];?></td>
-                                        <td><?php echo $row['lname'];?></td>
-                                        <td><?php echo $row['fname'];?></td>
-                                        <td>2022-<?php echo $row['year'];?> </td>
-                                        <td><?php echo $row['section'];?></td>                        
-                                        <td> <?php echo $row['student_status'];?></td>                        
+                        <td><?php echo $row['Student_ID'] ?></td>
+                        <td><?php echo $row['Course'] ?></td>
+                        <td><?php echo $row['Section'] ?></td>
+                        <td><?php echo $row['Major'] ?></td>
+                        <td><?php echo $row['Lastname']?></td>
+                        <td><?php echo $row['Firstname'] ?></td>
+                        <td><?php echo $row['Middlename'] ?></td>
+                        <td><?php echo $row['Academic_Year'] ?></td>
+                        <td><?php echo $row['Student_Type'] ?></td>                     
                                         
                                         <td>
                                             
@@ -137,7 +140,8 @@ $row = $stud->fetch_assoc();
 
                                     </td>
                                     </tr>
-                                    <?php }while($row = $stud->fetch_assoc()); ?>
+                                    <?php }
+                                  }while($row = $stud->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>

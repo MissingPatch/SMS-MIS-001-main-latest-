@@ -8,7 +8,7 @@ $con = connection();
 if(isset($_POST['add'])){
     $id = $_POST['ID'];
     $email = $_POST['email'];
-    $pass = '123';
+    $pass = 123;
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $sex =  $_POST['sex'];
@@ -16,7 +16,7 @@ if(isset($_POST['add'])){
     $address = $_POST['home_address'];
     $dep = $_POST['department'];
     $role = $_POST['role'];
-    $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($pass, PASSWORD_BCRYPT);
 
     
     $email = mysqli_real_escape_string($con, $_POST['email']);
