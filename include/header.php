@@ -85,7 +85,7 @@
               />
               </a>
 
-              <div class="logo_name text-dark ms-1 ms-sm-3" > BCP | MIS</div>
+              <div class="logo_name text-dark ms-1 ms-sm-3" > BCP | SIM</div>
               <div class="my-auto search-boxContainer d-none d-lg-block">
                 <input
                   type="text"
