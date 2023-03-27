@@ -99,13 +99,8 @@ if(isset($_GET['ID'])) {
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
                   <!-- Button Profile -->
-                 <form id="profileImageForm" enctype="multipart/form-data">
-                   <label class="btn btn-success-soft btn-block" for="profileImageInput" >
-                  <!--   <mat-icon role="img" class="mat-icon notranslate text-black mat-icon-no-color" aria-hidden="true" data-mat-icon-type="svg" data-mat-icon-name="camera" data-mat-icon-namespace="heroicons_outline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" height="5%" width="10%" preserveAspectRatio="xMidYMid meet" focusable="false">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg></mat-icon>-->
-                  
+                 
+
                   <?php
                   $query = "SELECT img_name FROM mis_usermanagement WHERE ID ='$id' ";
                   $result = $con->query($query);
@@ -113,10 +108,7 @@ if(isset($_GET['ID'])) {
                   $image = $rowimg['img_name'] ;
                   echo "<img src='uploads/". $image. "'id='profileImagePreview' alt='Profile' class='rounded-circle'.  width='150'  >";		
                   ?> 
-                  
-                  <input type="file" id="profileImageInput" name="profileImage" accept="image/*" onchange="submitProfileImage()"  hidden="">
-                  </label>
-                  </form>
+
                   </div>
                   <?php
                     if ($row['is_logged_in']) {
@@ -134,7 +126,15 @@ if(isset($_GET['ID'])) {
                       <p class="text-muted font-size-sm"> <?php echo $row['department'];?></p>
                   </div>
                  
-                   
+                  <form id="profileImageForm" enctype="multipart/form-data">
+                  <input type="file" id="profileImageInput" name="profileImage" accept="image/*" onchange="submitProfileImage()"  hidden=""> 
+                  <label class="btn btn-success-soft btn-block" for="profileImageInput" >
+                  <mat-icon role="img" class="mat-icon notranslate text-black mat-icon-no-color" aria-hidden="true" data-mat-icon-type="svg" data-mat-icon-name="camera" data-mat-icon-namespace="heroicons_outline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" height="5%" width="10%" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg></mat-icon>
+                  </label>
+                  </form>
                  
 
                 <script>
