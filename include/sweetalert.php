@@ -1,6 +1,6 @@
 
 <!-- sweetalert-->
-    <script src="js/sweetalert.js"></script>
+<script src="js/sweetalert.js"></script>
     <!--
     <script>
         swal("Good job!", "You clicked the button!", "success");
@@ -16,10 +16,7 @@
             icon: "success",
             button:"ok",
             timer:1500
-            });then(function(){
-            window.location.href="empprofile.php";
             });
-            
         </script>
         <?php
            unset($_SESSION['status']); 

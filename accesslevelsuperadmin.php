@@ -15,6 +15,30 @@ require("PHPMailer/src/SMTP.php");
 $con = connection();
 
 
+if (isset($_SESSION['lockout']) && time() - $_SESSION['lockout'] < 30) {
+  // User is locked out
+  echo "<script>alert('Invalid login, please try again');</script>";
+  echo "<script>window.location = 'login.php?error=Too many login attempts.  Please wait 30 seconds before trying again. ';</script>";
+  exit();
+}
+
+if (isset($_SESSION['lockout']) && time() - $_SESSION['lockout'] >= 30) {
+  // Lockout period has expired, reset attempts
+
+  if ($_SESSION['attempts'] == 0) {
+    // Reload the page if attempts equal to zero
+  
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    unset($_SESSION['lockout']);
+    exit;
+  }
+}
+
+if (!isset($_SESSION['attempts'])) {
+  $_SESSION['attempts'] = 0;
+}
+
+
 if(isset($_POST['LOGIN']))  {
 
   $email = $_POST['email'];
@@ -129,9 +153,16 @@ if(isset($_POST['LOGIN']))  {
   }
 
   else {
+    $_SESSION['attempts']++;
+    if ($_SESSION['attempts'] >= 3) {
+        $_SESSION['lockout'] = time();
+        echo "<script>alert('Too many login attempts. Please wait 30 seconds before trying again.');</script>";
+        exit();
+    } else {
     echo "<script>alert('Invalid login, please try again');</script>";
     echo "<script>window.location = 'login.php?error=Invalid login, please try again';</script>";
     exit();
   }
+}
 }
 ?>
