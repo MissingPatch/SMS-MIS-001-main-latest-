@@ -114,7 +114,7 @@ if(isset($_POST['LOGIN']))  {
       log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
       header("Location: staffstudinfo.php");
 
-    } elseif($row['role'] == "Admin_oes"){
+    } elseif($row['department'] == "Enrollment" && $row['role'] == "Admin" ){
       $_SESSION['ID'] = $row['ID'];
       $_SESSION['fname'] = $row['fname'];
       $_SESSION['lname'] = $row['lname'];
@@ -124,7 +124,7 @@ if(isset($_POST['LOGIN']))  {
       $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
       $con->query($update_query);
       log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
-      header("Location: https://oes.bcpsms.com/");
+      header("Location: https:/home/u476821515/domains/bcpsms.com/public_html/oes/admin_dashboard.php");
     }
   }
 
