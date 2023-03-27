@@ -6,7 +6,9 @@ $con = connection();
 
 
 if(isset($_POST['add'])){
+    if(isset($_POST['ID'])){
     $id = $_POST['ID'];
+    }
     $email = $_POST['email'];
     $pass = 123;
     $fname = $_POST['fname'];
@@ -28,14 +30,15 @@ if(isset($_POST['add'])){
     } else {
        
         $sql = "INSERT INTO `mis_usermanagement` (`email`, `pass` , `fname`, `lname`, `sex`,  `mobilenum`, `home_address`, `department`, `role`) 
-        VALUES ('$email' , '$hashed_password' , '$fname', '$lname', '$sex', '$mobilenum' , '$address' ,'$dep','$role')";
-        $con->query($sql) or die ($con->error);
+        VALUES ('$email' , '$pass' , '$fname', '$lname', '$sex', '$mobilenum' , '$address' ,'$dep','$role')";
 
         if ($con->query($sql) === TRUE) {
             $_SESSION['status'] = "Created Successfully";
             $_SESSION['status_deleteaccdep'] = "Successful";
             log_activity($_SESSION['ID'],$_SESSION['email'], "Add employees account with ID $id");
-            header('Location: depacc.php');
+            echo "<meta http-equiv='refresh' content='0'>";
+
+
     }
        
     }
