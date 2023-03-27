@@ -11,6 +11,7 @@ echo header("location:login.php");
 include ("accesslevelsuperadmin.php");
 include ("include/header.php");
 include ("include/sidebar.php");
+include ("department_modal.php");
 ?>
 
                     <div class="container-fluid">
@@ -72,9 +73,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -98,9 +97,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -122,9 +119,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -151,9 +146,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -175,9 +168,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -199,9 +190,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                      </div>
@@ -228,9 +217,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -252,9 +239,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -276,9 +261,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -305,9 +288,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -329,9 +310,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -353,9 +332,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -382,9 +359,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -406,9 +381,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -430,9 +403,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -459,9 +430,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -483,9 +452,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>
@@ -507,9 +474,7 @@ include ("include/sidebar.php");
                     <br>
                     <br>
                     <span>
-                    <button class="btn btn-success btn-sm" type="button">
-                     Access
-                    </button></span> </a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
                     </div>
                     </div>
                     </div>

@@ -10,15 +10,15 @@ $f = fopen('php://memory', 'w');
  
 
 // Set column headers 
-$fields = array('student_num', 'OR_number', 'name', 'course', 'yearlevel', 'semester', 'payment_type', 'payment_desc', 'status', 'date'); 
+$fields = array('id', 'payment_status', 'updated_by'); 
 fputcsv($f, $fields, $delimiter); 
  
 // Get records from the database 
-$result = $db->query("SELECT * FROM mis_payment_method WHERE payment_desc IN ('Enrollment Fee') AND status ='Paid' ORDER BY OR_number");
+$result = $db->query("SELECT * FROM oes_student_application WHERE payment_status ='Paid' ORDER BY id");
 if($result->num_rows > 0){ 
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $result->fetch_assoc()){ 
-        $lineData = array($row['student_num'], $row['OR_number'], $row['name'], $row['course'], $row['yearlevel'], $row['semester'], $row['payment_type'], $row['payment_desc'], $row['status'] , $row['date']); 
+        $lineData = array($row['id'], $row['payment_status'], $row['updated_by']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 } 
