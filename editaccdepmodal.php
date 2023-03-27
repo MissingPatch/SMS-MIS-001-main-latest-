@@ -40,8 +40,8 @@
                                 <br>
 
                                 <?php
-                                $departments = ["Enrollment", "Registrar", "Faculty Management", "PMS", "LMS", "Student Portal", "Clinic", "Guidance", "Prefect", "Financial", "Crad", "Property Custodian", "Logistics Management", "Quality Assurance", "Safety and Security", "Human Resources", "Academic Management", "Event Management", "Management Information System"];
-                                $roles = ["Super Admin", "Admin", "staff", "Department Head", "Instructor", "Program Head", "Secretary", "Employee", "Clerk", "Auditor", "Research Director", "Research Coordinator", "Research Adviser", "Student", "Dean", "..."];
+                                $departments = ["Admission", "Registrar", "Faculty Management", "PMS", "LMS", "Student Portal", "Clinic", "Guidance", "Prefect", "Financial", "Crad", "Property Custodian", "Logistics Management", "Quality Assurance", "Safety and Security", "Human Resources", "Academic Management", "Event Management", "Management Information System"];
+                                $roles = ["Super Admin", "Admin", "Staff", "Department Head", "Instructor", "Program Head", "Secretary", "Employee", "PMED Chairman", "Counsilor", "Research Director", "Research Coordinator", "Research Adviser", "Student", "Dean", "Head", "Doctor", "Nurse", "SO 3 HEAD", "SO 2", "SO 1", "Head Log Manager", "Log Officer ", "Warehouse Manager", "Secretary of the Accreditation", "Vice President", "General Ledger Manager", "General Ledger Assistant", "Collection Manager", "Collection Assistant ", "Budget Manager", "Budget Assistant", "Disbursement/Reimbursement Manager", "Disbursement/Reimbursement Assistant", "Event Coordinator"];
 
                                 function createOptions($options, $selectedValue) {
                                 foreach ($options as $option) {

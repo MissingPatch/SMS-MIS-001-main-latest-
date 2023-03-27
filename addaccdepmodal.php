@@ -54,7 +54,7 @@
         <label>Department:</label>
         <select name="department" class="form-control" id="department">
             <?php
-            $departments = array("Admission", "Registrar", "Faculty Management", "Payment Management", "LMS", "Student Portal", "Clinic", "Guidance", "Prefect", "Financial", "Crad", "Property Custodian", "Logistics Management", "Quality Assurance", "Safety and Security", "Human Resources", "Academic Management", "Event Management", "Management Information System");
+            $departments = array("...","Admission", "Registrar", "Faculty Management", "Payment Management", "LMS", "Student Portal", "Clinic", "Guidance", "Prefect", "Financial", "Crad", "Property Custodian", "Logistics Management", "Quality Assurance", "Safety and Security", "Human Resources", "Academic Management", "Event Management", "Management Information System");
             foreach ($departments as $dept) {
                 echo "<option value='$dept'>$dept</option>";
             }
@@ -65,19 +65,13 @@
         <label>Role:</label>
         <select name="role" class="form-control" id="role">
         <?php
-        $roles = array("Super Admin", "Admin", "Staff", "Department Head", "Instructor", "Program Head", "Secretary", "Employee", "PMED Chairman", "Counsilor", "Research Director", "Research Coordinator", "Research Adviser", "Student", "Dean", "Head", "Doctor", "Nurse", "SO 3 HEAD", "SO 2", "SO 1", "Head Log Manager", "Log Officer ", "Warehouse Manager", "Secretary of the Accreditation", "Vice President", "General Ledger Manager", "General Ledger Assistant", "Collection Manager", "Collection Assistant ", "Budget Manager", "Budget Assistant", "Disbursement/Reimbursement Manager", "Disbursement/Reimbursement Assistant");
+        $roles = array("...","Super Admin", "Admin", "Staff", "Department Head", "Instructor", "Program Head", "Secretary", "Employee", "PMED Chairman", "Counsilor", "Research Director", "Research Coordinator", "Research Adviser", "Student", "Dean", "Head", "Doctor", "Nurse", "SO 3 HEAD", "SO 2", "SO 1", "Head Log Manager", "Log Officer ", "Warehouse Manager", "Secretary of the Accreditation", "Vice President", "General Ledger Manager", "General Ledger Assistant", "Collection Manager", "Collection Assistant ", "Budget Manager", "Budget Assistant", "Disbursement/Reimbursement Manager", "Disbursement/Reimbursement Assistant", "Event Coordinator");
         foreach ($roles as $role) {
             echo "<option value=\"$role\">$role</option>";
         }
         ?>
         </select>
         </div>
-
-        <script>
-        function reloadPage() {
-            location.reload(); // Reloads the current page
-        }
-        </script>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
         <button type="submit" name="add"  onchange="reloadPage()" class="btn btn-primary" style="background-color:#07177a;">Save changes</button>
