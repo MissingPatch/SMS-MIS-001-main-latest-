@@ -14,30 +14,30 @@
                             <!-- Add student form */-->
 
                             <?php
-                                include ("add_teacher.php");
+                                include ("add_student_user.php");
                             ?>
 
-                            <form action="add_student.php" method="POST">
+                            <form action="add_student_user.php" method="POST">
                             <div class="modal-body">
 
-                            <label>Teacher ID:</label>
-                            <input type="ID" class="form-control" placeholder="Enter Teacher ID" name="ID"> 
+                            <label>Student ID:</label>
+                            <input type="unique_id" class="form-control" placeholder="Auto Generate" name="unique_id" required> 
                             <br>
 
-                            <label>Name:</label>
-                            <input type="name" class="form-control" placeholder="Enter Name" name="name"> 
+                            <label>First Name:</label>
+                            <input type="fname" class="form-control" placeholder="Enter First Name" name="fname" required> 
                             <br>
 
-                            <label> Contact Number:</label>
-                            <input type="phone_number" class="form-control" placeholder="Enter Contact Number" name="phone_number"> 
+                            <label>Last Name:</label>
+                            <input type="lname" class="form-control" placeholder="Enter Last Name" name="lname" required> 
                             <br>
                            
                             <label>Email:</label>
-                            <input type="email" class="form-control" placeholder="Enter Email" name="email">
+                            <input type="email" class="form-control" placeholder="Enter Email" name="email" required>
                             <br>
 
                             <label>Password:</label>
-                            <input type="password" class="form-control" placeholder="Enter Password" name="password">
+                            <input type="password" class="form-control" placeholder="Enter password" name="password" required>
                             <br>
 
                             </div>
