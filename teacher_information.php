@@ -92,7 +92,7 @@ $row = $stud->fetch_assoc();
                             <div class="card-header py-3">
                             <b>Teacher Information </b>
                             <button type="button" class="btn btn-success btn-sm" style="background-color:#07177a; float: right;" data-toggle="modal" data-target="#addaccount" 
-                            style="background-color:#07177a; color:white; "> Add Student </button>           
+                            style="background-color:#07177a; color:white; "> Add Teachers </button>           
                             </h6>
                             </div>
                                 
