@@ -114,7 +114,6 @@ input[type="checkbox"]:checked + .slider:before {
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="empprofile_security.php?ID=<?php echo $row["ID"];?>"><b style="color:#07177a; float:center; width:100px;">Security Setting</b><span class="sr-only">(current)</span></a>
-                      
                     </li>
                     </ul>
                 </div>
@@ -188,7 +187,7 @@ input[type="checkbox"]:checked + .slider:before {
 
                      </div>
 					           </div>
-                     
+                
                      </div>
                      </div>
 					           </div>
@@ -289,7 +288,6 @@ input[type="checkbox"]:checked + .slider:before {
                      </div>
 					           </div>
                      </div>
-                    
                      </div>
                      </div> 
                      <?php 

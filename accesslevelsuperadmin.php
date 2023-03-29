@@ -18,7 +18,6 @@ $con = connection();
 if (isset($_SESSION['lockout']) && time() - $_SESSION['lockout'] < 30) {
   // User is locked out
   echo "<script>alert('Invalid login, please try again');</script>";
-  echo "<script>window.location = 'login.php?error=Too many login attempts.  Please wait 30 seconds before trying again. ';</script>";
   exit();
 }
 

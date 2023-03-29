@@ -5,42 +5,40 @@ if (!isset($_SESSION)) {
 
 include("accesslevelsuperadmin.php");
 include_once("connection/connection.php");
+
 $con = connection();
 
-if (!isset($_SESSION)) {
-    session_start();
-}
 if (isset($_POST['verify'])) {
     $otp = implode('', $_POST['otp']);
+    if (isset($_GET['email'])) {
+        $email = $_GET['email'];
+        echo "OTP: $otp<br>";
+        echo "Email: $email<br>";
+        $check_otp = "SELECT * FROM mis_usermanagement WHERE email='$email' AND otp='$otp'";
+        // debug: echo $check_otp;
+        $result = $con->query($check_otp) or die($con->error);
+        $total = $result->num_rows;
 
-    $email = $_SESSION['email'];
-    echo "OTP: $otp<br>";
-    echo "Email: $email<br>";
-    $check_otp = "SELECT * FROM mis_usermanagement WHERE email='$email' AND otp='$otp'";
-    $result = $con->query($check_otp) or die($con->error);
-    $row = $result->fetch_assoc();
-    $total = $result->num_rows;
+        if ($total > 0) {
+            $update_query = "UPDATE mis_usermanagement SET otp = null WHERE email='$email'";
+            $con->query($update_query);
 
-    if ($total > 0 ) {
-        $update_query = "UPDATE mis_usermanagement SET otp = null WHERE ID = {$row['ID']}";
-        $con->query($update_query);
-
-      
-
-        // Call the log_activity function after a successful login
-        log_activity($_SESSION['ID'],$_SESSION['email'], 'login');
-
-        // Redirect to the index page
-        header("Location: index.php");
-        exit();
+            // Redirect to the index page
+            ob_clean(); // clean any previous output
+            header("Location: changepass.php");
+            exit();
+        } else {
+            echo "OTP or email is incorrect";
+            exit();
+        }
     } else {
-        header("Location: verification.php?error=");
+        echo "Email is not provided";
         exit();
     }
 }
+
 ?>
 
- 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -115,6 +113,7 @@ if (isset($_POST['verify'])) {
               <div> 
               <span>A code has been sent to</span> 
               <small >Your Email:&nbsp;<span style="color:#07177a; font-weight: bold; text-decoration:underline;"><?php echo $_SESSION['email']; ?>
+
               </span>
               </small> 
               </div> 
