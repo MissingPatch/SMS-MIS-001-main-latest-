@@ -22,7 +22,7 @@ include ("add_teacher.php");
 
 $con = connection();
 @$ID = $_GET['ID'];
-$sql = "SELECT * FROM hr_employee ORDER BY ID";
+$sql = "SELECT * FROM hr_employee WHERE designation ='teacher' ORDER BY ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 

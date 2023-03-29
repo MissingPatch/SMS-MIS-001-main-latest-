@@ -19,7 +19,7 @@ include("teacher_update.php");
 $con = connection();
 $ID = $_GET['ID'];
 @$name = $_POST['name'];
-$sql = "SELECT * FROM mis_teacher_information WHERE ID ='$ID'";
+$sql = "SELECT * FROM hr_employee WHERE designation ='teacher' . ID='$ID'";
 $emp = $con->query($sql) or die($con->error);
 $row = $emp->fetch_assoc();
           
@@ -77,7 +77,7 @@ $row = $emp->fetch_assoc();
 
 									</div>
                   <div class="mt-3">
-                      <h4> <?php echo $row['name'];?></h4>
+                      <h4> <?php echo $row['f_name'];?><?php echo $row['l_name'];?></h4>
                       <p class="text-secondary mb-1"> <?php echo $row['email'];?></p>
                       <p class="text-muted font-size-sm"> <?php echo $row['phone_number'];?></p>
                   </div>

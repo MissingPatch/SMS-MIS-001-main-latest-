@@ -137,12 +137,13 @@ $row = $emp->fetch_assoc();
                                         <td><?php echo $row['role']; ?></td>
                                         <td><?php echo $status_class; ?></td>
                                         <td>
-                                        <form action="deleteaccdep.php" method="POST">
+                                        <div class="btn-group" role="group">
+                                        <form action="deleteaccdep.php" method="POST">                
                                         <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="background-color:#07177a;">View</a>
-                                        <button type="submit" class="btn btn-danger btn-sm" name="delete" >Remove</button>
+                                        <a type="submit" class="btn btn-danger btn-sm" name="delete" >Del</a>
                                         <input type="hidden" name="ID" value="<?php echo $row["ID"];?>">
                                         </form>
-
+                                        </div>
                                         </td>
                                     </tr>
                                 <?php } while ($row = $emp->fetch_assoc())?>
