@@ -2,7 +2,7 @@
 
 <?php
 $con = connection();
-$sql = "SELECT * FROM mis_categorize_inq WHERE status = '1' ORDER BY inq_num DESC LIMIT 3";
+$sql = "SELECT * FROM mis_categorize_inq WHERE status = '1' ORDER BY inq_num";
 $inq = $con->query($sql) or die($con->error);
 $row = $inq->fetch_assoc();
 ?>
@@ -82,11 +82,10 @@ if ($result = mysqli_query($con, $sql)) {
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="max-height: 300px; overflow-y: auto;">
         <h6 class="dropdown-header">New Reports <a href="dep_view_reports.php" style="float:right; text-decoration: none;"> View all</a></h6>
         <?php  
-        $count = 0; // initialize a counter variable
+       // initialize a counter variable
         do { 
             if (!empty($row)){
-            $count++; // increment the counter on each iteration
-            if ($count <= 3) { // display only the first three items
+        
         ?>
             <a class="dropdown-item" href="#">
                 <div class="d-flex align-items-start">
@@ -98,7 +97,7 @@ if ($result = mysqli_query($con, $sql)) {
                 </div>
             </a>
             <div class="dropdown-divider"></div>
-        <?php } }} while ($row = $rep->fetch_assoc()) ?>
+        <?php } } while ($row = $rep->fetch_assoc()) ?>
    
     </div>
 </div>
