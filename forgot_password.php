@@ -1,46 +1,62 @@
-<?php 
-if (!isset($_SESSION)) {
+<?php
+
+if(!isset($_SESSION)){
     session_start();
 }
 
-include("accesslevelsuperadmin.php");
+require("PHPMailer/src/Exception.php");
+require("PHPMailer/src/PHPMailer.php");
+require("PHPMailer/src/SMTP.php");
+
 include_once("connection/connection.php");
 $con = connection();
 
-if (!isset($_SESSION)) {
-    session_start();
-}
-if (isset($_POST['verify'])) {
-    $otp = implode('', $_POST['otp']);
+if (isset($_POST['forgot'])) {
 
-    $email = $_SESSION['email'];
-    echo "OTP: $otp<br>";
-    echo "Email: $email<br>";
-    $check_otp = "SELECT * FROM mis_usermanagement WHERE email='$email' AND otp='$otp'";
-    $result = $con->query($check_otp) or die($con->error);
-    $row = $result->fetch_assoc();
-    $total = $result->num_rows;
+    $email = $_POST['email'];
+    $sql="SELECT * FROM mis_usermanagement WHERE email='$email'";
+    $emp = $con->query($sql) or die ($con->error);
+    $row = $emp->fetch_assoc();
+    $total = $emp->num_rows;
 
-    if ($total > 0 ) {
-        $update_query = "UPDATE mis_usermanagement SET otp = null WHERE ID = {$row['ID']}";
+    if($total>0){
+
+        $otp = rand(100000,999999); // generate a random 6-digit OTP
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+        $mail->isSMTP();
+
+        $mail->Host = "smtp.hostinger.com";
+        $mail->SMTPAuth = true;
+
+        $mail->Username = "bcp_mis@mis.bcpsms.com";
+        $mail->Password = "Mis_l6@!";
+
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->From = "bcp_mis@mis.bcpsms.com";
+        $mail->FromName = "BCP MIS";
+
+        $mail->addAddress($email, "BCP MIS");
+
+        $mail->isHTML(true);
+
+        $mail->Subject = "OTP Verification";
+        $mail->Body = "Your OTP for verification is: $otp";
+        $mail->send();
+
+        // update the reset token and timestamp in the database
+        $update_query = "UPDATE mis_usermanagement SET otp = '$otp' WHERE  email = '$email'";
         $con->query($update_query);
-
-      
-
-        // Call the log_activity function after a successful login
-        log_activity($_SESSION['ID'],$_SESSION['email'], 'login');
-
-        // Redirect to the index page
-        header("Location: index.php");
-        exit();
+    
+        header("Location: verification_forgotpass.php");
     } else {
-        header("Location: verification.php?error=");
-        exit();
+       echo '<script>alert"Email address not found.";</script>';
     }
 }
 ?>
 
- 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -100,7 +116,7 @@ if (isset($_POST['verify'])) {
             <div class="m-auto">
             <div class="form-header1 ps-2 mb-5">
               <h1 class="header1 fw-bold fs-1 m-0 ">BCP</h1>
-              <h1 class="header2 fw-bold fs-1 m-0 ">AUTHENTICATOR</h1>
+              <h1 class="header2 fw-bold fs-1 m-0 ">Forgot Password</h1>
               
             </div>
             
@@ -110,35 +126,16 @@ if (isset($_POST['verify'])) {
               <div class="container height-100 d-flex justify-content-center align-items-center"> 
               <div class="position-relative"> 
               <div class="card p-2 text-center"> 
-              <h6>Please enter the OTP number <br> to verify your account</h6> 
-              
-              <div> 
-              <span>A code has been sent to</span> 
-              <small >Your Email:&nbsp;<span style="color:#07177a; font-weight: bold; text-decoration:underline;"><?php echo $_SESSION['email']; ?>
-              </span>
-              </small> 
-              </div> 
+              <h6>Please enter your email <br> to search for your account.</h6> 
 
-              <form name="otpForm" action="" method="post">
-                <label for="otp">Enter OTP:</label>
-                <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
-                <input class="m-2 text-center form-control rounded" type="text" name="otp[]" maxlength="1" required>
-                <input class="m-2 text-center form-control rounded" type="text" name="otp[]" maxlength="1" required>
-                <input class="m-2 text-center form-control rounded" type="text" name="otp[]" maxlength="1" required>
-                <input class="m-2 text-center form-control rounded" type="text" name="otp[]" maxlength="1" required>
-                <input class="m-2 text-center form-control rounded" type="text" name="otp[]" maxlength="1" required>
-                <input class="m-2 text-center form-control rounded" type="text" name="otp[]" maxlength="1" required>
+              <form name="forgot" action="" method="post">
+                <div id="forgot" class="d-flex flex-row justify-content-center mt-2">
+                <input type="email" class="form-control" placeholder="Email" name="email" id="id"> 
                 </div>
                 <div class="mt-4">
-                <button class="btn px-4 validate" name="verify" id="verify" style="background-color: #07177a; color:white;">Validate</button>
+                <button class="btn px-4 validate" name="forgot" id="forgot" style="background-color: #07177a; color:white;">Enter</button>
                 </div>
                 </form>
-
-            <!--- 
-            <div class="content d-flex justify-content-center align-items-center"> 
-            <span>Didn't get the code</span> <a href="#" class="text-decoration-none ms-3">Resend(1/3)</a> 
-            </div> 
-            --> 
             </div> 
             </div>
             </div>
@@ -147,10 +144,3 @@ if (isset($_POST['verify'])) {
         </div>
       </div>
     </div>
-   
-  </body>
-</html>
-<?php
-include ("script/script.php");
-include ("script/verification_js.php");
-?>

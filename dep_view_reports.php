@@ -91,26 +91,12 @@ $row = $stud->fetch_assoc();
                                         <td><?php echo $row['date'];?></td>
                                         <td><?php echo $row['status'];?></td>
                                         <td>
-                                            <form action=" "  method="POST" >
+                                            <form action=""  method="POST" >
                                             <button href="#" id="myButton" 
                                             class="btn btn-success btn-sm" style="background-color:#07177a;">
                                             View
+                                            </button>
                                             </form>
-
-                                            <script>
-                                            $(document).ready(function() {
-                                            $('#example').DataTable({
-                                                "drawCallback": function() {
-                                                if ($('#example').DataTable().data().count() == 0) {
-                                                    $('#myButton').hide();
-                                                } else {
-                                                    $('#myButton').show();
-                                                }
-                                                }
-                                            });
-                                            });
-                                            </script>
-
                                          </td>
                                     </tr>
                                     <?php }while($row = $stud->fetch_assoc()); ?>
@@ -128,6 +114,19 @@ $row = $stud->fetch_assoc();
                                     </div>        
                                     </div>
                                     </div>
+                                    <script>
+                                            $(document).ready(function() {
+                                            $('#example').DataTable({
+                                                "drawCallback": function() {
+                                                if ($('#example').DataTable().data().count() == 0) {
+                                                    $('#myButton').hide();
+                                                } else {
+                                                    $('#myButton').show();
+                                                }
+                                                }
+                                            });
+                                            });
+                                            </script>
                                                         
                              <!-- /.container-fluid -->
 <?php

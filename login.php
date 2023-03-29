@@ -42,7 +42,7 @@ session_start();
           class="form-container d-flex justify-content-center w-100 p-3 p-lg-5" style="height:100vh;"
         >
           <div class="m-auto">
-            <div class="form-header1 ps-2 mb-5">
+            <div class="form-header1 ps-2 mb-4">
               <h1 class="header1 fw-bold fs-1 m-0">BCP</h1>
               <h1 class="header2 fw-bold fs-1 m-0"> MANAGEMENT INFORMATION SYSTEM </h1>
             </div>
@@ -65,8 +65,7 @@ session_start();
                 }
               }    
            ?>
-            
-
+        
             <form method="POST" action="login.php">
             <!-- Add a hidden input field to store the selected value -->
             <input type="hidden" id="selectedValue" name="selectedValue">
@@ -80,7 +79,7 @@ session_start();
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  ...
+                Select
                 </button>
                 <ul class="dropdown-menu w-100">
                   <li>
@@ -144,7 +143,15 @@ session_start();
                 Log in
                 <!-- <i class="bx bx-log-in"></i> -->
               </button>
+            
+              <div class="text-center">
+                          
+              <a href="forgot_password.php">
+                Forgot Password?
+              </a>
+              </div>
             </form>
+            </div>
           </div>
         </div>
       </div>
