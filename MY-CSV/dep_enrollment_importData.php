@@ -23,27 +23,16 @@ if(isset($_POST['importSubmit'])){
             while(($line = fgetcsv($csvFile)) !== FALSE){
                 // Get row data
 
-                $student_num   = $line[0];
-                $OR_number  = $line[1];
-                $name  = $line[2];
-                $course = $line[3];
-                $yearlevel = $line[4];
-                $semester = $line[5];
-                $payment_type = $line[6];
-                $payment_desc = $line[7];
-                $status = $line[8];
-                $date = $line[9];
-                
-               
-                $prevQuery = "SELECT student_num FROM mis_payment_method WHERE OR_number = '".$line[1]."'";
+                $student_id   = $line[1];
+                $payment_status = $line[7];
+
+                // Check if the student with the given ID exists in the database
+                $prevQuery = "SELECT id FROM oes_student_application WHERE id = '".$student_id."'";
                 $prevResult = $db->query($prevQuery);
                 
                 if($prevResult->num_rows > 0){
-             
-                    $db->query("UPDATE mis_payment_method SET student_num = '".$student_num."', OR_number = '".$OR_number."', name = '".$name."', course = '".$course."', yearlevel = '".$yearlevel."', semester = '".$semester."', payment_type = '".$payment_type."', payment_desc = '".$payment_desc."', status = '".$status."', date = '".$date."','".$OR_number."'");
-                }else{
-                   
-                    $db->query("INSERT INTO mis_payment_method (student_num, OR_number, name, course, yearlevel, semester, payment_type, payment_desc, status, date) VALUES ('".$student_num."', '".$OR_number."', '".$name."', '".$course."', '".$yearlevel."', '".$semester."', '".$payment_type."', '".$payment_desc."', '".$status."','".$date."')");
+                    // Update the payment status for the student
+                    $db->query("UPDATE oes_student_application SET payment_status = 'Paid' WHERE id = '".$student_id."'");
                 }
             }
             
@@ -60,4 +49,4 @@ if(isset($_POST['importSubmit'])){
 }
 
 // Redirect to the listing page
-header("Location: ../dep_enr_inq.php".$qstring);
+header("Location: index.php".$qstring);
