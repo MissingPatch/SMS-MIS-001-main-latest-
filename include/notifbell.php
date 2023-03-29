@@ -2,7 +2,7 @@
 
 <?php
 $con = connection();
-$sql = "SELECT * FROM mis_categorize_inq WHERE status = '1' ORDER BY inq_num";
+$sql = "SELECT * FROM mis_categorize_inq WHERE status = '1' ORDER BY inq_num DESC";
 $inq = $con->query($sql) or die($con->error);
 $row = $inq->fetch_assoc();
 ?>

@@ -140,7 +140,7 @@ $row = $emp->fetch_assoc();
                                         <div class="btn-group" role="group">
                                         <form action="deleteaccdep.php" method="POST">                
                                         <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="background-color:#07177a;">View</a>
-                                        <a type="submit" class="btn btn-danger btn-sm" name="delete" >Del</a>
+                                        <button type="submit" class="btn btn-danger btn-sm" name="delete" >Del</button>
                                         <input type="hidden" name="ID" value="<?php echo $row["ID"];?>">
                                         </form>
                                         </div>
