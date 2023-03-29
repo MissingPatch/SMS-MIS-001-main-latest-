@@ -123,18 +123,18 @@ session_start();
                 >
                   Password
                 </label>
-                <div id="login">
+                <div id="login">  
                   <div class="passwordContainer">
                     <input
                       type="password"
                       class="inputField input-form form-control px-3 fs-6 fw-normal"
-                      id="inputPassword"
-                      name="password"
+                      id="password1" name="password" placeholder="Password"
                     />
                     <i class="fa-solid fa-eye-slash" id="passwordIconId"></i>
                   </div>
                 </div>
               </div>
+
 
               <button
                 type="submit" name="LOGIN" id="LOGIN"
