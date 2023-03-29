@@ -68,7 +68,7 @@ include ("include/sidebar.php");
 
 $sql=mysqli_query($con,"SELECT * FROM mis_categorize_inq WHERE status='3' ORDER BY inq_num DESC");  
 
-if (isset($_GET['inq_num']) && isset($_GET['status'])) {  
+if (isset($_GET['inq_num']) && isset($_GET['status'])) {
      $inq_num=$_GET['inq_num'];  
      $status=$_GET['status'];  
      mysqli_query($con,"update mis_categorize_inq set status='$status' where inq_num='$inq_num'");
@@ -138,7 +138,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                     <script type="text/javascript">  
            function status_update(value,inq_num){  
            //alert(id);  
-           let url = "http://localhost/SMS-MIS-001-main-latest-/SMS-MIS-001-main-latest-/dep_req_archive.php";  
+           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
            window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
       }  
  </script>  
