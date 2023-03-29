@@ -15,7 +15,7 @@ include ("include/sidebar.php");
 include("stud_pms_modal.php");
 include("voiding_modal2.php");
 $con = connection();
-$sql = "SELECT * FROM mis_payment_method WHERE payment_desc IN ('Miscellaneous Fee') AND finals ='Paid' ORDER BY OR_number";
+$sql = "SELECT * FROM pms_payment WHERE particular IN ('Finals') AND status ='Paid' ORDER BY OR_number";
 $result = $con->query($sql) or die($con->error);
 $row = $result->fetch_assoc();
 ?>
@@ -78,27 +78,28 @@ $row = $result->fetch_assoc();
                                     <tr>
                                     <th>OR No.</th>   
                                         <th>Student ID</th>
-                                        <th>Name</th>
-                                        <th>Mode of Payment</th>
-                                        <th>Date</th>
-                                        <th>Balance</th>
+                                        <th>Full Name</th>
+                                        <th>Course</th>
+                                        <th>Section</th>
+                                        <th>Year Level</th>
                                         <th>Payment Type</th>
-                                        <th>Finals</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                        if (!empty($row)){?>
                                         <tr>
-                                        <td><?php echo $row['OR_number'];?></td>                       
-                                        <td><?php echo $row['student_num'];?></td>
-                                        <td><?php echo $row['name'];?></td>
-                                        <td><?php echo $row['payment_type'];?></td>
-                                         <td><?php echo $row['date'];?></td>
-                                        <td><?php echo $row['bal'];?></td>
-                                        <td><?php echo $row['payment_desc'];?></td>
-                                        <td><?php echo $row['finals'];?></td> 
+                                        <td><?php echo $row['OR_number'];?></td>
+                                        <td><?php echo $row['student_id'];?></td>
+                                        <td><?php echo $row['Last_Name'];?>&nbsp;<?php echo $row['First_Name'];?></td>
+                                        <td><?php echo $row['Course'];?></td>
+                                        <td><?php echo $row['section'];?></td> 
+                                        <td><?php echo $row['year_level'];?></td>
+                                        <td><?php echo $row['particular'];?></td> 
+                                        <td><?php echo $row['status'];?></td> 
                                         
                                        
                                         <div class="col-sm-12" >
@@ -115,7 +116,7 @@ $row = $result->fetch_assoc();
                                          </div>
                                         </td>
                                         </tr>
-                                    <?php }while($row = $result->fetch_assoc()); ?>
+                                    <?php }}while($row = $result->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>

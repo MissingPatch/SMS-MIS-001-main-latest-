@@ -77,7 +77,7 @@ include ("include/sidebar.php");
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE payment_type ='BCP Cashier' ORDER BY OR_number";
+$sql = "SELECT * FROM pms_payment ORDER BY OR_number";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -117,7 +117,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE payment_type ='AUB' ORDER BY OR_number";
+$sql = "SELECT * FROM mis_aub_payment WHERE payment_type ='AUB' ORDER BY OR_number";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -156,7 +156,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE payment_type ='Hello Money' ORDER BY OR_number";
+$sql = "SELECT * FROM mis_aub_payment WHERE payment_type ='Hello Money' ORDER BY OR_number";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -175,7 +175,7 @@ $rowcount = mysqli_num_rows( $result);
     <!-- analytics -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2" style="background-image: url('image/hm1.png'); background-repeat: no-repeat; background-size: cover; opacity: 0.8;">
-
+        <a href="" style="text-decoration:none; color:black;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -213,7 +213,7 @@ $rowcount = mysqli_num_rows( $result);
     <!-- analytics -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2" style="background-image: url('image/others.png'); background-repeat: no-repeat; background-size: cover; opacity: 0.8;">
-
+        <a href="" style="text-decoration:none; color:black;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
