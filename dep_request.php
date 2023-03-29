@@ -65,83 +65,87 @@ include ("include/sidebar.php");
                             <a href="dep_req_archive.php" class="btn btn-sm"  class="btn btn-sm" style="background: red; float: right; color: white;"> Archive Inquiries </a>
                             </div>
 
-<?php  
+                            <?php  
 
 $sql=mysqli_query($con,"SELECT * FROM mis_categorize_inq WHERE status='1' ORDER BY inq_num DESC");  
 
-if (isset($_GET['inq_num']) && isset($_GET['status'])) {  
+if (isset($_GET['inq_num']) && isset($_GET['status'])) {
      $inq_num=$_GET['inq_num'];  
      $status=$_GET['status'];  
-     mysqli_query($con,"update mis_categorize_inq set status='$status' where inq_num='$inq_num'");
+     mysqli_query($con,"UPDATE mis_categorize_inq SET status='$status' where inq_num='$inq_num'");
 }  
 ?>  
 
-        <div class="card-body">
-           <div class="table-responsive">
-              <table id="example" class="table" style="width:100%">
-              <thead>
-                <tr>  
-                <th>No.</th> 
-                <th>Inquiries Type</th>   
-                <th>Department</th>  
-                <th>Date Requsted</th>  
-                <th>Status</th> 
-                <th>Action</th>  
-           </tr>  
-</thead>
-           <?php  
-           $i=1;  
-           if (mysqli_num_rows($sql)>0) {  
-                 while ($row=mysqli_fetch_assoc($sql)) { ?>  
-                 <tr>  
-                      <td><?php echo $i++ ?></td>  
-                      <td><?php echo $row['inq_type'] ?></td>  
-                      <td><?php echo $row['department'] ?></td>  
-                      <td><?php echo $row['date_req'] ?></td> 
-                      <td>  
-                           <?php  
-                           if ($row['status']==1) {  
-                                echo "<p style='font-size: 12px; color: white; background: grey; border-radius: 12px; text-align: center; margin-right: 10%; margin-left: 10%;'> Pending</p>";
-                           }if ($row['status']==2) {  
-                                echo "Accept";  
-                           }if ($row['status']==3) {  
-                                echo "Rejected";  
-                           }  
-                           ?>  
-                      </td>  
-                      <td>  
-                           <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
-                                <option value="">Change Status</option>  
-                                <option value="1">Pending Status</option>  
-                                <option value="2">Accept Request</option> 
-                                <option value="3">Reject</option>    
-                           </select>  
-                      </td>  
-                 </tr>       
-           <?php      }  
-            } ?>  
-                                    </table>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
+               <div class="card-body">
+                    <div class="table-responsive">
+                    <table id="example" class="table" style="width:100%">
+                    <thead>
+                         <tr>  
+                         <th>No.</th> 
+                         <th>Inquiries Type</th>   
+                         <th>Department</th>  
+                         <th>Date Requsted</th>  
+                         <th>Status</th> 
+                         <th>Action</th>  
+                    </tr>  
+                    </thead>
+                    <?php  
+                    $i=1;  
+                    if (mysqli_num_rows($sql)>0) {  
+                         while ($row=mysqli_fetch_assoc($sql)) { ?>  
+                         <tr>  
+                              <td><?php echo $i++ ?></td>  
+                              <td><?php echo $row['inq_type'] ?></td>  
+                              <td><?php echo $row['department'] ?></td>  
+                              <td><?php echo $row['date_req'] ?></td> 
+                              <td>  
+                                   <?php  
+                                   if ($row['status']==1) {  
+                                        echo "<p style='font-size: 12px; color: white; background: grey; border-radius: 12px; text-align: center; margin-right: 10%; margin-left: 10%;'> Pending</p>"; 
+                                   }if ($row['status']==2) {  
+                                        echo "Accept";  
+                                   }if ($row['status']==3) {  
+                                        echo "Rejected";  
+                                   }  
+                                   ?>  
+                              </td>  
+                              <td>  
+                                   <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
+                                        <option value="">Change Status</option>   
+                                        <option value="2">Accept Request</option>  
+                                        <option value="3">Reject Request</option>  
+                                   </select>  
+                              </td>  
+                         </tr>       
+                    <?php      }  
+                    } ?>  
+                    </table>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
 
                     
                     <script type="text/javascript">  
-                    function status_update(value,inq_num){  
-                    //alert(id);  
-                    let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
-                    window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
-                    }  
-                    </script>  
+           function status_update(value,inq_num){  
+           //alert(id);  
+           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
+           window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
+      }  
+ </script>  
  
 <?php
 include ("script/script.php");
 include ("footer.php");
 ?>
+
+
+
+
+
