@@ -15,8 +15,8 @@ include ("include/sidebar.php");
 include("categorize_inq_email.php");
 
 $con = connection();
-@$id = $_GET['OR_number'];
-$sql = "SELECT * FROM pms_payment WHERE particular='Miscellaneous Fee' ORDER BY OR_number";
+@$id = $_GET['student_id'];
+$sql = "SELECT * FROM lms_examination_grants ORDER BY student_id";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();
 
@@ -93,14 +93,10 @@ include ("import_modal.php");
                                     <table id="example" class="table table-hover" style="width:100%">
                                         <thead>
                                         <tr>
-                                        <th>OR No.</th>   
-                                        <th>Student ID</th>
-                                        <th>Full Name</th>
-                                        <th>Course</th>
-                                        <th>Section</th>
-                                        <th>Year Level</th>
-                                        <th>Payment Type</th>
-                                        <th>Status</th>
+                                        <th>Student ID</th>   
+                                        <th>Grant</th>
+                                        <th>Preliminaries</th>
+                                        <th>Date</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -108,14 +104,10 @@ include ("import_modal.php");
                                             if (!empty($row)){ ?>
                                        
                                             <tr>
-                                            <td><?php echo $row['OR_number'];?></td>
-                                        <td><?php echo $row['student_id'];?></td>
-                                        <td><?php echo $row['Last_Name'];?>&nbsp;<?php echo $row['First_Name'];?></td>
-                                        <td><?php echo $row['Course'];?></td>
-                                        <td><?php echo $row['section'];?></td> 
-                                        <td><?php echo $row['year_level'];?></td>
-                                        <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['status'];?></td>
+                                            <td><?php echo $row['student_id'];?></td>
+                                        <td><?php echo $row['grant'];?></td>
+                                        <td><?php echo $row['preliminaries'];?></td>
+                                        <td><?php echo $row['granted_at'];?></td>
                                             </tr>
 
                                             <?php }}while($row = $res->fetch_assoc())  ?>

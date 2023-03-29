@@ -17,8 +17,8 @@ include("student_update_modal.php");
 include("student_update.php");
 include("deleteaccdep.php");
 $con = connection();
-@$id = $_GET['student_id'];
-$sql = "SELECT * FROM pms_payment ORDER BY student_id";
+@$id = $_GET['OR_number'];
+$sql = "SELECT * FROM pms_payment ORDER BY OR_number";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -126,7 +126,7 @@ $row = $stud->fetch_assoc();
                                         <td>
                                             
                                         <form action=" "  method="POST" >
-                                        <a href="studprofile.php?student_id=<?php echo $row["student_id"];?>" 
+                                        <a href="studprofile.php?OR_number=<?php echo $row["OR_number"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View
                                         </form>

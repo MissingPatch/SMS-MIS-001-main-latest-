@@ -17,10 +17,10 @@ include("student_update.php");
 
 
 $con = connection();
-if (isset($_GET['student_id'])){
+if (isset($_GET['OR_number'])){
 
-  $id= $_GET['student_id'];
-  $sql = "SELECT * FROM mis_student_users ORDER BY student_id";
+  $id= $_GET['OR_number'];
+  $sql = "SELECT * FROM pms_payment ORDER BY OR_number";
   $stud = $con->query($sql) or die($con->error);
   $row = $stud->fetch_assoc();
 }
@@ -76,52 +76,16 @@ if (isset($_GET['student_id'])){
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
                   <!-- Button Profile -->
-                  <?php
-                  $query = "SELECT img FROM mis_student_users WHERE student_id ='$id' ";
-                  $result = $con->query($query);
-                  $rowimg = mysqli_fetch_assoc($result);
-                  $image = $rowimg['img_name'] ;
-                  echo "<img src='uploads/". $image. "'id='profileImagePreview' alt='Profile' class='rounded-circle'.  width='150'  >";		
-                  ?> 
+
 
 									</div>
                   <div class="mt-3">
-                      <h4> <?php echo $row['fname'];?> <?php echo $row['lname'];?></h4>
-                      <p class="text-secondary mb-1"> <?php echo $row['ylvl'];?></p>
-                      <p class="text-muted font-size-sm"> <?php echo $row['course'];?></p>
+                      <h4> <?php echo $row['First_Name'];?> <?php echo $row['Last_Name'];?></h4>
+                      <p class="text-secondary mb-1"> <?php echo $row['number_of_payment'];?></p>
+                      <p class="text-muted font-size-sm"> <?php echo $row['OR_number'];?></p>
                   </div>
                   <hr> 
-                   <!-- Backend for Profile -->
-                  <form id="profileImageForm" enctype="multipart/form-data">
-                  <label class="btn btn-success-soft btn-block" for="profileImageInput" style="background-color:#07177a; color:white;" >Upload</label>
-                  </label>
-                 
-                  <input type="file" id="profileImageInput" name="profileImage" accept="image/*" onchange="submitProfileImage()" hidden="">
-                </form>
 
-                <script>
-                 document.getElementById('profileImagePreview').addEventListener('click', function() {
-                  document.getElementById('profileImageInput').click();
-                });
-
-                  document.getElementById('profileImageInput').addEventListener('change', function() {
-                  var form = new FormData();
-                  form.append('fileToUpload', this.files[0]);
-                  var xhr = new XMLHttpRequest();
-                  xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4) {
-                      if (xhr.status === 200) {
-                        document.getElementById('profileImagePreview').src = xhr.responseText;
-                      } else {
-                        alert('Error: ' + xhr.statusText);
-                      }
-                    }
-                  };
-                  xhr.open('POST', 'upload_img.php', true);
-                  xhr.send(form);
-                });
-
-                </script>
 								  </div>
                      </div>
                      </div>
@@ -173,34 +137,58 @@ if (isset($_GET['student_id'])){
                   <div class="row g-3">
                   <div class="col-md-6">
 									<label class="form-label">First Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["fname"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["First_Name"];?>" readonly>
 								</div>
-								<!-- Last name -->
+
+								<div class="col-md-6">
+									<label class="form-label">Middle Name:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Middle"];?>" readonly>
+								</div>
+                
 								<div class="col-md-6">
 									<label class="form-label">Last Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["lname"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["Last_Name"];?>" readonly>
 								</div>
-								<!-- Phone number -->
-								<div class="col-md-6">
-									<label class="form-label">Suffix:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["suffix"];?>" readonly>
-								</div>
-								<!-- Mobile number -->
+            
 								<div class="col-md-6">
 									<label class="form-label">Student Number:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["stud_num"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["student_id"];?>" readonly>
 								</div>				
-								<!-- School -->
+
 								<div class="col-md-6">
 									<label class="form-label">Program</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["course"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Course"];?>" readonly>
                     </div>
-                  <!-- Email -->
+
 								<div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Role:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["role"];?>" readonly>
+									<label for="inputEmail4" class="form-label">Year Level:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["year_level"];?>" readonly>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Section:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["section"];?>" readonly>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Payment Type:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["particular"];?>" readonly>
 								</div>
               
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Paid Amount:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["paid_amount"];?>" readonly>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Balance:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["balance"];?>" readonly>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Time & Date:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["t_date"];?> | <?php echo $row["t_time"];?>" readonly>
+								</div>
                     
                     </div>
                     </div>
@@ -221,9 +209,9 @@ if (isset($_GET['student_id'])){
                     <h6 class="mb-0">Full Name:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['fname'];?>
-                    <?php echo $row['lname'];?>
-                    <?php echo $row['suffix'];?>
+                    <?php echo $row['First_Name'];?>
+                    <?php echo $row['Middle'];?>
+                    <?php echo $row['Last_Name'];?>
                     </div>
                     </div>   
 
@@ -233,7 +221,7 @@ if (isset($_GET['student_id'])){
                     <h6 class="mb-0">Sex</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['sex'];?>
+                    <?php ?>
                     </div>
                     </div> 
 
@@ -243,7 +231,7 @@ if (isset($_GET['student_id'])){
                     <h6 class="mb-0">Email:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['email'];?>
+                    <?php ?>
                     </div>
                     </div>
 
@@ -253,7 +241,7 @@ if (isset($_GET['student_id'])){
                     <h6 class="mb-0">Mobile Number:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['mobilenum'];?>
+                    <?php ?>
                     </div>
                     </div>
 
@@ -263,7 +251,7 @@ if (isset($_GET['student_id'])){
                     <h6 class="mb-0">Company</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['company'];?>
+                    <?php ?>
                     </div>
                     </div>
                     

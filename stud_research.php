@@ -16,7 +16,7 @@ include("stud_pms_modal.php");
 include("voiding_modal2.php");
 $con = connection();
 
-$sql = "SELECT * FROM pms_payment WHERE particular IN ('Research 2 Defense') AND status ='Paid' ORDER BY OR_number";
+$sql = "SELECT * FROM pms_payment WHERE particular IN ('Research') AND status ='Paid' ORDER BY OR_number";
 $result = $con->query($sql) or die($con->error);
 $row = $result->fetch_assoc();
 

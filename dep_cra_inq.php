@@ -15,7 +15,7 @@ include ("include/sidebar.php");
 include("categorize_inq_email.php");
 
 $con = connection();
-@$id = $_GET['inq_num'];
+@$id = $_GET['OR_number'];
 $sql = "SELECT * FROM crad_pay WHERE particular IN ('Research') AND status ='Paid' ORDER BY OR_number";
 $res = $con->query($sql) or die($con->error);
 $row = $res->fetch_assoc();

@@ -16,7 +16,7 @@ include("stud_pms_modal.php");
 include("voiding_modal2.php");
 $con = connection();
 @$id = $_POST['OR_number'];
-$sql = "SELECT * FROM mis_payment_method WHERE payment_desc='Uniform' ORDER BY OR_number ASC";
+$sql = "SELECT * FROM pms_payment WHERE particular='Uniform' ORDER BY OR_number ASC";
 $result = $con->query($sql) or die($con->error);
 $row = $result->fetch_assoc();
 
@@ -80,12 +80,11 @@ $row = $result->fetch_assoc();
                                     <tr>
                                     <th>OR No.</th>   
                                         <th>Student ID</th>
-                                        <th>Name</th>
-                                        <th>Mode of Payment</th>
-                                        <th>Date</th>
-                                        <th>Balance</th>
+                                        <th>Full Name</th>
+                                        <th>Course</th>
+                                        <th>Section</th>
+                                        <th>Year Level</th>
                                         <th>Payment Type</th>
-                                        <th>Amount</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                         </tr>
@@ -95,15 +94,11 @@ $row = $result->fetch_assoc();
                                     <?php do{ 
                                          if (!empty($row)){?>
                                         <tr>
-                                        <td><?php echo $row['OR_number'];?></td>                       
-                                        <td><?php echo $row['student_num'];?></td>
-                                        <td><?php echo $row['name'];?></td>
-                                        <td><?php echo $row['payment_type'];?></td>
-                                         <td><?php echo $row['date'];?></td>
-                                        <td><?php echo $row['bal'];?></td>
-                                        <td><?php echo $row['payment_desc'];?></td>
-                                        <td><?php echo $row['amount'];?></td>
-                                        <td><?php echo $row['status'];?></td> 
+                                        <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo $row['firstname']; ?>&nbsp;<?php echo $row['lastname']; ?></td>
+                                            <td><?php echo $row['course']; ?></td>
+                                            <td><?php echo $row['major']; ?></td>
+                                            <td><?php echo $row['payment_status']; ?></td>
                                         <div class="col-sm-12" >
                                         <input type="hidden" name="" > 
                                         </div>

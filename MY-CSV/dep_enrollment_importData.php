@@ -43,10 +43,8 @@ if(isset($_POST['importSubmit'])){
         }else{
             $qstring = '?status=err';
         }
-    }else{
-        $qstring = '?status=invalid_file';
     }
 }
 
 // Redirect to the listing page
-header("Location: index.php".$qstring);
+header("Location: ../dep_enr_inq.php".$qstring);
