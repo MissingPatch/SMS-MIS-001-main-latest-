@@ -23,27 +23,31 @@ if(isset($_POST['importSubmit'])){
             while(($line = fgetcsv($csvFile)) !== FALSE){
                 // Get row data
 
-                $student_num   = $line[0];
-                $OR_number  = $line[1];
-                $name  = $line[2];
-                $course = $line[3];
-                $yearlevel = $line[4];
-                $semester = $line[5];
-                $payment_type = $line[6];
-                $payment_desc = $line[7];
-                $status = $line[8];
-                $date = $line[9];
-                
+
+                $OR_number   = $line[0];
+                $Last_Name  = $line[1];
+                $First_Name  = $line[2];
+                $Middle = $line[3];
+                $student_id = $line[4];
+                $Course = $line[5];
+                $year_level = $line[6];
+                $particular = $line[7];
+                $paid_amount = $line[8];
+                $status = $line[9];
+                $t_date = $line[10];
+                $t_time = $line[11];
+                $section = $line[12];
+
                
-                $prevQuery = "SELECT student_num FROM mis_payment_method WHERE OR_number = '".$line[1]."'";
+                $prevQuery = "SELECT id FROM crad_pay WHERE OR_number = '".$line[1]."'";
                 $prevResult = $db->query($prevQuery);
                 
                 if($prevResult->num_rows > 0){
              
-                    $db->query("UPDATE mis_payment_method SET student_num = '".$student_num."', OR_number = '".$OR_number."', name = '".$name."', course = '".$course."', yearlevel = '".$yearlevel."', semester = '".$semester."', payment_type = '".$payment_type."', payment_desc = '".$payment_desc."', status = '".$status."', date = '".$date."','".$OR_number."'");
+                    $db->query("UPDATE crad_pay SET OR_number = '".$OR_number."', Last_Name = '".$Last_Name."', First_Name = '".$First_Name."', Middle = '".$Middle."', student_id = '".$student_id."', Course = '".$Course."', year_level = '".$year_level."', particular = '".$particular."', paid_amount = '".$paid_amount."', status = '".$status."', t_date = '".$t_date."', t_time = '".$t_time."', section = '".$section."','".$OR_number."'");
                 }else{
                    
-                    $db->query("INSERT INTO mis_payment_method (student_num, OR_number, name, course, yearlevel, semester, payment_type, payment_desc, status, date) VALUES ('".$student_num."', '".$OR_number."', '".$name."', '".$course."', '".$yearlevel."', '".$semester."', '".$payment_type."', '".$payment_desc."', '".$status."','".$date."')");
+                    $db->query("INSERT INTO crad_pay (OR_number, Last_Name, First_Name, Middle, student_id, Course, year_level, particular, paid_amount, status, t_date, t_time, section) VALUES ('".$OR_number."', '".$Last_Name."', '".$First_Name."', '".$Middle."', '".$student_id."', '".$Course."', '".$year_level."', '".$particular."', '".$paid_amount."','".$status."','".$t_date."','".$t_time."','".$section."')");
                 }
             }
             

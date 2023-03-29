@@ -14,6 +14,7 @@ include ("accesslevelsuperadmin.php");
 include ("include/header.php");
 include ("include/sidebar.php");
 include_once("connection/connection.php");
+include ("delete_inq.php");
 $con = connection();
 
 
@@ -254,13 +255,13 @@ $row = $res->fetch_assoc();
                                                 <td><?php echo "<p style='font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Accept </p>"; ?></td>
                                                 <td>
                                                                                                                                                                                                                                                                                                         
-                                                <form action="delete_event.php"  method="POST">
+                                                <form action="delete_inq.php"  method="POST">
 
-                                                <a href="#" <?php echo $row['inq_num']; ?>" style="text-decoration: none; font-size: 20px;">
-                                                <i class="bx bx-edit"></i>&nbsp;</a>
-
+                                                <!--<a href="#" <?php echo $row['inq_num']; ?>" style="text-decoration: none; font-size: 20px;">
+                                                <i class="bx bx-edit"></i>&nbsp;</a>-->
+                                                <center>
                                                 <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
-                                                <input type="hidden" name="id" value="<?php echo $row["inq_num"];?>">
+                                                <input type="hidden" name="id" value="<?php echo $row["inq_num"];?>"></center>
                                                 </form>
                                                                                 
                                                 </td>
