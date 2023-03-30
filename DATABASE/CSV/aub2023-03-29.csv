@@ -1,0 +1,7 @@
+OR_number,Last_Name,First_Name,Middle,student_id,Course,year_level,particular,paid_amount,status,t_date,t_time,section,payment_type
+2023004,mollejon,june ivan,kanor,19206811,BSIT,4th Year,Research,2000,Paid,3/29/2023,22:20:15,4203,AUB
+2023010,Clarin,Vincent,Dikoalam,19012912,BSIT,4th Year,Research,1000,Paid,3/30/2023,0:00:00,4201,AUB
+2023011,Grey,Blues,Nye,19012913,BSIT,4th Year,Research,1000,Paid,3/31/2023,0:00:00,4201,Hello Money
+2023005,mollejon,june ivan,kanor,19206811,BSIT,4th Year,Research,2000,Paid,3/29/2023,22:20:15,4203,AUB
+2023011,Clarin,Vincent,Dikoalam,19012912,BSIT,4th Year,Research,1000,Paid,3/30/2023,0:00:00,4201,Hello Money
+2023012,Grey,Blues,Nye,19012913,BSIT,4th Year,Research,1000,Paid,3/31/2023,0:00:00,4201,AUB

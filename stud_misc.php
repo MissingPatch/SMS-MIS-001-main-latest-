@@ -16,6 +16,7 @@ include ("include/sidebar.php");
 include("stud_pms_modal.php");
 include ("voiding_modal2.php");
 include("deleteaccdep.php");
+
 $con = connection();
 @$id = $_POST['OR_number'];
 $sql = "SELECT * FROM pms_payment WHERE particular='Miscellaneous Fee' ORDER BY OR_number ASC";

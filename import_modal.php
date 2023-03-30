@@ -14,7 +14,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Save changes</button>
+        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Upload Data</button>
       </div>
       </form>
     </div>
@@ -38,7 +38,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Save changes</button>
+        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Upload Data</button>
       </div>
       </form>
     </div>
@@ -61,7 +61,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Save changes</button>
+        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Upload Data</button>
       </div>
       </form>
     </div>
@@ -84,7 +84,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Save changes</button>
+        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Upload Data</button>
       </div>
       </form>
     </div>
@@ -107,7 +107,31 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Save changes</button>
+        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Upload Data</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- AUB Payment -->
+<div class="modal fade" id="exampleModalCenter7" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">AUB Payment</h5>
+      </div>
+      <div class="modal-body">
+
+    <form action="MY-CSV/dep_aub_importData.php" method="post" enctype="multipart/form-data">
+    <p>Import Data From AUB</p><input class="form-control" type="file" name="file" />
+    <br>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+        <button name="importSubmit" value="Submit" type="submit" class="btn btn-success btn-sm"><i class="bx bx-import"></i>&nbsp; Upload Data</button>
       </div>
       </form>
     </div>
