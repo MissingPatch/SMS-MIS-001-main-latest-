@@ -18,7 +18,7 @@ include("student_update.php");
 include("deleteaccdep.php");
 $con = connection();
 @$id = $_GET['Student_ID'];
-$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='1st Year' ORDER BY Student_ID";
+$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='1' ORDER BY Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -105,15 +105,15 @@ $row = $stud->fetch_assoc();
                             <div class="table-responsive">
                                 <table id="example" class="table table-hover" style="width:100%">
                                     <thead>
-                       <tr>
-                      <th>Student ID</th>
-                      <th>Course</th>
-                      <th>Section</th>
-                      <th>Major</th>
-                      <th>Year_Level</th>
-                      <th>Full Name</th>
-                      <th>Student Type</th>
-                      <th>Actions</th>
+                                        <tr>
+                                        <th>Student ID</th>
+                                        <th>Course</th>
+                                        <th>Section</th>
+                                        <th>Major</th>
+                                        <th>Year_Level</th>
+                                        <th>Full Name</th>
+                                        <th>Student Type</th>
+                                        <th>Actions</th>
                                         </tr>
                                     </thead>
                                     
@@ -121,13 +121,13 @@ $row = $stud->fetch_assoc();
                                     <?php do{ 
                                       if (!empty($row)){ ?>
                                         <tr>
-                        <td><?php echo $row['Student_ID'] ?></td>
-                        <td><?php echo $row['Course'] ?></td>
-                        <td><?php echo $row['Section'] ?></td>
-                        <td><?php echo $row['Major'] ?></td>
-                        <td><?php echo $row['Year_Level'] ?></td>
-                        <td><?php echo $row['Lastname']?>&nbsp;<?php echo $row['Middlename'] ?>&nbsp;<?php echo $row['Firstname'] ?></td>
-                        <td><?php echo $row['Student_Type'] ?></td>                        
+                                        <td><?php echo $row['Student_ID'] ?></td>
+                                        <td><?php echo $row['Course'] ?></td>
+                                        <td><?php echo $row['Section'] ?></td>
+                                        <td><?php echo $row['Major'] ?></td>
+                                        <td><?php echo $row['Year_Level'] ?></td>
+                                        <td><?php echo $row['Lastname']?>&nbsp;<?php echo $row['Middlename'] ?>&nbsp;<?php echo $row['Firstname'] ?></td>
+                                        <td><?php echo $row['Student_Type'] ?></td>                        
                                         
                                         <td>
                                             

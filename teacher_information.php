@@ -21,8 +21,7 @@ include ("add_teacher.php");
 
 
 $con = connection();
-@$ID = $_GET['ID'];
-$sql = "SELECT * FROM hr_employee WHERE designation ='teacher' ORDER BY ID";
+$sql = "SELECT * FROM mis_teacher_account ORDER BY id DESC";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -128,7 +127,7 @@ $row = $stud->fetch_assoc();
                                         <td>
                                             
                                         <form action="deleteacc_teacher.php"  method="POST" >
-                                        <a href="teacher_profile.php?ID=<?php echo $row["id"];?>" 
+                                        <a href="teacher_profile.php?id=<?php echo $row["id"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View</a>
                                         <button type="submit" class="btn btn-danger btn-sm" name="delete" >Remove</button>

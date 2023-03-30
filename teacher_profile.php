@@ -15,14 +15,13 @@ include ("include/sidebar.php");
 include("teacher_update_modal.php");
 include("teacher_update.php");
 
-
 $con = connection();
-$ID = $_GET['ID'];
-@$name = $_POST['name'];
-$sql = "SELECT * FROM hr_employee WHERE designation ='teacher' . ID='$ID'";
+if (isset($_GET['id'])){ 
+$ID = $_GET['id'];
+$sql = "SELECT * FROM mis_teacher_account WHERE id='$ID'";
 $emp = $con->query($sql) or die($con->error);
 $row = $emp->fetch_assoc();
-          
+}
 ?>
 
   <!-- Main Content -->
@@ -40,7 +39,7 @@ $row = $emp->fetch_assoc();
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link"  href="teachers_account.php?ID=<?php echo $row["ID"];?>" >Account <span class="sr-only">(current)</span></a>
+                    <a class="nav-link"  href="teacher_profile.php?ID=<?php echo $row["id"];?>" >Account</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Additional Information</a>
@@ -77,9 +76,9 @@ $row = $emp->fetch_assoc();
 
 									</div>
                   <div class="mt-3">
-                      <h4> <?php echo $row['f_name'];?><?php echo $row['l_name'];?></h4>
+                      <h4> <?php echo $row['f_name'];?> <?php echo $row['l_name'];?></h4>
                       <p class="text-secondary mb-1"> <?php echo $row['email'];?></p>
-                      <p class="text-muted font-size-sm"> <?php echo $row['phone_number'];?></p>
+                      <p class="text-muted font-size-sm"> <?php echo $row['cp_number'];?></p>
                   </div>
                   <hr>
                    <!-- Backend for Profile -->
@@ -137,18 +136,19 @@ $row = $emp->fetch_assoc();
                     <input type="hidden" name="" > 
                     </div>
                     </div>
+                
                 <fieldset><legend>Profile Information</legend></fieldset>
                
                     <hr>
                   <div class="row g-3">
                   <div class="col-md-6">
 									<label class="form-label">ID:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["ID"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["id"];?>" disabled>
 								</div>
 								<!-- Last name -->
 								<div class="col-md-6">
 									<label class="form-label">Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["name"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["f_name"];?> <?php echo $row["l_name"];?>" disabled>
 								</div>
 								<!-- Phone number -->
 								<div class="col-md-6">
@@ -158,7 +158,7 @@ $row = $emp->fetch_assoc();
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Phone Number:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["phone_number"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["cp_number"];?>" disabled>
 								</div>				
 								<!-- School -->
 								<div class="col-md-6">
@@ -168,56 +168,52 @@ $row = $emp->fetch_assoc();
 
                     <div class="col-md-6">
 									<label class="form-label">Subject</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["subject"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
                     <div class="col-md-6">
 									<label class="form-label">Class Schedule</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["class_schedule"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
 
                     <div class="col-md-6">
 									<label class="form-label">Room Assignment</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["room_assignment"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
 
                     <div class="col-md-6">
 									<label class="form-label">Employment Status</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["employment_status"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
 
                     <div class="col-md-6">
 									<label class="form-label">Hire Date</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["hire_date"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
 
                     <div class="col-md-6">
 									<label class="form-label">Salary</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["salary"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
               
                     <div class="col-md-6">
 									<label class="form-label">Educational Level</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["education_level"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
               
                     <div class="col-md-6">
 									<label class="form-label">Certification</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["certification"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
                     </div>
               
-              
-                    
                     </div>
                     </div>
-              </div>
+                     </div>
 
                     <!-- / Activity -->
                     <div class="col-xl-12 col-md-6 mb-4">
                     <div class="card h-100">
                     <div class="card-body">
                     
-                        
-
                     <fieldset><legend>Personal Information</legend></fieldset>
                     <hr>
                     <div class="row">
@@ -226,7 +222,7 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Full Name:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['name'];?>
+                    <?php echo $row['f_name'];?> <?php echo $row['l_name'];?>
                     </div>
                     </div>   
 
@@ -236,7 +232,7 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Sex</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['sex'];?>
+                    <?php echo $row['gender'];?>
                     </div>
                     </div> 
 
@@ -256,7 +252,7 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Mobile Number:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['phone_number'];?>
+                    <?php echo $row['cp_number'];?>
                     </div>
                     </div>
 
@@ -266,33 +262,25 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Company</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['company'];?>
+                    Bestlink College of the Phillipines
                     </div>
                     </div>
-                    
-                     
-
-                        </div>
-                        
-                        </div>
-                        
-                        </div>
-
-                    
-                        </div>
-                       
-
+                    </div>
+                    </div>
+                          </div>                   
+                          </div>
                           </div>                  
                           </div>
                           </div>
                           </div>
+                          <?php
+                          include ("footer.php");
+                          ?>
                           </div>
                           </div>
                           </div>
                           </div>
-</body>
-</html>
+
 <?php
 include ("script/script.php");
-include ("footer.php");
 ?>

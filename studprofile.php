@@ -20,7 +20,7 @@ $con = connection();
 if (isset($_GET['Student_ID'])){
 
   $id= $_GET['Student_ID'];
-  $sql = "SELECT * FROM registrar_studentlist ORDER BY Student_ID";
+  $sql = "SELECT * FROM registrar_studentlist WHERE Student_ID='$id'";
   $stud = $con->query($sql) or die($con->error);
   $row = $stud->fetch_assoc();
 }
@@ -42,7 +42,7 @@ if (isset($_GET['Student_ID'])){
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link"  href="studprofile.php?student_id=<?php echo $row["student_id"];?>" >Account </a>
+                    <a class="nav-link"  href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" >Account </a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Additional Information</a>
@@ -152,7 +152,7 @@ if (isset($_GET['Student_ID'])){
             
 								<div class="col-md-6">
 									<label class="form-label">Student Number:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["student_id"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Student_ID"];?>" readonly>
 								</div>				
 
 								<div class="col-md-6">
