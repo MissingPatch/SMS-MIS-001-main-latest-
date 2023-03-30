@@ -18,7 +18,7 @@ include("student_update.php");
 include("deleteaccdep.php");
 $con = connection();
 @$id = $_GET['Student_ID'];
-$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='1st Year' ORDER BY Student_ID";
+$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='1' ORDER BY Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 

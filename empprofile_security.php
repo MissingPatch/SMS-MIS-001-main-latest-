@@ -316,6 +316,8 @@ input[type="checkbox"]:checked + .slider:before {
                      </div>
 					           </div>
                      </div>
+
+                     
                      </div>
                      </div> 
                      <?php 

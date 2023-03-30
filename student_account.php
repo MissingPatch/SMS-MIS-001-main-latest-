@@ -87,11 +87,11 @@ $row = $stud->fetch_assoc();
                                     <thead>
                                 
                                         <tr>
-                                        <th>No.</th>
                                         <th>Student ID</th>
-                                        <th>First Name</th>           
+                                        <th>First Name</th>      
                                         <th>Last Name</th>
                                         <th>Email</th>
+                                        <th>Username</th>
                                         <th>Password</th>
                                         <th>Action</th>
                                         </tr>
@@ -102,9 +102,9 @@ $row = $stud->fetch_assoc();
                                         <tr>
                                         <td><?php echo $row['Student_ID'];?> </td>
                                         <td> <?php echo $row['Firstname'];?></td>  
-                                        <td><?php echo $row['Lastname'];?> </td>                      
-                                        <td><?php echo $row['username'];?> </td>
+                                        <td><?php echo $row['Lastname'];?> </td> 
                                         <td> <?php echo $row['email'];?></td>                        
+                                        <td><?php echo $row['username'];?> </td>
                                         <td><?php echo $row['pass'];?> </td>
                                         <td>
                                             

@@ -33,25 +33,29 @@ $row = $emp->fetch_assoc();
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="margin-left:10px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item active">
-                    <a class="nav-link"  href="teacher_profile.php?ID=<?php echo $row["id"];?>" >Account</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Additional Information</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Security</a>
-                  </li>
-                  </ul>
-                  </div>
-                  </nav>
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="teacher_profile.php?id=<?php echo $row["id"];?>"><b style="color:#07177a; float:center; width:100px;">Profile </b><span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers_account.php?id=<?php echo $row["id"];?>">Account</a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Setting
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="empprofile_security.php?ID=<?php echo $row["ID"];?>">Security Setting</a>
+                    </li>
+                    </ul>
+                </div>
+                </nav>
+
 
                 <div class="card-body">
                   
