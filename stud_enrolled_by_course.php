@@ -58,7 +58,7 @@ include ("include/sidebar.php");
 
 <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSIT' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSIT' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -121,7 +121,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSEDUC' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSEDUC' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -165,7 +165,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSCRIM' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSCRIM' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -209,7 +209,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSOA' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSOA' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -252,7 +252,7 @@ $rowcount = mysqli_num_rows( $result);
      
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSBA' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSBA' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -296,7 +296,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSHM' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSCRIM' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -340,7 +340,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSEE' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSEE' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -384,7 +384,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSSE' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSSE' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -427,7 +427,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSCE' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSCE' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -470,7 +470,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSTM' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSTM' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -513,7 +513,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSE' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSE' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -556,7 +556,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BLIS' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BLIS' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -599,7 +599,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSP' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSP' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -642,7 +642,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='BSAIS' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='BSAIS' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -701,7 +701,7 @@ $rowcount = mysqli_num_rows( $result);
 
 <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='GAD' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='GAD' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -745,7 +745,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='ABAM' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='ABAM' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -787,7 +787,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='HASS' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='HASS' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -829,7 +829,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='STEAM' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='STEAM' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -871,7 +871,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='ICT' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='ICT' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -913,7 +913,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='PA' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='PA' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -955,7 +955,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='HE' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='HE' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
@@ -997,7 +997,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_payment_method WHERE course ='IA' ORDER BY student_num";
+$sql = "SELECT * FROM registrar_studentsection WHERE Course ='IA' ORDER BY Student_ID";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 

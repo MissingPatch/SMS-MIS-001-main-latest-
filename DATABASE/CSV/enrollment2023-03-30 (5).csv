@@ -1,0 +1,5 @@
+number_of_new_student,student_id,particular,paid_amount,n_t_date,n_t_time,payment_status,cashier
+18,2300002,Enrollment,1000,0000-00-00,00:00:00,Paid,Hans
+21,2300003,Enrollment,1000,0000-00-00,00:00:00,Paid,"Hans Airon Bangay"
+19,2300008,Enrollment,1000,0000-00-00,00:00:00,Paid,"Hans Airon Bangay"
+20,2300014,Enrollment,1000,0000-00-00,00:00:00,Paid,"Hans Airon Bangay"
