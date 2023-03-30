@@ -17,7 +17,7 @@ include("student_update_modal.php");
 include("student_update.php");
 include("deleteaccdep.php");
 $con = connection();
-@$id = $_GET['stud_num'];
+@$id = $_GET['Student_ID'];
 $sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='2nd Year' ORDER BY Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
@@ -133,7 +133,7 @@ $row = $stud->fetch_assoc();
                                         <td>
                                             
                                         <form action=" "  method="POST" >
-                                        <a href="studprofile.php?stud_num=<?php echo $row["stud_num"];?>" 
+                                        <a href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View
                                         </form>

@@ -133,7 +133,7 @@ $row = $stud->fetch_assoc();
                                         <td>
                                             
                                         <form action=" "  method="POST" >
-                                        <a href="studprofile.php?stud_num=<?php echo $row["stud_num"];?>" 
+                                        <a href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View
                                         </form>
