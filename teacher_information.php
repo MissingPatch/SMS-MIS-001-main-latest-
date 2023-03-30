@@ -9,7 +9,6 @@ else{
  echo header("location:login.php");
 }
 
-
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
@@ -19,20 +18,16 @@ include("deleteaccdep.php");
 include("add_teacher_modal.php");
 include ("add_teacher.php");
 
-
 $con = connection();
 $sql = "SELECT * FROM mis_teacher_account ORDER BY id DESC";
-$stud = $con->query($sql) or die($con->error);
-$row = $stud->fetch_assoc();
-
+$teacher = $con->query($sql) or die($con->error);
+$row = $teacher->fetch_assoc();
 ?>
                     <div class="container-fluid">
-
                     <div class="col-xl-12 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                     <div class="row no-gutters align-items-center">
-
                     <div class="col-xl-12 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
@@ -54,9 +49,7 @@ $row = $stud->fetch_assoc();
                     ?>
                     <span id="dateTime">
                     </p>
-
                     </div>
-
                     </div>
                     </div>
                     </div>
@@ -137,7 +130,8 @@ $row = $stud->fetch_assoc();
                                     </td>
                                     </tr>
                                     <?php }
-                                }while($row = $stud->fetch_assoc()); ?>
+                                     }while($row = $teacher->fetch_assoc()); 
+                                    ?>
                                     </tbody>
                                     </table>
                                     </div>
