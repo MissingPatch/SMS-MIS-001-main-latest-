@@ -148,7 +148,7 @@ $row = $stud->fetch_assoc();
                     <th scope="row">5</th>
                     <td> Research </td>
                     <td> All Course </td>
-                    <td> 4th Year </td>
+                    <td> SHS / 4th Year </td>
                     <td><a href="stud_research.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
                 </tr> 
                 <tr>

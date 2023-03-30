@@ -77,7 +77,6 @@ include ("alarm_modal.php");
                   <li><a href="stud_enrolled_by_course.php"> Enrolled Student </a></li>
                   <li><a href="stud_payment_anal.php"> Payment Method </a></li>
                   <li><a href="concernfetch.php"> Concern Data </a></li>
-                  <li><a href="#"> Other's </a></li>
                 </ul>
              </li>
 

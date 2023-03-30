@@ -17,8 +17,8 @@ include("student_update_modal.php");
 include("student_update.php");
 include("deleteaccdep.php");
 $con = connection();
-@$id = $_GET['stud_num'];
-$sql = "SELECT * FROM mis_stud_info WHERE program_code IN ('BSIT') AND ylvl ='1st Year' ORDER BY stud_num";
+@$id = $_GET['Student_ID'];
+$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='1st Year' ORDER BY Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -105,43 +105,41 @@ $row = $stud->fetch_assoc();
                             <div class="table-responsive">
                                 <table id="example" class="table table-hover" style="width:100%">
                                     <thead>
-                                
-                                        <tr>
-                                        <th>Course</th>
-                                        <th>Year Level</th>
-                                        <th>Student ID</th>           
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Academic Year</th>
-                                        <th>Class Type</th>
-                                        <th>Student</th>
-                                        <th>Action</th>
+                       <tr>
+                      <th>Student ID</th>
+                      <th>Course</th>
+                      <th>Section</th>
+                      <th>Major</th>
+                      <th>Year_Level</th>
+                      <th>Full Name</th>
+                      <th>Student Type</th>
+                      <th>Actions</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                      if (!empty($row)){ ?>
                                         <tr>
-                                        <td><?php echo $row['program_code'];?> </td>
-                                        <td><?php echo $row['ylvl'];?> </td>
-                                        <td><?php echo $row['stud_num'];?></td>
-                                        <td><?php echo $row['fname'];?> </td>
-                                        <td><?php echo $row['lname'];?> </td>
-                                        <td>2022-<?php echo $row['year'];?> </td>
-                                        <td><?php echo $row['section'];?></td>                        
-                                        <td> <?php echo $row['student_status'];?></td>                        
+                        <td><?php echo $row['Student_ID'] ?></td>
+                        <td><?php echo $row['Course'] ?></td>
+                        <td><?php echo $row['Section'] ?></td>
+                        <td><?php echo $row['Major'] ?></td>
+                        <td><?php echo $row['Year_Level'] ?></td>
+                        <td><?php echo $row['Lastname']?>&nbsp;<?php echo $row['Middlename'] ?>&nbsp;<?php echo $row['Firstname'] ?></td>
+                        <td><?php echo $row['Student_Type'] ?></td>                        
                                         
                                         <td>
                                             
-                                        <form action=" "  method="POST" >
-                                        <a href="studprofile.php?stud_num=<?php echo $row["stud_num"];?>" 
+                                        <form action=""  method="POST" >
+                                        <a href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View
                                         </form>
 
                                     </td>
                                     </tr>
-                                    <?php }while($row = $stud->fetch_assoc()); ?>
+                                    <?php }}while($row = $stud->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>

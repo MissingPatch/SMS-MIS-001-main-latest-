@@ -119,7 +119,8 @@ $row = $stud->fetch_assoc();
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                      if (!empty($row)){ ?>
                                         <tr>
                                         <td><?php echo $row['program_code'];?> </td>
                                         <td><?php echo $row['ylvl'];?> </td>
@@ -139,7 +140,7 @@ $row = $stud->fetch_assoc();
 
                                     </td>
                                     </tr>
-                                    <?php }while($row = $stud->fetch_assoc()); ?>
+                                    <?php }}while($row = $stud->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>

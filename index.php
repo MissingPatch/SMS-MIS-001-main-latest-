@@ -94,7 +94,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                     <?php 
 
                     @$id = $_GET['ID'];
-                    $sql1 = "SELECT * FROM mis_teacher_information";
+                    $sql1 = "SELECT * FROM mis_teacher_account";
                     $tea = $con->query($sql1) or die($con->error);
                     $row = $tea->fetch_assoc();
 
@@ -130,7 +130,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                     <?php 
 
                     @$id = $_GET['OR_number'];
-                    $sql1 = "SELECT * FROM mis_payment_method";
+                    $sql1 = "SELECT * FROM pms_payment WHERE status='Paid' ORDER BY OR_number DESC";
                     $tea = $con->query($sql1) or die($con->error);
                     $row = $tea->fetch_assoc();
 
@@ -165,34 +165,39 @@ if ($result1 = mysqli_query($con, $sql1)) {
                     </div>
 
 
-                    <!-- Earnings (Monthly) Card Example -->
+<?php 
+
+@$id = $_GET['OR_number'];
+$sql1 = "SELECT * FROM pms_payment";
+$tea = $con->query($sql1) or die($con->error);
+$row = $tea->fetch_assoc();
+
+if ($result2 = mysqli_query($con, $sql1)) {
+
+// number of students
+$rowcount = mysqli_num_rows( $result2);
+
+}
+
+?>
+
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card border-left-primary shadow h-100 py-2">
                         <a href="index_payment_method.php" style="text-decoration:none; color:black;">
-                            <div class="card-body">
+                            <div class="card-body" >
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Payment
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="progress progress-sm mr-2">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Payment</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php // Display result
+                                            printf( $rowcount);?></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-credit-card-alt fa-2x text-gray-300"></i>
+                                        <i class="fa fa-credit-card-alt fa-2x text-gray-300" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                            </a>
                         </div>
                     </div>
 
@@ -277,7 +282,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                         <?php 
 
                         @$id = $_GET['id'];
-                        $sql2 = "SELECT * FROM mis_concern";
+                        $sql2 = "SELECT * FROM mis_concern WHERE qA='1' ORDER BY id";
                         $pms = $con->query($sql2) or die($con->error);
                         $row = $pms->fetch_assoc();
 
@@ -299,7 +304,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Concerns Feedback </div>
+                                                Concerns Questions </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?php // Display result
                                             printf( $rowcount);?></div>
                                         </div>
@@ -314,8 +319,8 @@ if ($result1 = mysqli_query($con, $sql1)) {
 
                         <?php 
 
-                        @$id = $_GET['user_id'];
-                        $sql2 = "SELECT * FROM mis_student_users";
+                        @$id = $_GET['Student_ID'];
+                        $sql2 = "SELECT * FROM mis_stud_account";
                         $pms = $con->query($sql2) or die($con->error);
                         $row = $pms->fetch_assoc();
 

@@ -68,7 +68,8 @@ $row = $result->fetch_assoc();
                             <a href="listofbalance.php" class="btn btn-success btn-sm" style="background-color:#07179a;"> 
                             <i class="fa fa-arrow-left">
                             </a></i><b>&nbsp; List of Paid for Research </b> 
-                            <a href="dep_req_exportData.php" class="btn" style="float: right; border: 1px solid red;"><i class="bx bx-export"></i> Export Paid Status </a> 
+                            <a href="dep_req_exportData.php" class="btn" style="float: right; border: 1px solid red; margin-left: 10px;"><i class="bx bx-export"></i> SHS Download Paid Status </a>
+                            <a href="dep_reqSHS_exportData.php" class="btn" style="float: right; border: 1px solid red;"><i class="bx bx-export"></i> 4th Year Download Paid Status </a> 
                             </div>
                                 
                                 <div class="card-body">
