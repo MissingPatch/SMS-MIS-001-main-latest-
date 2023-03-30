@@ -2,21 +2,29 @@
 
 include_once("connection/connection.php");
 $con = connection();   
-@$unique_id = $_GET['unique_id'];
-$sql = "SELECT * FROM mis_student_users WHERE unique_id ='$unique_id'";
+@$id = $_GET['Student_ID'];
+$sql = "SELECT * FROM registrar_studentsection WHERE Student_ID ='$id'";
 $student = $con->query($sql) or die($con->error);
 $row = $student->fetch_assoc();
 
 if(isset($_POST['update'])){
 
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $status = $_POST['status'];
+    $Lastname = $_POST['Lastname'];
+    $Firstname = $_POST['Firstname'];
+    $Middlename = $_POST['Middlename'];
+    $Course = $_POST['Course'];
+    $Year_Level = $_POST['Year_Level'];
+    $Section = $_POST['Section'];
+    $Semester = $_POST['Semester'];
+    $Major = $_POST['Major'];
+    $Academic_Year = $_POST['Academic_Year'];
+    $Student_Type = $_POST['Student_Type'];
+    $Status = $_POST['Status'];
+    $Register_Date = $_POST['Register_Date'];
+    $submitted_by = $_POST['submitted_by'];
    
 
-    $sql = "UPDATE mis_student_users set unique_id = '$unique_id', fname = '$fname', lname = '$lname', email = '$email', password = '$password',  status = '$status' WHERE unique_id='$unique_id' ";
+    $sql = "UPDATE registrar_studentsection set Student_ID = '$Student_ID', Lastname = '$Lastname', Firstname = '$Firstname', Middlename = '$Middlename', Course = '$Course', Year_Level = '$Year_Level', Section = '$Section', Semester = '$Semester', Major = '$Major', Academic_Year = '$Academic_Year', Student_Type = '$Student_Type', Status = '$Status', Register_Date = '$Register_Date', submitted_by = '$submitted_by' WHERE Student_ID='$id' ";
     $con->query($sql) or die($con->error);
 
     
