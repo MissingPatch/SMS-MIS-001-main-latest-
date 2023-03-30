@@ -16,13 +16,7 @@ include ("include/sidebar.php");
 include("student_update_modal.php");
 include("student_update.php");
 include("deleteaccdep.php");
-$con = connection();
-if (isset($_GET['stud_num'])){
-$id = $_GET['stud_num'];
-$sql = "SELECT * FROM mis_stud_info ORDER BY stud_num";
-$stud = $con->query($sql) or die($con->error);
-$row = $stud->fetch_assoc();
-}
+
 ?>
                     <div class="container-fluid">
 
@@ -91,7 +85,7 @@ $row = $stud->fetch_assoc();
                             <div class="card-body">
                             <div class="row no-gutters align-items-center">
                             <div class="table-responsive">
-                    <table class="table" style="width:100%">
+                    <table class="table table-hover" style="width:100%">
                     <thead>
                     <tr>
                     <th>No.</th>
@@ -165,7 +159,7 @@ $row = $stud->fetch_assoc();
                             <div class="card-body">
                             <div class="row no-gutters align-items-center">
                             <div class="table-responsive">
-                    <table class="table table-striped" style="width:100%">
+                    <table class="table table-hover" style="width:100%">
                     <thead>
                     <tr>
                     <th>No.</th>
@@ -238,7 +232,7 @@ $row = $stud->fetch_assoc();
                             <div class="card-body">
                             <div class="row no-gutters align-items-center">
                             <div class="table-responsive">
-                    <table class="table table-striped" style="width:100%">
+                    <table class="table table-hover" style="width:100%">
                     <thead>
                     <tr>
                     <th>No.</th>
@@ -312,7 +306,7 @@ $row = $stud->fetch_assoc();
                             <div class="card-body">
                             <div class="row no-gutters align-items-center">
                             <div class="table-responsive">
-                    <table class="table table-striped" style="width:100%">
+                    <table class="table table-hover" style="width:100%">
                     <thead>
                     <tr>
                     <th>No.</th>
@@ -388,7 +382,7 @@ $row = $stud->fetch_assoc();
                             <div class="card-body">
                             <div class="row no-gutters align-items-center">
                             <div class="table-responsive">
-                    <table class="table table-striped" style="width:100%">
+                    <table class="table table-hover" style="width:100%">
                     <thead>
                     <tr>
                     <th>No.</th>

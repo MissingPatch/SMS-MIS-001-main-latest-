@@ -17,10 +17,10 @@ include("student_update.php");
 
 
 $con = connection();
-if (isset($_GET['OR_number'])){
+if (isset($_GET['Student_ID'])){
 
-  $id= $_GET['OR_number'];
-  $sql = "SELECT * FROM pms_payment ORDER BY OR_number";
+  $id= $_GET['Student_ID'];
+  $sql = "SELECT * FROM registrar_studentlist ORDER BY Student_ID";
   $stud = $con->query($sql) or die($con->error);
   $row = $stud->fetch_assoc();
 }
@@ -80,7 +80,7 @@ if (isset($_GET['OR_number'])){
 
 									</div>
                   <div class="mt-3">
-                      <h4> <?php echo $row['First_Name'];?> <?php echo $row['Last_Name'];?></h4>
+                      <h4> <?php echo $row['Firstname'];?> <?php echo $row['Lastname'];?></h4>
                       <p class="text-secondary mb-1"> <?php echo $row['number_of_payment'];?></p>
                       <p class="text-muted font-size-sm"> <?php echo $row['OR_number'];?></p>
                   </div>
