@@ -1,6 +1,5 @@
 <?php
-   @$id=$_SESSION['ID'];
-   @$email=$_SESSION['email'];
+
     function log_activity($id, $email, $activity_type) {
         include_once("connection/connection.php");
         $con = connection();
@@ -24,6 +23,4 @@
         mysqli_stmt_close($stmt);
         mysqli_close($con);
     }  
-
-    
 ?>
