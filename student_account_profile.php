@@ -18,12 +18,11 @@ include ("student_users_update.php");
 
 
 $con = connection();
-$student_id = $_GET['student_id'];
+$student_id = $_GET['Student_ID'];
 @$fname = $_POST['fname'];
-$sql = "SELECT * FROM mis_student_users WHERE student_id ='$student_id'";
+$sql = "SELECT * FROM mis_stud_account WHERE Student_ID ='$student_id'";
 $emp = $con->query($sql) or die($con->error);
-$row = $emp->fetch_assoc();
-          
+$row = $emp->fetch_assoc(); 
 ?>
 
   <!-- Main Content -->
@@ -41,7 +40,7 @@ $row = $emp->fetch_assoc();
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link"  href="studprofile.php?student_id=<?php echo $row["student_id"];?>" >Account <span class="sr-only">(current)</span></a>
+                    <a class="nav-link"  href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" >Account <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="student_profile_additional_information.php">Additional Information</a>

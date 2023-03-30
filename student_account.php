@@ -19,7 +19,7 @@ include("add_student_user_modal.php");
 include ("add_student_user.php");
 
 $con = connection();
-$sql = "SELECT * FROM mis_stud_users ORDER BY unique_id";
+$sql = "SELECT * FROM mis_stud_account ORDER BY Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -100,20 +100,20 @@ $row = $stud->fetch_assoc();
                                     <tbody>
                                     <?php do{ ?>
                                         <tr>
-                                        <td><?php echo $row['user_id'];?> </td>
-                                        <td> <?php echo $row['unique_id'];?></td>                        
-                                        <td><?php echo $row['fname'];?> </td>
-                                        <td><?php echo $row['lname'];?> </td>
+                                        <td><?php echo $row['Student_ID'];?> </td>
+                                        <td> <?php echo $row['Firstname'];?></td>  
+                                        <td><?php echo $row['Lastname'];?> </td>                      
+                                        <td><?php echo $row['username'];?> </td>
                                         <td> <?php echo $row['email'];?></td>                        
-                                        <td><?php echo $row['password'];?> </td>
+                                        <td><?php echo $row['pass'];?> </td>
                                         <td>
                                             
                                         <form action="deleteacc_acc.php"  method="POST" >
-                                        <a href="student_account_profile.php?unique_id=<?php echo $row["unique_id"];?>" 
+                                        <a href="student_account_profile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View</a>
                                         <button type="submit" class="btn btn-danger btn-sm" name="delete" >Remove</button>
-                                        <input type="hidden" name="user_id" value="<?php echo $row["user_id"];?>">
+                                        <input type="hidden" name="row" value="<?php echo $row["row"];?>">
                                         </form>
 
                                     </td>

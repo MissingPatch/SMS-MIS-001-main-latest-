@@ -24,7 +24,6 @@ if (isset($_GET['Student_ID'])){
   $stud = $con->query($sql) or die($con->error);
   $row = $stud->fetch_assoc();
 }
-   
 ?>
 
   <!-- Main Content -->

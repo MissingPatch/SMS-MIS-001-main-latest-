@@ -25,7 +25,6 @@ $row = $emp->fetch_assoc();
 ?>
 
   <!-- Main Content -->
-
   <div class="container-fluid">
         <div class="main-body">
                 <div class="col-xl-12 col-md-6 mb-4">
