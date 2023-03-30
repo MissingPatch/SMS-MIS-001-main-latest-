@@ -80,9 +80,11 @@ if (isset($_GET['Student_ID'])){
 
 									</div>
                   <div class="mt-3">
-                      <h4> <?php echo $row['Firstname'];?> <?php echo $row['Lastname'];?></h4>
-                      <p class="text-secondary mb-1"> <?php echo $row['number_of_payment'];?></p>
-                      <p class="text-muted font-size-sm"> <?php echo $row['OR_number'];?></p>
+                      <h4> 
+                      <p class="text-secondary mb-1"> <?php echo $row['Student_ID'];?></p>
+                      <?php echo $row['Firstname'];?> <?php echo $row['Lastname'];?></h4>
+                      
+                      <p class="text-muted font-size-sm"> <?php echo $row['Course'];?></p>
                   </div>
                   <hr> 
 
@@ -135,59 +137,119 @@ if (isset($_GET['Student_ID'])){
                
                     <hr>
                   <div class="row g-3">
-                  <div class="col-md-6">
+                  <div class="col-md-4">
 									<label class="form-label">First Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["First_Name"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["Firstname"];?>" disabled>
 								</div>
 
-								<div class="col-md-6">
+								<div class="col-md-5">
 									<label class="form-label">Middle Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Middle"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Middlename"];?>" disabled>
 								</div>
                 
-								<div class="col-md-6">
+								<div class="col-md-3">
 									<label class="form-label">Last Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["Last_Name"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["Lastname"];?>" disabled>
 								</div>
             
-								<div class="col-md-6">
-									<label class="form-label">Student Number:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Student_ID"];?>" readonly>
+								<div class="col-md-4">
+									<label class="form-label">Suffix:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Suffix"];?>" disabled>
 								</div>				
 
-								<div class="col-md-6">
-									<label class="form-label">Program</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Course"];?>" readonly>
+								<div class="col-md-5">
+									<label class="form-label">Email</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Email"];?>" disabled>
                     </div>
 
-								<div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Year Level:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["year_level"];?>" readonly>
+								<div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Sex:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Gender"];?>" disabled>
 								</div>
 
-                <div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Section:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["section"];?>" readonly>
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Age:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Age"];?>" disabled>
 								</div>
 
-                <div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Payment Type:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["particular"];?>" readonly>
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Birth Date:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["birth_date"];?>" disabled>
 								</div>
               
-                <div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Paid Amount:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["paid_amount"];?>" readonly>
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Major:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Major"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Year Level:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Year_Level"];?>" disabled>
+								</div>
+
+                <div class="col-md-4">
+									<label for="inputEmail4" class="form-label">Section:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Section"];?>" disabled>
+								</div>
+
+                <div class="col-md-5">
+									<label for="inputEmail4" class="form-label">Citizenship:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Citizenship"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Contact No:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Contact_No"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Guardian:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Guardian"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Guardian Contact:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Guardian_Contact"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Address:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Address"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Province:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Province"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Zip:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Zip"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Last School:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Last_School"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">Academic Year:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Academic_Year"];?>" disabled>
+								</div>
+
+                <div class="col-md-3">
+									<label for="inputEmail4" class="form-label">School Type:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["School_Type"];?>" disabled>
 								</div>
 
                 <div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Balance:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["balance"];?>" readonly>
+									<label for="inputEmail4" class="form-label">Student Status:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Student_Status"];?>" disabled>
 								</div>
 
                 <div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Time & Date:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["t_date"];?> | <?php echo $row["t_time"];?>" readonly>
+									<label for="inputEmail4" class="form-label">Student Type:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Student_Type"];?>" disabled>
 								</div>
                     
                     </div>
@@ -209,9 +271,9 @@ if (isset($_GET['Student_ID'])){
                     <h6 class="mb-0">Full Name:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['First_Name'];?>
-                    <?php echo $row['Middle'];?>
-                    <?php echo $row['Last_Name'];?>
+                    <?php echo $row['Firstname'];?>
+                    <?php echo $row['Middlename'];?>
+                    <?php echo $row['Lastname'];?>
                     </div>
                     </div>   
 
@@ -221,7 +283,7 @@ if (isset($_GET['Student_ID'])){
                     <h6 class="mb-0">Sex</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php ?>
+                    <?php echo $row['Gender'];?>
                     </div>
                     </div> 
 
@@ -231,7 +293,7 @@ if (isset($_GET['Student_ID'])){
                     <h6 class="mb-0">Email:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php ?>
+                    <?php echo $row['Email'];?>
                     </div>
                     </div>
 
@@ -241,22 +303,10 @@ if (isset($_GET['Student_ID'])){
                     <h6 class="mb-0">Mobile Number:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php ?>
-                    </div>
-                    </div>
-
-                    <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Company</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php ?>
+                    <?php echo $row['Contact_No'];?>
                     </div>
                     </div>
                     
-                     
-
                         </div>
                         
                         </div>
