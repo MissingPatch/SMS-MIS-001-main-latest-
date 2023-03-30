@@ -2,29 +2,44 @@
 
 include_once("connection/connection.php");
 $con = connection();   
-@$id = $_GET['stud_num'];
-$sql = "SELECT * FROM mis_stud_info WHERE stud_num ='$id'";
+@$id = $_GET['Student_ID'];
+$sql = "SELECT * FROM registrar_studentlist WHERE Student_ID ='$id'";
 $student = $con->query($sql) or die($con->error);
 $row = $student->fetch_assoc();
 
 if(isset($_POST['update'])){
 
     
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $suffix = $_POST['suffix'];
-    $sex = $_POST['sex'];
-    $email = $_POST['email'];
-    $mobile = $_POST['mobilenum'];
-    $ylvl = $_POST['ylvl'];
-    $course = $_POST['course'];
+    $Lastname = $_POST['Lastname'];
+    $Firstname = $_POST['Firstname'];
+    $Middlename = $_POST['Middlename'];
+    $Suffix = $_POST['Suffix'];
+    $Email = $_POST['Email'];
+    $Gender = $_POST['Gender'];
+    $Age = $_POST['Age'];
+    $birth_date = $_POST['birth_date'];
+    $Course = $_POST['Course'];
+    $Major = $_POST['Major'];
+    $Year_Level = $_POST['Year_Level'];
+    $Section = $_POST['Section'];
+    $Citizenship = $_POST['Citizenship'];
+    $Contact_No = $_POST['Contact_No'];
+    $Guardian = $_POST['Guardian'];
+    $Guardian_Contact = $_POST['Guardian_Contact'];
+    $Address = $_POST['Address'];
+    $Province = $_POST['Province'];
+    $Zip = $_POST['Zip'];
+    $Last_School = $_POST['Last_School'];
+    $Academic_Year = $_POST['Academic_Year'];
+    $School_Type = $_POST['School_Type'];
+    $Student_Status = $_POST['Student_Status'];
+    $Student_Type = $_POST['Student_Type'];
    
 
     
 
-    $sql = "UPDATE mis_stud_info set fname = '$fname', lname = '$lname', suffix = '$suffix',
-    sex = '$sex',  email = '$email',  mobilenum = '$mobile',
-    ylvl = '$ylvl', course = '$course'  WHERE stud_num='$id' ";
+    $sql = "UPDATE registrar_studentlist set Lastname = '$Lastname', Firstname = '$Firstname', Middlename = '$Middlename', Suffix = '$Suffix',  Email = '$Email',  Gender = '$Gender',
+    Age = '$Age', birth_date = '$birth_date', Course = '$Course', Major = '$Major', Year_Level = '$Year_Level', Section = '$Section', Citizenship = '$Citizenship', Contact_No = '$Contact_No', Contact_No = '$Contact_No', Guardian = '$Guardian', Guardian_Contact = '$Guardian_Contact', Address = '$Address', Province = '$Province', Zip = '$Zip', Last_School = '$Last_School', Academic_Year = '$Academic_Year', School_Type = '$School_Type', Student_Status = '$Student_Status', Student_Type = '$Student_Type' WHERE Student_ID='$id' ";
     $con->query($sql) or die($con->error);
 
     
