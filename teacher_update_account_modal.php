@@ -21,14 +21,14 @@
                             <div class="modal-body">
                             <div class="row g-3">
                                 <div class="col-md-6">
-									<label class="form-label">Email: </label>
-									<input type="text" id="email" name="email" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["email"];?>" >
+									<label class="form-label">Username: </label>
+									<input type="text" id="email" name="email" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["user"];?>" >
 								</div>
                                 
 								<!-- Last name -->
 								<div class="col-md-6">
 									<label class="form-label">Password: </label>
-									<input type="text" id="password" name="password" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["password"];?>" >
+									<input type="text" id="password" name="password" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["pass"];?>" >
 								</div>
 
                             <br>

@@ -21,83 +21,75 @@
                             <div class="modal-body">
                             <div class="row g-3">
                                 <div class="col-md-6">
-									<label class="form-label">stud_id: </label>
-									<input type="text" id="stud_id" name="ID" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["stud_id"];?>" disabled>
+									<label class="form-label">id: </label>
+									<input type="text" id="id" name="id" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["id"];?>" disabled>
 								</div>
 								<!-- Last name -->
 								<div class="col-md-6">
-									<label class="form-label">Name: </label>
-									<input type="text" id="name" name="name" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["name"];?>" >
+									<label class="form-label">First Name: </label>
+									<input type="text" id="f_name" name="f_name" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["f_name"];?>" >
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Sex: </label>
-                                    <input type="text" id="sex" name="sex" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["sex"];?>" >
+									<label class="form-label">Last Name: </label>
+                                    <input type="text" id="l_name" name="l_name" class="form-control" placeholder="" value="<?php echo $row["l_name"];?>">
 								</div>
 
                                 <!-- Suffix -->
 								<div class="col-md-6">
 									<label class="form-label">Email: </label>
-									<input type="text" id="email" name="email" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["email"];?>" >
+									<input type="text" id="email" name="email" class="form-control" placeholder=""  value="<?php echo $row["email"];?>" >
                                 </div>
-								<!-- Email -->
-								<div class="col-md-6">
-									<label class="form-label"> Phone Number: </label>
-									<input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["phone_number"];?>" >
+
+                                <div class="col-md-6">
+									<label class="form-label">Status: </label>
+                                    <input type="text" id="status" name="status" class="form-control" placeholder="" value="<?php echo $row["status"];?>" >
 								</div>
+
                                 <!-- Email -->
 								<div class="col-md-6">
-									<label class="form-label">Department: </label>
-									<input type="department" id="department" name="department" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["department"];?>" >
+									<label class="form-label">Code: </label>
+									<input type="text" id="code" name="code" class="form-control" placeholder="" value="<?php echo $row["code"];?>" >
                                 </div>
 								
                                 <!-- Mobile number -->
 								<div class="col-md-6">
-									<label class="form-label">Subject: </label>
-                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["subject"];?>" >
+									<label class="form-label">Department: </label>
+                                    <input type="text" id="department" name="department" class="form-control" placeholder="" value="<?php echo $row["department"];?>" >
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Class Schedule: </label>
-                                    <input type="text" id="class_schedule" name="class_schedule" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["class_schedule"];?>" >
+									<label class="form-label">Designation: </label>
+                                    <input type="text" id="designation" name="designation" class="form-control" placeholder=""value="<?php echo $row["designation"];?>" >
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Room Assignment: </label>
-                                    <input type="text" id="room_assignment" name="room_assignment" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["room_assignment"];?>" >
+									<label class="form-label">Role: </label>
+                                    <input type="text" id="role" name="role" class="form-control" placeholder="" value="<?php echo $row["role"];?>" >
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Employment_Status: </label>
-                                    <input type="text" id="employment_status" name="employment_status" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["employment_status"];?>" >
+									<label class="form-label">Gender: </label>
+                                    <input type="text" id="gender" name="gender" class="form-control" placeholder="" value="<?php echo $row["gender"];?>" >
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Hire Date: </label>
-                                    <input type="text" id="hire_date" name="hire_date" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["hire_date"];?>" >
+									<label class="form-label">Blood Group: </label>
+                                    <input type="text" id="blood_group" name="blood_group" class="form-control" placeholder="" value="<?php echo $row["blood_group"];?>" >
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Salary: </label>
-                                    <input type="text" id="salary" name="salary" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["salary"];?>" >
+									<label class="form-label">NID: </label>
+                                    <input type="text" id="nid" name="nid" class="form-control" placeholder="" value="<?php echo $row["nid"];?>" >
 								</div>
 
-                                <div class="col-md-6">
-									<label class="form-label">Education Level: </label>
-                                    <input type="text" id="education_level" name="education_level" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["education_level"];?>" >
-								</div>
 
-                                <div class="col-md-6">
-									<label class="form-label">Certification: </label>
-                                    <input type="text" id="certification" name="certification" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["certification"];?>" >
-								</div>
-
-                                <div class="col-md-6">
-									<label class="form-label">Company: </label>
-                                    <input type="text" id="company" name="company" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["company"];?>" >
-								</div>
                             
-                            
+								<div class="col-md-6">
+									<label class="form-label"> Phone Number: </label>
+									<input type="text" id="cp_number" name="cp_number" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["cp_number"];?>" >
+								</div>
+   
                             <br>
 								
                                 </div>
