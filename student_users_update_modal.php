@@ -43,32 +43,32 @@
 								</div>
                         
 								<div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Year Level:</label>
 									<input type="status" id="Year_Level" name="Year_Level" class="form-control" value="<?php echo $row["Year_Level"];?>" >
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Section:</label>
 									<input type="status" id="Section" name="Section" class="form-control" value="<?php echo $row["Section"];?>" >
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Semester:</label>
 									<input type="status" id="Semester" name="Semester" class="form-control" value="<?php echo $row["Semester"];?>" >
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Major:</label>
 									<input type="status" id="Major" name="Major" class="form-control" value="<?php echo $row["Major"];?>" >
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Academic Year:</label>
 									<input type="status" id="Academic_Year" name="Academic_Year" class="form-control" value="<?php echo $row["Academic_Year"];?>" >
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Student Type:</label>
 									<input type="status" id="Student_Type" name="Student_Type" class="form-control" value="<?php echo $row["Student_Type"];?>" >
                                 </div>
 
@@ -78,12 +78,12 @@
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Register Date:</label>
 									<input type="status" id="Register_Date" name="Register_Date" class="form-control" value="<?php echo $row["Register_Date"];?>" >
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Status:</label>
+									<label class="form-label">Submitted By:</label>
 									<input type="status" id="submitted_by" name="submitted_by" class="form-control" value="<?php echo $row["submitted_by"];?>" >
                                 </div>
 
