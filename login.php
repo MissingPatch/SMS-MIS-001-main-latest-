@@ -134,6 +134,7 @@ session_start();
                   </div>
                 </div>
               </div>
+
               
               <?php include ("terms_condition.php") ?>
               <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
