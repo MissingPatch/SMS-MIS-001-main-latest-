@@ -2,13 +2,14 @@
 if(!isset($_SESSION)){
     session_start();
 }
-if(isset($_SESSION['role']) && ($_SESSION['role'] == "Super Admin" || $_SESSION['role'] == "Admin")){
+if(isset($_SESSION['role']) && ($_SESSION['role'] == "Super Admin" || $_SESSION['role'] == "Admin")) {
+    // The user has the required role, continue to the page content
+  } else {
+    // Redirect the user to another page
+    header("Location: staff_index.php");
+    exit();
+  }
 
-  $_SESSION['role'];
-}
-else{   
-header('Location: ' . $_SERVER['HTTP_REFERER']);
-}
 
 include_once("connection/connection.php");
 include ("include/header.php");
