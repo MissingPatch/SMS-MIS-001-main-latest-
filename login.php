@@ -1,8 +1,5 @@
 <?php 
 session_start();
-
-require ("terms&condition.php")
-
  ?>
  
 <!DOCTYPE html>
@@ -139,7 +136,7 @@ require ("terms&condition.php")
               </div>
               
 <!-- ETO YUNG MODAL PAR -->
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkbox_name[]" required>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" required>
 &nbsp; I agree to this 
 <button style="border: none; color: blue;" type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong">
  Terms and Conditions
