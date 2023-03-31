@@ -22,28 +22,14 @@ if(isset($_POST['importSubmit'])){
             // Parse data from CSV file line by line
             while(($line = fgetcsv($csvFile)) !== FALSE){
                 // Get row data
-
-                $student_num   = $line[0];
-                $OR_number  = $line[1];
-                $name  = $line[2];
-                $course = $line[3];
-                $yearlevel = $line[4];
-                $semester = $line[5];
-                $payment_type = $line[6];
-                $payment_desc = $line[7];
-                $finals = $line[8];
-                $date = $line[9];
+                $student_id  = $line[4];
+                $preliminaries  = $line[7];
                 
-               
-                $prevQuery = "SELECT student_num FROM mis_payment_method WHERE OR_number = '".$line[1]."'";
-                $prevResult = $db->query($prevQuery);
+                $query = "INSERT INTO lms_examination_grants (student_id, `grant`, preliminaries, granted_at) VALUES ('".$student_id."', '1', '".$preliminaries."', NOW())";
+                $result = $db->query($query);
                 
-                if($prevResult->num_rows > 0){
-             
-                    $db->query("UPDATE mis_payment_method SET student_num = '".$student_num."', OR_number = '".$OR_number."', name = '".$name."', course = '".$course."', yearlevel = '".$yearlevel."', semester = '".$semester."', payment_type = '".$payment_type."', payment_desc = '".$payment_desc."', finals = '".$finals."', date = '".$date."','".$OR_number."'");
-                }else{
-                   
-                    $db->query("INSERT INTO mis_payment_method (student_num, OR_number, name, course, yearlevel, semester, payment_type, payment_desc, finals, date) VALUES ('".$student_num."', '".$OR_number."', '".$name."', '".$course."', '".$yearlevel."', '".$semester."', '".$payment_type."', '".$payment_desc."', '".$finals."','".$date."')");
+                if (!$result) {
+                    die("Error: " . $db->error);
                 }
             }
             

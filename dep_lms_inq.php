@@ -1,4 +1,5 @@
 <?php
+
 if(!isset($_SESSION)){
     session_start();
 }
@@ -105,7 +106,7 @@ include ("import_modal.php");
                                        
                                             <tr>
                                             <td><?php echo $row['student_id'];?></td>
-                                        <td><?php echo $row['grant'];?></td>
+                                        <td><?php echo "<p style='width: 55px; font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Access </p>";?></td>
                                         <td><?php echo $row['preliminaries'];?></td>
                                         <td><?php echo $row['granted_at'];?></td>
                                             </tr>

@@ -22,21 +22,14 @@ if(isset($_POST['importSubmit'])){
             // Parse data from CSV file line by line
             while(($line = fgetcsv($csvFile)) !== FALSE){
                 // Get row data
-
-                $student_id  = $line[0];
-                $grant  = $line[1];
-                $preliminaries  = $line[2];
+                $student_id  = $line[4];
+                $preliminaries  = $line[7];
                 
-               
-                $prevQuery = "SELECT student_id FROM lms_examination_grants WHERE student_id = '".$line[1]."'";
-                $prevResult = $db->query($prevQuery);
+                $query = "INSERT INTO lms_examination_grants (student_id, `grant`, preliminaries, granted_at) VALUES ('".$student_id."', '1', '".$preliminaries."', NOW())";
+                $result = $db->query($query);
                 
-                if($prevResult->num_rows > 0){
-             
-                    $db->query("UPDATE lms_examination_grants SET student_id = '".$student_id."', grant = '".$grant."', preliminaries = '".$preliminaries."','".$student_id."'");
-                }else{
-                   
-                    $db->query("INSERT INTO lms_examination_grants (student_id, grant, preliminaries) VALUES ('".$student_id."', '".$grant."', '".$preliminaries."')");
+                if (!$result) {
+                    die("Error: " . $db->error);
                 }
             }
             

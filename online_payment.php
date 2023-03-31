@@ -107,7 +107,7 @@ include ("import_modal.php");
                                         //include("stud_pms_modal.php");
                                         ?>
                                         <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;"><i class="bx bxs-show"></i> <b>View</b></a>
                                         </tr>
                                         </td>
                                     

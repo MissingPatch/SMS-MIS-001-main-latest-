@@ -110,9 +110,8 @@ $row = $stud->fetch_assoc();
                                             
                                         <form action="deleteacc_acc.php"  method="POST" >
                                         <a href="student_account_profile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
-                                        class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                        View</a>
-                                        <button type="submit" class="btn btn-danger btn-sm" name="delete" >Remove</button>
+                                        class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a>
+                                        <button type="submit" class="btn btn-danger btn-sm" name="delete" style="border: none; background: none; color: red; font-size: 20px;"><i class="bx bx-trash"></i>&nbsp;</button>
                                         <input type="hidden" name="row" value="<?php echo $row["row"];?>">
                                         </form>
 

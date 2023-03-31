@@ -100,7 +100,7 @@ include ("import_modal.php");
                                             <td><?php echo $row['firstname']; ?>&nbsp;<?php echo $row['lastname']; ?></td>
                                             <td><?php echo $row['course']; ?></td>
                                             <td><?php echo $row['major']; ?></td>
-                                            <td><?php echo $row['payment_status']; ?></td>
+                                            <td><?php echo "<p style='width: 55px; font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Paid </p>"; ?></td>
                                         </tr>
                                             <?php }}while($row = $res->fetch_assoc())  ?>
                                         </tbody>
