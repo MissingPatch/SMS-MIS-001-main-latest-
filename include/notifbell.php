@@ -42,7 +42,7 @@ $row = $inq->fetch_assoc();
 </div>
 </form>
 
-
+<!--
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -59,6 +59,7 @@ $(document).ready(function() {
 });
 
 </script>
+-->
 
 
 <?php 
@@ -101,7 +102,7 @@ if ($result = mysqli_query($con, $sql)) {
    
     </div>
 </div>
-
+<!--
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -114,6 +115,6 @@ if ($result = mysqli_query($con, $sql)) {
             });
         }, 1000);
     });
-</script>
+</script>-->
 
 

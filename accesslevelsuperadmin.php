@@ -137,18 +137,20 @@ if(isset($_POST['LOGIN']))  {
       log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
       header("Location: staffstudinfo.php");
 
-    } elseif($row['department'] == "Enrollment" && $row['role'] == "Admin" ){
+    } elseif($row['user_type'] == "admin" ){
       $_SESSION['ID'] = $row['ID'];
       $_SESSION['fname'] = $row['fname'];
       $_SESSION['lname'] = $row['lname'];
       $_SESSION['role'] = $row['role'];
       $_SESSION['email'] = $row['email'];
+
       // Set is_logged_in flag to true
       $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
       $con->query($update_query);
       log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
       header("Location: https://oes.bcpsms.com/admin_dashboard.php");
     }
+    
   }
 
   else {
