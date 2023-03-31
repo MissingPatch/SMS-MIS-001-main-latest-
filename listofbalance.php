@@ -114,11 +114,11 @@ $row = $stud->fetch_assoc();
                     <td> Miscellaneous Fee</td>
                     <td> All Course </td>
                     <td> 1st to 4th Year </td>
-                    <td><a href="stud_misc.php" class="btn btn-success btn-sm" style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_misc.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row"></th>
-                    <td style="font-size: 15px;"> - Enrollment Fee &nbsp;&nbsp;<a href="stud_enrollment_fee.php" class="btn btn-success btn-sm"  style="font-size: 9px;"> View </a></td>
+                    <td style="font-size: 15px;"> - Enrollment Fee &nbsp;&nbsp;<a href="stud_enrollment_fee.php" class="btn btn-success btn-sm"  style="border: 1px solid blue; background: none; color: blue; font-size: 8px;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                     <td>  </td>
                     <td>  </td>
                     <td>  </td>
@@ -128,39 +128,39 @@ $row = $stud->fetch_assoc();
                     <td> Uniform </td>
                     <td> All Course </td>
                     <td> 1st to 4th Year </td>
-                    <td><a href="stud_uniform.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_uniform.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
                     <td> Books </td>
                     <td> All Course </td>
                     <td> 1st to 4th Year </td>
-                    <td><a href="stud_books.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_books.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>  
                 <tr>
                     <th scope="row">4</th>
                     <td> Documents (SOA, COG, and Evaluation) </td>
                     <td> All Course </td>
                     <td> 1st to 4th Year </td>
-                    <td><a href="stud_documents.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_documents.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>  
                 <tr>
                     <th scope="row">5</th>
                     <td> Research </td>
                     <td> All Course </td>
                     <td> SHS / 4th Year </td>
-                    <td><a href="stud_research.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_research.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr> 
                 <tr>
                     <th scope="row">6</th>
                     <td> All Payment Record </td>
                     <td> All Course </td>
                     <td> 1st to 4th Year </td>
-                    <td><a href="stud_all_pms.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_all_pms.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr> 
                 <tr>
                     <th scope="row">7</th>
-                    <td> Other Fee's &nbsp;&nbsp;<a href="#" class="btn btn-success btn-sm"  style="font-size: 9px;"> View </a> </td>
+                    <td> Other Fee's &nbsp;&nbsp;<a href="#" class="btn btn-success btn-sm"  style="border: 1px solid blue; background: none; color: blue; font-size: 8px;"><i class="bx bxs-show"></i> <b>View</b></a> </td>
                     <td>  </td>
                     <td>  </td>
                     <td>  </td>

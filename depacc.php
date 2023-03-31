@@ -104,11 +104,18 @@ $row = $emp->fetch_assoc();
                                 $status_class = 'offline'; // Set class to 'offline' if user is not logged in
                                 }
                             ?>
-
+<style>
+bx:hover{
+    background-color: red;
+    color: blue;
+}
+</style>
                             <span style="float:right;">
-                            <button type="button" class="fa-solid fa-user-plus" aria-placeholder="add" style="height:30px; width:40px; margin-right:10px;" data-toggle="modal" data-target="#addaccount" 
-                            style="background-color:#07177a; color:white; ">
-                            </button>          
+                            <button type="button" style="color: #07179a; font-size: 19px; border: none;" data-toggle="modal" data-target="#addaccount" class="btn btn-sm"
+                           ><i class="bx bxs-add-to-queue"> <b>Add Users</b></i>
+                            </button>&nbsp;
+                            
+                            
                                                 
                             </span>
                             </div> 
@@ -138,9 +145,9 @@ $row = $emp->fetch_assoc();
                                         <td><?php echo $status_class;?></td>
                                         <td>
                                         <div class="btn-group" role="group">
-                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="background-color:#07177a;">View</a>&nbsp;
+                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="height: 30px;background-color:#07177a;"><b>View</b></a>
                                         <form action="deleteaccdep.php" method="POST">                
-                                        <button type="submit" class="btn btn-danger btn-sm" name="delete">Remove</button>
+                                        <button type="submit" style="border: none; background: none; color: red; font-size: 20px;" class="btn btn-danger btn-sm" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
                                         <input type="hidden" name="ID" value="<?php echo $row["ID"];?>">
                                         </form>
                                         </div>

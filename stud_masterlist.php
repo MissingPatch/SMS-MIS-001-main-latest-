@@ -56,7 +56,7 @@ include("deleteaccdep.php");
                    
                     <h5 _ngcontent-gwg-c228="" 
                     class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate"> 
-                    <b> Student List by Course </b><a href="stud_all_masterlist.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View Master List </a></h5>
+                    <b> Student List by Course </b><a href="stud_all_masterlist.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View Master List</b> </a></h5>
                     
                     <p> </p>
                     
@@ -100,6 +100,21 @@ include("deleteaccdep.php");
                 </tr>
                 </thead>
                 <tbody>
+
+<?php 
+
+$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='1st Year' ORDER BY Student_ID";
+$pms = $con->query($sql) or die($con->error);
+$row = $pms->fetch_assoc();
+
+if ($result = mysqli_query($con, $sql)) {
+
+$rowcount = mysqli_num_rows( $result);
+
+}
+
+?>
+
                 <tr>
                     <th scope="row">1</th>
                     <td> BSIT </td>
@@ -107,9 +122,25 @@ include("deleteaccdep.php");
                     <td> 1101-1128 </td>
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
-                    <td> <?php  ?>  </td>
-                    <td><a href="stud_bsit_1st.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td style="color: lightgreen;">&nbsp;&nbsp;&nbsp; <b><?php print($rowcount); ?></b></td>
+                    <td><a href="stud_bsit_1st.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
+
+
+                <?php 
+
+$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='2nd Year' ORDER BY Student_ID";
+$pms = $con->query($sql) or die($con->error);
+$row = $pms->fetch_assoc();
+
+if ($result = mysqli_query($con, $sql)) {
+
+$rowcount = mysqli_num_rows( $result);
+
+}
+
+?>
+
                 <tr>
                     <th scope="row">2</th>
                     <td> BSIT </td>
@@ -117,9 +148,23 @@ include("deleteaccdep.php");
                     <td> 1201-1228 </td>
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
-                    <td> <?php  ?>  </td>
-                    <td><a href="stud_bsit_2nd.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td style="color: lightgreen;">&nbsp;&nbsp;&nbsp; <b><?php print($rowcount); ?></b></td>
+                    <td><a href="stud_bsit_2nd.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
+
+<?php 
+
+$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='3rd Year' ORDER BY Student_ID";
+$pms = $con->query($sql) or die($con->error);
+$row = $pms->fetch_assoc();
+
+if ($result = mysqli_query($con, $sql)) {
+
+$rowcount = mysqli_num_rows( $result);
+
+}
+
+?>
                 <tr>
                     <th scope="row">3</th>
                     <td> BSIT </td>
@@ -127,9 +172,24 @@ include("deleteaccdep.php");
                     <td> 3101-3108 </td>
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
-                    <td> <?php  ?>  </td>
-                    <td><a href="stud_bsit_3rd.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td style="color: lightgreen;">&nbsp;&nbsp;&nbsp; <b><?php print($rowcount); ?></b></td>
+                    <td><a href="stud_bsit_3rd.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
+
+<?php 
+
+$sql = "SELECT * FROM registrar_studentlist WHERE Course IN ('BS Information Technology') AND Year_Level ='4th Year' ORDER BY Student_ID";
+$pms = $con->query($sql) or die($con->error);
+$row = $pms->fetch_assoc();
+
+if ($result = mysqli_query($con, $sql)) {
+
+$rowcount = mysqli_num_rows( $result);
+
+}
+
+?>
+
                 <tr>
                     <th scope="row">4</th>
                     <td> BSIT </td>
@@ -137,8 +197,8 @@ include("deleteaccdep.php");
                     <td> 3101-3108 </td>
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
-                    <td> <?php  ?>  </td>
-                    <td><a href="stud_bsit_4th.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td style="color: lightgreen;">&nbsp;&nbsp;&nbsp; <b><?php print($rowcount); ?></b></td>
+                    <td><a href="stud_bsit_4th.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>     
                                     </tbody></table>                       
                                     </div>
@@ -182,7 +242,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td> <?php  ?>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -192,7 +252,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -202,7 +262,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>  
                 <tr>
                     <th scope="row">3</th>
@@ -212,7 +272,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>     
                                     </tbody>
                                 </table>                       
@@ -255,7 +315,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td> <?php  ?>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -265,7 +325,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -275,7 +335,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>  
                 <tr>
                     <th scope="row">3</th>
@@ -285,7 +345,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>     
                                     </tbody>
                                 </table>                       
@@ -329,7 +389,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td> <?php  ?>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -339,7 +399,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -349,7 +409,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>  
                 <tr>
                     <th scope="row">3</th>
@@ -359,7 +419,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td>  </td>
-                    <td><a href="#" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="#" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>     
                                     </tbody>
                                 </table>                       
@@ -405,7 +465,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td> <?php  ?>  </td>
-                    <td><a href="stud_bsit_is.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_bsit_is.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -415,7 +475,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td> <?php  ?>  </td>
-                    <td><a href="stud_bsit_im.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_bsit_im.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -425,7 +485,7 @@ include("deleteaccdep.php");
                     <td> 2022-2023 </td>
                     <td> Regular / Irregular </td>
                     <td> <?php  ?>  </td>
-                    <td><a href="stud_bsit_na.php" class="btn btn-success btn-sm"  style="background-color:#07177a;"> View </a></td>
+                    <td><a href="stud_bsit_na.php" class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a></td>
                 </tr>     
                                     </tbody></table>                       
                                     </div>

@@ -25,18 +25,9 @@ if(isset($_POST['importSubmit'])){
 
 
                 $OR_number   = $line[0];
-                $Last_Name  = $line[1];
-                $First_Name  = $line[2];
-                $Middle = $line[3];
                 $student_id = $line[4];
-                $Course = $line[5];
-                $year_level = $line[6];
-                $particular = $line[7];
-                $paid_amount = $line[8];
-                $status = $line[9];
-                $t_date = $line[10];
-                $t_time = $line[11];
-                $section = $line[12];
+                $grant = $line[5];
+                $preliminaries = $line[6];
 
                
                 $prevQuery = "SELECT id FROM crad_pay WHERE OR_number = '".$line[1]."'";

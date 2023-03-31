@@ -107,7 +107,7 @@ include ("import_modal.php");
                                         <td><?php echo $row['section'];?></td> 
                                         <td><?php echo $row['year_level'];?></td>
                                         <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['status'];?></td>
+                                        <td><?php echo "<p style='width: 55px; font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Paid </p>";?></td>
                                         </tr>
                                             <?php }}while($row = $res->fetch_assoc())  ?>
                                         </tbody>

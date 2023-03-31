@@ -73,7 +73,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -97,7 +97,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -119,7 +119,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -146,7 +146,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -168,7 +168,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -190,7 +190,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                      </div>
@@ -217,7 +217,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -239,7 +239,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -261,7 +261,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -288,7 +288,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -310,7 +310,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -332,7 +332,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -359,7 +359,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -381,7 +381,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -403,7 +403,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -430,7 +430,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -452,7 +452,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
@@ -474,7 +474,7 @@ include ("department_modal.php");
                     <br>
                     <br>
                     <span>
-                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;">Access</a>
+                    <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-sm" style="color: white;background-color:#e91640;"><i class="bx bx-accessibility"></i> Access</a>
                     </div>
                     </div>
                     </div>
