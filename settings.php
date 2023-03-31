@@ -119,13 +119,13 @@ We use Your Personal data to provide and improve the Service. By using the Servi
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <center>
-<a style="color: red; font-size: 40px;" href=""><i class="bx bxl-google"></i></a>
+<a style="color: red; font-size: 40px;" target="main" href="https://mail.google.com/"><i class="bx bxl-google"></i></a>
 &nbsp;&nbsp;
-<a style="color: blue; font-size: 40px;" href=""><i class="bx bxl-facebook-circle"></i></a>
+<a style="color: blue; font-size: 40px;" target="main" href="https://www.facebook.com/"><i class="bx bxl-facebook-circle"></i></a>
 &nbsp;&nbsp;
-<a style="color: black; font-size: 40px;" href=""><i class="bx bxl-github"></i></a>
+<a style="color: black; font-size: 40px;" target="main" href="https://github.com/login"><i class="bx bxl-github"></i></a>
 &nbsp;&nbsp;
-<a style="font-size: 40px;" href=""><i class="bx bxl-telegram"></i></a>
+<a style="font-size: 40px;" target="main" href="https://telegram.org/"><i class="bx bxl-telegram"></i></a>
 </center>
                         </div>
                        

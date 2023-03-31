@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div style="opacity: 70%;" class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -54,7 +54,7 @@
                 </select>
             </div>
 
-            <button id="btn-setAlarm" type="submit">Set Alarm</button>
+            <button class="btn btn-sm" style="color: white; background: #07179a;" id="btn-setAlarm" type="submit">Set Alarm</button>
             
         </div>
 
@@ -71,7 +71,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-sm" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
