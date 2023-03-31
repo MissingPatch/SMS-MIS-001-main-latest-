@@ -92,8 +92,8 @@ input[type="checkbox"]:checked + .slider:before {
         <div class="main-body">
 
                 <div class="col-xl-12 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
                 
+                <div class="card border-left-primary shadow h-100 py-2">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="margin-left:10px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -187,12 +187,12 @@ input[type="checkbox"]:checked + .slider:before {
                                     </div>
 
 
-
-                     </div><?php 
+                                    </div>
+                  
+                  <?php 
                   include ("footer.php");
                   ?>
-                     </div>
-                 
+                    </div>
                     </div> 
                     </div>
                     <!-- Row END -->

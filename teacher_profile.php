@@ -42,15 +42,15 @@ $row = $emp->fetch_assoc();
                         <a class="nav-link" href="teacher_profile.php?id=<?php echo $row["id"];?>"><b style="color:#07177a; float:center; width:100px;">Profile </b><span class="sr-only">(current)</span></a>
                     </li>
                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="teachers_account.php?id=<?php echo $row["id"];?>">Account</a>
-                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link" href="teachers_account.php?id=<?php //echo $row["id"];?>">Account</a>
+                    </li>-->
                     <li class="nav-item dropdown dropdown-hover">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Setting
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="empprofile_security.php?ID=<?php echo $row["ID"];?>">Security Setting</a>
+                        <a class="dropdown-item" href="teacher_profile_security.php?id=<?php echo $row["id"];?>">Security Setting</a>
                     </li>
                     </ul>
                 </div>
@@ -67,37 +67,51 @@ $row = $emp->fetch_assoc();
                 <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                         
-                    <!--           
-                    <img src="images/profile.jfif" alt="Admin" class="rounded-circle" width="150">
-                    --> 
+                              
+                <?php
+                    $img_src = '';
+                    if(isset($row['gender'])) {
+                      $gender = $row['gender'];
+                      if ($gender == 'male') {
+                        $img_src = 'images/219970.png';
+                      } else {
+                        $img_src = 'images/1000_F_116244459_pywR1e0T3H7FPk3LTMjG6jsL3UchDpht.jpg';
+                      }
+                    }
+                  ?>
 
-                  <div class="row g-3">
-								  <div class="text-center">
+                <img src="<?php echo $img_src; ?>" alt="Profile" class="rounded-circle" width="150">
+
+                 
+
+                <div class="row g-3">
+								<div class="text-center" >
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
                   <!-- Button Profile -->
-
-									</div>
-                  <div class="mt-3">
-                      <h4> <?php echo $row['f_name'];?> <?php echo $row['l_name'];?></h4>
-                      <p class="text-secondary mb-1"> <?php echo $row['email'];?></p>
-                      <p class="text-muted font-size-sm"> <?php echo $row['cp_number'];?></p>
+             
                   </div>
-                  <hr>
-                   <!-- Backend for Profile -->
-                  <form id="profileImageForm" enctype="multipart/form-data">
-                  <label class="btn btn-success-soft btn-block" for="profileImageInput" style="background-color:#07177a; color:white;" >Upload</label>
-                  </label>
+              
+                  <div class="mt-3">
+                      <h4> <?php echo $row['f_name'];?> <?php echo $row['l_name'];?>  
+                      </h4>
+                      <p class="text-secondary mb-1"> <?php echo $row['designation'];?></p>
+                      <p class="text-muted font-size-sm"> <?php echo $row['department'];?></p>
+                  </div>
                  
-                  <input type="file" id="profileImageInput" name="profileImage" accept="image/*" onchange="submitProfileImage()" hidden="">
-                </form>
+                  <form id="profileImageForm" enctype="multipart/form-data">
+                  <input type="file" id="profileImageInput" name="profileImage" accept="image/*" onchange="submitProfileImage()"  hidden=""> 
+                  <label class="btn btn-success-soft btn-block" for="profileImageInput" >
+                  </label>
+                  </form>
+                 
 
                 <script>
                  document.getElementById('profileImagePreview').addEventListener('click', function() {
                   document.getElementById('profileImageInput').click();
                 });
 
-                  document.getElementById('profileImageInput').addEventListener('change', function() {
+                document.getElementById('profileImageInput').addEventListener('change', function() {
                   var form = new FormData();
                   form.append('fileToUpload', this.files[0]);
                   var xhr = new XMLHttpRequest();
@@ -110,18 +124,19 @@ $row = $emp->fetch_assoc();
                       }
                     }
                   };
-                  xhr.open('POST', 'upload_img.php', true);
+                  xhr.open('POST', 'upload.php', true);
                   xhr.send(form);
+                  location.reload(); // Reloads the current page
                 });
 
                 </script>
 								  </div>
-                     </div>
-                     </div>
-                     </div>
-                     </div>
 
-
+                     
+                     </div>
+                     </div>
+                     </div>
+                     </div>
             </div>
             
 
@@ -156,7 +171,7 @@ $row = $emp->fetch_assoc();
 								<!-- Phone number -->
 								<div class="col-md-6">
 									<label class="form-label">Email:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["email"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["user"];?>" disabled>
 								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
@@ -215,61 +230,61 @@ $row = $emp->fetch_assoc();
                     <!-- / Activity -->
                     <div class="col-xl-12 col-md-6 mb-4">
                     <div class="card h-100">
-                    <div class="card-body">
-                    
-                    <fieldset><legend>Personal Information</legend></fieldset>
-                    <hr>
-                    <div class="row">
-                      
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Full Name:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row['f_name'];?> <?php echo $row['l_name'];?>
-                    </div>
-                    </div>   
+                    <div class="card-body">   
 
-                    <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Sex</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row['gender'];?>
-                    </div>
-                    </div> 
+                         <fieldset><legend>Personal Information</legend></fieldset>
+                          <hr>
+                          <div class="row">
+                            
+                          <div class="col-sm-3">
+                          <h6 class="mb-0">Full Name:</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                          <?php echo $row['f_name'];?> <?php echo $row['l_name'];?>
+                          </div>
+                          </div>   
 
-                    <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Email:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row['email'];?>
-                    </div>
-                    </div>
+                          <hr>
+                          <div class="row">
+                          <div class="col-sm-3">
+                          <h6 class="mb-0">Sex</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                          <?php echo $row['gender'];?>
+                          </div>
+                          </div> 
 
-                    <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Mobile Number:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row['cp_number'];?>
-                    </div>
-                    </div>
+                          <hr>
+                          <div class="row">
+                          <div class="col-sm-3">
+                          <h6 class="mb-0">Email:</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                          <?php echo $row['user'];?>
+                          </div>
+                          </div>
 
-                    <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Company</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    Bestlink College of the Phillipines
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+                          <hr>
+                          <div class="row">
+                          <div class="col-sm-3">
+                          <h6 class="mb-0">Mobile Number:</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                          <?php echo $row['cp_number'];?>
+                          </div>
+                          </div>
+
+                          <hr>
+                          <div class="row">
+                          <div class="col-sm-3">
+                          <h6 class="mb-0">Company</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                          Bestlink College of the Phillipines
+                          </div>
+                          </div>
+                          </div>
+                          </div>
                           </div>                   
                           </div>
                           </div>                  
@@ -286,4 +301,5 @@ $row = $emp->fetch_assoc();
 
 <?php
 include ("script/script.php");
+include ("include/sweetalert.php");
 ?>

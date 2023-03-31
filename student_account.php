@@ -72,12 +72,14 @@ $row = $stud->fetch_assoc();
                     <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                            <div class="card-header py-3">
+                           <div class="card-header py-3">
                                 <b> Student Account </b>
-                            <button type="button" class="btn btn-success btn-sm" style="background-color:#07177a; float: right;" data-toggle="modal" data-target="#addaccount" 
+                            <!-- <button type="button" class="btn btn-success btn-sm" style="background-color:#07177a; float: right;" data-toggle="modal" data-target="#addaccount" 
                             style="background-color:#07177a; color:white; "> Add Student </button>      
                             </h6>
+                            -->
                             </div>
+                              
                                 
                                 
                             <div class="card-body">
@@ -92,7 +94,6 @@ $row = $stud->fetch_assoc();
                                         <th>Last Name</th>
                                         <th>Email</th>
                                         <th>Username</th>
-                                        <th>Password</th>
                                         <th>Action</th>
                                         </tr>
                                     </thead>
@@ -105,7 +106,6 @@ $row = $stud->fetch_assoc();
                                         <td><?php echo $row['Lastname'];?> </td> 
                                         <td> <?php echo $row['email'];?></td>                        
                                         <td><?php echo $row['username'];?> </td>
-                                        <td><?php echo $row['pass'];?> </td>
                                         <td>
                                             
                                         <form action="deleteacc_acc.php"  method="POST" >

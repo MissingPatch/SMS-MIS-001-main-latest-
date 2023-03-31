@@ -89,17 +89,15 @@ $row = $teacher->fetch_assoc();
                             <div class="card-body">
                             <div class="row no-gutters align-items-center">
                             <div class="table-responsive">
-                                <table id="example" class="table table-striped" style="width:100%">
+                                <table id="example" class="table table-hover" style="width:100%">
                                     <thead>
                                 
                                         <tr>
                                         <th>ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>        
-                                        <th>Subject Code</th>
-                                        <th>Department</th>
-                                        <th>Sex</th>
-                                        <th>Contact</th>
+                                        <th>Email</th>
+                                        <th>Name</th> 
+                                        <th>Department</th>       
+                                        <th>Role</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                         </tr>
@@ -110,12 +108,10 @@ $row = $teacher->fetch_assoc();
                                         if (!empty($row)){ ?>
                                         <tr>
                                         <td><?php echo $row['id'];?> </td>
-                                        <td><?php echo $row['f_name'];?> </td>
-                                        <td><?php echo $row['l_name'];?> </td>                      
-                                        <td><?php echo $row['code'];?> </td>
+                                        <td><?php echo $row['user'];?></td>
+                                        <td><?php echo $row['f_name'];?> <?php echo $row['l_name'];?> </td>                      
                                         <td><?php echo $row['department'];?> </td>
-                                        <td> <?php echo $row['gender'];?></td> 
-                                        <td> <?php echo $row['cp_number'];?></td>                        
+                                        <td><?php echo $row['designation'];?> </td>                       
                                         <td><?php echo $row['status'];?> </td>
                                         <td>
                                             
