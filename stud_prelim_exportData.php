@@ -10,15 +10,15 @@ $f = fopen('php://memory', 'w');
  
 
 // Set column headers 
-$fields = array('student_num', 'OR_number', 'name', 'course', 'yearlevel', 'semester', 'payment_type', 'payment_desc', 'prelim', 'date'); 
+$fields = array('student_id', 'preliminaries', 'grant'); 
 fputcsv($f, $fields, $delimiter); 
  
 // Get records from the database 
-$result = $db->query("SELECT * FROM mis_payment_method WHERE payment_desc IN ('Miscellaneous Fee') AND prelim ='Paid' ORDER BY OR_number");
+$result = $db->query("SELECT * FROM pms_payment WHERE particular IN ('Prelim') AND status ='Paid' ORDER BY student_id");
 if($result->num_rows > 0){ 
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $result->fetch_assoc()){ 
-        $lineData = array($row['student_num'], $row['OR_number'], $row['name'], $row['course'], $row['yearlevel'], $row['semester'], $row['payment_type'], $row['payment_desc'], $row['prelim'] , $row['date']); 
+        $lineData = array($row['student_id'], $row['grant'], $row['preliminaries']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 } 
