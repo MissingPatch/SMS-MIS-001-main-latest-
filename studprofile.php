@@ -305,17 +305,10 @@ if (isset($_GET['Student_ID'])){
                     <?php echo $row['Contact_No'];?>
                     </div>
                     </div>
-                    
                         </div>
-                        
                         </div>
-                        
+                        </div>                  
                         </div>
-
-                    
-                        </div>
-                       
-
                           </div>                  
                           </div>
                           </div>
