@@ -41,10 +41,14 @@
 									<label class="form-label">Email: </label>
 									<input type="email" id="Email" name="Email" class="form-control" value="<?php echo $row["Email"];?>" >
 								</div>
-                           
-								<div class="col-md-4">
-									<label class="form-label">Sex:</label>
-									<input type="text" id="Gender" name="Gender" class="form-control" value="<?php echo $row["Gender"];?>" >
+
+                                <div class="col-md-4">
+                                <label class="form-label">Sex: </label>
+                                <select class="form-control" id="Gender" name="Gender" required>
+                                <option value=""> Select Gender </option>
+                                <option value="Male"> Male </option>
+                                <option value="Female"> Female </option>
+                                </select>
                                 </div>
 								
 								<div class="col-md-4">
@@ -54,23 +58,41 @@
 
                                 <div class="col-md-4">
 									<label class="form-label">Birth Date: </label>
-                                    <input type="text" id="birth_date" name="birth_date" class="form-control" value="<?php echo $row["birth_date"];?>" >
+                                    <input type="text" id="birth_date" name="birth_date" class="form-control" value="<?php echo $row["birth_date"];?>" required>
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Course: </label>
-                                    <input type="text" id="Course" name="Course" class="form-control" value="<?php echo $row["Course"];?>" >
-								</div>
+                                <label class="form-label">Course: </label>
+                                <select class="form-control" id="Course" name="Course"required>
+                                <option value=""> Select Major </option>
+                                <option value="BS Information Technology"> BS Information Technology </option>
+                                <option value="BS Information Technology"> BS Information Technology </option>
+                                <option value="BS Information Technology"> BS Information Technology </option>
+                                <option value="BS Information Technology"> BS Information Technology </option>
+                                </select>
+                                </div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Major: </label>
-                                    <input type="text" id="Major" name="Major" class="form-control" value="<?php echo $row["Major"];?>" >
-								</div>
+                                <label class="form-label">Major: </label>
+                                <select class="form-control" id="Major" name="Major"required>
+                                <option value=""> Select Major </option>
+                                <option value="IS"> IS </option>
+                                <option value="IM"> IM </option>
+                                <option value="NA"> NA </option>
+                                </select>
+                                </div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Year Level: </label>
-                                    <input type="text" id="Year_Level" name="Year_Level" class="form-control" value="<?php echo $row["Year_Level"];?>" >
-								</div>
+                                <label class="form-label">Year Level: </label>
+                                <select class="form-control" id="Year_Level" name="Year_Level" required>
+                                <option value=""> Select Year </option>
+                                <option value="1st Year"> 1st Year </option>
+                                <option value="2nd Year"> 2nd Year </option>
+                                <option value="3rd Year"> 3rd Year </option>
+                                <option value="4th Year"> 4th Year </option>
+                                </select>
+                                </div>
+
 
                                 <div class="col-md-4">
 									<label class="form-label">Section: </label>
@@ -127,17 +149,16 @@
                                     <input type="text" id="School_Type" name="School_Type" class="form-control" value="<?php echo $row["School_Type"];?>" >
 								</div>
 
-                                <div class="col-md-4">
-									<label class="form-label">School Type: </label>
-                                    <input type="text" id="School_Type" name="School_Type" class="form-control" value="<?php echo $row["School_Type"];?>" >
-								</div>
+                                <div class="col-md-6">
+                                <label class="form-label">Status: </label>
+                                <select class="form-control" id="Student_Status" name="Student_Status" required>
+                                <option value=""> Select Status </option>
+                                <option value="Active"> Active </option>
+                                <option value="Inactive"> Inactive </option>
+                                </select>
+                                </div>
 
-                                <div class="col-md-4">
-									<label class="form-label">Student Status: </label>
-                                    <input type="text" id="Student_Status" name="Student_Status" class="form-control" value="<?php echo $row["Student_Status"];?>" >
-								</div>
-
-                                <div class="col-md-4">
+                                <div class="col-md-6">
 									<label class="form-label">Student Type: </label>
                                     <input type="text" id="Student_Type" name="Student_Type" class="form-control" value="<?php echo $row["Student_Type"];?>" >
 								</div>

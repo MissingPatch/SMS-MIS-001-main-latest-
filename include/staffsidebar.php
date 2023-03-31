@@ -65,7 +65,7 @@ $con = connection();
 
 
             <li>
-              <a href="#">
+              <a href="settings.php">
                 <i class="bx bx-cog"></i>
                 <span class="links_name">Setting</span>
               </a>

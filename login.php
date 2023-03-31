@@ -141,8 +141,9 @@ session_start();
 
 
               <!-- ETO YUNG MODAL PAR -->
-              <input type="checkbox" name="checkbox_name[]" required>
-              <label>I agree to this <a href="#" id="modal" style="color: blue;">Terms and Conditions</a></label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="checkbox" required>&nbsp;&nbsp;
+              <label>I agree to this <a href="#" id="modal" style="text-decoration: none; color: blue;">Terms and Conditions</a></label>
               
               <script>
                 $(document).ready(function(){
@@ -161,8 +162,8 @@ session_start();
               </button>
             
               <div class="text-center">
-                          
-              <a href="forgot_password.php">
+              <br>         
+              <a href="forgot_password.php" style="text-decoration: none;">
                 Forgot Password?
               </a>
               </div>

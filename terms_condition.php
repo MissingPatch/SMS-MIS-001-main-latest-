@@ -127,7 +127,7 @@
 
 </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-sm" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
