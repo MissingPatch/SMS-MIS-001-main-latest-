@@ -2,10 +2,12 @@
 
 include_once("connection/connection.php");
 $con = connection();   
-@$id = $_GET['Student_ID'];
+if (isset($_GET['Student_ID'])){
+$id = $_GET['Student_ID'];
 $sql = "SELECT * FROM registrar_studentsection WHERE Student_ID ='$id'";
 $student = $con->query($sql) or die($con->error);
 $row = $student->fetch_assoc();
+}
 
 if(isset($_POST['update'])){
 
@@ -24,9 +26,15 @@ if(isset($_POST['update'])){
     $submitted_by = $_POST['submitted_by'];
    
 
-    $sql = "UPDATE registrar_studentsection set Student_ID = '$Student_ID', Lastname = '$Lastname', Firstname = '$Firstname', Middlename = '$Middlename', Course = '$Course', Year_Level = '$Year_Level', Section = '$Section', Semester = '$Semester', Major = '$Major', Academic_Year = '$Academic_Year', Student_Type = '$Student_Type', Status = '$Status', Register_Date = '$Register_Date', submitted_by = '$submitted_by' WHERE Student_ID='$id' ";
+    $sql = "UPDATE registrar_studentsection set Lastname = '$Lastname', Firstname = '$Firstname', 
+    Middlename = '$Middlename', Course = '$Course', Year_Level = '$Year_Level', Section = '$Section', 
+    Semester = '$Semester', Major = '$Major', Academic_Year = '$Academic_Year', Student_Type = '$Student_Type', 
+    Status = '$Status', Register_Date = '$Register_Date', submitted_by = '$submitted_by' WHERE Student_ID='$id' ";
     $con->query($sql) or die($con->error);
 
+    if ($con->query($sql) === TRUE) {
+        $_SESSION['status'] = "Update Successfully";
+        }
     
 }
 

@@ -163,7 +163,7 @@
                   margin-top='-10'
                   alt='profile-picture'>";		
                   ?>
-                  <?php echo @$_SESSION['fname'];?> <?php echo @$_SESSION['lname'];?>
+                  <?php echo $_SESSION['fname'];?> <?php echo $_SESSION['lname'];?>
                   <span class="<?php echo 'status-circle ' . $status_class; ?>"></span>
                   </a></li>
                 

@@ -12,17 +12,25 @@ echo header("location:login.php");
 include ("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-
 include ("student_users_update_modal.php");
 include ("student_users_update.php");
 
 
 
 $con = connection();
-@$id = $_GET['Student_ID'];
-$sql = "SELECT * FROM registrar_studentsection WHERE Student_ID ='$id'";
-$emp = $con->query($sql) or die($con->error);
-$row = $emp->fetch_assoc(); 
+
+if(isset($_GET['Student_ID'])){ 
+  $id = $_GET['Student_ID'];
+  $sql = "SELECT * FROM registrar_studentsection WHERE Student_ID ='$id'";
+  $emp = $con->query($sql) or die($con->error);
+  $row = $emp->fetch_assoc(); 
+
+  $sq = "SELECT * FROM registrar_studentlist WHERE Student_ID ='$id'";
+  $img = $con->query($sq) or die($con->error);
+  $img_row = $img->fetch_assoc(); 
+
+  // Use $img_row to access the Gender value
+}
 ?>
 
   <!-- Main Content -->
@@ -35,25 +43,28 @@ $row = $emp->fetch_assoc();
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="margin-left:10px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item active">
-                    <a class="nav-link"  href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" >Account <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="student_profile_additional_information.php">Additional Information</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Security</a>
-                  </li>
-                  </ul>
-                  </div>
-                  </nav>
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="student_account_profile.php?Student_ID=<?php echo $row["Student_ID"];?>"><b style="color:#07177a; float:center; width:100px;">Profile </b><span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <!--<li class="nav-item">
+                        <a class="nav-link" href="teachers_account.php?id=<?php //echo $row["id"];?>">Account</a>
+                    </li>-->
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Setting
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="student_profile_security.php?Student_ID=<?php echo $row["Student_ID"];?>">Security Setting</a>
+                    </li>
+                    </ul>
+                </div>
+                </nav>
 
                 <div class="card-body">
                   
@@ -65,32 +76,43 @@ $row = $emp->fetch_assoc();
                 <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                         
-                    <!--           
-                    <img src="images/profile.jfif" alt="Admin" class="rounded-circle" width="150">
-                    --> 
+                              
+                <?php
+                    $img_src = '';
+                    if(isset($img_row['Gender'])) {
+                      $gender = $img_row['Gender'];
+                      if ($gender == 'Male') {
+                        $img_src = 'images/219970.png';
+                      } else {
+                        $img_src = 'images/1000_F_116244459_pywR1e0T3H7FPk3LTMjG6jsL3UchDpht.jpg';
+                      }
+                    }
+                  ?>
 
-                  <div class="row g-3">
-								  <div class="text-center">
+                <img src="<?php echo $img_src; ?>" alt="Profile" class="rounded-circle" width="150">
+
+                 
+
+                <div class="row g-3">
+								<div class="text-center" >
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
-
-                
-
-
-									</div>
-                  <div class="mt-3">
-                      <h4> <?php echo $row['Firstname'];?> <?php echo $row['Lastname'];?></h4>
-                      <p class="text-muted font-size-sm">
-                        <?php echo $row['Student_ID'];?></p>
+                  <!-- Button Profile -->
                   </div>
-                  <hr>
-
+              
+                  <div class="mt-3">
+                      <h4> <?php echo $row['Firstname'];?> <?php echo $row['Lastname'];?>  
+                      </h4>
+                      <p class="text-secondary mb-1"> <?php echo $row['Course'];?></p>
+                      <p class="text-muted font-size-sm"> <?php echo $row['Section'];?></p>
+                  </div>
 								  </div>
-                     </div>
-                     </div>
-                     </div>
-                     </div>
 
+                     
+                     </div>
+                     </div>
+                     </div>
+                     </div>
             </div>
             
 
@@ -206,8 +228,10 @@ $row = $emp->fetch_assoc();
                     <div class="row">
                     <div class="col-sm-3">
                     <h6 class="mb-0">Email:</h6>
+                   
                     </div>
                     <div class="col-sm-9 text-secondary">
+                    <?php echo $img_row['Email'];?>
                     <?php ?>
                     </div>
                     </div>
@@ -226,9 +250,10 @@ $row = $emp->fetch_assoc();
                     <div class="row">
                     <div class="col-sm-3">
                     <h6 class="mb-0">Company</h6>
+                   
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    
+                    Bestlink College of the Philippines
                     </div>
                     </div>
                     
@@ -248,13 +273,13 @@ $row = $emp->fetch_assoc();
                           </div>
                           </div>
                           </div>
+                          <?php include ("footer.php"); ?>
                           </div>
                           </div>
                           </div>
-                          </div>
-</body>
-</html>
+                         
 <?php
 include ("script/script.php");
-include ("footer.php");
+include ("include/sweetalert.php");
+
 ?>
