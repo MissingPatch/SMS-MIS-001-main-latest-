@@ -96,7 +96,7 @@ function setAlarm(){
         document.querySelector(".alarmList").innerHTML += `
         <div class="alarmLog" id="alarm${alarmCount}">
             <span id="span${alarmCount}">${time}</span>
-            <button class="btn-delete" id="${alarmCount}" onClick="deleteAlarm(this.id)">Delete</button>
+            <button class="btn btn-danger btn-sm" id="${alarmCount}" onClick="deleteAlarm(this.id)">Delete</button>
         </div>`;
 
         alarmTime = `${selectMenu[0].value}:${selectMenu[1].value}:00 ${selectMenu[2].value}`;
@@ -121,4 +121,3 @@ function stopAlarm(){
     ring.pause();
     document.querySelector("#stopAlarm").style.visibility= "hidden";
 }
-

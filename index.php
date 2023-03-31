@@ -374,7 +374,7 @@ $rowcount = mysqli_num_rows( $result2);
 				          <span class="right-button fa fa-chevron-right" id="next"> </span>
 				        </div> 
                         <div class="table-responsive">
-				        <table class="table table-hover" style="width:100%"> 
+				        <table class="table table-hover" style="width:100%;"> 
 				          <tbody>
 				            <tr class="months-row">
 				              <td class="month">Jan</td> 
@@ -390,7 +390,6 @@ $rowcount = mysqli_num_rows( $result2);
 				              <td class="month">Nov</td>
 				              <td class="month">Dec</td>
 				            </tr>
-                         
                         <table class="dates-table w-100"> 
 				          <td class="day">Sun</td> 
 				          <td class="day">Mon</td> 
@@ -410,9 +409,7 @@ $rowcount = mysqli_num_rows( $result2);
 				        </div> 
                         </div> 
 
-            <button type="button" class="btn btn-success btn-sm" style="float: right; background-color:#07179a;" 
-            data-toggle="modal" data-target="#addannounce">Add Event</button>
-
+            <button type="button" class="btn btn-success btn-sm" style="float: right; background-color:#07179a;" data-toggle="modal" data-target="#addannounce">Add Event</button>
 			</div>
 			</div>
 			</div>
