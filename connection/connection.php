@@ -5,8 +5,8 @@
 	function connection(){
 
 		$host="localhost";
-		$user="u476821515_SMS";
-		$password="Bcpsms12@";
+		$user="root";
+		$password="";
 		$db="u476821515_SMS"; 
 
 
