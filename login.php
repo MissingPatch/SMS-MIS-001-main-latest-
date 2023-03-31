@@ -134,18 +134,10 @@ session_start();
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
+              
               <?php include ("terms_condition.php") ?>
               <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-=======
-              
-<!-- ETO YUNG MODAL PAR -->
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" required>
-&nbsp; I agree to this 
-<button style="border: none; color: blue;" type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong">
- Terms and Conditions
-</button></p>
->>>>>>> fd2e2cdcfbff25cf647fce4a6f54c9aa086b3073
+
 
               <!-- ETO YUNG MODAL PAR -->
               <input type="checkbox" name="checkbox_name[]" required>
