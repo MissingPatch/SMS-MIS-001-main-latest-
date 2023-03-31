@@ -23,27 +23,20 @@ if(isset($_POST['importSubmit'])){
             while(($line = fgetcsv($csvFile)) !== FALSE){
                 // Get row data
 
-                $student_num   = $line[0];
-                $OR_number  = $line[1];
-                $name  = $line[2];
-                $course = $line[3];
-                $yearlevel = $line[4];
-                $semester = $line[5];
-                $payment_type = $line[6];
-                $payment_desc = $line[7];
-                $prelim = $line[8];
-                $date = $line[9];
+                $student_id  = $line[0];
+                $grant  = $line[1];
+                $preliminaries  = $line[2];
                 
                
-                $prevQuery = "SELECT student_num FROM mis_payment_method WHERE OR_number = '".$line[1]."'";
+                $prevQuery = "SELECT student_id FROM lms_examination_grants WHERE student_id = '".$line[1]."'";
                 $prevResult = $db->query($prevQuery);
                 
                 if($prevResult->num_rows > 0){
              
-                    $db->query("UPDATE mis_payment_method SET student_num = '".$student_num."', OR_number = '".$OR_number."', name = '".$name."', course = '".$course."', yearlevel = '".$yearlevel."', semester = '".$semester."', payment_type = '".$payment_type."', payment_desc = '".$payment_desc."', prelim = '".$prelim."', date = '".$date."','".$OR_number."'");
+                    $db->query("UPDATE lms_examination_grants SET student_id = '".$student_id."', grant = '".$grant."', preliminaries = '".$preliminaries."','".$student_id."'");
                 }else{
                    
-                    $db->query("INSERT INTO mis_payment_method (student_num, OR_number, name, course, yearlevel, semester, payment_type, payment_desc, prelim, date) VALUES ('".$student_num."', '".$OR_number."', '".$name."', '".$course."', '".$yearlevel."', '".$semester."', '".$payment_type."', '".$payment_desc."', '".$prelim."','".$date."')");
+                    $db->query("INSERT INTO lms_examination_grants (student_id, grant, preliminaries) VALUES ('".$student_id."', '".$grant."', '".$preliminaries."')");
                 }
             }
             
