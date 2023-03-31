@@ -92,7 +92,7 @@ $row = $stud->fetch_assoc();
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                            <a href="stud_masterlist.php" class="btn btn-success btn-sm"  style="background-color:#07179a;"> Back </a><b>&nbsp; All Courses </b>
+                            <a href="stud_masterlist.php" class="btn btn-success btn-sm"  style="background-color:#07179a;"><i class="fa fa-arrow-left"></i></a><b>&nbsp; All Courses </b>
                             </div>
                                 
                                 
@@ -134,8 +134,7 @@ $row = $stud->fetch_assoc();
                                             
                                         <form action=" "  method="POST" >
                                         <a href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
-                                        class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                        View
+                                        class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a>
                                         </form>
 
                                     </td>
