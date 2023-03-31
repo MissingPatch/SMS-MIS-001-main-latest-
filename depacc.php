@@ -135,12 +135,12 @@ $row = $emp->fetch_assoc();
                                         <td><?php echo $row['fname']; ?></td>                
                                         <td><?php echo $row['department']; ?></td>
                                         <td><?php echo $row['role']; ?></td>
-                                        <td><?php echo $status_class; ?></td>
+                                        <td><?php echo $status_class;?></td>
                                         <td>
                                         <div class="btn-group" role="group">
+                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="background-color:#07177a;">View</a>&nbsp;
                                         <form action="deleteaccdep.php" method="POST">                
-                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="background-color:#07177a;">View</a>
-                                        <button type="submit" class="btn btn-danger btn-sm" name="delete" >Del</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" name="delete">Remove</button>
                                         <input type="hidden" name="ID" value="<?php echo $row["ID"];?>">
                                         </form>
                                         </div>
