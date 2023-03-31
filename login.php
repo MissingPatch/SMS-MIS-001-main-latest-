@@ -1,5 +1,8 @@
 <?php 
 session_start();
+
+require ("terms&condition.php")
+
  ?>
  
 <!DOCTYPE html>
@@ -134,7 +137,13 @@ session_start();
                   </div>
                 </div>
               </div>
-
+              
+<!-- ETO YUNG MODAL PAR -->
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkbox_name[]" required>
+&nbsp; I agree to this 
+<button style="border: none; color: blue;" type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong">
+ Terms and Conditions
+</button></p>
 
               <button
                 type="submit" name="LOGIN" id="LOGIN"
