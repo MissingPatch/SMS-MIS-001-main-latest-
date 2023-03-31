@@ -1,8 +1,5 @@
 <?php 
 session_start();
-
-require ("terms&condition.php")
-
  ?>
  
 <!DOCTYPE html>
@@ -137,14 +134,21 @@ require ("terms&condition.php")
                   </div>
                 </div>
               </div>
-              
-<!-- ETO YUNG MODAL PAR -->
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkbox_name[]" required>
-&nbsp; I agree to this 
-<button style="border: none; color: blue;" type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong">
- Terms and Conditions
-</button></p>
+              <?php include ("terms_condition.php") ?>
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+              <!-- ETO YUNG MODAL PAR -->
+              <input type="checkbox" name="checkbox_name[]" required>
+              <label>I agree to this <a href="#" id="modal" style="color: blue;">Terms and Conditions</a></label>
+              
+              <script>
+                $(document).ready(function(){
+                  $("#modal").click(function(){
+                    $("#termsModal").modal('show');
+                  });
+                });
+              </script>
+         
               <button
                 type="submit" name="LOGIN" id="LOGIN"
                 class="buttonTemplate sumbit-button btn rounded-2 w-100 mt-3"
