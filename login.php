@@ -1,5 +1,8 @@
 <?php 
 session_start();
+
+require ("terms&condition.php")
+
  ?>
  
 <!DOCTYPE html>
