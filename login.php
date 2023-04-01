@@ -114,6 +114,7 @@ session_start();
                   class="inputField input-form form-control px-3 fs-6 fw-normal"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
+                  required
                 />
               </div>
               <div class="mb-3">
@@ -129,6 +130,7 @@ session_start();
                       type="password"
                       class="inputField input-form form-control px-3 fs-6 fw-normal"
                       id="password1" name="password"
+                      required
                     />
                     <i class="fa-solid fa-eye-slash" id="passwordIconId"></i>
                   </div>

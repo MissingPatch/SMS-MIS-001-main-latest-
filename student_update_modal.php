@@ -44,10 +44,10 @@
 
                                 <div class="col-md-4">
                                 <label class="form-label">Sex: </label>
-                                <select class="form-control" id="Gender" name="Gender" required>
+                                <select class="form-control" id="Gender" name="Gender" value="<?php echo $row["Gender"];?>"  required>
                                 <option value=""> Select Gender </option>
-                                <option value="Male"> Male </option>
-                                <option value="Female"> Female </option>
+                                <option value="Male"<?php if($row["Gender"]=="Male") echo "selected";?>> Male </option>
+                                <option value="Female" <?php if($row["Gender"]=="Male") echo "selected";?>> Female </option>
                                 </select>
                                 </div>
 								
@@ -65,10 +65,9 @@
                                 <label class="form-label">Course: </label>
                                 <select class="form-control" id="Course" name="Course"required>
                                 <option value=""> Select Major </option>
-                                <option value="BS Information Technology"> BS Information Technology </option>
-                                <option value="BS Information Technology"> BS Information Technology </option>
-                                <option value="BS Information Technology"> BS Information Technology </option>
-                                <option value="BS Information Technology"> BS Information Technology </option>
+                                <option value="BS Information Technology"<?php if($row["Course"]=="BS Information Technology") echo "selected";?>> BS Information Technology </option>
+                                <option value="BS Tourism"<?php if($row["Course"]=="BS Tourism") echo "selected";?>> BS Tourism </option>
+                                <option value="BS Education"<?php if($row["Course"]=="BS Education") echo "selected";?>> BS Education </option>
                                 </select>
                                 </div>
 
@@ -86,10 +85,10 @@
                                 <label class="form-label">Year Level: </label>
                                 <select class="form-control" id="Year_Level" name="Year_Level" required>
                                 <option value=""> Select Year </option>
-                                <option value="1st Year"> 1st Year </option>
-                                <option value="2nd Year"> 2nd Year </option>
-                                <option value="3rd Year"> 3rd Year </option>
-                                <option value="4th Year"> 4th Year </option>
+                                <option value="1st Year" <?php if($row["Year_Level"]=="1st Year") echo "selected";?>> 1st Year </option>
+                                <option value="2nd Year" <?php if($row["Year_Level"]=="2nd Year") echo "selected";?>> 2nd Year </option>
+                                <option value="3rd Year" <?php if($row["Year_Level"]=="3rd Year") echo "selected";?>> 3rd Year </option>
+                                <option value="4th Year" <?php if($row["Year_Level"]=="4th Year") echo "selected";?>> 4th Year </option>
                                 </select>
                                 </div>
 
@@ -152,9 +151,9 @@
                                 <div class="col-md-6">
                                 <label class="form-label">Status: </label>
                                 <select class="form-control" id="Student_Status" name="Student_Status" required>
-                                <option value=""> Select Status </option>
-                                <option value="Active"> Active </option>
-                                <option value="Inactive"> Inactive </option>
+                                <option value="" > Select Status </option>
+                                <option value="Active" <?php if($row["Student_Status"]=="Active") echo "selected";?>> Active </option>
+                                <option value="Inactive" <?php if($row["Student_Status"]=="Inactive") echo "selected";?>> Inactive </option>
                                 </select>
                                 </div>
 
