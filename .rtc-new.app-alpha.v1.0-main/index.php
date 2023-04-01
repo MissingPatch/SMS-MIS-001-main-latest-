@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  if(isset($_SESSION['unique_id'])){
+  if(isset($_SESSION['Student_ID'])){
     header("location: users.php");
   }
 ?>
@@ -28,11 +28,11 @@
         
         <div class="field input">
           <label>&nbsp Student ID</label>
-          <input type="text" name="email" placeholder="  Enter Your Student ID" required>
+          <input type="text" name="username" placeholder="  Enter Your Student ID" required>
         </div>
         <div class="field input">
           <label>&nbsp Password </label>
-          <input type="password" name="password" placeholder="  Enter Your Password" required>
+          <input type="password" name="pass" placeholder="  Enter Your Password" required>
           <i class="fas fa-eye"></i>
         </div>
       

@@ -15,6 +15,7 @@ include ("include/sidebar.php");
 include("addaccdepmodal.php");
 include("editaccdepmodal.php");
 include("deleteaccdep.php");
+
 $con = connection();
 $sql = "SELECT * FROM mis_man_inc_rep ORDER BY rep_id ASC";
 $stud = $con->query($sql) or die($con->error);
@@ -82,7 +83,8 @@ $row = $stud->fetch_assoc();
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ ?>
+                                    <?php do{ 
+                                        if (!empty($row)){ ?>
                                         <tr>
                                         <td><?php echo $row['rep_id'];?></td>
                                         <td><?php echo $row['type'];?></td>
@@ -99,7 +101,7 @@ $row = $stud->fetch_assoc();
                                             </form>
                                          </td>
                                     </tr>
-                                    <?php }while($row = $stud->fetch_assoc()); ?>
+                                    <?php }}while($row = $stud->fetch_assoc()); ?>
                                     </tbody>
                                     </table>
                                     </div>

@@ -1,19 +1,17 @@
 <?php 
     session_start();
     include_once "config.php";
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    if(!empty($email) && !empty($password)){
-        $sql = mysqli_query($conn, "SELECT * FROM mis_stud_users WHERE email = '{$email}'");
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $pass = mysqli_real_escape_string($conn, $_POST['pass']);
+    if(!empty($username) && !empty($pass)){
+        $sql = mysqli_query($conn, "SELECT * FROM mis_stud_account WHERE username = '{$username}'");
         if(mysqli_num_rows($sql) > 0){
             $row = mysqli_fetch_assoc($sql);
-            $user_pass = md5($password);
-            $enc_pass = $row['password'];
-            if($user_pass === $enc_pass){
-                $status = "Active now";
-                $sql2 = mysqli_query($conn, "UPDATE mis_stud_users SET status = '{$status}' WHERE unique_id = {$row['unique_id']}");
-                if($sql2){
-                    $_SESSION['unique_id'] = $row['unique_id'];
+
+            if($pass === $pass){
+
+                if($sql){
+                    $_SESSION['Student_ID'] = $row['Student_ID'];
                     echo "success";
                 }else{
                     echo "Something went wrong. Please try again!";
@@ -22,7 +20,7 @@
                 echo "Invalid Student ID or Password!";
             }
         }else{
-            echo "$email - Not registered!";
+            echo "$username - Not registered!";
         }
     }else{
         echo "All input fields are required!";

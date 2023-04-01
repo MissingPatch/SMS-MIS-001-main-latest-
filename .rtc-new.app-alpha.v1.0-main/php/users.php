@@ -1,8 +1,8 @@
 <?php
     session_start();
     include_once "config.php";
-    $outgoing_id = $_SESSION['unique_id'];
-    $sql = "SELECT * FROM mis_student_users WHERE NOT unique_id = {$outgoing_id} ORDER BY user_id DESC";
+    $outgoing_id = $_SESSION['Student_ID'];
+    $sql = "SELECT * FROM mis_stud_account WHERE NOT Student_ID = {$outgoing_id} ORDER BY Student_ID DESC";
     $query = mysqli_query($conn, $sql);
     $output = "";
 

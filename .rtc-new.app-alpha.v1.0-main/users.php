@@ -1,7 +1,7 @@
 <?php 
   session_start();
   include_once "php/config.php";
-  if(!isset($_SESSION['unique_id'])){
+  if(!isset($_SESSION['Student_ID'])){
     header("location: login.php");
   }
 ?>
@@ -12,7 +12,7 @@
       <header>
         <div class="content">
           <?php 
-            $sql = mysqli_query($conn, "SELECT * FROM mis_student_users WHERE unique_id = {$_SESSION['unique_id']}");
+            $sql = mysqli_query($conn, "SELECT * FROM mis_stud_account WHERE Student_ID = {$_SESSION['Student_ID']}");
             if(mysqli_num_rows($sql) > 0){
               $row = mysqli_fetch_assoc($sql);
             }
@@ -21,7 +21,8 @@
 
           <center>
           <div class="details">
-          <img src="php/images/<?php echo $row['img']; ?>" alt="" width="50px" height="50px" padding="10px 10px"><span><?php echo $row['unique_id']. " | " .$row['fname'] .$row['lname']?></span>
+          <img src="php/images/user.png" alt="logo" width="50px" height="50px" padding="10px 10px">
+          <span><?php echo $row['Student_ID']. " | " .$row['Firstname'] .$row['Lastname']?></span>
         
           <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -39,7 +40,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <a class="btn btn-primary" href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout <i class="bx bx-log-out"></i></a>
+      <a class="btn btn-primary" href="php/logout.php?logout_id=<?php echo $row['Student_ID']; ?>" class="logout">Logout <i class="bx bx-log-out"></i></a>
           </div>
       </div>
       </div>
