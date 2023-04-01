@@ -1,6 +1,7 @@
 <?php
 
 include_once("connection/connection.php");
+include_once("activity_log_backend.php"); // Include the file that contains the log_activity function
 $con = connection();   
 @$id = $_GET['Student_ID'];
 $sql = "SELECT * FROM registrar_studentlist WHERE Student_ID ='$id'";
@@ -40,7 +41,14 @@ if(isset($_POST['update'])){
 
     $sql = "UPDATE registrar_studentlist set Lastname = '$Lastname', Firstname = '$Firstname', Middlename = '$Middlename', Suffix = '$Suffix',  Email = '$Email',  Gender = '$Gender',
     Age = '$Age', birth_date = '$birth_date', Course = '$Course', Major = '$Major', Year_Level = '$Year_Level', Section = '$Section', Citizenship = '$Citizenship', Contact_No = '$Contact_No', Contact_No = '$Contact_No', Guardian = '$Guardian', Guardian_Contact = '$Guardian_Contact', Address = '$Address', Province = '$Province', Zip = '$Zip', Last_School = '$Last_School', Academic_Year = '$Academic_Year', School_Type = '$School_Type', Student_Status = '$Student_Status', Student_Type = '$Student_Type' WHERE Student_ID='$id' ";
-    $con->query($sql) or die($con->error);
+
+    if ( $con->query($sql)=== true) {
+        $_SESSION['status'] = "Updated Successfully";
+        log_activity($_SESSION['ID'], $_SESSION['email'], "Update Student Details of $Email");
+
+    } else {
+        $_SESSION['status'] = "Failed to update";
+    }
 
     
 }

@@ -14,6 +14,7 @@ include ("include/header.php");
 include ("include/sidebar.php");
 include ("add_event_modal.php");
 include ("delete_event.php");
+include ("edit_event.php");
 
              
 $sql = "SELECT * FROM mis_stud_info";
@@ -409,7 +410,9 @@ $rowcount = mysqli_num_rows( $result2);
 				        </div> 
                         </div> 
 
-            <button type="button" class="btn btn-success btn-sm" style="float: right; background-color:#07179a;" data-toggle="modal" data-target="#addannounce">Add Event</button>
+            <button type="button" class="btn btn-primary btn-sm" style="float: right; background-color:#07179a;" data-toggle="modal" data-target="#addannounce">Add Event</button>
+            <br>
+            <br>
 			</div>
 			</div>
 			</div>
@@ -474,7 +477,7 @@ $rowcount = mysqli_num_rows( $result2);
                                     <div class="card-body">
                                         <div class="container-fluid">
                                        
-                                            <form action="edit_event.php" method="post">
+                                            <form action="" method="post">
                                                 <div class="form-group mb-2">
                                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                                     <label for="title" class="control-label">Subject</label>
@@ -504,7 +507,8 @@ $rowcount = mysqli_num_rows( $result2);
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
                         <button type="submit" name="update" style="background-color:#07179a;" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Update</button>
-                        </form>
+                        <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                    </form>
                     </div>
                     
                     </div>
@@ -545,4 +549,5 @@ $rowcount = mysqli_num_rows( $result2);
                         
 <?php
 include ("script/script.php");
+include ("include/sweetalert.php");
 ?>
