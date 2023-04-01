@@ -148,7 +148,7 @@ if(isset($_POST['LOGIN']))  {
       $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
       $con->query($update_query);
       log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
-      header("Location: https://oes.bcpsms.com/admin_dashboard.php");
+      header('Location: SMS-MIS-001-main(latest)/../qa/superadmin/superadmin_dashboard.php');
     }
     
   }

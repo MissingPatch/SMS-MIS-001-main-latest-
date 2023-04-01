@@ -160,7 +160,7 @@ $row = $stud->fetch_assoc();
                 </tr> 
                 <tr>
                     <th scope="row">7</th>
-                    <td> Other Fee's &nbsp;&nbsp;<a href="#" class="btn btn-success btn-sm"  style="border: 1px solid blue; background: none; color: blue; font-size: 8px;"><i class="bx bxs-show"></i> <b>View</b></a> </td>
+                    <td> Other Fee's &nbsp;&nbsp;<a href="stud_add_fees.php" class="btn btn-success btn-sm"  style="border: 1px solid blue; background: none; color: blue; font-size: 8px;"><i class="bx bxs-show"></i> <b>View</b></a> </td>
                     <td>  </td>
                     <td>  </td>
                     <td>  </td>

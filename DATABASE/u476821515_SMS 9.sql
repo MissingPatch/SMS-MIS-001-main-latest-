@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 31, 2023 at 08:38 PM
+-- Generation Time: Apr 01, 2023 at 03:09 AM
 -- Server version: 10.5.16-MariaDB-cll-lve
 -- PHP Version: 7.2.34
 
@@ -4056,7 +4056,8 @@ INSERT INTO `mis_activity_logs` (`act_id`, `ID`, `email`, `activity_type`, `ip_a
 (2514, 123456911, 'hans.bangay123@gmail.com', 'logout', '127.0.0.1', '2023-03-31 20:08:45'),
 (2515, 123456912, 'jmoraga@bcp.com', 'login', '127.0.0.1', '2023-03-31 20:10:11'),
 (2516, 123456912, 'jmoraga@bcp.com', 'login', '127.0.0.1', '2023-03-31 20:13:09'),
-(2517, 123456911, 'admin.test@gmail.com', 'login', '127.0.0.1', '2023-03-31 20:19:30');
+(2517, 123456911, 'admin.test@gmail.com', 'login', '127.0.0.1', '2023-03-31 20:19:30'),
+(2518, 123456911, 'hans.bangay123@gmail.com', 'logout', '127.0.0.1', '2023-03-31 20:57:26');
 
 -- --------------------------------------------------------
 
@@ -4497,7 +4498,7 @@ CREATE TABLE `mis_usermanagement` (
 --
 
 INSERT INTO `mis_usermanagement` (`ID`, `pass`, `fname`, `lname`, `suffix`, `sex`, `email`, `mobilenum`, `home_address`, `department`, `dep_code`, `role`, `user_type`, `company`, `img_name`, `otp`, `date_added`, `access_level`, `is_logged_in`, `auth`) VALUES
-(123456911, '#MIS2023s', 'John Mark', 'Arcia', '', 'Male', 'admin.test@gmail.com', '09237594381', 'Quezon City', 'Management Information System', 'MIS', 'Super Admin', '', 'Bestlink College of the Philippines', 0x3231393937302e706e67, 255650, '2023-03-31 20:19:28', '2', 1, 0),
+(123456911, '#MIS2023s', 'John Mark', 'Arcia', '', 'Male', 'admin.test@gmail.com', '09237594381', 'Quezon City', 'Management Information System', 'MIS', 'Super Admin', '', 'Bestlink College of the Philippines', 0x3231393937302e706e67, 255650, '2023-03-31 20:57:25', '2', 0, 0),
 (123456822, '#MIS2023s', 'Vincent', 'Garados', '', 'Male', '123@asd', '09374857461', 'Quezon City', 'Management Information System', 'MIS', 'Super Admin', '', 'Bestlink College of the Philippines', 0x3233363833312e706e67, 945342, '2023-03-31 15:48:09', '2', 1, 0),
 (123456838, '#FMS2023s', 'Juan ', 'Dela Cruz', '', 'Male', 'juan.bcp@mail.com', '094528394931', '', 'Faculty Management', 'FMS', 'Program Head', '', 'Bestlink College of the Philippines', '', 0, '2023-03-18 18:59:04', '', 0, 0),
 (123456840, '#AMS2023s', 'Tricia', 'Robica', '', 'Female', 'ph001@bcp.com', '09374857123', '', 'Academic Management', 'AMS', 'Program Head', '', 'Bestlink College of the Phillipines', '', 0, '2023-03-18 18:59:04', '', 0, 0),
@@ -9052,7 +9053,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `mis_activity_logs`
 --
 ALTER TABLE `mis_activity_logs`
-  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2518;
+  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2519;
 
 --
 -- AUTO_INCREMENT for table `mis_announcement`

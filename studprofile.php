@@ -69,7 +69,19 @@ if (isset($_GET['Student_ID'])){
                     <!--           
                     <img src="images/profile.jfif" alt="Admin" class="rounded-circle" width="150">
                     --> 
+                    <?php
+                    $img_src = '';
+                    if(isset($row['Gender'])) {
+                      $gender = $row['Gender'];
+                      if ($gender == 'Male') {
+                        $img_src = 'images/219970.png';
+                      } else {
+                        $img_src = 'images/1000_F_116244459_pywR1e0T3H7FPk3LTMjG6jsL3UchDpht.jpg';
+                      }
+                    }
+                  ?>
 
+                <img src="<?php echo $img_src; ?>" alt="Profile" class="rounded-circle" width="150">
                   <div class="row g-3">
 								  <div class="text-center">
 									<!-- Image upload -->

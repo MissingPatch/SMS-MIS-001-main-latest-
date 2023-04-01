@@ -61,7 +61,7 @@ while ($row = $pay->fetch_assoc()) {
                                 </div>
                                 <br>
                                 <label>Void Reason:</label>
-                                <select name="void_reason" class="form-control" id="void_reason">
+                                <select name="void_reason[]" class="form-control" id="void_reason" multiple>
                                     <?php
                                     $void_reasons = ["...","Duplicate Payment", "Incorrect Amount", "Wrong Student","Cancelled Transaction", "Other Reasons"];
                                     foreach ($void_reasons as $reason) {
