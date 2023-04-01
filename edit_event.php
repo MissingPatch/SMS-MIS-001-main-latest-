@@ -1,5 +1,6 @@
 <?php 
 include_once("connection/connection.php");
+include_once("activity_log_backend.php"); // Include the file that contains the log_activity function
 $con = connection();
 
 if (isset($_GET['id'])) { 
@@ -23,6 +24,14 @@ if (isset($_POST['update'])) {
     $stmt = $con->prepare($sql);
     $stmt->bind_param('ssssi', $title, $description, $start_datetime, $end_datetime, $id);
     $stmt->execute();
+
+    if ($stmt->affected_rows > 0) {
+        $_SESSION['status'] = "Updated Successfully";
+        log_activity($_SESSION['ID'], $_SESSION['email'], "Update an Announcement");
+        echo "<meta http-equiv='refresh' content='0'>";
+    } else {
+        $_SESSION['status'] = "Failed to update";
+    }
     $stmt->close();
 
  

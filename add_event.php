@@ -11,7 +11,14 @@ if(isset($_POST['submit'])){
 
     $sql = "INSERT INTO `mis_announcement` (`title`,`descript`,`start_datetime`,`end_datetime`) 
     VALUES ('$title','$description','$start_datetime','$end_datetime')";
-    $con->query($sql) or die ($con->error);
+
+    if ($con->query($sql) === true) {
+        $_SESSION['status'] = "Add Successfully";
+        log_activity($_SESSION['ID'], $_SESSION['email'], "Add an Announcement");
+        echo "<meta http-equiv='refresh' content='0'>";
+    } else {
+        $_SESSION['status'] = "Failed to update";
+    }
 
     // Redirect the user to a different page
     header('Location: ' . $_SERVER['REQUEST_URI']);

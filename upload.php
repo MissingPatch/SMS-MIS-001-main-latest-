@@ -28,7 +28,11 @@ if (isset($_FILES['fileToUpload'])) {
         $img = $_FILES["fileToUpload"]["name"];
         if (!empty($file)) {
           $query = "UPDATE mis_usermanagement SET img_name = '$fileName' WHERE ID = '$id'";
-          $result = mysqli_query($con, $query);
+
+          if ($result = mysqli_query($con, $query) === TRUE) {
+            $_SESSION['status'] = "Change Successfully";
+            $_SESSION['status_deleteaccdep'] = "Successful";
+            }
           echo $folder;
         } else {
           echo "Failed to update profile picture";

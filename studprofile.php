@@ -333,5 +333,6 @@ if (isset($_GET['Student_ID'])){
 </html>
 <?php
 include ("script/script.php");
+include ("include/sweetalert.php");
 include ("footer.php");
 ?>
