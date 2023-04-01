@@ -16,7 +16,7 @@ include("stud_pms_modal.php");
 include("voiding_modal2.php");
 $con = connection();
 
-$sql = "SELECT * FROM pms_payment WHERE particular IN ('Midterm') AND status ='Paid' ORDER BY OR_number";
+$sql = "SELECT * FROM pms_payment WHERE particular IN ('Midterm') AND midterm ='Paid' ORDER BY OR_number";
 $result = $con->query($sql) or die($con->error);
 $row = $result->fetch_assoc();
 ?>
@@ -100,7 +100,7 @@ $row = $result->fetch_assoc();
                                         <td><?php echo $row['section'];?></td> 
                                         <td><?php echo $row['year_level'];?></td>
                                         <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['status'];?></td> 
+                                        <td><?php echo $row['midterm'];?></td> 
                                         
                                        
                                         <div class="col-sm-12" >

@@ -10,15 +10,15 @@ $f = fopen('php://memory', 'w');
  
 
 // Set column headers 
-$fields = array('OR_number', 'Last_Name', 'First_Name', 'Middle', 'student_id', 'Course', 'year_level', 'particular', 'paid_amount', 'status', 't_date', 't_time', 'section'); 
+$fields = array('OR_number', 'Last_Name', 'First_Name', 'Middle', 'student_id', 'Course', 'year_level', 'particular', 'paid_amount', 'prelim', 't_date', 't_time', 'section'); 
 fputcsv($f, $fields, $delimiter); 
  
 // Get records from the database 
-$result = $db->query("SELECT * FROM pms_payment WHERE particular IN ('Prelim') AND status ='Paid' ORDER BY OR_number");
+$result = $db->query("SELECT * FROM pms_payment WHERE particular IN ('Prelim') AND prelim ='Paid' ORDER BY OR_number");
 if($result->num_rows > 0){ 
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $result->fetch_assoc()){ 
-        $lineData = array($row['OR_number'], $row['Last_Name'], $row['First_Name'], $row['Middle'], $row['student_id'], $row['Course'], $row['year_level'], $row['particular'], $row['paid_amount'] , $row['status'], $row['t_date'], $row['t_time'], $row['section']); 
+        $lineData = array($row['OR_number'], $row['Last_Name'], $row['First_Name'], $row['Middle'], $row['student_id'], $row['Course'], $row['year_level'], $row['particular'], $row['paid_amount'] , $row['prelim'], $row['t_date'], $row['t_time'], $row['section']); 
         fputcsv($f, $lineData, $delimiter);
     } 
 } 
