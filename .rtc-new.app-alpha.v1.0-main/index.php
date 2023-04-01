@@ -28,14 +28,32 @@
         
         <div class="field input">
           <label>&nbsp Student ID</label>
-          <input type="text" name="username" placeholder="  Enter Your Student ID" required>
+          <input class="form-control" type="text" name="username" placeholder="  Enter Your Student ID" required>
         </div>
+
         <div class="field input">
           <label>&nbsp Password </label>
-          <input type="password" name="pass" placeholder="  Enter Your Password" required>
+          <input class="form-control" type="password" name="pass" placeholder="  Enter Your Password" required>
           <i class="fas fa-eye"></i>
         </div>
-      
+
+        <?php include ("terms&condition.php") ?>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        
+         <!-- ETO YUNG MODAL PAR -->
+  &nbsp;&nbsp;&nbsp;
+  <input type="checkbox" required>
+  <label>I agree to this <a href="#" id="modal" style="text-decoration: none; color: blue;">Terms and Conditions</a></label>
+  
+  <script>
+    $(document).ready(function(){
+      $("#modal").click(function(){
+        $("#termsModal").modal('show');
+      });
+    });
+  </script>
+
         <div class="field button">
           <input type="submit" name="submit" value="Sign in">
         </div>
@@ -57,26 +75,13 @@
   <script src="javascript/login.js"></script>
         
     </body>
-
-    <script>
-        window.addEventListener('load', () => {
-          registerSW();
-        });
-     
-        // Register the Service Worker
-        async function registerSW() {
-          if ('serviceWorker' in navigator) {
-            try {
-              await navigator
-                    .serviceWorker
-                    .register('serviceworker.js');
-            }
-            catch (e) {
-              console.log('SW registration failed');
-            }
-          }
-        }
-     </script>
      
 </html>
 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -22,31 +22,33 @@
           <center>
           <div class="details">
           <img src="php/images/user.png" alt="logo" width="50px" height="50px" padding="10px 10px">
-          <span><?php echo $row['Student_ID']. " | " .$row['Firstname'] .$row['Lastname']?></span>
+          <span><?php echo $row['Student_ID']. " | " .$row['Firstname']. " " .$row['Lastname']?></span>
         
-          <!-- Button trigger modal -->
+<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Sign-out
+  Sign-out <i class="bx bx-log-out"></i>
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+
+    <div class="modal-content"  style="margin-left: 110px; margin-right: 110px; padding: 5px 5px;  background-color:rgb(255,255,755, 0.3); border: 1px solid white;">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle" style="color:red";> Do you want to sign out?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="color:red; font-size: 13px; font-family: Sans-serif;";><b> Do you want to sign out <?php echo $row['Firstname']. "&nbsp;"  .$row['Lastname']?> ? </b></h5>
+        
         </button>
       </div>
       <div class="modal-body">
-      <a class="btn btn-primary" href="php/logout.php?logout_id=<?php echo $row['Student_ID']; ?>" class="logout">Logout <i class="bx bx-log-out"></i></a>
+      <a class="btn btn-danger" href="php/logout.php?logout_id=<?php echo $row['Student_ID']; ?>" class="logout">Yes <i class="bx bx-log-out"></i></a>&nbsp;
+      <a class="btn btn-primary" data-dismiss="modal" style="color: white"> No! </a>
           </div>
       </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -67,8 +69,8 @@
         <div class="title"> MIS Student Concerns </div>
         <div class="form">
             <div class="bot-inbox inbox">
-                <div class="icon">
-                <i class="fas fa-user"></i>
+            <div class="">
+                <i><img src="images/logo.png" width="35px" height="30px" style="top: 0;"></i>
                 </div>
 
                 
