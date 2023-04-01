@@ -130,7 +130,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                     <?php 
 
                     @$id = $_GET['OR_number'];
-                    $sql1 = "SELECT * FROM pms_payment WHERE status='Paid' ORDER BY OR_number DESC";
+                    $sql1 = "SELECT * FROM pms_payment ORDER BY OR_number DESC";
                     $tea = $con->query($sql1) or die($con->error);
                     $row = $tea->fetch_assoc();
 
