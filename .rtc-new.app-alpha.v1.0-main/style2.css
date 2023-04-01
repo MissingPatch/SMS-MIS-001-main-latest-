@@ -48,12 +48,10 @@ html,body{
 
 .wrapper{
     width: 100%;
-    background: #fff;
+    height: 100vh; 
     background-color: rgb(241, 241, 241);
-    border-radius: 5px;
     border-top: 0px;
-    background-size: cover;
-    background-repeat: no-repeat;
+    bottom: 0; 
 }
 
 .wrapper .title{
@@ -71,7 +69,6 @@ html,body{
     min-height: 700px;
     max-height: 700px;
     overflow-y: auto;
-    position: fixed;
 }
 .wrapper .form .inbox{
     width: 100%;
