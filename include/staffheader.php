@@ -141,7 +141,7 @@
                 
                 <ul class="dropdown-menu border shadow dropdownContainer">
                 <form action=" "  method="POST" >
-                  <li><a class="dropdown-item" href="staffprofile.php?ID=<?php echo @$_SESSION['ID'];?>">
+                  <li><a class="dropdown-item" href="staffprofile.php?ID=<?php echo $_SESSION['ID'];?>">
                   <span> Signed in as </span>
                   <br>
 

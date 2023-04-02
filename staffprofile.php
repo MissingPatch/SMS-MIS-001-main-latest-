@@ -64,7 +64,7 @@ if(isset($_GET['ID'])) {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="staffprofile.php?ID=<?php echo $row["ID"];?>"><b style="color:#07177a; float:center; width:100px;">Profile </b><span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="staffprofile.php?ID=<?php echo $row["ID"];?>"><b style="color:#07177a; float:center; width:100px;">Profile </b></a>
                     </li>
                     
                     <li class="nav-item">
@@ -76,6 +76,7 @@ if(isset($_GET['ID'])) {
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="staffprofile_security.php?ID=<?php echo $row["ID"];?>">Security Setting</a>
+                       
                     </li>
                     </ul>
                 </div>

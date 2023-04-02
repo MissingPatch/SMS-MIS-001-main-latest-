@@ -93,7 +93,9 @@ if ($result = mysqli_query($con, $sql)) {
                     <div class="icon me-3"><i class="bx bx-message-square-check"></i></div>
                     <div class="flex-grow-1">
                         <div class="mb-2"  style="font-size: 12px"><?php echo $row['department']; ?></div>
-                        <div class="text-muted"><?php echo $row['description']; ?> <br><span style="float:right;background: darkgrey; color: white; border-radius: 20px; font-size: 13px;">&nbsp;&nbsp;<?php echo $row['status']; ?>&nbsp;&nbsp;</span></div>
+                        <div class="text-muted"><?php echo $row['description']; ?> 
+                        <br>
+                        <span style="float:right;background: darkgrey; color: white; border-radius: 20px; font-size: 13px;">&nbsp;&nbsp;unread&nbsp;&nbsp;</span></div>
                     </div>
                 </div>
             </a>

@@ -78,47 +78,69 @@ $row = $result->fetch_assoc();
                                 <table id="example" class="table table-hover" style="width:100%">
                                     <thead>
                                     <tr>
-                                    <th>OR No.</th>   
+                                        <th>OR No.</th>   
                                         <th>Student ID</th>
                                         <th>Full Name</th>
                                         <th>Course</th>
                                         <th>Section</th>
                                         <th>Year Level</th>
                                         <th>Payment Type</th>
-                                        <th>Paid</th>
+                                        <th>Paid Amount</th>
                                         <th>Action</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ 
-                                        if (!empty($row)){?>
-                                        <tr>
-                                        <td><?php echo $row['OR_number'];?></td>
-                                        <td><?php echo $row['student_id'];?></td>
-                                        <td><?php echo $row['Last_Name'];?>&nbsp;<?php echo $row['First_Name'];?></td>
-                                        <td><?php echo $row['Course'];?></td>
-                                        <td><?php echo $row['section'];?></td> 
-                                        <td><?php echo $row['year_level'];?></td>
-                                        <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['paid_amount'];?></td> 
-                                        
-                                       
-                                        <div class="col-sm-12" >
-                    
-
-                                        <input type="hidden" name="" > 
-                                        </div>
+                                    <?php while ($row = $result->fetch_assoc()) { ?>
+                                      <tr>
+                                        <td><?php echo $row['OR_number']; ?></td>
+                                        <td><?php echo $row['student_id']; ?></td>
+                                        <td><?php echo $row['Last_Name'] . ' ' . $row['First_Name']; ?></td>
+                                        <td><?php echo $row['Course']; ?></td>
+                                        <td><?php echo $row['section']; ?></td>
+                                        <td><?php echo $row['year_level']; ?></td>
+                                        <td><?php echo $row['particular']; ?></td>
+                                        <td><?php echo $row['paid_amount']; ?></td>
                                         <td>
-                                        <div class="btn-group" role="group">
-                                        <a href="#" data-toggle="modal" data-target="#void<?php echo $row['OR_number']; ?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>&nbsp;
-                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">Edit</a>
-                                        </div>
-                                    </td>
-                                    </tr>
-                                    <?php }}while($row = $result->fetch_assoc()); ?>
+
+                                          <!-- Button to show modal -->
+                                          <button type="button" style="color: white; background: #07177a;" class="btn btn-sm" data-toggle="modal" data-target="#paymentModal<?php echo $row['OR_number']; ?>">
+                                            <i class="bx bx-show"></i> <b>View</b>
+                                          </button>
+
+                                          <!-- Modal -->
+                                          <div class="modal fade" id="paymentModal<?php echo $row['OR_number']; ?>" tabindex="-1" role="dialog" aria-labelledby="paymentModalTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="paymentModalTitle"><b>Payment Details</b></h5>
+                                                </div>
+
+                                    <img src="./images/logo.png" style="width: 190px; height: 200px; margin-left: 50%; margin-top: 30%; z-index: 1; position: absolute;">
+
+                                    <p style="width: 190px; height: 200px; margin-left: 50%; margin-top: 15%; z-index: 1; position: absolute;"><b>BESTLINK COLLEGE OF &nbsp;&nbsp;&nbsp;&nbsp;THE PHILIPPINES</b></p>
+
+                                                <div class="modal-body">
+                                                  <p><b>OR Number: </b><?php echo $row['OR_number']; ?></p>
+                                                  <p><b>Student ID: </b><?php echo $row['student_id']; ?></p>
+                                                  <p><b>Name: </b><?php echo $row['Last_Name'] . ' ' . $row['First_Name']; ?></p>
+                                                  <p><b>Course: </b><?php echo $row['Course']; ?></p>
+                                                  <p><b>Section: </b><?php echo $row['section']; ?></p>
+                                                  <p><b>Year Level: </b><?php echo $row['year_level']; ?></p>
+                                                  <p><b>Particular: </b><?php echo $row['particular']; ?></p>
+                                                  <p><b>Paid Amount: </b><?php echo $row['paid_amount']; ?></p>
+                                                  
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    <?php } ?>
+
                                     </tbody>
                                     </table>
                                     </div>

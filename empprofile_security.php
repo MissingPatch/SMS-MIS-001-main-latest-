@@ -148,7 +148,7 @@ input[type="checkbox"]:checked + .slider:before {
                       <div class="passwordContainer">
                         <label for="exampleInputPassword1" class="form-label">Current password *</label>
                         <input type="password" name="pass" class="form-control" id="password1" required>
-                        <i class="fa-solid fa-eye-slash" id="passwordIconId1" style="margin-top:20px;"></i>
+                        
                       </div>
                       </div>
                       <!-- New password -->
@@ -156,7 +156,7 @@ input[type="checkbox"]:checked + .slider:before {
                       <div class="passwordContainer">
                       <label for="new-password" class="form-label">New password *</label>
                         <input type="password" name="newpass" class="form-control" id="new-password" required>
-                        <i class="fa-solid fa-eye-slash" id="passwordIconId2" style="margin-top:20px;"></i>
+                        
                       </div>
                       </div>
                       <!-- Confirm password -->
@@ -164,7 +164,7 @@ input[type="checkbox"]:checked + .slider:before {
                       <div class="passwordContainer">
                       <label for="confirm-password" class="form-label">Confirm Password *</label>
                       <input type="password" class="form-control" name="confirmpass" id="confirm-password" required>
-                      <i class="fa-solid fa-eye-slash" id="passwordIconId3" style="margin-top:20px;"></i>
+                   
                       <span id="password-match"></span>
                       </div>
                      
