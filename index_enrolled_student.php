@@ -73,7 +73,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
                     </div>
 
 <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE sex='Male' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Gender='Male' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
@@ -103,7 +103,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
 
 
   <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE sex='Female' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Gender='Female' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
@@ -130,7 +130,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
     </div>
 
     <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='Active' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
@@ -157,7 +157,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
     </div>
 
     <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='In-Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='Inactive' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
@@ -204,28 +204,28 @@ if ($result1 = mysqli_query($con, $sql1)) {
       
         series: [{
           data: [    <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Regular' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='New Student' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
   ?> 
   <?php echo ($rowcount);?>,     
   <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='Freshmen' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
   ?> 
   <?php echo ($rowcount);?>,
   <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='Transferee' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='Transferee' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
   ?>  
   <?php echo ($rowcount);?>, 
   <?php 
-  @$stud_num = $_GET['stud_num'];  $sql = "SELECT * FROM mis_stud_info WHERE student_status='In-Active' ORDER BY stud_num ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='In-Active' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
@@ -264,7 +264,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
             }
           },
           xaxis: {
-            categories: ['Regular Student', 'Old Student', 'Tranferee', 'In-active'
+            categories: ['New Student', 'Freshmen', 'Tranferee', 'In-active'
             ],
           },
           yaxis: {
@@ -329,7 +329,7 @@ if ($result1 = mysqli_query($con, $sql1)) {
 <!-- PIE CHART -->
 <?php
 // Query the database to retrieve payment method data
-$sql = "SELECT program_code, count(*) as count FROM mis_stud_info GROUP BY stud_num";
+$sql = "SELECT course, count(*) as count FROM mis_stud_account GROUP BY Student_ID";
 $result = $con->query($sql);
 
 $series = array();
@@ -337,7 +337,7 @@ $labels = array();
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         array_push($series, $row["count"]);
-        array_push($labels, $row["program_code"]);
+        array_push($labels, $row["course"]);
     }
 }
 
@@ -365,7 +365,7 @@ if ($result->num_rows > 0) {
         var data = google.visualization.arrayToDataTable([
           ['students', 'contribution'],
          <?php
-         $sql = "SELECT course, count(*) as count FROM mis_stud_info GROUP BY course";
+         $sql = "SELECT course, count(*) as count FROM mis_stud_account GROUP BY course";
          $fire = mysqli_query($con,$sql);
           while ($result = mysqli_fetch_assoc($fire)) {
             echo"['".$result['course']."',".$result['count']."],";
