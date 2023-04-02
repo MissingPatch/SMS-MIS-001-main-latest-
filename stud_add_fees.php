@@ -105,9 +105,9 @@ $con = connection();
                                        
                                         <div class="btn-group" role="group">
                                         <a href="#" data-toggle="modal" data-target="#editfee<?php echo $row['number_of_studentFees'];?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;"><i class="bx bx-edit"></i> Edit</a>&nbsp;
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;"><b><i class="bx bx-edit"></i> Edit</b></a>&nbsp;
                                         <form action="" method="POST">                
-                                        <button type="submit" class="btn btn-danger btn-sm" name="delete"><i class="bx bx-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm" name="delete" style="border: none; background: none; color: red; font-size: 17px;"><i class="bx bx-trash"></i></button>
                                         <input type="hidden" name="number_of_studentFees" value="<?php echo $row["number_of_studentFees"];?>">
                                         </form>
                                         </div>

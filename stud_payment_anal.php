@@ -66,7 +66,7 @@ include ("include/sidebar.php");
 </svg>
 
 <b>&nbsp;Payment Method </b> &nbsp;
-<a href="stud_all_paid.php" class="btn btn-success btn-sm"  style="background-color:#07179a;"> All Payment </a>
+<a href="stud_all_paid.php" class="btn btn-success btn-sm"  style="background-color:#07179a;"><b><i class="bx bx-show"></i> All Payment</b></a>
 </p>  </center>
 </div>
 </div>

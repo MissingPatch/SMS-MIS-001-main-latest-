@@ -96,7 +96,7 @@ $row = $stud->fetch_assoc();
                                             <form action=""  method="POST" >
                                             <button href="#" id="myButton" 
                                             class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                            View
+                                            <b><i class="bx bx-show"></i> View</b>
                                             </button>
                                             </form>
                                          </td>

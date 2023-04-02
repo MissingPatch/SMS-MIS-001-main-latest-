@@ -59,7 +59,7 @@ include ("concern_add_modal.php");
                             <div class="card-header py-3">
                               <b>List of Concerns</b>
             <button type="button" class="btn btn-success btn-sm" style="float: right; background-color:#07179a;" 
-            data-toggle="modal" data-target="#addconcern">Add Concern</button>
+            data-toggle="modal" data-target="#addconcern"><i class="bx bxs-add-to-queue"> Add Concern</i></button>
     </div>
 
 

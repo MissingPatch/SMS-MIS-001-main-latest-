@@ -95,7 +95,7 @@ $row = $result->fetch_assoc();
 
       <!-- Button to show modal -->
       <button type="button" style="color: white; background: #07177a;" class="btn btn-sm" data-toggle="modal" data-target="#paymentModal<?php echo $row['OR_number']; ?>">
-        <i class="bx bx-edit"></i> <b>View</b>
+        <i class="bx bx-show"></i> <b>View</b>
       </button>
 
       <!-- Modal -->
