@@ -125,7 +125,7 @@
                   </h5>
                   
                   <?php
-                    $sql="SELECT is_logged_in FROM mis_usermanagement";
+                    $sql = "SELECT is_logged_in FROM mis_usermanagement WHERE ID = {$_SESSION['ID']}";
                     $result= $con-> query($sql);
                     $row= $result->fetch_assoc();
                     if ($row['is_logged_in']) {

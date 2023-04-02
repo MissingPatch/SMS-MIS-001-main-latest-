@@ -17,7 +17,7 @@ include ("delete_event.php");
 include ("edit_event.php");
 
              
-$sql = "SELECT * FROM mis_stud_info";
+$sql = "SELECT * FROM registrar_studentlist";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
            

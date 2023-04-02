@@ -21,8 +21,8 @@ include("deleteacc_stud.php");
 $id=$_SESSION['ID'];
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM mis_usermanagement ORDER BY ID DESC";
-$emp = $con->query($sql) or die($con->error);
-$row = $emp->fetch_assoc();
+$result = $con->query($sql) or die($con->error);
+$row = $result->fetch_assoc();
 
 ?>
                 <div class="container-fluid">
@@ -96,20 +96,13 @@ $row = $emp->fetch_assoc();
                             </style>
             
                                     
-                            <?php
-
-                                if ($row['is_logged_in']) {
-                                $status_class = 'online'; // Set class to 'online' if user is logged in
-                                } else {
-                                $status_class = 'offline'; // Set class to 'offline' if user is not logged in
-                                }
-                            ?>
-<style>
-bx:hover{
-    background-color: red;
-    color: blue;
-}
-</style>
+                           
+                            <style>
+                            bx:hover{
+                                background-color: red;
+                                color: blue;
+                            }
+                            </style>
                             <span style="float:right;">
                             <button type="button" style="color: #07179a; font-size: 19px; border: none;" data-toggle="modal" data-target="#addaccount" class="btn btn-sm"
                            ><i class="bx bxs-add-to-queue"> <b>Add Users</b></i>
@@ -134,15 +127,24 @@ bx:hover{
                                 </tr>
                             </thead>
                             <tbody>
-                        
-                            <?php do{ ?>
+                           
+                            <?php 
+                                do {
+                                    $status_class = $row['is_logged_in'] == 1 ? 'online' : 'offline';
+                                ?>
                                     <tr>
                                         <td><?php echo $row['ID']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
                                         <td><?php echo $row['fname']; ?></td>                
                                         <td><?php echo $row['department']; ?></td>
                                         <td><?php echo $row['role']; ?></td>
-                                        <td><?php echo $status_class;?></td>
+                                        <td><?php
+                                        if ($status_class == 'online') {
+                                            echo "<p  style='font-size: 12px; margin-right: 15%; margin-left: 15%; color: white; background: lightgreen; text-align: center; border-radius: 12px;'>Online</p>";
+                                        } else {
+                                            echo "<p  style='font-size: 12px; margin-right: 15%; margin-left: 15%; color: white; background: red; text-align: center; border-radius: 12px;'>Offline</p>";
+                                        }
+                                        ?></td>
                                         <td>
                                         <div class="btn-group" role="group">
                                         <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="height: 30px;background-color:#07177a;"><b>View</b></a>
@@ -153,7 +155,7 @@ bx:hover{
                                         </div>
                                         </td>
                                     </tr>
-                                <?php } while ($row = $emp->fetch_assoc())?>
+                                <?php } while ($row = $result->fetch_assoc());?>
                             </tbody>
                         </table> 
                     </div>

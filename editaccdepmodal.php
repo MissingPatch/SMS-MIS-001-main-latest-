@@ -42,7 +42,7 @@
                                 <?php
                                 $departments = ["Admission", "Registrar", "Faculty Management", "PMS", "LMS", "Student Portal", "Clinic", "Guidance", "Prefect", "Financial", "Crad", "Property Custodian", "Logistics Management", "Quality Assurance", "Safety and Security", "Human Resources", "Academic Management", "Event Management", "Management Information System"];
                                 $roles = ["Super Admin", "Admin", "Staff", "Department Head", "Instructor", "Program Head", "Secretary", "Employee", "PMED Chairman", "Counsilor", "Research Director", "Research Coordinator", "Research Adviser", "Student", "Dean", "Head", "Doctor", "Nurse", "SO 3 HEAD", "SO 2", "SO 1", "Head Log Manager", "Log Officer ", "Warehouse Manager", "Secretary of the Accreditation", "Vice President", "General Ledger Manager", "General Ledger Assistant", "Collection Manager", "Collection Assistant ", "Budget Manager", "Budget Assistant", "Disbursement/Reimbursement Manager", "Disbursement/Reimbursement Assistant", "Event Coordinator"];
-
+                                $access = [1,2,3];
                                 function createOptions($options, $selectedValue) {
                                 foreach ($options as $option) {
                                     $selected = ($selectedValue == $option) ? "selected" : "";
@@ -51,6 +51,11 @@
                                 }
 
                                 ?>
+                                 <label>Access Level(MIS user):</label>
+                                <select name="access_level" class="form-control" id="access_level" name="access_level" value="<?php echo $row['department'];?>">
+                                <?php createOptions($access, $row['access_level']); ?>
+                                </select>
+                                <br>
 
                                 <label>Department:</label>
                                 <select name="department" class="form-control" id="department">

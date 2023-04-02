@@ -63,7 +63,7 @@ $(document).ready(function() {
 
 
 <?php 
-$sql = "SELECT * FROM mis_man_inc_rep WHERE status='Unread' ORDER BY rep_id DESC";
+$sql = "SELECT * FROM mis_man_inc_rep WHERE status='1' ORDER BY rep_id DESC";
 $rep = $con->query($sql) or die($con->error);
 $row = $rep->fetch_assoc();
 

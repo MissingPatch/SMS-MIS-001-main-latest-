@@ -25,10 +25,11 @@ if(isset($_POST['update'])){
     $dep = $_POST['department'];
     $role = $_POST['role'];
     $company = $_POST['company'];
+    $access = $_POST['access_level'];
 
-    $sql = "UPDATE mis_usermanagement SET lname = ?, email = ?, mobilenum = ?, home_address = ?, fname = ?, company = ?, sex = ?, suffix = ?, department = ?, role = ? WHERE ID = ?";
+    $sql = "UPDATE mis_usermanagement SET lname = ?, email = ?, mobilenum = ?, home_address = ?, fname = ?, company = ?, sex = ?, suffix = ?, department = ?, role = ? , access_level = ? WHERE ID = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param('ssssssssssi', $lname, $email, $mobile, $address, $fname, $company, $sex, $suffix, $dep, $role, $id);
+    $stmt->bind_param('ssssssssssi', $lname, $email, $mobile, $address, $fname, $company, $sex, $suffix, $dep, $role, $access, $id);
     $stmt->execute();
 
     if ($stmt->execute() === TRUE) {
