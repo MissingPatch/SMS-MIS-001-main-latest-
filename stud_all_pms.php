@@ -69,9 +69,7 @@ $row = $result->fetch_assoc();
                             <div class="card-header py-3">
                             <a href="listofbalance.php" class="btn btn-success btn-sm"  style="background-color:#07179a;">
                             <i class="fa fa-arrow-left"> </a></i><b>&nbsp; List of Payment Record </b>  
-
-                            <button type="button" class="btn btn-success btn-sm" style="background-color:#07177a; float: right;" data-toggle="modal" data-target="#addaccount" 
-                            style="background-color:#07177a; color:white; "> Add Student </button>     
+   
                             </h6>
                             </div>
                                 
@@ -87,7 +85,7 @@ $row = $result->fetch_assoc();
                                         <th>Section</th>
                                         <th>Year Level</th>
                                         <th>Payment Type</th>
-                                        <th>Status</th>
+                                        <th>Paid</th>
                                         <th>Action</th>
                                         </tr>
                                     </thead>
@@ -103,7 +101,7 @@ $row = $result->fetch_assoc();
                                         <td><?php echo $row['section'];?></td> 
                                         <td><?php echo $row['year_level'];?></td>
                                         <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['status'];?></td> 
+                                        <td><?php echo $row['paid_amount'];?></td> 
                                         
                                        
                                         <div class="col-sm-12" >

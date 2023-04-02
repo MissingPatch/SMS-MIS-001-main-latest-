@@ -12,11 +12,10 @@ else{
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-include("stud_pms_modal.php");
-include("voiding_modal2.php");
+
 
 $con = connection();
-$sql = "SELECT * FROM pms_payment ORDER BY OR_number ASC";
+$sql = "SELECT * FROM pms_payment WHERE OR_number";
 $result = $con->query($sql) or die($con->error);
 $row = $result->fetch_assoc();
 
@@ -77,36 +76,59 @@ $row = $result->fetch_assoc();
                                         <th>Section</th>
                                         <th>Year Level</th>
                                         <th>Payment Type</th>
-                                        <th>Status</th>
                                         <th>Action</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ 
-                                        if (!empty($row)){?>
-                                        <tr>
-                                        <td><?php echo $row['OR_number'];?></td>
-                                        <td><?php echo $row['student_id'];?></td>
-                                        <td><?php echo $row['Last_Name'];?>&nbsp;<?php echo $row['First_Name'];?></td>
-                                        <td><?php echo $row['Course'];?></td>
-                                        <td><?php echo $row['section'];?></td> 
-                                        <td><?php echo $row['year_level'];?></td>
-                                        <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['status'];?></td>
-                                        </div>
+                                    <!-- Loop through payments -->
+<?php while ($row = $result->fetch_assoc()) { ?>
+  <tr>
+    <td><?php echo $row['OR_number']; ?></td>
+    <td><?php echo $row['student_id']; ?></td>
+    <td><?php echo $row['Last_Name'] . ' ' . $row['First_Name']; ?></td>
+    <td><?php echo $row['Course']; ?></td>
+    <td><?php echo $row['section']; ?></td>
+    <td><?php echo $row['year_level']; ?></td>
+    <td><?php echo $row['particular']; ?></td>
+    <td>
 
-                                        <td>
-                                        <div class="btn-group" role="group">
-                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">View</a>&nbsp; 
-                                        <a href="#" data-toggle="modal" data-target="#studedit<?php echo $row['OR_number']; ?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">Edit</a>
-                                        </td>
-                                        </div>
-                                        </tr>
+      <!-- Button to show modal -->
+      <button type="button" style="color: white; background: #07177a;" class="btn btn-sm" data-toggle="modal" data-target="#paymentModal<?php echo $row['OR_number']; ?>">
+        <i class="bx bxs-show"></i> <b>View</b>
+      </button>
 
-                                    <?php }}while($row = $result->fetch_assoc()); ?>
+      <!-- Modal -->
+      <div class="modal fade" id="paymentModal<?php echo $row['OR_number']; ?>" tabindex="-1" role="dialog" aria-labelledby="paymentModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="paymentModalTitle"><b>Payment Details</b></h5>
+            </div>
+
+<img src="./images/logo.png" style="width: 190px; height: 200px; margin-left: 50%; margin-top: 30%; z-index: 1; position: absolute;">
+
+<p style="width: 190px; height: 200px; margin-left: 50%; margin-top: 15%; z-index: 1; position: absolute;"><b>BESTLINK COLLEGE OF &nbsp;&nbsp;&nbsp;&nbsp;THE PHILIPPINES</b></p>
+
+            <div class="modal-body">
+              <p><b>OR Number: </b><?php echo $row['OR_number']; ?></p>
+              <p><b>Student ID: </b><?php echo $row['student_id']; ?></p>
+              <p><b>Name: </b><?php echo $row['Last_Name'] . ' ' . $row['First_Name']; ?></p>
+              <p><b>Course: </b><?php echo $row['Course']; ?></p>
+              <p><b>Section: </b><?php echo $row['section']; ?></p>
+              <p><b>Year Level: </b><?php echo $row['year_level']; ?></p>
+              <p><b>Particular: </b><?php echo $row['particular']; ?></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+<?php } ?>
+
                                     </tbody>
                                     </table>
                                     

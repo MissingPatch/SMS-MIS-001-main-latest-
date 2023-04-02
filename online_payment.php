@@ -66,7 +66,7 @@ include ("import_modal.php");
                                 
                                 <div class="card-body">
                                 <div class="table-responsive">
-                                <table id="example" class="table table-striped" style="width:100%">
+                                <table id="example" class="table table-hover" style="width:100%">
                                     <thead>
                                         <tr>
                                         <th>OR No.</th>   
