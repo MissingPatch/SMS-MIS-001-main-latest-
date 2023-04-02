@@ -8,12 +8,12 @@ $_SESSION['role'];
 else{
 echo header("location:login.php");
 }
-// include ("activity_log_backend.php");
+include ("activity_log_backend.php");
 include ("connection/connection.php");
 $con = connection();
 include ("include/staffheader.php");
 include ("include/staffsidebar.php");
-// include ("change_password.php");
+include ("change_password.php");
 
 if(isset($_GET['ID'])) {
   $id = $_GET['ID'];
@@ -22,7 +22,7 @@ if(isset($_GET['ID'])) {
   $row = $result->fetch_assoc();
 
   // Call the log_activity function after the employee's information is retrieved
-  // log_activity($_SESSION['ID'], $_SESSION['email'], "Viewed employee profile with ID $id");
+  log_activity($_SESSION['ID'], $_SESSION['email'], "Viewed employee profile with ID $id");
 }
 
 ?>

@@ -159,7 +159,7 @@
                   </a></li>
               
                   <hr>
-                  <li><a class="dropdown-item" href="staffprofile_security.php">Settings</a></li>
+                  <li><a class="dropdown-item" href="staffsettings.php">Settings</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
                     <a class="dropdown-item" href="logout.php">Logout</a>

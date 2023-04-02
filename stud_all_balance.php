@@ -16,6 +16,7 @@ include ("include/sidebar.php");
 include("student_update_modal.php");
 include("student_update.php");
 include("deleteaccdep.php");
+
 $con = connection();
 @$id = $_GET['Student_ID'];
 $sql = "SELECT * FROM mis_stud_account ORDER BY Student_ID";
