@@ -11,10 +11,9 @@
 
 		//Remote sql
 		$host="localhost";
-		$user="root";
-		$password="";
+		$user="u476821515_SMS";
+		$password="Bcpsms12@";
 		$db="u476821515_SMS"; 
-
 		//local sql
 		//$host="217.21.88.1";
 		//$user="root";
