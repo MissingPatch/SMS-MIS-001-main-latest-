@@ -8,7 +8,7 @@ $_SESSION['role'];
 else{
 echo header("location:login.php");
 }
-include ("activity_log_backend.php");
+// include ("activity_log_backend.php");
 include ("connection/connection.php");
 $con = connection();
 include ("include/staffheader.php");
