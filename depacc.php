@@ -147,7 +147,7 @@ $row = $result->fetch_assoc();
                                         ?></td>
                                         <td>
                                         <div class="btn-group" role="group">
-                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="height: 30px;background-color:#07177a;"><b>View</b></a>
+                                        <a href="empprofile.php?ID=<?php echo $row["ID"];?>" class="btn btn-success btn-sm" style="height: 30px;background-color:#07177a;"> <b>View</b></a>
                                         <form action="deleteaccdep.php" method="POST">                
                                         <button type="submit" style="border: none; background: none; color: red; font-size: 20px;" class="btn btn-danger btn-sm" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
                                         <input type="hidden" name="ID" value="<?php echo $row["ID"];?>">

@@ -64,7 +64,7 @@ $con = connection();
                             <i class="fa fa-arrow-left"> </a></i><b>&nbsp; Student Fees </b>  
                           
                             <button type="button" class="btn btn-success btn-sm" style="background-color:#07177a; float: right;" data-toggle="modal" data-target="#addfee" 
-                            style="background-color:#07177a; color:white; "> Add Fee </button>     
+                            style="background-color:#07177a; color:white; "><i class="bx bxs-add-to-queue"></i> Add Fee's </button>     
                             </h6>
                             </div>
 
@@ -105,9 +105,9 @@ $con = connection();
                                        
                                         <div class="btn-group" role="group">
                                         <a href="#" data-toggle="modal" data-target="#editfee<?php echo $row['number_of_studentFees'];?>"
-                                        class="btn btn-primary btn-sm" style="background-color: #07177a;">Edit</a>&nbsp;
+                                        class="btn btn-primary btn-sm" style="background-color: #07177a;"><i class="bx bx-edit"></i> Edit</a>&nbsp;
                                         <form action="" method="POST">                
-                                        <button type="submit" class="btn btn-danger btn-sm" name="delete"><i class="bx bx-trash"></i>&nbsp;Remove</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" name="delete"><i class="bx bx-trash"></i></button>
                                         <input type="hidden" name="number_of_studentFees" value="<?php echo $row["number_of_studentFees"];?>">
                                         </form>
                                         </div>

@@ -6,8 +6,6 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
-            <button type="button"  class="btn-close"  data-dismiss="modal" aria-label="Close">
-            </button>
         </div>
     
 
@@ -79,8 +77,8 @@
         </select>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
-        <button type="submit" name="add"  onchange="reloadPage()" class="btn btn-primary" style="background-color:#07177a;">Save changes</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>    
+        <button type="submit" name="add"  onchange="reloadPage()" class="btn btn-sm" style="background-color:#07177a; color: white;">Update</button>
         </form>  
         <script>
         function reloadPage() {
