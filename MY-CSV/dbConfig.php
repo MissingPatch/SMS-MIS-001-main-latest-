@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$dbHost     = "217.21.88.1";
+$dbHost     = "localhost";
 $dbUsername = "u476821515_SMS";
 $dbPassword = "Bcpsms12@";
 $dbName     = "u476821515_SMS";
