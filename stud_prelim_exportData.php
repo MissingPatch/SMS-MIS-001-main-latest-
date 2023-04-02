@@ -14,7 +14,7 @@ $fields = array('OR_number', 'Last_Name', 'First_Name', 'Middle', 'student_id', 
 fputcsv($f, $fields, $delimiter); 
  
 // Get records from the database 
-$result = $db->query("SELECT * FROM pms_payment WHERE particular IN ('Prelim') AND prelim ='Paid' ORDER BY OR_number");
+$result = $db->query("SELECT * FROM pms_payment WHERE particular IN ('Prelim Exam') AND prelim ='Paid' ORDER BY OR_number");
 if($result->num_rows > 0){ 
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $result->fetch_assoc()){ 
