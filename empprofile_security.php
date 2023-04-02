@@ -17,6 +17,7 @@ include ("change_password.php");
 
 if(isset($_GET['ID'])) {
   $id = $_GET['ID'];
+  $email=$row['email'];
   $sql = "SELECT * FROM mis_usermanagement WHERE ID='$id'";
   $result = $con->query($sql) or die($con->error);
   $row = $result->fetch_assoc();
@@ -250,7 +251,7 @@ input[type="checkbox"]:checked + .slider:before {
                 <div class="card-body">
                   
                 <p> With each login, you will receive a confirmation code to your email address. Your 
-                <strong><?php echo $_SESSION['email']?></strong> 
+                <strong><?php echo $row['email']?></strong> 
                 email will be used for this authentication.</p>
 
                 <div class="d-flex flex-column align-items-center text-center">
@@ -258,7 +259,7 @@ input[type="checkbox"]:checked + .slider:before {
 
                      <?php
                          $id = $_SESSION['ID'];
-                         $sql = "SELECT auth FROM mis_usermanagement WHERE id = $id";
+                         $sql = "SELECT auth FROM mis_usermanagement WHERE ID = $id";
                          $result = mysqli_query($con, $sql);
                          $row = mysqli_fetch_assoc($result);
                          $auth = $row['auth'];

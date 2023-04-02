@@ -58,7 +58,7 @@ if(isset($_POST['LOGIN']))  {
   $mail->SMTPAuth = true;
 
   $mail->Username = "bcp_mis@mis.bcpsms.com";
-  $mail->Password = "Mis_l6@!";
+  $mail->Password = "Harold123@!";
 
   $mail->SMTPSecure = 'tls';
   $mail->Port = 587;
@@ -72,87 +72,55 @@ if(isset($_POST['LOGIN']))  {
 
     
 
-  if($total>0){
+  if ($total > 0) {
 
-      // Check if user has reached the maximum number of logins
-      if ($row['is_logged_in'] >= 3) {
-        echo "<script>alert('max_login_reached');</script>";
-        echo "<script>window.location = 'login.php?error=max_login_reached';</script>";
-        exit();
-      }
-
-        // Check if user is already logged in
-        if ($row['is_logged_in']) {
-          echo "<script>alert('User already logged in');</script>";
-          echo "<script>window.location = 'login.php?error=user_already_logged_in';</script>";
-          exit();
-      }
-      
-      if($row['access_level'] == 1){
-         // send OTP verification email
-         $mail->Subject = "OTP Verification";
-         $mail->Body = "Your OTP for verification is: $otp";
-         $mail->send();
-         $_SESSION['otp'] = $otp;
-         
-        $_SESSION['ID'] = $row['ID'];
-        $_SESSION['fname'] = $row['fname'];
-        $_SESSION['lname'] = $row['lname'];
-        $_SESSION['role'] = $row['role'];
-        $_SESSION['email'] = $row['email'];
-        // Set is_logged_in flag to true
-        $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
-        $con->query($update_query);
-       
-
-        $update_query = "UPDATE mis_usermanagement SET otp = '$otp' WHERE ID = {$row['ID']}";
-        $con->query($update_query);
-    
-        header("Location: verification.php");
-      } 
-     
-    
-    elseif($row['access_level'] == 2){
-      $_SESSION['ID'] = $row['ID'];
-      $_SESSION['fname'] = $row['fname'];
-      $_SESSION['lname'] = $row['lname'];
-      $_SESSION['role'] = $row['role'];
-      $_SESSION['email'] = $row['email'];
-      // Set is_logged_in flag to true
-      $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
-      $con->query($update_query);
-      log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
-      header("Location: index.php");
-
-    } elseif($row['access_level'] == 3){
-      $_SESSION['ID'] = $row['ID'];
-      $_SESSION['fname'] = $row['fname'];
-      $_SESSION['lname'] = $row['lname'];
-      $_SESSION['role'] = $row['role'];
-      $_SESSION['email'] = $row['email'];
-      // Set is_logged_in flag to true
-      $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
-      $con->query($update_query);
-      
-      log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
-      header("Location: staffstudinfo.php");
-
-    } elseif($row['user_type'] == "admin" ){
-      $_SESSION['ID'] = $row['ID'];
-      $_SESSION['fname'] = $row['fname'];
-      $_SESSION['lname'] = $row['lname'];
-      $_SESSION['role'] = $row['role'];
-      $_SESSION['email'] = $row['email'];
-
-      // Set is_logged_in flag to true
-      $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
-      $con->query($update_query);
-      log_activity($_SESSION['ID'],$_SESSION['email'], 'login'); // Call the log_activity function after a successful login
-      header('Location: SMS-MIS-001-main(latest)/../qa/superadmin/superadmin_dashboard.php');
+    // Check if user is already logged in
+    if ($row['is_logged_in']) {
+      echo "<script>alert('User already logged in');</script>";
+      echo "<script>window.location = 'login.php?error=user_already_logged_in';</script>";
+      exit();
     }
-    
+  
+    $_SESSION['ID'] = $row['ID'];
+    $_SESSION['fname'] = $row['fname'];
+    $_SESSION['lname'] = $row['lname'];
+    $_SESSION['role'] = $row['role'];
+    $_SESSION['email'] = $row['email'];
+  
+    if ($row['auth'] == 1) {
+      // send OTP verification email
+      $mail->Subject = "OTP Verification";
+      $mail->Body = "Your OTP for verification is: $otp";
+      $mail->send();
+      $_SESSION['otp'] = $otp;
+  
+      $update_query = "UPDATE mis_usermanagement SET otp = '$otp' WHERE ID = {$row['ID']}";
+      $con->query($update_query);
+  
+      if ($row['access_level'] == 1) {
+        header("Location: verification.php");
+      } elseif ($row['access_level'] == 2) {
+        header("Location: verification.php");
+      } elseif ($row['access_level'] == 3) {
+        header("Location: staffstudinfo.php");
+      }
+    } else {
+      // Set is_logged_in flag to true
+      $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
+      $con->query($update_query);
+  
+      log_activity($_SESSION['ID'], $_SESSION['email'], 'login'); // Call the log_activity function after a successful login
+  
+      if ($row['access_level'] == 1) {
+        header("Location: index.php");
+      } elseif ($row['access_level'] == 2) {
+        header("Location: index.php");
+      } elseif ($row['access_level'] == 3) {
+        header("Location: staffstudinfo.php");
+      }
+    }
   }
-
+  
   else {
     $_SESSION['attempts']++;
     if ($_SESSION['attempts'] >= 3) {

@@ -9,7 +9,7 @@ $id = $_SESSION['ID'];
 $newAuth = $_POST['auth'];
 
 
-$sql = "UPDATE mis_usermanagement SET auth = $newAuth WHERE id = $id";
+$sql = "UPDATE mis_usermanagement SET auth = $newAuth WHERE ID = $id";
 $result = mysqli_query($con, $sql);
 echo "<script>alert('Auth updated successfully!')</script>";
 

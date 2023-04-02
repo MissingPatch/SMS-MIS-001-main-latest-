@@ -10,7 +10,6 @@ if(isset($_POST['add'])){
     $id = $_POST['ID'];
     }
     $email = $_POST['email'];
-    $pass = 123;
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $sex =  $_POST['sex'];
@@ -18,7 +17,9 @@ if(isset($_POST['add'])){
     $address = $_POST['home_address'];
     $dep = $_POST['department'];
     $role = $_POST['role'];
-    $hashed_password = password_hash($pass, PASSWORD_BCRYPT);
+    $access = $_POST['access_level'];
+    $pass .= '#' . ucfirst(strtolower(substr($lname, 0, 2))) . '2023s';
+    //$hashed_password = password_hash($pass, PASSWORD_BCRYPT);
 
     
     $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -29,16 +30,14 @@ if(isset($_POST['add'])){
        echo "<script>alert('Email already exists.')</script>";
     } else {
        
-        $sql = "INSERT INTO `mis_usermanagement` (`email`, `pass` , `fname`, `lname`, `sex`,  `mobilenum`, `home_address`, `department`, `role`) 
-        VALUES ('$email' , '$pass' , '$fname', '$lname', '$sex', '$mobilenum' , '$address' ,'$dep','$role')";
+        $sql = "INSERT INTO `mis_usermanagement` (`email`, `pass` , `fname`, `lname`, `sex`,  `mobilenum`, `home_address`, `department`, `role` , `access_level`) 
+        VALUES ('$email' , '$pass' , '$fname', '$lname', '$sex', '$mobilenum' , '$address' ,'$dep','$role','$access')";
 
         if ($con->query($sql) === TRUE) {
             $_SESSION['status'] = "Created Successfully";
             $_SESSION['status_deleteaccdep'] = "Successful";
             log_activity($_SESSION['ID'],$_SESSION['email'], "Add employees account with ID $id");
             echo "<meta http-equiv='refresh' content='0'>";
-
-
     }
        
     }

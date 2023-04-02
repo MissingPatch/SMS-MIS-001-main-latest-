@@ -26,7 +26,9 @@ if (isset($_POST['verify'])) {
         $con->query($update_query);
 
       
-
+        $update = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
+        $con->query($update);
+    
         // Call the log_activity function after a successful login
         log_activity($_SESSION['ID'],$_SESSION['email'], 'login');
 

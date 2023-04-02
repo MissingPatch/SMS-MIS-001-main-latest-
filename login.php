@@ -214,4 +214,7 @@ session_start();
                 passwordField.setAttribute("type", type);
               });
             </script>
+<?php
+include ("include/sweetalert.php");
+?>
 

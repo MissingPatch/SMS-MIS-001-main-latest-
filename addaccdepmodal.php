@@ -39,7 +39,6 @@
         </select>
         <br>
     
-
         <label>Mobile Number:</label>
         <input type="tel" class="form-control" id="phone" name="mobilenum" placeholder="e.g 09102938475" pattern="^(09|\+639)\d{9}$" name="mobilenum">
         <br>
@@ -48,9 +47,16 @@
                 <label class="form-label">Address:</label>
                 <textarea id="home_address" name="home_address" rows="5" class="form-control" style="float:right;"></textarea>
         </div>
-    
+        
+       
+        <label> <br>Access Level(MIS user):</label>
+        <select name="access_level" class="form-control" id="access_level" name="access_level">
+        <option value="">Select...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        </select>
         <br>
-
         <label>Department:</label>
         <select name="department" class="form-control" id="department">
             <?php
