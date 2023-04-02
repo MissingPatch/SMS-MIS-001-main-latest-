@@ -355,6 +355,3 @@ if(isset($_GET['ID'])) {
                           </div>
                           </div>
                           </div>
-<?php
-include ("script/script.php");
-?>

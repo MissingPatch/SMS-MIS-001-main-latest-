@@ -601,7 +601,7 @@ $rowcount = mysqli_num_rows( $result);
 
     <?php
 
-$sql = "SELECT * FROM mis_man_inc_rep WHERE department ='Clinic' ORDER BY rep_id";
+$sql = "SELECT * FROM mis_man_inc_rep WHERE department ='CLINIC' ORDER BY rep_id";
 $enr = $con->query($sql) or die($con->error);
 $row = $enr->fetch_assoc();
                 
