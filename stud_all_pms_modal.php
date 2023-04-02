@@ -1,5 +1,5 @@
 <?php
-$ql = "SELECT * FROM mis_payment_method ORDER BY OR_number DESC";
+$ql = "SELECT * FROM pms_payment ORDER BY OR_number DESC";
 $pay = $con->query($ql) or die($con->error);
 while ($row = $pay->fetch_assoc()) {
 ?>
@@ -19,7 +19,7 @@ while ($row = $pay->fetch_assoc()) {
                             <div class="row g-3">
                                 <div class="col-md-6">
 									<label class="form-label">Student ID: </label>
-									<input type="text" id="student_num" name="student_num" class="form-control" placeholder="" aria-label="" value="<?php echo $row["student_num"];?>" disabled>
+									<input type="text" id="student_id" name="student_id" class="form-control" placeholder="" aria-label="" value="<?php echo $row["student_id"];?>" disabled>
 								</div>
 
 
@@ -29,33 +29,38 @@ while ($row = $pay->fetch_assoc()) {
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Total Balance: </label>
-									<input type="text" id="bal" name="bal" class="form-control" placeholder="" aria-label="" value="<?php echo $row["bal"];?>" disabled>
+									<label class="form-label">FirstName:</label>
+									<input type="text" id="First_Name" name="First_Name" class="form-control" placeholder="" aria-label="" value="<?php echo $row['First_Name'];?>" disabled>
+                                </div>
+
+                                <div class="col-md-6">
+									<label class="form-label">LastName:</label>
+									<input type="text" id="Last_Name" name="Last_Name" class="form-control" placeholder="" aria-label="" value="<?php echo $row['Last_Name'];?>" disabled>
                                 </div>
 
 								<div class="col-md-6">
-									<label class="form-label">Mode of Payment: </label>
-									<input type="text" id="payment_type" name="payment_type" class="form-control" placeholder="" aria-label="" value="<?php echo $row["payment_type"];?>" disabled>
+									<label class="form-label">Course </label>
+									<input type="text" id="Course" name="Course" class="form-control" placeholder="" aria-label="" value="<?php echo $row["Course"];?>" disabled>
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Payment Type: </label>
-									<input type="text" id="payment_desc" name="payment_type" class="form-control" placeholder="" aria-label="" value="<?php echo $row["payment_desc"];?>" disabled>
+									<label class="form-label">Section: </label>
+									<input type="text" id="section" name="section" class="form-control" placeholder="" aria-label="" value="<?php echo $row["section"];?>" disabled>
 								</div>
 
 								<div class="col-md-6">
-									<label class="form-label"> Date: </label>
-									<input type="text" id="date" name="date" class="form-control" placeholder="" aria-label=" " value="<?php echo $row["date"];?>"disabled >
+									<label class="form-label"> Year Level: </label>
+									<input type="text" id="year_level" name="year_level" class="form-control" placeholder="" aria-label=" " value="<?php echo $row["year_level"];?>"disabled >
 								</div>
 
                                 <div class="col-md-6">
-									<label class="form-label"> Semester: </label>
-									<input type="text" id="semester" name="semester" class="form-control" placeholder="" aria-label=" " value="<?php echo $row["semester"];?>" disabled>
+									<label class="form-label"> Payment Type: </label>
+									<input type="text" id="particular" name="particular" class="form-control" placeholder="" aria-label=" " value="<?php echo $row["particular"];?>" disabled>
 								</div>
 								
                                 <div class="col-md-6">
-									<label class="form-label"> Status: </label>
-									<input type="text" id="status" name="status" class="form-control" placeholder="" aria-label=" " value="<?php echo $row["status"];?>" disabled>
+									<label class="form-label"> Paid: </label>
+									<input type="text" id="paid_amount" name="paid_amount" class="form-control" placeholder="" aria-label=" " value="<?php echo $row["paid_amount"];?>" disabled>
 								</div>
 
                                 </div>
@@ -146,3 +151,4 @@ while ($row = $pay->fetch_assoc()) {
                             });
                         </script>
 	                
+                        

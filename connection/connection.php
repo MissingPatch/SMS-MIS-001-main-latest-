@@ -16,7 +16,7 @@
 		$db="u476821515_SMS"; 
 
 		//local sql
-		//$host="localhost";
+		//$host="217.21.88.1";
 		//$user="root";
 		//$password="";
 		//$db="u476821515_SMS"; 
