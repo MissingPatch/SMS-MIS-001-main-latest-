@@ -69,7 +69,7 @@ include ("voiding_modal2.php");
      <canvas id="myChart"></canvas>
  </div>
  <?php
-     $sql = "SELECT DATE_FORMAT(date, '%b') AS month_name, YEAR(date) AS year, OR_number, COUNT(*) AS number FROM mis_payment_method WHERE MONTH(date) GROUP BY year, OR_number ORDER BY year, month_name ASC";
+     $sql = "SELECT DATE_FORMAT(t_date, '%b') AS month_name, YEAR(t_date) AS year, OR_number, COUNT(*) AS number FROM pms_payment WHERE MONTH(t_date) GROUP BY year, OR_number ORDER BY year, month_name ASC";
      $result = mysqli_query($con, $sql);
      $data = [];
      $month_names = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
@@ -89,7 +89,7 @@ include ("voiding_modal2.php");
      }
 
      // Get the total count of data in the table
-     $total_result = mysqli_query($con, "SELECT COUNT(*) AS total FROM mis_payment_method");
+     $total_result = mysqli_query($con, "SELECT COUNT(*) AS total FROM pms_payment");
      $total_count = mysqli_fetch_assoc($total_result)['total'];
  ?>
 
@@ -158,7 +158,7 @@ include ("voiding_modal2.php");
         <div class="card-body" style="border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;">
             <div class="row no-gutters align-items-center">
                 <div class="index">
-                    <p style="text-align:center;"><b><i class="bx bxs-bank"></i> Payment Method </b></p>
+                    <p style="text-align:center;"><b><i class="bx bxs-bank"></i> Payment Type </b></p>
                 </div>
                 <div id="pie" style="border: 1px solid grey;"></div>
 
@@ -172,10 +172,10 @@ include ("voiding_modal2.php");
         var data = google.visualization.arrayToDataTable([
           ['students', 'contribution'],
          <?php
-         $sql = "SELECT payment_type, count(*) as count FROM mis_payment_method GROUP BY payment_type";
+         $sql = "SELECT particular, count(*) as count FROM pms_payment GROUP BY particular";
          $fire = mysqli_query($con,$sql);
           while ($result = mysqli_fetch_assoc($fire)) {
-            echo"['".$result['payment_type']."',".$result['count']."],";
+            echo"['".$result['particular']."',".$result['count']."],";
           }
 
          ?>
