@@ -13,7 +13,7 @@ include ("connection/connection.php");
 $con = connection();
 include ("include/staffheader.php");
 include ("include/staffsidebar.php");
-include ("change_password.php");
+// include ("change_password.php");
 
 if(isset($_GET['ID'])) {
   $id = $_GET['ID'];
