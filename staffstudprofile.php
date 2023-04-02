@@ -17,11 +17,11 @@ include("student_update.php");
 
 
 $con = connection();
-$id = $_GET['stud_num'];
-@$fname = $_POST['fname'];
-$sql = "SELECT * FROM mis_stud_info WHERE stud_num ='$id'";
-$emp = $con->query($sql) or die($con->error);
-$row = $emp->fetch_assoc();
+
+@$id = $_GET['Student_ID'];
+$sql = "SELECT * FROM registrar_studentlist WHERE Student_ID";
+$stud = $con->query($sql) or die($con->error);
+$row = $stud->fetch_assoc();
           
 ?>
 
@@ -40,7 +40,7 @@ $row = $emp->fetch_assoc();
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link"  href="studprofile.php?stud_num=<?php echo $row["stud_num"];?>" >Account <span class="sr-only">(current)</span></a>
+                    <a class="nav-link"  href="studprofile.php?stud_num=<?php echo $row["Student_ID"];?>" >Account <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="student_profile_additional_information.php">Additional Information</a>
@@ -73,13 +73,7 @@ $row = $emp->fetch_assoc();
 								<div class="text-center">
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
-                  <?php
-                $query = "SELECT img_name FROM mis_stud_info WHERE stud_num ='$id' ";
-                $result = $con->query($query);
-                $rowimg = mysqli_fetch_assoc($result);
-                $image = $rowimg['img_name'] ;
-                echo "<img src='uploads/". $image. "' alt='Profile' class='rounded-circle'.  width='150' >";		
-                ?>
+
 									</div>
 									<!-- Button Profile -->
                   <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -93,9 +87,9 @@ $row = $emp->fetch_assoc();
 								  </div>
 
                      <div class="mt-3">
-                      <h4> <?php echo $row['fname'];?> <?php echo $row['lname'];?></h4>
-                      <p class="text-secondary mb-1"> <?php echo $row['ylvl'];?></p>
-                      <p class="text-muted font-size-sm"> <?php echo $row['course'];?></p>
+                      <h4> <?php echo $row['Firstname'];?> <?php echo $row['Lastname'];?></h4>
+                      <p class="text-secondary mb-1"> <?php echo $row['Student_ID'];?></p>
+                      <p class="text-muted font-size-sm"> <?php echo $row['Course'];?></p>
                       
                      </div>
                      </div>
@@ -140,32 +134,122 @@ $row = $emp->fetch_assoc();
                   <div class="row g-3">
                   <div class="col-md-6">
 									<label class="form-label">First Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["fname"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["Firstname"];?>" disabled>
 								</div>
 								<!-- Last name -->
 								<div class="col-md-6">
 									<label class="form-label">Last Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["lname"];?>" readonly>
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["Lastname"];?>" disabled>
 								</div>
 								<!-- Phone number -->
 								<div class="col-md-6">
-									<label class="form-label">Suffix:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["suffix"];?>" readonly>
+									<label class="form-label">Middle Name:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Middlename"];?>" disabled>
 								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
-									<label class="form-label">Student Number:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["stud_num"];?>" readonly>
+									<label class="form-label">Suffix:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Suffix"];?>" disabled>
 								</div>				
 								<!-- School -->
 								<div class="col-md-6">
-									<label class="form-label">Program</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["course"];?>" readonly>
+									<label class="form-label">Email</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Email"];?>" disabled>
                     </div>
                   <!-- Email -->
 								<div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Role:</label>
-									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["role"];?>" readonly>
+									<label for="inputEmail4" class="form-label">Sex:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Gender"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Age:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Age"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Birth Date:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["birth_date"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Course:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Course"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Major:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Major"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Year Level:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Year_Level"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Section:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Section"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Citizenship:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Citizenship"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Contact Number:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Contact_No"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Guardian:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Guardian"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Guardian Contact:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Guardian_Contact"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Address:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Address"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Province:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Province"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Zip:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Zip"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Last School:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Last_School"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Academic Year:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Academic_Year"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">School Type:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["School_Type"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Student Status:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Student_Status"];?>" disabled>
+								</div>
+
+                <div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Student Type:</label>
+									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Student_Type"];?>" disabled>
 								</div>
               
                     
@@ -188,9 +272,9 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Full Name:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['fname'];?>
-                    <?php echo $row['lname'];?>
-                    <?php echo $row['suffix'];?>
+                    <?php echo $row['Firstname'];?>
+                    <?php echo $row['Middlename'];?>
+                    <?php echo $row['Lastname'];?>
                     </div>
                     </div>   
 
@@ -200,7 +284,7 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Sex</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['sex'];?>
+                    <?php echo $row['Gender'];?>
                     </div>
                     </div> 
 
@@ -210,7 +294,7 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Email:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['email'];?>
+                    <?php echo $row['Email'];?>
                     </div>
                     </div>
 
@@ -220,7 +304,7 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Mobile Number:</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['mobilenum'];?>
+                    <?php echo $row['Contact_No'];?>
                     </div>
                     </div>
 
@@ -230,7 +314,7 @@ $row = $emp->fetch_assoc();
                     <h6 class="mb-0">Company</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $row['company'];?>
+                    <?php echo $row['Last_School'];?>
                     </div>
                     </div>
                     

@@ -14,8 +14,8 @@ include ("include/staffheader.php");
 include ("include/staffsidebar.php");
 include("deleteaccdep.php");
 
-@$id = $_GET['stud_num'];
-$sql = "SELECT * FROM mis_stud_info ORDER BY stud_num ASC";
+@$id = $_GET['Student_ID'];
+$sql = "SELECT * FROM registrar_studentlist WHERE Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -90,41 +90,43 @@ $row = $stud->fetch_assoc();
                                     <thead>
                                 
                                         <tr>
-                                        <th>Course</th>
-                                        <th>Year Level</th>
-                                        <th>Student ID</th>  
-                                        <th>Last Name</th> 
-                                        <th>First Name</th>          
-                                        <th>Academic Year</th>
-                                        <th>Section</th>
-                                        <th>Student</th>
-                                        <th>Action</th>
+                      <th>Student ID</th>
+                      <th>Course</th>
+                      <th>Section</th>
+                      <th>Major</th>
+                      <th>Last Name</th>
+                      <th>First Name</th>
+                      <th>Middle Name</th>
+                      <th>Academic Year</th>
+                      <th>Student Type</th>
+                      <th>Actions</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                    <?php do{ if (!empty($row)){ { ?>
+                                    <?php do{ 
+                                      if (!empty($row)){ ?>
                                         <tr>
-                                        <td><?php echo $row['program_code'];?> </td>
-                                        <td><?php echo $row['ylvl'];?> </td>
-                                        <td><?php echo $row['stud_num'];?></td>
-                                        <td><?php echo $row['lname'];?></td>
-                                        <td><?php echo $row['fname'];?></td>
-                                        <td>2022-<?php echo $row['year'];?> </td>
-                                        <td><?php echo $row['section'];?></td>                        
-                                        <td> <?php echo $row['student_status'];?></td>                        
+                        <td><?php echo $row['Student_ID'] ?></td>
+                        <td><?php echo $row['Course'] ?></td>
+                        <td><?php echo $row['Section'] ?></td>
+                        <td><?php echo $row['Major'] ?></td>
+                        <td><?php echo $row['Lastname']?></td>
+                        <td><?php echo $row['Firstname'] ?></td>
+                        <td><?php echo $row['Middlename'] ?></td>
+                        <td><?php echo $row['Academic_Year'] ?></td>
+                        <td><?php echo $row['Student_Type'] ?></td>                     
                                         
                                         <td>
                                             
                                         <form action=" "  method="POST" >
-                                        <a href="staffstudprofile.php?stud_num=<?php echo $row["stud_num"];?>" 
-                                        class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                        View
+                                        <a href="staffstudprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
+                                        class="btn btn-success btn-sm" style="background-color:#07177a;"><i class="bx bxs-show"></i> <b>View</b></a>
                                         </form>
 
                                     </td>
                                     </tr>
-                                    <?php }}
+                                    <?php }
                                   }while($row = $stud->fetch_assoc()); ?>
                                     </tbody>
                                     </table>

@@ -19,7 +19,7 @@ include("add_teacher_modal.php");
 include ("add_teacher.php");
 
 $con = connection();
-$sql = "SELECT * FROM mis_teacher_account ORDER BY id DESC";
+$sql = "SELECT * FROM hr_employee ORDER BY id DESC";
 $teacher = $con->query($sql) or die($con->error);
 $row = $teacher->fetch_assoc();
 ?>
@@ -108,7 +108,7 @@ $row = $teacher->fetch_assoc();
                                         if (!empty($row)){ ?>
                                         <tr>
                                         <td><?php echo $row['id'];?> </td>
-                                        <td><?php echo $row['user'];?></td>
+                                        <td><?php echo $row['email'];?></td>
                                         <td><?php echo $row['f_name'];?> <?php echo $row['l_name'];?> </td>                      
                                         <td><?php echo $row['department'];?> </td>
                                         <td><?php echo $row['designation'];?> </td>                       

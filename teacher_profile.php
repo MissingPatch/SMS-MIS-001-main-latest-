@@ -18,7 +18,7 @@ include("teacher_update.php");
 $con = connection();
 if (isset($_GET['id'])){ 
 $ID = $_GET['id'];
-$sql = "SELECT * FROM mis_teacher_account WHERE id='$ID'";
+$sql = "SELECT * FROM hr_employee WHERE id='$ID'";
 $emp = $con->query($sql) or die($con->error);
 $row = $emp->fetch_assoc();
 }
@@ -171,56 +171,100 @@ $row = $emp->fetch_assoc();
 								<!-- Phone number -->
 								<div class="col-md-6">
 									<label class="form-label">Email:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["user"];?>" disabled>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["email"];?>" disabled>
 								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
-									<label class="form-label">Phone Number:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["cp_number"];?>" disabled>
+									<label class="form-label">Status:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["status"];?>" disabled>
 								</div>				
 								<!-- School -->
 								<div class="col-md-6">
-									<label class="form-label">Department</label>
+									<label class="form-label">Code:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["code"];?>" disabled>
+                    </div>
+
+                    <div class="col-md-6">
+									<label class="form-label">Department:</label>
 									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["department"];?>" disabled>
                     </div>
-
                     <div class="col-md-6">
-									<label class="form-label">Subject</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
-                    </div>
-                    <div class="col-md-6">
-									<label class="form-label">Class Schedule</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
+									<label class="form-label">Designation:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["designation"];?>" disabled>
                     </div>
 
                     <div class="col-md-6">
-									<label class="form-label">Room Assignment</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
+									<label class="form-label">Role:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["role"];?>" disabled>
                     </div>
 
                     <div class="col-md-6">
-									<label class="form-label">Employment Status</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
+									<label class="form-label">Gender:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["gender"];?>" disabled>
                     </div>
 
                     <div class="col-md-6">
-									<label class="form-label">Hire Date</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
+									<label class="form-label">Blood Group:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["blood_group"];?>" disabled>
                     </div>
 
                     <div class="col-md-6">
-									<label class="form-label">Salary</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
+									<label class="form-label">Nid:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["nid"];?>" disabled>
                     </div>
               
                     <div class="col-md-6">
-									<label class="form-label">Educational Level</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
+									<label class="form-label">Contact Number:</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["cp_number"];?>" disabled>
                     </div>
               
                     <div class="col-md-6">
-									<label class="form-label">Certification</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="" disabled>
+									<label class="form-label">Date of Birth</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["date_of_birth"];?>" disabled>
+                    </div>
+
+                    <div class="col-md-6">
+									<label class="form-label">Date of Joining</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["date_of_joining"];?>" disabled>
+                    </div>
+
+                    <div class="col-md-6">
+									<label class="form-label">Date of Leaving</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["date_of_leaving"];?>" disabled>
+                    </div>
+
+                    <div class="col-md-6">
+									<label class="form-label">Rate Per Hour</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["rate_per_hour"];?>" disabled>
+                    </div>
+
+                    <div class="col-md-6">
+									<label class="form-label">Medical Status</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["medical_status"];?>" disabled>
+                    </div>
+
+                    <div class="col-md-6">
+									<label class="form-label">SSS</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["sss"];?>" disabled>
+                  </div>
+
+                  <div class="col-md-6">
+									<label class="form-label">PAGIBIG</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["pagibig"];?>" disabled>
+                  </div>
+
+                  <div class="col-md-6">
+									<label class="form-label">Philhealth</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["philhealth"];?>" disabled>
+                  </div>
+
+                  <div class="col-md-6">
+									<label class="form-label">TIN</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["tin"];?>" disabled>
+
+                    </div>
+                    </div>
+                    </div>
                     </div>
               
                     </div>
@@ -260,7 +304,7 @@ $row = $emp->fetch_assoc();
                           <h6 class="mb-0">Email:</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">
-                          <?php echo $row['user'];?>
+                          <?php echo $row['email'];?>
                           </div>
                           </div>
 

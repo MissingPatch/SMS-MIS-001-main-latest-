@@ -5,9 +5,6 @@
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                            
 
@@ -83,11 +80,54 @@
                                     <input type="text" id="nid" name="nid" class="form-control" placeholder="" value="<?php echo $row["nid"];?>" >
 								</div>
 
-
-                            
 								<div class="col-md-6">
-									<label class="form-label"> Phone Number: </label>
+									<label class="form-label"> Contact Number: </label>
 									<input type="text" id="cp_number" name="cp_number" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["cp_number"];?>" >
+								</div>
+
+                                <div class="col-md-6">
+									<label class="form-label"> Date of Birth: </label>
+									<input type="text" id="date_of_birth" name="date_of_birth" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["date_of_birth"];?>" >
+								</div>
+
+                                <div class="col-md-6">
+									<label class="form-label"> Date of Joining: </label>
+									<input type="text" id="date_of_joining" name="date_of_joining" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["date_of_joining"];?>" >
+								</div>
+
+                                <div class="col-md-6">
+									<label class="form-label"> Date of Leaving: </label>
+									<input type="text" id="date_of_leaving" name="date_of_leaving" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["date_of_leaving"];?>" >
+								</div>
+
+                                <div class="col-md-6">
+									<label class="form-label"> Rate Per Hour: </label>
+									<input type="text" id="rate_per_hour" name="rate_per_hour" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["rate_per_hour"];?>" >
+								</div>
+
+                                 <div class="col-md-6">
+									<label class="form-label"> Medical Status: </label>
+									<input type="text" id="medical_status" name="medical_status" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["medical_status"];?>" >
+								</div>
+
+                                 <div class="col-md-6">
+									<label class="form-label"> SSS: </label>
+									<input type="text" id="sss" name="sss" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["sss"];?>" >
+								</div>
+
+                                <div class="col-md-6">
+									<label class="form-label"> PAGIBIG: </label>
+									<input type="text" id="pabibig" name="pabibig" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["pagibig"];?>" >
+								</div>
+
+                                <div class="col-md-6">
+									<label class="form-label"> Philhealth: </label>
+									<input type="text" id="philhealth" name="philhealth" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["philhealth"];?>" >
+								</div>
+
+                                <div class="col-md-6">
+									<label class="form-label"> TIN: </label>
+									<input type="text" id="tin" name="tin" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["tin"];?>" >
 								</div>
    
                             <br>
@@ -106,8 +146,8 @@
 
                      
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
-                            <button type="submit" name="update"  class="btn btn-primary">Update</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>    
+                            <button type="submit" name="update" style="background: #07177a; color: white;" class="btn btn-sm">Update</button>
                              
                             
                             </div>
