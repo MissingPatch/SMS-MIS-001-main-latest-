@@ -78,7 +78,6 @@ $row = $stud->fetch_assoc();
                                         <th>Department</th>           
                                         <th>Date</th>
                                         <th>Status</th>
-                                        <th>Action</th>
                                         </tr>
                                     </thead>
                                     
@@ -91,15 +90,7 @@ $row = $stud->fetch_assoc();
                                         <td><?php echo $row['description'];?></td>                        
                                         <td><?php echo $row['department'];?></td>
                                         <td><?php echo $row['date'];?></td>
-                                        <td><?php echo $row['status'];?></td>
-                                        <td>
-                                            <form action=""  method="POST" >
-                                            <button href="#" id="myButton" 
-                                            class="btn btn-success btn-sm" style="background-color:#07177a;">
-                                            <b><i class="bx bx-show"></i> View</b>
-                                            </button>
-                                            </form>
-                                         </td>
+                                        <td><?php echo "<p style='font-size: 12px; text-align: center; color: white; background: #ff8080; border-radius: 12px;'> Report </p>";?></td>
                                     </tr>
                                     <?php }}while($row = $stud->fetch_assoc()); ?>
                                     </tbody>

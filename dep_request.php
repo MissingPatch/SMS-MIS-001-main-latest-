@@ -127,6 +127,10 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                     </div>
                     </div>
                     </div>
+                    <?php
+include ("script/script.php");
+include ("footer.php");
+?>
                     </div>
                     </div>
                     </div>
@@ -140,10 +144,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
       }  
  </script>  
  
-<?php
-include ("script/script.php");
-include ("footer.php");
-?>
+
 
 
 

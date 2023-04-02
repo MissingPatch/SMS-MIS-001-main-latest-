@@ -179,6 +179,10 @@ $row = $stud->fetch_assoc();
 
                                     </tbody></table>                       
                                     </div>
+<?php
+include ("script/script.php");
+include ("footer.php");
+?>
                                     </div>             
                                     </div>
                                     </div>
@@ -194,7 +198,4 @@ $row = $stud->fetch_assoc();
 
 </body>
 </html>
-<?php
-include ("script/script.php");
-include ("footer.php");
-?>
+

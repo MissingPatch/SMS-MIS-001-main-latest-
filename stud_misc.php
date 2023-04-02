@@ -137,9 +137,9 @@ $row = $result->fetch_assoc();
                                     </div>
                                     <?php
                                     include ("footer.php");
-                                    ?>
+                                    ?>   
                                     </div>
-                                    </div>    
+                                    </div> 
                                     </div>                                 
                                     
                              <!-- /.container-fluid -->

@@ -122,7 +122,10 @@ include ("import_modal.php");
                                     </div>
                                     </div>
                                     </div>
-                                               
+<?php
+include ("script/script.php");
+include ("footer.php");
+?>         
                                     </div>
                                     </div>
                                     </div>
@@ -134,7 +137,3 @@ include ("import_modal.php");
 
 </body>
 </html>
-<?php
-include ("script/script.php");
-include ("footer.php");
-?>

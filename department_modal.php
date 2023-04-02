@@ -8,7 +8,7 @@
 
     <div class="modal-footer">
     <button type="button" style="color:white; background: #e91640;" class="btn btn-sm" data-dismiss="modal">No!</button>
-    <a href="https://oes.bcpsms.com/login.php" style="color:white; background: #07177a;" class="btn btn-sm">Yes</a>    
+    <a href="https://oes.bcpsms.com/login.php" target="main" style="color:white; background: #07177a;" class="btn btn-sm">Yes</a>    
     <!--<a href="login.php" target="login" style="color:white; background: #07177a;" class="btn btn-sm">Yes</a>-->
       </div>
       </div>
