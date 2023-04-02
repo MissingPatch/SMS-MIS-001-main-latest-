@@ -108,14 +108,19 @@ if(isset($_POST['LOGIN']))  {
       // Set is_logged_in flag to true
       $update_query = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
       $con->query($update_query);
-  
-      log_activity($_SESSION['ID'], $_SESSION['email'], 'login'); // Call the log_activity function after a successful login
-  
+      if ($con->affected_rows > 0) {
+        $_SESSION['status'] = "Login Successfully";
+        $_SESSION['status_deleteaccdep'] = "Deleted Successfully";
+        log_activity($_SESSION['ID'], $_SESSION['email'], 'login');
+    } 
       if ($row['access_level'] == 1) {
         header("Location: index.php");
+
       } elseif ($row['access_level'] == 2) {
+
         header("Location: index.php");
       } elseif ($row['access_level'] == 3) {
+    
         header("Location: staffstudinfo.php");
       }
     }
@@ -134,4 +139,5 @@ if(isset($_POST['LOGIN']))  {
   }
 }
 }
+
 ?>

@@ -21,20 +21,25 @@ if (isset($_POST['verify'])) {
     $row = $result->fetch_assoc();
     $total = $result->num_rows;
 
-    if ($total > 0 ) {
-        $update_query = "UPDATE mis_usermanagement SET otp = null WHERE ID = {$row['ID']}";
-        $con->query($update_query);
-
-      
-        $update = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
-        $con->query($update);
-    
-        // Call the log_activity function after a successful login
-        log_activity($_SESSION['ID'],$_SESSION['email'], 'login');
-
-        // Redirect to the index page
-        header("Location: index.php");
-        exit();
+    if ($total > 0) {
+      $update_query = "UPDATE mis_usermanagement SET otp = null WHERE ID = {$row['ID']}";
+      $con->query($update_query);
+  
+      $update = "UPDATE mis_usermanagement SET is_logged_in = 1 WHERE ID = {$row['ID']}";
+      $con->query($update);
+  
+      if ($con->affected_rows > 0) {
+          $_SESSION['status'] = "Login Successfully";
+          $_SESSION['status_deleteaccdep'] = "Deleted Successfully";
+          log_activity($_SESSION['ID'], $_SESSION['email'], 'login');
+  
+          // Redirect to the index page
+          header("Location: index.php");
+          exit();
+      } else {
+          $_SESSION['status'] = "Failed to Login";
+      }
+   
     } else {
         header("Location: verification.php?error=");
         exit();

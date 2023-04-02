@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include ("accesslevelsuperadmin.php");
  ?>
  
 <!DOCTYPE html>
@@ -48,27 +49,27 @@ session_start();
             </div>
 
            <?php 
-              if(isset($_POST['selectedValue']))  {
-                $selectedValue = isset($_POST['selectedValue']) ? $_POST['selectedValue'] : '';
-                switch($selectedValue) {
-                  case 'Student':
-                    include('student/student_login.php');
-                    break;
-                  case 'Teacher':
-                    include('teacher_login.php');
-                    break;
-                  case 'Employee':
-                    include ("accesslevelsuperadmin.php");
-                    break;
-                  default:
-                  echo "<script>alert('Please select a valid option.');</script>";
-                }
-              }    
+              //if(isset($_POST['selectedValue']))  {
+               // $selectedValue = isset($_POST['selectedValue']) ? $_POST['selectedValue'] : '';
+                //switch($selectedValue) {
+                 // case 'Student':
+                    //include('student/student_login.php');
+                 //   break;
+                //  case 'Teacher':
+                //    include('teacher_login.php');
+                //    break;
+                //  case 'Employee':
+                 //   include ("accesslevelsuperadmin.php");
+                 //   break;
+               //   default:
+                 // echo "<script>alert('Please select a valid option.');</script>";
+               // }
+             // }    
            ?>
         
             <form method="POST" action="login.php">
             <!-- Add a hidden input field to store the selected value -->
-            <input type="hidden" id="selectedValue" name="selectedValue">
+            <!--<input type="hidden" id="selectedValue" name="selectedValue">-->
               <label htmlFor="dropdown" class="fw-semibold fs-6 mb-2">
                 Select Role:
               </label>
@@ -79,9 +80,9 @@ session_start();
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                Select
+                Employee
                 </button>
-                <ul class="dropdown-menu w-100">
+               <!-- <ul class="dropdown-menu w-100">
                   <li>
                     <button value="Employee" name="Employee" type="button" class="dropdown-item" onClick="handleDropdownClick('Employee')">
                       Employee
@@ -98,6 +99,7 @@ session_start();
                     </button>
                   </li>
                 </ul>
+              -->
               </div>
 
               <span class="loginLineBreak my-4"></span>
@@ -176,7 +178,7 @@ session_start();
       </div>
     </div>
 
-             <script>
+           <!--  <script>
              function handleDropdownClick(value) {
               // Update the text of the main button with the selected value
               document.querySelector('.dropdownMenu').textContent = value;
@@ -193,7 +195,7 @@ session_start();
                 
               }
             }
-            </script>
+            </script>-->
                 
             <script
               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

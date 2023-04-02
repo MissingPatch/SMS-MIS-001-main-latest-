@@ -12,7 +12,7 @@ else{
 include_once("connection/connection.php");
 include ("include/header.php");
 include ("include/sidebar.php");
-include("stud_pms_modal.php");
+include("stud_all_pms_modal.php");
 include("voiding_modal2.php");
 
 
