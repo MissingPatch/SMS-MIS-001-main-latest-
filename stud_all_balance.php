@@ -17,8 +17,8 @@ include("student_update_modal.php");
 include("student_update.php");
 include("deleteaccdep.php");
 $con = connection();
-@$id = $_GET['OR_number'];
-$sql = "SELECT * FROM pms_payment ORDER BY OR_number";
+@$id = $_GET['Student_ID'];
+$sql = "SELECT * FROM mis_stud_account ORDER BY Student_ID";
 $stud = $con->query($sql) or die($con->error);
 $row = $stud->fetch_assoc();
 
@@ -98,13 +98,12 @@ $row = $stud->fetch_assoc();
                                     <thead>
                                 
                                         <tr>
-                                        <th>OR No.</th>   
-                                        <th>Student ID</th>
+                                        <th>Student ID</th>   
+                                        <th>Email</th>
                                         <th>Full Name</th>
                                         <th>Course</th>
                                         <th>Section</th>
                                         <th>Year Level</th>
-                                        <th>Payment Type</th>
                                         <th>Balance</th>
                                         <th>Action</th>
                                         </tr>
@@ -114,19 +113,18 @@ $row = $stud->fetch_assoc();
                                     <?php do{ 
                                       if (!empty($row)){?>
                                         <tr>
-                                        <td><?php echo $row['OR_number'];?></td>
-                                        <td><?php echo $row['student_id'];?></td>
-                                        <td><?php echo $row['Last_Name'];?>&nbsp;<?php echo $row['First_Name'];?></td>
+                                        <td><?php echo $row['Student_ID'];?></td>
+                                        <td><?php echo $row['email'];?></td>
+                                        <td><?php echo $row['Firstname'];?>&nbsp;<?php echo $row['Lastname'];?></td>
                                         <td><?php echo $row['Course'];?></td>
-                                        <td><?php echo $row['section'];?></td> 
-                                        <td><?php echo $row['year_level'];?></td>
-                                        <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['balance'];?></td>                                          
+                                        <td><?php echo $row['Section'];?></td> 
+                                        <td><?php echo $row['Year_Level'];?></td>
+                                        <td><?php echo $row['totalBalance'];?></td>                                         
                                         
                                         <td>
                                             
-                                        <form action=" "  method="POST" >
-                                        <a href="studprofile.php?OR_number=<?php echo $row["OR_number"];?>" 
+                                        <form action=""  method="POST" >
+                                        <a href="studprofile.php?Student_ID=<?php echo $row["Student_ID"];?>" 
                                         class="btn btn-success btn-sm" style="background-color:#07177a;">
                                         View
                                         </form>

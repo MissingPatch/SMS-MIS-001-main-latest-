@@ -168,7 +168,7 @@
                   </a></li>
                 
                   <hr>
-                  <li><a class="dropdown-item" href="empprofile_security.php">Settings</a></li>
+                  <li><a class="dropdown-item" href="settings.php">Settings</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
                     <a class="dropdown-item" href="logout.php">Logout</a>

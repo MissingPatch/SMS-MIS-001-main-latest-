@@ -88,17 +88,16 @@ $row = $stud->fetch_assoc();
                             <div class="card-body">
                             <div class="row no-gutters align-items-center">
                             <div class="table-responsive">
-                           <table id="example" class="table table-hover" style="width:100%">
+                            <table id="example" class="table table-hover" style="width:100%">
                                     <thead>
                                 
                                         <tr>
-                                        <th>OR No.</th>   
-                                        <th>Student ID</th>
+                                        <th>Student ID</th>   
+                                        <th>Email</th>
                                         <th>Full Name</th>
                                         <th>Course</th>
                                         <th>Section</th>
                                         <th>Year Level</th>
-                                        <th>Payment Type</th>
                                         <th>Balance</th>
                                         <th>Action</th>
                                         </tr>
@@ -109,13 +108,12 @@ $row = $stud->fetch_assoc();
                                       if (!empty($row)){?>
                                         <tr>
                                         <td><?php echo $row['Student_ID'];?></td>
-                                        <td><?php echo $row['Firstname'];?></td>
-                                        <td><?php echo $row['Lastname'];?>&nbsp;<?php echo $row['First_Name'];?></td>
+                                        <td><?php echo $row['email'];?></td>
+                                        <td><?php echo $row['Firstname'];?>&nbsp;<?php echo $row['Lastname'];?></td>
                                         <td><?php echo $row['Course'];?></td>
-                                        <td><?php echo $row['section'];?></td> 
-                                        <td><?php echo $row['year_level'];?></td>
-                                        <td><?php echo $row['particular'];?></td> 
-                                        <td><?php echo $row['balance'];?></td>                                          
+                                        <td><?php echo $row['Section'];?></td> 
+                                        <td><?php echo $row['Year_Level'];?></td>
+                                        <td><?php echo $row['totalBalance'];?></td>                                         
                                         
                                         <td>
                                             

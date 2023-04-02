@@ -9,7 +9,7 @@ else{
  echo header("location:login.php");
 }
 
-include_once("mobile_conn.php");
+
 include ("connection/connection.php");
 include ("include/staffheader.php");
 include ("include/staffsidebar.php");
@@ -103,15 +103,16 @@ $row = $res->fetch_assoc();
                                     </div>
                                     </div>
                                     </div>
-                                    <?php
-                                    include ("script/script.php");
-                                    include ("footer.php");
-                                    ?>
+
                                     </div>
                                
                                     </div>
                                   
                                     </div>
+                                    <?php
+                                    include ("script/script.php");
+                                    include ("footer.php");
+                                    ?>
                                     </div>
 
 

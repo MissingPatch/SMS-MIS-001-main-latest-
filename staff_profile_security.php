@@ -22,7 +22,7 @@ if(isset($_GET['ID'])) {
   $row = $result->fetch_assoc();
 
   // Call the log_activity function after the employee's information is retrieved
-  log_activity($_SESSION['ID'], $_SESSION['email'], "Viewed employee profile with ID $id");
+  // log_activity($_SESSION['ID'], $_SESSION['email'], "Viewed employee profile with ID $id");
 }
 
 ?>
