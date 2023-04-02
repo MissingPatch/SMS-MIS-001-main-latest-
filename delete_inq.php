@@ -3,7 +3,7 @@ include_once("connection/connection.php");
 $con = connection();
 
 if(isset($_POST['delete'])) {
-    $id = $_POST['id'];
+    $id = $_POST['inq_num'];
 
     $sql = "SELECT * FROM mis_categorize_inq WHERE inq_num ='$id'";
     $result = $con->query($sql);

@@ -111,8 +111,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                               <td>  
                                    <select class="form-control" onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['inq_num'] ?>')">  
                                         <option value="">Change Status</option>  
-                                        <option value="1">Mark as Pending</option>  
-                                        <option value="2">Accept Request</option>   
+                                        <option value="1">Mark as Pending</option>     
                                    </select>  
                               </td>  
                          </tr>       
@@ -138,7 +137,7 @@ if (isset($_GET['inq_num']) && isset($_GET['status'])) {
                     <script type="text/javascript">  
            function status_update(value,inq_num){  
            //alert(id);  
-           let url = "http://localhost/SMS-MIS-001-main-latest-/dep_request.php";  
+           let url = "dep_request.php";  
            window.location.href= url+"?inq_num="+inq_num+"&status="+value;  
       }  
  </script>  

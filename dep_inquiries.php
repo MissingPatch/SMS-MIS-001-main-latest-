@@ -234,47 +234,45 @@ $row = $res->fetch_assoc();
                     <table id="example" class="table table-hover" style="width:100%">
                     <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Inquries ID</th>
-                                                <th>Inquiries Type</th>
-                                                <th>Department</th>           
-                                                <th>Date Requested</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            </thead>
-                                        <tbody>
-                                        <?php $i=1; do{ 
-                                            if (!empty($row)){ ?>
-                                            <tr>
-                                                <td><?php echo $i++ ?></td>  
-                                                <td><?php echo $row['inq_num']; ?></td>
-                                                <td><?php echo $row['inq_type']; ?></td>
-                                                <td><?php echo $row['department']; ?></td>                        
-                                                <td><?php echo $row['date_req']; ?></td>
-                                                <td><?php echo "<p style='font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Accept </p>"; ?></td>
-                                                <td>
-                                                                                                                                                                                                                                                                                                        
-                                                <form action="delete_inq.php"  method="POST">
+             <th>No.</th>
+             <th>Inquries ID</th>
+             <th>Inquiries Type</th>
+             <th>Department</th>           
+             <th>Date Requested</th>
+             <th>Status</th>
+             <th>Action</th>
+         </tr>
+         </thead>
+     <tbody>
+     <?php $i=1; do{ 
+         if (!empty($row)){ ?>
+         <tr>
+             <td><?php echo $i++ ?></td>  
+             <td><?php echo $row['inq_num']; ?></td>
+             <td><?php echo $row['inq_type']; ?></td>
+             <td><?php echo $row['department']; ?></td>                        
+             <td><?php echo $row['date_req']; ?></td>
+             <td><?php echo "<p style='font-size: 12px; text-align: center; color: white; background: lightgreen; border-radius: 12px;'> Accept </p>"; ?></td>
+             
+             <td>        
+             <form action="delete_inq.php"  method="POST">
+             <center>
+             <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
+             <input type="hidden" name="inq_num" value="<?php echo $row["inq_num"];?>">
+             </center>
+             </form>                           
+             </td>
 
-                                                <!--<a href="#" <?php echo $row['inq_num']; ?>" style="text-decoration: none; font-size: 20px;">
-                                                <i class="bx bx-edit"></i>&nbsp;</a>-->
-                                                <center>
-                                                <button style="border: none; background: none; color: red; font-size: 20px;" type="submit" name="delete"><i class="bx bx-trash"></i>&nbsp;</button>
-                                                <input type="hidden" name="id" value="<?php echo $row["inq_num"];?>"></center>
-                                                </form>
-                                                                                
-                                                </td>
-                                            </tr>
-                                            <?php }}while($row = $res->fetch_assoc())  ?>
-                                            </tbody>
-                                            </table>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
+    </tr>
+    <?php }}while($row = $res->fetch_assoc())  ?>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
          <?php
          include ("footer.php");
          ?>
