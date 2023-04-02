@@ -204,28 +204,28 @@ if ($result1 = mysqli_query($con, $sql1)) {
       
         series: [{
           data: [    <?php 
-  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='New Student' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Type='New Student' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
   ?> 
   <?php echo ($rowcount);?>,     
   <?php 
-  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='Freshmen' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Type='Freshmen' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
   ?> 
   <?php echo ($rowcount);?>,
   <?php 
-  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='Transferee' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Type='Transferee' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
   ?>  
   <?php echo ($rowcount);?>, 
   <?php 
-  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Status='In-Active' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
+  @$Student_ID = $_GET['Student_ID'];  $sql = "SELECT * FROM registrar_studentlist WHERE Student_Type='In-Active' ORDER BY Student_ID ASC";  $stud = $con->query($sql) or die($con->error);  $row = $stud->fetch_assoc();
   if ($result = mysqli_query($con, $sql)) {
   $rowcount = mysqli_num_rows( $result);
   }
