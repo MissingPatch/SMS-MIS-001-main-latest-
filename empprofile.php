@@ -214,19 +214,19 @@ if(isset($_GET['ID'])) {
                 <div class="row">
                     <div class="col-sm-12" >
                     <a type="submit" name="submit" 
-                    class="btn btn-success"  style="background-color:#07177a; float:right;" data-toggle="modal" 
-                    data-target="#editaccdep"> Update <i class="fas fa-edit" style="margin-left:5px;"  
+                    class="btn btn-sm"  style="color: white; background-color:#07177a; float:right;" data-toggle="modal" 
+                    data-target="#editaccdep"><b> Update<i class="fas fa-edit" style="margin-left:5px;"  
                     > 
-                    </i></a>
+                    </i></b></a>
 
                     <input type="hidden" name="" > 
                     </div>
                     </div>
-                    <fieldset><legend>Profile Information</legend></fieldset>
+                    <fieldset><legend><b>Profile Information</b></legend></fieldset>
                
                     <hr>
                   <div class="row g-3">
-                  <div class="col-md-6">
+                  <div class="col-md-3">
 
                   <?php 
                   $sql = "SELECT * FROM mis_usermanagement WHERE ID ='$id'";
@@ -234,33 +234,33 @@ if(isset($_GET['ID'])) {
                   $row = $result->fetch_assoc();
                   ?>
 
-									<label class="form-label">First Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["fname"];?>" readonly>
+									<label class="form-label"><b>Employee ID: </b></label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["ID"];?>" disabled>
 								</div>
-								<!-- Last name -->
-								<div class="col-md-6">
-									<label class="form-label">Last Name:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["lname"];?>" readonly>
+
+                <div class="col-md-3">
+                <label class="form-label"><b>First Name: </b></label>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["fname"];?>" disabled>
 								</div>
-								<!-- Phone number -->
-								<div class="col-md-6">
-									<label class="form-label">Suffix:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["suffix"];?>" readonly>
+
+                <div class="col-md-3">
+                <label class="form-label"><b>Last Name: </b></label>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["lname"];?>" disabled>
 								</div>
-								<!-- Mobile number -->
-								<div class="col-md-6">
-									<label class="form-label">Employee ID:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["ID"];?>" readonly>
+
+								<div class="col-md-3">
+									<label class="form-label"><b>Suffix: </b></label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["suffix"];?>" disabled>
 								</div>
-								<!-- Email -->
+
 								<div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Role:</label>
-									<input type="email" class="form-control" id="inputEmail4" value="<?php echo $row["role"];?>" readonly>
+									<label for="inputEmail4" class="form-label"><b>Role: </b></label>
+									<input type="email" class="form-control" id="inputEmail4" value="<?php echo $row["role"];?>" disabled>
 								</div>
 								<!-- Skype -->
 								<div class="col-md-6">
-									<label class="form-label">Department:</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["department"];?>" readonly>
+									<label class="form-label"><b>Department: </b></label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["department"];?>" disabled>
                     </div>
               
                     
@@ -275,12 +275,12 @@ if(isset($_GET['ID'])) {
                     
                         
 
-                    <fieldset><legend>Personal Information</legend></fieldset>
+                    <fieldset><legend><b>Personal Information </b></legend></fieldset>
                     <hr>
                     <div class="row">
                       
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Fullname:</h6>
+                    <h6 class="mb-0"><b>Fullname: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['fname'];?>
@@ -292,7 +292,7 @@ if(isset($_GET['ID'])) {
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Sex:</h6>
+                    <h6 class="mb-0"><b>Sex: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['sex'];?>
@@ -302,7 +302,7 @@ if(isset($_GET['ID'])) {
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Email:</h6>
+                    <h6 class="mb-0"><b>Email: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['email'];?>
@@ -312,7 +312,7 @@ if(isset($_GET['ID'])) {
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Mobile Number:</h6>
+                    <h6 class="mb-0"><b>Mobile Number: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['mobilenum'];?>
@@ -322,7 +322,7 @@ if(isset($_GET['ID'])) {
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Company:</h6>
+                    <h6 class="mb-0"><b>Company: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['company'];?>
@@ -332,7 +332,7 @@ if(isset($_GET['ID'])) {
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Address:</h6>
+                    <h6 class="mb-0"><b>Address: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['home_address'];?>

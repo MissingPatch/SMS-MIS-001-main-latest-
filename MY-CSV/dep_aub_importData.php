@@ -38,6 +38,7 @@ if(isset($_POST['importSubmit'])){
                 $t_time = $line[11];
                 $section = $line[12];
                 $payment_type = $line[13];
+                $semester = $line[14];
 
                
                 $prevQuery = "SELECT id FROM mis_aub_payment WHERE OR_number = '".$line[1]."'";
@@ -45,10 +46,10 @@ if(isset($_POST['importSubmit'])){
                 
                 if($prevResult->num_rows > 0){
              
-                    $db->query("UPDATE mis_aub_payment SET OR_number = '".$OR_number."', Last_Name = '".$Last_Name."', First_Name = '".$First_Name."', Middle = '".$Middle."', student_id = '".$student_id."', Course = '".$Course."', year_level = '".$year_level."', particular = '".$particular."', paid_amount = '".$paid_amount."', status = '".$status."', t_date = '".$t_date."', t_time = '".$t_time."', section = '".$section."', payment_type = '".$payment_type."','".$OR_number."'");
+                    $db->query("UPDATE mis_aub_payment SET OR_number = '".$OR_number."', Last_Name = '".$Last_Name."', First_Name = '".$First_Name."', Middle = '".$Middle."', student_id = '".$student_id."', Course = '".$Course."', year_level = '".$year_level."', particular = '".$particular."', paid_amount = '".$paid_amount."', status = '".$status."', t_date = '".$t_date."', t_time = '".$t_time."', section = '".$section."', payment_type = '".$payment_type."', semester = '".$semester."','".$OR_number."'");
                 }else{
                    
-                    $db->query("INSERT INTO mis_aub_payment (OR_number, Last_Name, First_Name, Middle, student_id, Course, year_level, particular, paid_amount, status, t_date, t_time, section, payment_type) VALUES ('".$OR_number."', '".$Last_Name."', '".$First_Name."', '".$Middle."', '".$student_id."', '".$Course."', '".$year_level."', '".$particular."', '".$paid_amount."','".$status."','".$t_date."','".$t_time."','".$section."','".$payment_type."')");
+                    $db->query("INSERT INTO mis_aub_payment (OR_number, Last_Name, First_Name, Middle, student_id, Course, year_level, particular, paid_amount, status, t_date, t_time, section, payment_type, semester) VALUES ('".$OR_number."', '".$Last_Name."', '".$First_Name."', '".$Middle."', '".$student_id."', '".$Course."', '".$year_level."', '".$particular."', '".$paid_amount."','".$status."','".$t_date."','".$t_time."','".$section."','".$payment_type."','".$semester."')");
                 }
             }
             

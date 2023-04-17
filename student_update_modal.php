@@ -4,7 +4,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
+                                <h5 class="modal-title" id="exampleModalLabel"><b>Update Information </b></h5>
                             </div>
                            
 
@@ -18,53 +18,53 @@
                             <div class="modal-body">
                             <div class="row g-3">
                                 <div class="col-md-4">
-									<label class="form-label">First Name: </label>
-									<input type="text" id="Firstname" name="Firstname" class="form-control" value="<?php echo $row["Firstname"];?>" >
+									<label class="form-label"><b>First Name: </b></label>
+									<input type="text" id="Firstname" name="Firstname" class="form-control" value="<?php echo $row["Firstname"];?>" readonly>
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Middle Name: </label>
-									<input type="text" id="Middlename" name="Middlename" class="form-control" value="<?php echo $row["Middlename"];?>" >
+									<label class="form-label"><b>Middle Name: </b></label>
+									<input type="text" id="Middlename" name="Middlename" class="form-control" value="<?php echo $row["Middlename"];?>" readonly>
 								</div>
 
 								<div class="col-md-4">
-									<label class="form-label">Last Name: </label>
-									<input type="text" id="Lastname" name="Lastname" class="form-control" value="<?php echo $row["Lastname"];?>" >
+									<label class="form-label"><b>Last Name: </b></label>
+									<input type="text" id="Lastname" name="Lastname" class="form-control" value="<?php echo $row["Lastname"];?>" readonly>
 								</div>
            
 								<div class="col-md-5">
-									<label class="form-label">Suffix: </label>
-									<input type="text" id="Suffix" name="Suffix" class="form-control" value="<?php echo $row["Suffix"];?>" >
+									<label class="form-label"><b>Suffix: </b></label>
+									<input type="text" id="Suffix" name="Suffix" class="form-control" value="<?php echo $row["Suffix"];?>" readonly>
                                 </div>
 						
 								<div class="col-md-7">
-									<label class="form-label">Email: </label>
+									<label class="form-label"><b>Email: </b></label>
 									<input type="email" id="Email" name="Email" class="form-control" value="<?php echo $row["Email"];?>" >
 								</div>
 
                                 <div class="col-md-4">
-                                <label class="form-label">Sex: </label>
+                                <label class="form-label"><b>Sex: </b></label>
                                 <select class="form-control" id="Gender" name="Gender" value="<?php echo $row["Gender"];?>"  required>
-                                <option value=""> Select Gender </option>
+                                <option value=""> ... </option>
                                 <option value="Male"<?php if($row["Gender"]=="Male") echo "selected";?>> Male </option>
-                                <option value="Female" <?php if($row["Gender"]=="Male") echo "selected";?>> Female </option>
+                                <option value="Female" <?php if($row["Gender"]=="Female") echo "selected";?>> Female </option>
                                 </select>
                                 </div>
 								
 								<div class="col-md-4">
-									<label class="form-label">Age: </label>
-                                    <input type="text" id="Age" name="Age" class="form-control" value="<?php echo $row["Age"];?>" >
+									<label class="form-label"><b>Age: </b></label>
+                                    <input type="text" id="Age" name="Age" class="form-control" value="<?php echo $row["Age"];?>" readonly>
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Birth Date: </label>
-                                    <input type="text" id="birth_date" name="birth_date" class="form-control" value="<?php echo $row["birth_date"];?>" required>
+									<label class="form-label"><b>Birth Date: </b></label>
+                                    <input type="text" id="birth_date" name="birth_date" class="form-control" value="<?php echo $row["birth_date"];?>" readonly>
 								</div>
 
                                 <div class="col-md-4">
-                                <label class="form-label">Course: </label>
+                                <label class="form-label"><b>Course: </b></label>
                                 <select class="form-control" id="Course" name="Course"required>
-                                <option value=""> Select Major </option>
+                                <option value=""> ... </option>
                                 <option value="BS Information Technology"<?php if($row["Course"]=="BS Information Technology") echo "selected";?>> BS Information Technology </option>
                                 <option value="BS Tourism"<?php if($row["Course"]=="BS Tourism") echo "selected";?>> BS Tourism </option>
                                 <option value="BS Education"<?php if($row["Course"]=="BS Education") echo "selected";?>> BS Education </option>
@@ -72,19 +72,19 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                <label class="form-label">Major: </label>
-                                <select class="form-control" id="Major" name="Major"required>
-                                <option value=""> Select Major </option>
-                                <option value="IS"> IS </option>
-                                <option value="IM"> IM </option>
-                                <option value="NA"> NA </option>
+                                <label class="form-label"><b>Major: </b></label>
+                                <select class="form-control" id="Major" name="Major" value="<?php echo $row["Major"];?>"  required>
+                                <option value=""> ... </option>
+                                <option value="IS"<?php if($row["Major"]=="IS") echo "selected";?>> Information Technology </option>
+                                <option value="IM" <?php if($row["Major"]=="IM") echo "selected";?>> Information Management </option>
+                                <option value="NA" <?php if($row["Major"]=="NA") echo "selected";?>> Network Administration </option>
                                 </select>
                                 </div>
 
                                 <div class="col-md-4">
-                                <label class="form-label">Year Level: </label>
+                                <label class="form-label"><b>Year Level: </b></label>
                                 <select class="form-control" id="Year_Level" name="Year_Level" required>
-                                <option value=""> Select Year </option>
+                                <option value=""> ... </option>
                                 <option value="1st Year" <?php if($row["Year_Level"]=="1st Year") echo "selected";?>> 1st Year </option>
                                 <option value="2nd Year" <?php if($row["Year_Level"]=="2nd Year") echo "selected";?>> 2nd Year </option>
                                 <option value="3rd Year" <?php if($row["Year_Level"]=="3rd Year") echo "selected";?>> 3rd Year </option>
@@ -94,62 +94,62 @@
 
 
                                 <div class="col-md-4">
-									<label class="form-label">Section: </label>
+									<label class="form-label"><b>Section: </b></label>
                                     <input type="text" id="Section" name="Section" class="form-control" value="<?php echo $row["Section"];?>" >
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Citizenship: </label>
-                                    <input type="text" id="Citizenship" name="Citizenship" class="form-control" value="<?php echo $row["Citizenship"];?>" >
+									<label class="form-label"><b>Citizenship: </b></label>
+                                    <input type="text" id="Citizenship" name="Citizenship" class="form-control" value="<?php echo $row["Citizenship"];?>" readonly>
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Contact No: </label>
+									<label class="form-label"><b>Contact No: </b></label>
                                     <input type="text" id="Contact_No" name="Contact_No" class="form-control" value="<?php echo $row["Contact_No"];?>" >
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Guardian: </label>
+									<label class="form-label"><b>Guardian: </b></label>
                                     <input type="text" id="Guardian" name="Guardian" class="form-control" value="<?php echo $row["Guardian"];?>" >
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Guardian Contact: </label>
+									<label class="form-label"><b>Guardian Contact: </b></label>
                                     <input type="text" id="Guardian_Contact" name="Guardian_Contact" class="form-control" value="<?php echo $row["Guardian_Contact"];?>" >
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Address: </label>
-                                    <input type="text" id="Address" name="Address" class="form-control" value="<?php echo $row["Address"];?>" >
+									<label class="form-label"><b>Province: </b></label>
+                                    <input type="text" id="Province" name="Province" class="form-control" value="<?php echo $row["Province"];?>" readonly>
 								</div>
 
                                 <div class="col-md-8">
-									<label class="form-label">Province: </label>
-                                    <input type="text" id="Province" name="Province" class="form-control" value="<?php echo $row["Province"];?>" >
+									<label class="form-label"><b>Address: </b></label>
+                                    <input type="text" id="Address" name="Address" class="form-control" value="<?php echo $row["Address"];?>" >
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Zip: </label>
+									<label class="form-label"><b>Zip: </b></label>
                                     <input type="text" id="Zip" name="Zip" class="form-control" value="<?php echo $row["Zip"];?>" >
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Last School: </label>
-                                    <input type="text" id="Last_School" name="Last_School" class="form-control" value="<?php echo $row["Last_School"];?>" >
+									<label class="form-label"><b>Last School: </b></label>
+                                    <input type="text" id="Last_School" name="Last_School" class="form-control" value="<?php echo $row["Last_School"];?>" readonly>
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">Academic Year: </label>
-                                    <input type="text" id="Academic_Year" name="Academic_Year" class="form-control" value="<?php echo $row["Academic_Year"];?>" >
+									<label class="form-label"><b>Academic Year: </b></label>
+                                    <input type="text" id="Academic_Year" name="Academic_Year" class="form-control" value="<?php echo $row["Academic_Year"];?>" readonly>
 								</div>
 
                                 <div class="col-md-4">
-									<label class="form-label">School Type: </label>
-                                    <input type="text" id="School_Type" name="School_Type" class="form-control" value="<?php echo $row["School_Type"];?>" >
+									<label class="form-label"><b>School Type: </b></label>
+                                    <input type="text" id="School_Type" name="School_Type" class="form-control" value="<?php echo $row["School_Type"];?>" readonly>
 								</div>
 
                                 <div class="col-md-6">
-                                <label class="form-label">Status: </label>
+                                <label class="form-label"><b>Status: </b></label>
                                 <select class="form-control" id="Student_Status" name="Student_Status" required>
                                 <option value="" > Select Status </option>
                                 <option value="Active" <?php if($row["Student_Status"]=="Active") echo "selected";?>> Active </option>
@@ -158,8 +158,8 @@
                                 </div>
 
                                 <div class="col-md-6">
-									<label class="form-label">Student Type: </label>
-                                    <input type="text" id="Student_Type" name="Student_Type" class="form-control" value="<?php echo $row["Student_Type"];?>" >
+									<label class="form-label"><b>Student Type: </b></label>
+                                    <input type="text" id="Student_Type" name="Student_Type" class="form-control" value="<?php echo $row["Student_Type"];?>" readonly>
 								</div>
 								
                                 </div>

@@ -136,130 +136,130 @@ if (isset($_GET['Student_ID'])){
                 <div class="row">
                     <div class="col-sm-12" >
                     <a type="submit" name="submit" 
-                    class="btn btn-success"  style="background-color:#07177a; float:right;" data-toggle="modal" 
-                    data-target="#studedit"> Update<i class="fas fa-edit" style="margin-left:5px;"  
+                    class="btn btn-sm"  style="color: white; background-color:#07177a; float:right;" data-toggle="modal" 
+                    data-target="#studedit"><b> Update<i class="fas fa-edit" style="margin-left:5px;"  
                     > 
-                    </i></a>
+                    </i></b></a>
 
                     <input type="hidden" name="" > 
                     </div>
                     </div>
-                <fieldset><legend>Profile Information</legend></fieldset>
+                <fieldset><legend><b>Profile Information </b></legend></fieldset>
                
                     <hr>
                   <div class="row g-3">
                   <div class="col-md-4">
-									<label class="form-label">First Name:</label>
+									<label class="form-label"><b>First Name: </b></label>
 									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $row["Firstname"];?>" disabled>
 								</div>
 
 								<div class="col-md-5">
-									<label class="form-label">Middle Name:</label>
+									<label class="form-label"><b>Middle Name: </b></label>
 									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Middlename"];?>" disabled>
 								</div>
                 
 								<div class="col-md-3">
-									<label class="form-label">Last Name:</label>
+									<label class="form-label"><b>Last Name: </b></label>
 									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="<?php echo $row["Lastname"];?>" disabled>
 								</div>
             
 								<div class="col-md-4">
-									<label class="form-label">Suffix:</label>
+									<label class="form-label"><b>Suffix: </b></label>
 									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Suffix"];?>" disabled>
 								</div>				
 
 								<div class="col-md-5">
-									<label class="form-label">Email</label>
+									<label class="form-label"><b>Email: </b></label>
 									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row["Email"];?>" disabled>
                     </div>
 
 								<div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Sex:</label>
+									<label for="inputEmail4" class="form-label"><b>Sex: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Gender"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Age:</label>
+									<label for="inputEmail4" class="form-label"><b>Age: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Age"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Birth Date:</label>
+									<label for="inputEmail4" class="form-label"><b>Birth Date: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["birth_date"];?>" disabled>
 								</div>
               
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Major:</label>
+									<label for="inputEmail4" class="form-label"><b>Major: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Major"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Year Level:</label>
+									<label for="inputEmail4" class="form-label"><b>Year Level: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Year_Level"];?>" disabled>
 								</div>
 
                 <div class="col-md-4">
-									<label for="inputEmail4" class="form-label">Section:</label>
+									<label for="inputEmail4" class="form-label"><b>Section: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Section"];?>" disabled>
 								</div>
 
                 <div class="col-md-5">
-									<label for="inputEmail4" class="form-label">Citizenship:</label>
+									<label for="inputEmail4" class="form-label"><b>Citizenship: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Citizenship"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Contact No:</label>
+									<label for="inputEmail4" class="form-label"><b>Contact No: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Contact_No"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Guardian:</label>
+									<label for="inputEmail4" class="form-label"><b>Guardian: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Guardian"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Guardian Contact:</label>
+									<label for="inputEmail4" class="form-label"><b>Guardian Contact: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Guardian_Contact"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Address:</label>
+									<label for="inputEmail4" class="form-label"><b>Address: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Address"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Province:</label>
+									<label for="inputEmail4" class="form-label"><b>Province: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Province"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Zip:</label>
+									<label for="inputEmail4" class="form-label"><b>Zip: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Zip"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Last School:</label>
+									<label for="inputEmail4" class="form-label"><b>Last School: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Last_School"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">Academic Year:</label>
+									<label for="inputEmail4" class="form-label"><b>Academic Year: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Academic_Year"];?>" disabled>
 								</div>
 
                 <div class="col-md-3">
-									<label for="inputEmail4" class="form-label">School Type:</label>
+									<label for="inputEmail4" class="form-label"><b>School Type: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["School_Type"];?>" disabled>
 								</div>
 
                 <div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Student Status:</label>
+									<label for="inputEmail4" class="form-label"><b>Student Status: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Student_Status"];?>" disabled>
 								</div>
 
                 <div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Student Type:</label>
+									<label for="inputEmail4" class="form-label"><b>Student Type: </b></label>
 									<input type="text" class="form-control" id="inputEmail4" value="<?php echo $row["Student_Type"];?>" disabled>
 								</div>
                     
@@ -274,12 +274,12 @@ if (isset($_GET['Student_ID'])){
                     
                         
 
-                    <fieldset><legend>Personal Information</legend></fieldset>
+                    <fieldset><legend><b>Personal Information </b></legend></fieldset>
                     <hr>
                     <div class="row">
                       
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Full Name:</h6>
+                    <h6 class="mb-0"><b>Full Name: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['Firstname'];?>
@@ -291,7 +291,7 @@ if (isset($_GET['Student_ID'])){
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Sex</h6>
+                    <h6 class="mb-0"><b>Sex: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['Gender'];?>
@@ -301,7 +301,7 @@ if (isset($_GET['Student_ID'])){
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Email:</h6>
+                    <h6 class="mb-0"><b>Email: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['Email'];?>
@@ -311,7 +311,7 @@ if (isset($_GET['Student_ID'])){
                     <hr>
                     <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Mobile Number:</h6>
+                    <h6 class="mb-0"><b>Mobile Number: </b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['Contact_No'];?>

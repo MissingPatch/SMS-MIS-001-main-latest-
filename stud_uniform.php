@@ -131,7 +131,10 @@ $row = $result->fetch_assoc();
         <p><b>Course: </b><?php echo $row['Course']; ?></p>
         <p><b>Section: </b><?php echo $row['section']; ?></p>
         <p><b>Year Level: </b><?php echo $row['year_level']; ?></p>
+        <p><b>Semester: </b><?php echo $row['semester']; ?></p>
         <p><b>Particular: </b><?php echo $row['particular']; ?></p>
+        <p><b>Date & Time: </b><?php echo $row['t_date']; ?> | <?php echo $row['t_time']; ?></p>
+        <p><b>Paid Amount: </b><?php echo $row['paid_amount']; ?></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>

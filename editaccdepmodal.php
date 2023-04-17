@@ -4,7 +4,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
+                                <h5 class="modal-title" id="exampleModalLabel"><b>Update Information </b></h5>
                                 <button type="button"  class="btn-close"  data-dismiss="modal" aria-label="Close">
                                 </button>
                             </div>
@@ -51,27 +51,28 @@
                                 }
 
                                 ?>
-                                 <label>Access Level(MIS user):</label>
+                                
+                                <label><b>Access Level(MIS user): </b></label>
                                 <select name="access_level" class="form-control" id="access_level" name="access_level" value="<?php echo $row['department'];?>">
                                 <?php createOptions($access, $row['access_level']); ?>
                                 </select>
                                 <br>
 
-                                <label>Department:</label>
+                                <label><b>Department: </b></label>
                                 <select name="department" class="form-control" id="department">
                                 <?php createOptions($departments, $row['department']); ?>
                                 </select>
                                 <br>
 
-                                <label>Role:</label>
+                                <label><b>Role: </b></label>
                                 <select name="role" class="form-control" id="role">
                                 <?php createOptions($roles, $row['role']); ?>
                                 </select>
                             <br>
                                                
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
-                            <button type="submit" name="update"  class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>    
+                            <button type="submit" name="update" style="background: #07177a; color: white;" class="btn btn-sm">Update</button>
                              
                             
                             </div>
