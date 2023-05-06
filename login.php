@@ -70,18 +70,18 @@ include ("accesslevelsuperadmin.php");
             <form method="POST" action="login.php">
             <!-- Add a hidden input field to store the selected value -->
             <!--<input type="hidden" id="selectedValue" name="selectedValue">-->
-              <label htmlFor="dropdown" class="fw-semibold fs-6 mb-2">
+              <!-- <label htmlFor="dropdown" class="fw-semibold fs-6 mb-2">
                 Select Role:
-              </label>
+              </label> -->
               <div id="dropdown" name="dropdown" class="dropdown">
-                <button
+              <!--  <button
                   class="dropdownMenu px-3 fw-normal btn dropdown-toggle w-100 d-flex justify-content-between align-items-center dropDownBorder"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                 Employee
-                </button>
+                </button> -->
                <!-- <ul class="dropdown-menu w-100">
                   <li>
                     <button value="Employee" name="Employee" type="button" class="dropdown-item" onClick="handleDropdownClick('Employee')">
@@ -102,7 +102,7 @@ include ("accesslevelsuperadmin.php");
               -->
               </div>
 
-              <span class="loginLineBreak my-4"></span>
+              <!--<span class="loginLineBreak my-4"></span>-->
               <div class="mb-3">
                 <label
                   htmlFor="exampleInputEmail1"

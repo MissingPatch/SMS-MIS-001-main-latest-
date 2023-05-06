@@ -1,8 +1,8 @@
 <?php
 // Database configuration
 $dbHost     = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
+$dbUsername = "u476821515_SMS";
+$dbPassword = "Bcpsms12@";
 $dbName     = "u476821515_SMS";
 
 // Create database connection
