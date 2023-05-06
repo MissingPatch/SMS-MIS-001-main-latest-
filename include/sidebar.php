@@ -59,7 +59,7 @@ include ("alarm_modal.php");
               <ul class="sub-menu">
                 <li><a class="link_name p-0"> DATA CAPTURING </a></li>
                 <li><a href="listofbalance.php"> List of Paid Student </a></li>
-                <li><a href="online_payment.php"> Online Payment </a></li>
+                <li><a href="AUB_PAYMENT.php"> Online Payment </a></li>
                 <li><a href="stud_all_balance.php"> Student Total Balance </a></li>
               </ul>
             </li>
