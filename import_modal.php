@@ -124,7 +124,7 @@
       </div>
       <div class="modal-body">
 
-    <form action="MY-CSV/dep_aub_importData.php" method="post" enctype="multipart/form-data">
+    <form action="MY-CSV/dep_aub_importData_new.php" method="post" enctype="multipart/form-data">
     <p>Import Data From AUB</p><input class="form-control" type="file" name="file" />
     <br>
     
