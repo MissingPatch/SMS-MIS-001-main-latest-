@@ -57,13 +57,13 @@ if(isset($_POST['LOGIN']))  {
   $mail->Host = "smtp.hostinger.com";
   $mail->SMTPAuth = true;
 
-  $mail->Username = "bcp_mis@mis.bcpsms.com";
-  $mail->Password = "Harold123@!";
+  $mail->Username = "bcp@mis.bcpsms.com";
+  $mail->Password = "Mis_l6!@";
 
   $mail->SMTPSecure = 'tls';
   $mail->Port = 587;
 
-  $mail->From = "bcp_mis@mis.bcpsms.com";
+  $mail->From = "bcp@mis.bcpsms.com";
   $mail->FromName = "BCP MIS";
 
   $mail->addAddress($email, "BCP MIS");
